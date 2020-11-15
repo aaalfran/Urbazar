@@ -1,0 +1,24 @@
+#card-body-img{
+    text-align: center;
+    align-content: center;
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 10%;
+    max-width: 70%;
+    height: auto;
+}
+  
+
+#imgContainer, #productoVendedor{
+    padding-top: 5%;
+}
+
+#productoDescripcion{
+    text-align: justify;
+}
+#productoPreFactura, #productoComentarios{
+    padding-top: 2%;
+}
+
