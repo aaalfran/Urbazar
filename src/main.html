@@ -3,7 +3,7 @@
 <head>
     <meta name="author" content="Beescript"/>
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<title>Inicio - Urbazar</title>
 </head>
@@ -15,65 +15,27 @@
     <div class="container d-flex align-items-center">
 
     	<a href="#"><img src="imagenes/logo.jpg" alt="Logo Urbazar" width="80" height="80"></a>
-		<h1 class="logo mr-auto"><a href="#">Urbazar</a></h1>
+		<h1 class="logo "><a href="#">Urbazar</a></h1>
 
-		<nav id="cabecera" class="nav-menu">
+		<nav id="cabecera" class="nav-menu d-none d-lg-block col-md-6">
 			<div id="nav-hamburguesa">
 				
 			</div>	
 
-			<div id="nav-logo">
-
-			</div>
-
-			<div id="nav-buscar">
-				
-
+			<div id="nav-buscar" class="col-lg-12">
+				<form action="#">
+					<input id="search-bar" type="text" placeholder="Buscar...">
+					<button id="btn-search" type="submit"><img id="buscar-icon" src="imagenes/buscar.png"></button>
+				</form>
 			</div>
 
 			<div id="nav-user">
-				
-
-			</div>
-
-			<div id="nav-carrito">
-				
 
 			</div>
 		</nav>      
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+	  <p id="user-name">Bienvenido Juan Depp</p>
 
-      <!--nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-      </nav--><!-- .nav-menu -->
-
-      <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      <a href="#about" class="get-started-btn scrollto">Carrito</a>
 
     </div>
   </header><!-- End Header -->
@@ -98,52 +60,43 @@
 
   </section><!-- End Hero -->
 
-	<section id="menu-categorias">
-
-
-
-	</section>
-
-
-    <!-- ======= Services Section ======= -->
+    <!-- ======= Categorias Section ======= -->
     <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Categorías</h2>
         </div>
-
-        <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <!-- col-xl-3 col-md-6 -->
+        <div class="row justify-content-center">
+          <div class="col-xl-2 col-md-6 d-flex align-items-stretch mt-4 mt-md-5" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <img class="img-cat" src="imagenes/mueble.png">
+              <h4><a href="">Hogar</a></h4>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-xl-2 col-md-6 d-flex jus align-items-stretch mt-4 mt-md-5" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <img class="img-cat" src="imagenes/camisa.png">
+              <h4><a href="">Ropa</a></h4>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="col-xl-2 col-md-6 d-flex align-items-stretch mt-4 mt-md-5" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <img class="img-cat" src="imagenes/makeup.png">
+              <h4><a href="">Belleza</a></h4>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="col-xl-2 col-md-6 d-flex align-items-stretch mt-4 mt-md-5" data-aos="zoom-in" data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <img class="img-cat" src="imagenes/comida.png">
+              <h4><a href="">Comida</a></h4>
             </div>
           </div>
 
@@ -152,41 +105,56 @@
       </div>
     </section><!-- End Services Section -->	
 
-	<section id="contenido">
-		<div id="recientes">
-			<p>Recientes</p>
+	<section id="contenido" class="services section-bg">
+		<div class="container">
+			<div id="recientes">
+				<h2>Recientes</h2>
+				<div class="justify-content-between productos-lista col-md-6 col-xl-3 d-flex" >
+					<img class="fotoAlbum img-fluid" src="imagenes/producto1.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto1.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto1.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto1.jpg">
 
-			<div class="productos-lista">
-
-			</div>
-
-		</div>
-
-		<div id="destacados">
-			<p>Destacados</p>
-
-			<div class="productos-lista">
+				</div>
 
 			</div>
 
-		</div>
+			<div id="destacados">
+				<h2>Destacados</h2>
+				<div class="justify-content-between productos-lista col-md-6 col-xl-3 d-flex" >
+					<img class="fotoAlbum img-fluid" src="imagenes/producto2.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto2.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto2.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto2.jpg">
 
-		<div id="cercania">
-			<p>Cerca de tí</p>
-			<div class="productos-lista">
-
-			</div>
-
-		</div>
-
-		<div id="promociones">
-			<p>Promociones</p>
-			<div class="productos-lista">
+				</div>
 
 			</div>
 
-		</div>
+			<div id="cercania">
+				<h2>Cerca de tí</h2>
+				<div class="justify-content-between productos-lista col-md-6 col-xl-3 d-flex" >
+					<img class="fotoAlbum img-fluid" src="imagenes/producto3.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto3.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto3.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto3.jpg">
 
+				</div>
+
+			</div>
+
+			<div id="promociones">
+				<h2>Promociones</h2>
+				<div class="productos-lista col-md-6 col-xl-3 d-flex align-content-between" >
+					<img class="fotoAlbum img-fluid" src="imagenes/producto4.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto4.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto4.jpg">
+					<img class="fotoAlbum img-fluid" src="imagenes/producto4.jpg">
+
+				</div>
+
+			</div>
+		</div>
 	</section>
 
 
