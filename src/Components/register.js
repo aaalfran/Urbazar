@@ -121,8 +121,8 @@ function register(){
                     </FormGroup>
                 </div>
 
-                <div>
-                    <Button>¡Unirme!</Button>
+                <div id="cont_button">
+                    <Button id="btn-round">¡Unirme!</Button>
                     </div>
             </form>
 

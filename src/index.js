@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import LoginComponent from './Components/LoginComponent';
 import Register from './Components/register';
+import CarritoComponent from './Components/CarritoComponent';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
 
       <Route path="/" exact component={LoginComponent}/>
       <Route path="/registro" exact component={Register}/>
+      <Route path="/carrito" exact component={CarritoComponent}/>
       
     </Router>
   </React.StrictMode>,

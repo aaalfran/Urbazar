@@ -1,10 +1,5 @@
 
 import logo2 from "../logo.jpg";
-
-
-//<Register />
-
-
 import React from "react";
 import { Card, Button, CardTitle, CardText ,  
         Form, FormGroup, Label, Input, 

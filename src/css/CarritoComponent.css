@@ -1,0 +1,119 @@
+body{
+    background-color: white;
+    
+}
+
+
+#main{
+    display: flex;
+
+}
+
+#info_detail{
+    border-left: 1px solid #b8b8b8;
+    position: fixed;
+    right: 0px;
+    height: 100%;
+}
+
+.producto{
+    border: 1px solid  #f0efea;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+#productos_detail{
+   margin-top: 20px;
+}
+
+#productos_detail img{
+    max-width: 100px;
+}
+
+.descripcion{
+    margin-left: 15px;
+}
+
+.detail_body{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    width: 100%;
+    
+}
+.valor{
+    margin-left: 15px;
+}
+
+nav{
+    background-color: #af6b58;
+    position: sticky !important; 
+    top: 0px !important;
+}
+nav a h3{
+    color:white;
+}
+.Cuenta ul{
+    list-style: none;
+}
+
+.Cuenta{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#metodo_selection{
+    margin:auto ;
+}
+
+#Pago{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #b8b8b8;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#btn_continue{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+#time_send{
+    border-top: 1px solid #b8b8b8;
+    padding-top: 5%;
+    text-align: center;
+}
+
+#btn_continue Button{
+    background: #56853d;
+}
+
+#title_detail{
+    margin-top: 20px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+@media (max-width: 600px) and (orientation: portrait) {
+   
+   
+    .col-md-8  { width: 100% !important; }
+    .col-md-4  { width: 100% !important; }
+    #main{        
+        display: block !important;
+    }
+    #info_detail{
+        border-top: 1px solid #b8b8b8;
+        position: static !important;
+    }
+ }
