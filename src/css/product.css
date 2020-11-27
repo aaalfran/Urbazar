@@ -1,7 +1,5 @@
-#card-body-img{
-    text-align: center;
-    align-content: center;
-}
+/* Estilo para el componente de Detalle de Productos*/
+
 
 img {
     border: 1px solid #ddd;
@@ -9,16 +7,51 @@ img {
     max-width: 70%;
     height: auto;
 }
-  
+
+[id$=totlabel]>p {
+    border-top: solid 2px;
+    border-color: #506048;
+}
+
+#btnAgregarCarrito{
+    background-color: #506048;
+}
+
+#card-body-img{
+    align-content: center;
+    text-align: center;
+}
+
 
 #imgContainer, #productoVendedor{
     padding-top: 5%;
 }
 
-#productoDescripcion{
+#iconEstrella{
+    font-size: 12px;
+}
+
+#imgCard{
+    background-color:#F0F0E0;
+    color: black;
+}
+
+
+
+#productoComentarios p{
+    color: gray;
+}
+
+
+#productoDescripcion, #productoComentarios{
     text-align: justify;
 }
+
 #productoPreFactura, #productoComentarios{
     padding-top: 2%;
 }
 
+
+#productoUpRight{
+    padding: 4%;
+}

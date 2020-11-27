@@ -44,13 +44,13 @@ function LoginComponent() {
           </CardText>
           </div>
           <div id="cont_button">
-            <Button id="btn-round">
+            <Button id="btn-round" href="/productdetail">
               Ingresar 
             </Button> 
           </div>
 
           <div id="registrate">
-            <p>¿No tienes una cuenta? <a href="">Regístrate</a></p>
+            <p>¿No tienes una cuenta? <a href="/registro">Regístrate</a></p>
           </div>
         </Card>
 
