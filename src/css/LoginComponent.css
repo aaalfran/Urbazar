@@ -6,10 +6,51 @@
 }
 
 .Login-logo{
-    max-height: 240px;    
+    max-height: 200px;    
+    border: 1px solid #56853d;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+#info{
+    width: 60%;
+    margin: auto;
 }
 
 
 .Login-title{
     text-align: center;
+}
+
+#tarjeta{
+    width: 70%;
+    margin: auto;
+    background-color: #ffffff;
+    margin-top: 30px;
+    border: none;
+    border-top: 5px solid #535f51 ;
+}
+
+
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: #f0efea;
+}
+
+#registrate{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 11px;
+}
+#btn-round{
+    width: 40%;
+    background:  #56853d;
+    border:none;
+}
+
+#cont_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

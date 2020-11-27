@@ -1,0 +1,23 @@
+#header{
+    display: inline-flex;
+    justify-content: space-around;
+}
+#header img{
+    max-width: 50px ;
+}
+
+#tarjeta{
+    width: 80%;
+}
+.datos1{
+    padding-top: 15px;
+}
+
+#btn_sgt{
+    display: flex;
+    justify-content: flex-end;
+}
+
+Input{
+    border: 1px solid #dadada ;
+}

@@ -1,5 +1,9 @@
 
-import logo from '../logo.svg';
+import logo2 from "../logo.jpg";
+
+
+//<Register />
+
 
 import React from "react";
 import { Card, Button, CardTitle, CardText ,  
@@ -10,52 +14,51 @@ import '../css/LoginComponent.css'
 
 function LoginComponent() {
     return (
-    
-      <div className="Login">
-      <Container>
-      
+     
+      <Container>       
       <Row xs="1">
 
-        <Col>
-      
-        
-        <Card body inverse color="info">
+        <Col>        
+        <Card body id="tarjeta">
 
           <div className= "Login-title">
-
-          <CardTitle tag="h3"> Urbazar
-            
-            <img src={logo} className="Login-logo" alt="logo" />
-
-          </CardTitle>
-          
+          <CardTitle> 
+            <h3> UrbazApp </h3>            
+            <img src={logo2} className="Login-logo" alt="logo" />
+          </CardTitle>          
           </div>
-          <div className= "Login-content">
-          <CardText>
-          
-            <Form>
-              <FormGroup>
-              <Label for="exampleEmail">Email</Label>
-              <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-              </FormGroup>
 
-              <FormGroup>
-              <Label for="examplePassword">Password</Label>
-              <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+          <div className= "Login-content">
+          <CardText id="info">          
+            <Form>
+              <FormGroup className="has-success">
+              <Input type="text" name="user" id="user" placeholder="Usuario" />
               </FormGroup>
-            </Form>
+          
+              <FormGroup className="has-success">
+              <Input type="password" name="password" id="password" placeholder="Contraseña" />
+              </FormGroup>
+            </Form>  
             
+                   
           </CardText>
           </div>
+          <div id="cont_button">
+            <Button id="btn-round">
+              Ingresar 
+            </Button> 
+          </div>
 
-          <Button color="secondary"> Ingresar </Button>
+          <div id="registrate">
+            <p>¿No tienes una cuenta? <a href="">Regístrate</a></p>
+          </div>
         </Card>
 
           </Col>
         </Row>
         </Container>
-      </div>
-
+        
+      
       
 
     );
