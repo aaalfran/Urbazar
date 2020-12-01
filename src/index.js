@@ -7,6 +7,7 @@ import LoginComponent from './Components/LoginComponent';
 import Register from './Components/register';
 import CarritoComponent from './Components/CarritoComponent';
 import ProductComponent from './Components/ProductDeatilComponent';
+import MainComponent from './Components/MainComponent';
 
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
 
       <Route path="/" exact component={LoginComponent}/>
       <Route path="/registro" exact component={Register}/>
+      <Route path="/main" exact component={MainComponent}/>
       <Route path="/carrito" exact component={CarritoComponent}/>
       <Route path="/productdetail" exact component={ProductComponent}/>
       

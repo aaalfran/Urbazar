@@ -39,7 +39,7 @@ function LoginComponent() {
           </CardText>
           </div>
           <div id="cont_button">
-            <Button id="btn-round" href="/productdetail">
+            <Button id="btn-round" href="/main">
               Ingresar 
             </Button> 
           </div>

@@ -1,0 +1,190 @@
+.Main {
+  text-align: center;
+}
+
+.search_form {
+  position: relative;
+  width: 45%;
+}
+
+.search_form > input {
+  border-radius: 5px;
+  border-style: none;
+  padding: 8px 10px;
+  width: 100%;
+  height: 35px;
+  margin: 0;
+}
+
+.search_form > input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.search_form > button{
+  border-style: none;
+  background-color: transparent;
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  right: 1px;
+}
+
+.fa-search {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  background-color: #203040;
+  position: sticky;
+  padding-left: 5px;
+  padding-right: 5px;
+  top: 0;
+  z-index: 999;
+}
+
+#nombre_user, #p_bienvenido {
+  margin: 0;
+  color: #E8E8F0;
+}
+
+@media only screen and (max-width: 800px) {
+  #p_bienvenido, .logo {
+    display: none;
+  }
+
+}
+
+@media only screen and (min-width: 801px) {
+  .logo2 {
+    display: none;
+  }
+}
+
+#p_bienvenido {
+  margin-right: 0.8%;
+}
+
+#nombre_user {
+  margin-right: 2%;
+}
+
+.button_nav {
+  border-style: none;
+  background-color: transparent;
+  margin-right: 1.5%;
+}
+
+.fa-bell , .fa-shopping-cart {
+  color: #f7f7fc;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: #304050;
+} 
+
+.nav_categorias {
+  background-color: #E8E8F0;
+  justify-content: center;
+}
+
+.nav_categorias .nav-link {
+  display: flex;
+  align-items: center;
+}
+.nav_categorias .nav-link p {
+  margin: 0;
+}
+
+.icon_cat {
+  margin-right: 5px;
+}
+
+
+@media only screen and (max-width: 700px) {
+  .nav_categorias .nav-link p, #nombre_user {
+    display: none;
+  }
+
+  .list_productos {
+    height: 100%;
+    width: auto;
+  }
+
+  .productos {
+    width: 100%;
+  }
+
+  .slide_product {
+    height: auto;
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 701px) {
+  .productos {
+    width: 20%;
+  }
+
+  .slide_product {
+    height: auto;
+    width: 20%;
+  }
+}
+
+.banner_container {
+  padding: 5px !important;
+  
+}
+
+.banner .carousel-inner {
+  border-radius: 8px;
+}
+
+.productos_container {
+  padding: 20px;
+  background-color: #f7f7fc;
+  display: flex;
+  flex-direction: column;
+}
+
+.list_productos {
+  margin-bottom: 20px;
+}
+
+.productos {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.slide_product {
+  margin: 0;
+  display: inline-block;
+}
+
+.slide_product > img {
+  height: 100% ; 
+  width: 100%;
+  border-radius: 0px;
+}
+
+footer {
+  
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: #b06058;
+}
+
+footer > p {
+  color: #E8E8F0;
+  font-size: x-small;
+  margin: 0;
+}
+
