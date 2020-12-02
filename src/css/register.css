@@ -1,7 +1,4 @@
-#header{
-    display: inline-flex;
-    justify-content: space-around;
-}
+
 #header img{
     max-width: 50px ;
 }

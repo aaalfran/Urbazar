@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import ConfirmationComponent from './ConfirmationComponent';
 import '../css/CarritoComponent.css'
 import logo2 from "../logo.jpg";
 import blusa from "../imagenes/producto2.jpg";
@@ -8,9 +10,10 @@ import zapatos from "../imagenes/producto4.jpg";
 import visa from "../imagenes/visa.png";
 import mastercard from "../imagenes/mastercard.png";
 import paypal from "../imagenes/paypal.png";
-import { Label, Input, Button} from 'reactstrap';
+import { Label, Input, Button, FormGroup, Modal} from 'reactstrap';
 
 function CarritoComponent(){
+    const [liveDemo, setLiveDemo] = React.useState(false);
         return (
             <html>
             <head>
@@ -25,7 +28,9 @@ function CarritoComponent(){
                 </nav>
                 <div id="main">
                     <section id="productos_detail" className="col-md-8">
-                        <div id="tarjeta1" class="producto media">
+                    
+
+                        <div className="producto media" id="tarjeta1">
                             <div class="foto_producto align-self-center mr-3">
                                 <img src={blusa} />
                             </div>
@@ -129,7 +134,7 @@ function CarritoComponent(){
                     <section id="info_detail" className="col-md-4"> 
                         <div id="contenedor_info">
                             <div id="title_detail">
-                               <h3> Resumen de pedido </h3>
+                               <h3> Resumen </h3>
                             </div>
                             <div class="Cuenta">
                                 <div id="lista_pedidos" >
@@ -150,9 +155,6 @@ function CarritoComponent(){
                                         <strong><li>  257.50  </li></strong>
                                     </ul>          
                                 </div>                             
-                            </div>
-                            <div id="total">
-                                    <p> Total a pagar: 257.50</p>
                             </div>
                             <div id="Pago">                                
                                  Método de pago 
@@ -184,8 +186,54 @@ function CarritoComponent(){
                             <div id="time_send">
                                 <Label> Tiempo estimado de recibo: 2 días</Label>
                                 <div id="btn_continue">
-                                    <Button> Confirmar </Button>
+                                    <Button type="button" onClick={() => setLiveDemo(true)}> Confirmar </Button>
                                 </div>
+                                <Modal isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
+                                    <div className="modal-header">
+                                    <h5 className="modal-title" id="ConfirmationModel">
+                                        Confirmación de compra
+                                    </h5>
+                                    <button
+                                        aria-label="Close"
+                                        className="close"
+                                        data-dismiss="modal"
+                                        type="button"
+                                        onClick={() => setLiveDemo(false)}
+                                    >
+                                        <span aria-hidden={true}>×</span>
+                                    </button>
+                                    </div>
+                                    <div className="modal-body">
+                                    <p>Se descontará de su cuenta el saldo de $257.50<br/>
+                                        ¿Está seguro que desea realizar esta compra?
+                                    </p>
+                                    </div>
+                                    <div className="modal-footer">
+                                    <div className="left-side">
+                                        <Button
+                                        className="btn-link"
+                                        color="default"
+                                        data-dismiss="modal"
+                                        type="button"
+                                        onClick={() => setLiveDemo(false)}
+                                        >
+                                        Cancelar
+                                        </Button>
+                                    </div>
+                                    <div className="divider" />
+                                    <div className="right-side">
+                                        <Button
+                                        className="btn-link"
+                                        type="button"
+                                        id="btn_confModal"
+                                        onClick={() => setLiveDemo(false)}
+                                        >
+                                        Aceptar
+                                        </Button>
+                                    </div>
+                                    </div>
+                                </Modal>
+                                
                             </div>
                         </div>
                     </section>

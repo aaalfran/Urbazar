@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+
+
+#contact_form{
+    max-width: 80%;
+    margin: auto;
+    border-bottom: 5px solid #3C5E80 ;
+    padding: 15px;    
+}
+#registro{
+    margin-bottom: 50px;
+}
+#titulo{
+    border-bottom: 1px solid #97a5b3 ;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.form-double{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+#send_button{
+    width: 100%;
+    text-align: center;
+}
+.btn-primary{
+    margin:auto;
+    width: 200px;
+    background: #3C5E80  ;
+}
+
+#message textarea{
+    height: 200px;
+}
+
+#header{
+    width: 100%;
+    margin: auto;
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+

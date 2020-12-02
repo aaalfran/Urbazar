@@ -8,6 +8,8 @@ import Register from './Components/register';
 import CarritoComponent from './Components/CarritoComponent';
 import ProductComponent from './Components/ProductDeatilComponent';
 import MainComponent from './Components/MainComponent';
+import CategoriaComponent from './Components/CategoriaComponent';
+import ContactanosComponent from './Components/ContactanosComponent';
 
 
 ReactDOM.render(
@@ -19,7 +21,8 @@ ReactDOM.render(
       <Route path="/main" exact component={MainComponent}/>
       <Route path="/carrito" exact component={CarritoComponent}/>
       <Route path="/productdetail" exact component={ProductComponent}/>
-      
+      <Route path="/categoria" exact component={CategoriaComponent}/>
+      <Route path="/contactanos" exact component={ContactanosComponent}/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

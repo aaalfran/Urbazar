@@ -7,7 +7,7 @@
 
 .Login-logo{
     max-height: 200px;    
-    border: 1px solid #56853d;
+    border: 1px solid  #203040;
     border-radius: 100%;
     margin-bottom: 10px;
 }
@@ -28,7 +28,7 @@
     background-color: #ffffff;
     margin-top: 30px;
     border: 1px solid #b8b8b8;
-    border-top: 5px solid #535f51 ;
+    border-top: 5px solid  #3C5E80 ;
 }
 
 
@@ -44,7 +44,7 @@ html, body{
 }
 #btn-round{
     width: 40%;
-    background:  #56853d;
+    background:  #5E88B2;
     border:none;
 }
 

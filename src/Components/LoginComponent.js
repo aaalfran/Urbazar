@@ -9,7 +9,12 @@ import '../css/LoginComponent.css'
 
 function LoginComponent() {
     return (
-     
+     <html>
+       
+       <meta name="author" content="Beescript"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+       <body>
       <Container>       
       <Row xs="1">
 
@@ -52,8 +57,9 @@ function LoginComponent() {
           </Col>
         </Row>
         </Container>
+        </body>
         
-      
+      </html>
       
 
     );

@@ -16,8 +16,8 @@ function register(){
         <Card body id="tarjeta">
             <div className= "Login-title">
                 <div id="header"> 
-                    <img src={logo2} className="Login-logo" alt="logo" />
-                    <h3> UrbazApp </h3>            
+                    <h3> UrbazApp </h3>           
+                    <img src={logo2} className="Login-logo" alt="logo" /> 
                     
                 </div>          
             </div>
@@ -122,7 +122,7 @@ function register(){
                 </div>
 
                 <div id="cont_button">
-                    <Button id="btn-round">¡Unirme!</Button>
+                    <Button id="btn-round" href="/main">¡Unirme!</Button>
                     </div>
             </form>
 
