@@ -10,7 +10,8 @@ import ProductComponent from './Components/ProductDeatilComponent';
 import MainComponent from './Components/MainComponent';
 import CategoriaComponent from './Components/CategoriaComponent';
 import ContactanosComponent from './Components/ContactanosComponent';
-
+import DesarrolladoresComponent from './Components/DesarrolladoresComponent';
+import AboutUsComponent from './Components/AboutUSComponent'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,6 +24,9 @@ ReactDOM.render(
       <Route path="/productdetail" exact component={ProductComponent}/>
       <Route path="/categoria" exact component={CategoriaComponent}/>
       <Route path="/contactanos" exact component={ContactanosComponent}/>
+      <Route path="/devs" exact component={DesarrolladoresComponent}/>
+      <Route path="/aboutus" exact component={AboutUsComponent}/>
+
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
