@@ -12,6 +12,7 @@ import CategoriaComponent from './Components/CategoriaComponent';
 import ContactanosComponent from './Components/ContactanosComponent';
 import DesarrolladoresComponent from './Components/DesarrolladoresComponent';
 import AboutUsComponent from './Components/AboutUSComponent'
+import testJSON from './Components/testJSON'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,6 +27,7 @@ ReactDOM.render(
       <Route path="/contactanos" exact component={ContactanosComponent}/>
       <Route path="/devs" exact component={DesarrolladoresComponent}/>
       <Route path="/aboutus" exact component={AboutUsComponent}/>
+      <Route path="/test" exact component={testJSON}/>
 
     </Router>
   </React.StrictMode>,
