@@ -1,7 +1,7 @@
 /* Estilo para el componente de Detalle de Productos*/
 
 
-img {
+.image {
     border: 1px solid #ddd;
     border-radius: 10%;
     max-width: 70%;

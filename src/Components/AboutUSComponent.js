@@ -20,7 +20,7 @@ function AboutUSComponent(){
                 <h1>¿Qué hacemos? </h1>
             </header>
             <div id="contenedor_ideas">
-                <div class="ideas odd">
+                <div className="ideas odd">
                     <div className="imagen_descp">
                         <img src={housing} alt="house" width="700px" height="300px"/>
                     </div>
@@ -35,7 +35,7 @@ function AboutUSComponent(){
                     </div>
                 </div>
 
-                <div class="ideas even">
+                <div className="ideas even">
                     <div className="content">
                         <p>
                         ¿Por qué ir tan lejos? ¡Encuentra productos cerca de ti! <br/>
@@ -49,7 +49,7 @@ function AboutUSComponent(){
                     </div>
                 </div>
 
-                <div class="ideas odd">
+                <div className="ideas odd">
                     <div className="imagen_descp">
                     <img src={money} alt="house" width="700px" height="200px"/>
                     </div>

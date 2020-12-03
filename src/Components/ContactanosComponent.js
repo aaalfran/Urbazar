@@ -4,6 +4,7 @@ import 'intro.js/introjs.css';
 import NavbarComponent from './navbarComponent';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import introJs from 'intro.js';
+import { Steps } from 'intro.js-react';
 
 import '../css/ContactanosComponent.css'
 import "react-datetime/css/react-datetime.css";
@@ -31,17 +32,17 @@ function ContactanosComponent(){
                         <div data-intro='Hello step one!' className="form-double">
                             <div className="col-md-6 nombre">
                                 <label for="nombres">Nombres</label>
-                                <input type="text" class="form-control" id="nombres" name="nombres" required/>
+                                <input type="text" className="form-control" id="nombres" name="nombres" required/>
                             </div>
                             <div className="col-md-6 apellido">
                                 <label for="apellidos">Apellidos</label>
-                                <input type="text" class="form-control" id="apellidos" name="apellidos" required/>
+                                <input type="text" className="form-control" id="apellidos" name="apellidos" required/>
                             </div>
                         </div>
                         <div className="form-double">
                             <div className="col-md-6 nombre">
                                 <label for="nombres">Ciudad de origen</label>
-                                <input type="text" class="form-control" id="nombres" name="nombres" required/>
+                                <input type="text" className="form-control" id="nombres" name="nombres" required/>
                             </div>
                             <div className="col-md-6 form-group">
                             <label for="Fecha de nacimiento">Fecha de nacimiento</label>
@@ -54,10 +55,10 @@ function ContactanosComponent(){
                         <div className="form-double">
                             <div className="col-md-6">
                                 <label for="urbanizacion">Urbanización</label>
-                                <select class="form-control">
+                                <select className="form-control">
                                     <option>---</option>
                                     <option>Las joyas</option>
-                                    <option>Los ceibod</option>
+                                    <option>Los ceibos</option>
                                     <option>Villa bonita</option>
                                     <option>Ciudad Celeste</option>
                                 </select>
@@ -65,7 +66,7 @@ function ContactanosComponent(){
                             </div>
                             <div className="col-md-6">
                                 <label for="etapa">Etapa</label>
-                                <select class="form-control">
+                                <select className="form-control">
                                     <option>---</option>
                                     <option>Primera</option>
                                     <option>Segunda</option>
@@ -77,17 +78,17 @@ function ContactanosComponent(){
 
                         </div>
 
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"/>
-                            <small id="emailHelp" class="form-text text-muted">Asegurate de ingresar un email válido al que podamos contactarte.</small>
+                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp"/>
+                            <small id="emailHelp" className="form-text text-muted">Asegurate de ingresar un email válido al que podamos contactarte.</small>
                         </div>
-                        <div id="message" class="form-group">
+                        <div id="message" className="form-group">
                             <label for="mensaje">Mensaje</label>
-                            <textarea type="text" class="form-control" id="mensaje" placeholder="Dejanos tu mensaje..."/>
+                            <textarea type="text" className="form-control" id="mensaje" placeholder="Dejanos tu mensaje..."/>
                         </div> 
                         <div id="send_button">
-                            <button type="submit" data-intro='Hello step one!' class="btn btn-primary">Enviar</button>
+                            <button type="submit" data-intro='Hello step one!' className="btn btn-primary">Enviar</button>
                         </div>                       
                         </form>
                     </CardBody>
