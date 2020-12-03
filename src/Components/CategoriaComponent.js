@@ -2,11 +2,11 @@ import React from 'react';
 import '../css/MainComponent.css';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
-const CategoriaComponent = () => {
+const CategoriaComponent = ({isToggle}) => {
     return ( 
     <>
         {/* Categorías */}
-        <Nav className='nav_categorias'>
+        <Nav className={`${isToggle ? 'menu_cat_toggle' : 'nav_categorias'}`}>
         <NavItem>
           <NavLink href='#'>
           <i className='icon_cat fas fa-home'></i>

@@ -39,7 +39,7 @@ function Main() {
     <>
 
       <NavbarComponent />
-      <CategoriaComponent />
+      <CategoriaComponent isToggle={false}/>
 
       {/* banner */}
       <section className='banner_container'>

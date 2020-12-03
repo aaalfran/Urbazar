@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
+import ToggleMenu from './ToggleMenu'
 import '../css/MainComponent.css';
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 const NavbarComponent = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
+    const toggle = () => setIsOpen(true);
 
     return (  
      <>   
         <Navbar color='faded' dark className='navbar'>
         <NavbarToggler onClick={toggle} className="toggler mr-2 custom-toggler"/>
-        {/* hacer el menu del toggler */}
+        {/* menu toggler */}
+        <ToggleMenu 
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+
         <NavbarBrand href='/' className='logo'>UrbazApp</NavbarBrand>
         <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
 
