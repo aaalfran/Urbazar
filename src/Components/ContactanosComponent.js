@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import Datetime from 'react-datetime';
 import 'intro.js/introjs.css';
 import NavbarComponent from './navbarComponent';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import introJs from 'intro.js';
-import { Steps } from 'intro.js-react';
 
 import '../css/ContactanosComponent.css'
 import "react-datetime/css/react-datetime.css";
@@ -96,10 +94,6 @@ function ContactanosComponent(){
             </div>
 
             
-
-
-
-        <script src="..\javascript\contacts.js"> </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/intro.min.js" integrity="sha512-8HbqTH7QzK30vhgVF/hTJ4loXwV85UU9vjI4nK04AfdOFzl8zG7b3LLAEHDmvIM8I0rvserMXmQx4Hw+kRknjw==" crossorigin="anonymous"></script>
        </body>
         </html>
