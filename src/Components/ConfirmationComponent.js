@@ -6,52 +6,52 @@ function ConfirmationComponent() {
   const [liveDemo, setLiveDemo] = React.useState(false);
   return(
     <>
-      <Button color="primary" type="button" onClick={() => setLiveDemo(true)}>
-        Launch demo modal
-      </Button>
       <Modal isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
         <div className="modal-header">
-          <h5 className="modal-title" id="exampleModalLiveLabel">
-            Modal title
+          <h5 className="modal-title" id="ConfirmationModel">
+           Confirmación de compra
           </h5>
           <button
-            aria-label="Close"
-            className="close"
-            data-dismiss="modal"
-            type="button"
-            onClick={() => setLiveDemo(false)}
-          >
-            <span aria-hidden={true}>×</span>
-          </button>
-        </div>
-        <div className="modal-body">
-          <p>Woohoo, you're reading this text in a modal!</p>
-        </div>
-        <div className="modal-footer">
-          <div className="left-side">
-            <Button
-              className="btn-link"
-              color="default"
-              data-dismiss="modal"
-              type="button"
-              onClick={() => setLiveDemo(false)}
-            >
-              Never mind
-            </Button>
-          </div>
-          <div className="divider" />
-          <div className="right-side">
-            <Button
-              className="btn-link"
-              color="danger"
-              type="button"
-              onClick={() => setLiveDemo(false)}
-            >
-              Delete
-            </Button>
-          </div>
-        </div>
-      </Modal>
+           aria-label="Close"
+                                        className="close"
+                                        data-dismiss="modal"
+                                        type="button"
+                                        onClick={() => setLiveDemo(false)}
+                                    >
+                                        <span aria-hidden={true}>×</span>
+                                    </button>
+                                    </div>
+                                    <div className="modal-body">
+                                    <p>Se descontará de su cuenta el saldo de $257.50<br/>
+                                        ¿Está seguro que desea realizar esta compra?
+                                    </p>
+                                    </div>
+                                    <div className="modal-footer">
+                                    <div className="left-side">
+                                        <Button
+                                        className="btn-link"
+                                        color="default"
+                                        data-dismiss="modal"
+                                        type="button"
+                                        onClick={() => setLiveDemo(false)}
+                                        >
+                                        Cancelar
+                                        </Button>
+                                    </div>
+                                    <div className="divider" />
+                                    <div className="right-side">
+                                        <Button
+                                        className="btn-link"
+                                        type="button"
+                                        id="btn_confModal"
+                                        onClick={() => setLiveDemo(false)}
+                                        >
+                                        Aceptar
+                                        </Button>
+                                    </div>
+                                    </div>
+                                </Modal>
+                                
     </>
   );
 }
