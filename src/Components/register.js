@@ -122,7 +122,7 @@ function register(){
                 </div>
 
                 <div id="cont_button">
-                    <Button id="btn-round" href="/main">¡Unirme!</Button>
+                    <Button id="btn-round" href="/">¡Unirme!</Button>
                     </div>
             </form>
 

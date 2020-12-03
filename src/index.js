@@ -18,9 +18,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
 
-      <Route path="/" exact component={LoginComponent}/>
+      <Route path="/login" exact component={LoginComponent}/>
       <Route path="/registro" exact component={Register}/>
-      <Route path="/main" exact component={MainComponent}/>
+      <Route path="/" exact component={MainComponent}/>
       <Route path="/carrito" exact component={CarritoComponent}/>
       <Route path="/productdetail" exact component={ProductComponent}/>
       <Route path="/categoria" exact component={CategoriaComponent}/>
