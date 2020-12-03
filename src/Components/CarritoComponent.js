@@ -20,10 +20,10 @@ function CarritoComponent(){
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
                 </head>
             <body>
-                <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="/">
-                    <img src={logo2} width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"/>
-                    <h3 class="d-inline-block">UrbazApp</h3>
+                <nav className="navbar navbar-expand-lg navbar-light">
+                <a className="navbar-brand" href="/">
+                    <img src={logo2} width="30" height="30" className="d-inline-block align-top" alt="" loading="lazy"/>
+                    <h3 className="d-inline-block">UrbazApp</h3>
                 </a>
                 </nav>
                 <div id="main">
@@ -31,20 +31,20 @@ function CarritoComponent(){
                     
 
                         <div className="producto media" id="tarjeta1">
-                            <div class="foto_producto align-self-center mr-3">
+                            <div className="foto_producto align-self-center mr-3">
                                 <img src={blusa} />
                             </div>
-                            <div class="descripcion">
+                            <div className="descripcion">
                                 <div>
                                     <h5>Blusa de algodón</h5>
                                 </div>
-                                <div class="detail_body">
+                                <div className="detail_body">
                                     <div>
                                         <p>
                                             Blusa 100% algodón tela importada. Estampados de diferentes colores. Talla S, M y L.
                                         </p>
                                     </div>
-                                    <div class="valor">
+                                    <div className="valor">
                                        <h3> $5 </h3>
                                     </div>
                                 </div>
@@ -55,21 +55,21 @@ function CarritoComponent(){
                             </div>
                         </div>
 
-                        <div id="tarjeta2" class="producto media">
-                            <div class="foto_producto align-self-center mr-3">
+                        <div id="tarjeta2" className="producto media">
+                            <div className="foto_producto align-self-center mr-3">
                                 <img src={cupcake} />
                             </div>
-                            <div class="descripcion">
+                            <div className="descripcion">
                                 <div>
                                     <h5>Cupcakes de vainilla</h5>
                                 </div>
-                                <div class="detail_body">
+                                <div className="detail_body">
                                     <div>
                                         <p>
                                             Cupcakes recién horneados sabor a Vainilla. A la venta la caja de 12 unidades.
                                         </p>
                                     </div>
-                                    <div class="valor">
+                                    <div className="valor">
                                        <h3> $2.50 </h3>
                                     </div>
                                 </div>
@@ -81,21 +81,21 @@ function CarritoComponent(){
                         </div>
 
 
-                        <div id="tarjeta3" class="producto media">
-                            <div class="foto_producto align-self-center mr-3">
+                        <div id="tarjeta3" className="producto media">
+                            <div className="foto_producto align-self-center mr-3">
                                 <img src={celular} />
                             </div>
-                            <div class="descripcion">
+                            <div className="descripcion">
                                 <div>
                                     <h5>Samsung J5 pro</h5>
                                 </div>
-                                <div class="detail_body">
+                                <div className="detail_body">
                                     <div>
                                         <p>
                                         Samsung J5 pro 2019. Excelentes condiciones. Almacenamiento de 32G 250px
                                         </p>
                                     </div>
-                                    <div class="valor">
+                                    <div className="valor">
                                        <h3> $195 </h3>
                                     </div>
                                 </div>
@@ -106,21 +106,21 @@ function CarritoComponent(){
                             </div>
                         </div>
 
-                        <div id="tarjeta4" class="producto media">
-                            <div class="foto_producto align-self-center mr-3">
+                        <div id="tarjeta4" className="producto media">
+                            <div className="foto_producto align-self-center mr-3">
                                 <img src={zapatos} />
                             </div>
-                            <div class="descripcion">
+                            <div className="descripcion">
                                 <div>
                                     <h5>Zapatos Nike runs</h5>
                                 </div>
-                                <div class="detail_body">
+                                <div className="detail_body">
                                     <div>
                                         <p>
                                             Zapatos americanos marca Nike, excelentes condiciones. Tallas 40 y 42.
                                         </p>
                                     </div>
-                                    <div class="valor">
+                                    <div className="valor">
                                        <h3> $52.00 </h3>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@ function CarritoComponent(){
                             <div id="title_detail">
                                <h3> Resumen </h3>
                             </div>
-                            <div class="Cuenta">
+                            <div className="Cuenta">
                                 <div id="lista_pedidos" >
                                     <ol>
                                         <li>  Blusa de algodón </li>
@@ -162,7 +162,7 @@ function CarritoComponent(){
                                     <div className="form-check-radio">
                                         <Label className="form-check-label">
                                         <Input type="radio" name="exampleRadios" id="exampleRadios2" value="option2" defaultChecked/>
-                                        <img src={visa} width="20" height="20" class="d-inline-block align-top" />Visa
+                                        <img src={visa} width="20" height="20" className="d-inline-block align-top" />Visa
                                         <span className="form-check-sign"></span>
                                         </Label>
                                     </div>
@@ -170,14 +170,14 @@ function CarritoComponent(){
                                     <div className="form-check-radio">
                                         <Label className="form-check-label">
                                         <Input type="radio" name="exampleRadios" id="exampleRadios2" value="option2" defaultChecked/>
-                                        <img src={mastercard} width="20" height="20" class="d-inline-block align-top" />Mastercard
+                                        <img src={mastercard} width="20" height="20" className="d-inline-block align-top" />Mastercard
                                         <span className="form-check-sign"></span>
                                         </Label>
                                     </div>
                                     <div className="form-check-radio">
                                         <Label className="form-check-label">
                                         <Input type="radio" name="exampleRadios" id="exampleRadios3" value="option1" />
-                                        <img src={paypal} width="20" height="20" class="d-inline-block align-top" />Paypal
+                                        <img src={paypal} width="20" height="20" className="d-inline-block align-top" />Paypal
                                         <span className="form-check-sign"></span>
                                         </Label>
                                     </div>

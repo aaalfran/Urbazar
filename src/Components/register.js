@@ -93,7 +93,7 @@ function register(){
                     </FormGroup>
                 </div>
                 </div>
-                <div class="datos1">
+                <div className="datos1">
                 Información de usuario
                 <div className="form-row">
                     <FormGroup className="col-md-6">
