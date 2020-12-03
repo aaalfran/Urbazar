@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState }from 'react';
+import Producto from './Producto';
 import NavbarComponent from './navbarComponent';
 import CategoriaComponent from './CategoriaComponent';
 import { UncontrolledCarousel, Col } from 'reactstrap';
@@ -34,6 +35,13 @@ function Main() {
     }
   ];
 
+  const [productos, guardarProductos] = useState([
+    { id: 1, nombre: 'Gato', precio: 50, foto_src: src_kitten},
+    { id: 2, nombre: 'Cupcake', precio: 51, foto_src: src_cupcake},
+    { id: 3, nombre: 'Boots', precio: 52, foto_src: src_boots},
+    { id: 4, nombre: 'Hamburger', precio: 53, foto_src: src_ham},
+  ]);
+
 
   return (
     <>
@@ -55,55 +63,56 @@ function Main() {
           <h6>Recientes</h6>
           <hr className="my-2" />
           <div className='productos'>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
-            <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
+            {productos.map(producto => (
+                <Producto
+                  key={producto.id}
+                  nombre={producto.nombre}
+                  precio={producto.precio}
+                  foto_src={producto.foto_src}
+                />
+            ))}
           </div>
         </div>
         <div className='list_productos'>
           <h6>Lo más destacado</h6>
           <hr className="my-2" />
           <div className='productos'>
-            <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
-            <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
-            <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
-            <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
-            <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
-            <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
-            <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
+            {productos.map(producto => (
+                <Producto
+                  key={producto.id}
+                  nombre={producto.nombre}
+                  precio={producto.precio}
+                  foto_src={producto.foto_src}
+                />
+            ))}
           </div>
         </div>
         <div className='list_productos'>
           <h6>Cerca de ti</h6>
           <hr className="my-2" />
           <div className='productos'>
-            <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
-            <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
-            <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
-            <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
-            <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
-            <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
-            <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
+            {productos.map(producto => (
+                <Producto
+                  key={producto.id}
+                  nombre={producto.nombre}
+                  precio={producto.precio}
+                  foto_src={producto.foto_src}
+                />
+            ))} 
           </div>
         </div>
         <div className='list_productos'>
           <h6>Promociones</h6>
           <hr className="my-2" />
           <div className='productos'>
-            <div className='slide_product'> <img src={src_ham} alt='hamburger'/> </div>
-            <div className='slide_product'> <img src={src_ham} alt='hamburger'/> </div>
-            <div className='slide_product'> <img src={src_ham} alt='hamburger'/> </div>
-            <div className='slide_product'> <img src={src_ham} alt='hamburger'/> </div>
-            <div className='slide_product'> <img src={src_ham} alt='hamburger'/> </div>
-            <div className='slide_product'> <img src={src_ham} alt='hamburger'/> </div>
+            {productos.map(producto => (
+                <Producto
+                  key={producto.id}
+                  nombre={producto.nombre}
+                  precio={producto.precio}
+                  foto_src={producto.foto_src}
+                />
+            ))} 
           </div>
         </div>
       </section>
