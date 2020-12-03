@@ -11,7 +11,9 @@ import MainComponent from './Components/MainComponent';
 import CategoriaComponent from './Components/CategoriaComponent';
 import ContactanosComponent from './Components/ContactanosComponent';
 import DesarrolladoresComponent from './Components/DesarrolladoresComponent';
-import AboutUsComponent from './Components/AboutUSComponent'
+import AboutUsComponent from './Components/AboutUSComponent';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -36,4 +38,3 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-

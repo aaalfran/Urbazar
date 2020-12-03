@@ -17,12 +17,12 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
         <div className='toggleMenu' style={{transform: isOpen ? 'translateX(0px)' : 'translateX(-100%)', transition: '0.3s'}}>
             <div className='toggleTitulo'>
                 <p className='p_toggleMenu'>Menú</p>
-                <button className='btn-cerrar-toggle' onClick={cerrar}><i class="fas fa-times fa-lg"></i></button>
+                <button className='btn-cerrar-toggle' onClick={cerrar}><i className="fas fa-times fa-lg"></i></button>
             </div>
             
             <div className='togglePerfil'>
                 <div className='img_perfil_div'>
-                    <i class="fas fa-user-circle fa-2x"></i>
+                    <i className="fas fa-user-circle fa-2x"></i>
                 </div>
                 <div id='perfilTags'>
                     <p id='toggleNombre'>Walther López </p>
@@ -36,13 +36,13 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                 <br/>
                 <p className='p_seccionToggler'>Configuración</p>
                 <hr className="my-2" />
-                <a href='/'><i class="fas fa-user-alt"></i>Perfil</a>
-                <a href='/'><i class="fas fa-cog"></i>Configuración</a>
-                <a href='/'><i class="fas fa-exclamation-circle"></i>Reportar</a>
+                <a href='/'><i className="fas fa-user-alt"></i>Perfil</a>
+                <a href='/'><i className="fas fa-cog"></i>Configuración</a>
+                <a href='/'><i className="fas fa-exclamation-circle"></i>Reportar</a>
                 </div>
                 <br/>
             <div className='toggleCerrarSesion'>
-                <a id='btn_cerrarSesion' href='/' ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
+                <a id='btn_cerrarSesion' href='/' ><i className="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
             </div>
                 
             
