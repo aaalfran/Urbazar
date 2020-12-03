@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import housing from '../imagenes/housing.png'
 import home from '../imagenes/home.png'
 import money from '../imagenes/bolsa-de-dinero.png'
@@ -6,8 +5,6 @@ import NavbarComponent from './navbarComponent';
 import '../css/aboutusComponent.css'
 
 function AboutUSComponent(){    
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
     return(
         <html>
        

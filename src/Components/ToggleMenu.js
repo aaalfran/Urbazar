@@ -33,16 +33,22 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                 <p className='p_seccionToggler'>Categorías</p>  
                 <hr className="my-2" /> 
                 <CategoriaComponent isToggle={true}/>
-                <br/>
+                <br/>                
                 <p className='p_seccionToggler'>Configuración</p>
                 <hr className="my-2" />
                 <a href='/'><i class="fas fa-user-alt"></i>Perfil</a>
                 <a href='/'><i class="fas fa-cog"></i>Configuración</a>
                 <a href='/'><i class="fas fa-exclamation-circle"></i>Reportar</a>
+                <br/>
+                <p className='p_seccionToggler'>Más</p>
+                <hr className="my-2" />
+                <a href='/devs'><i class="fas fa-user-alt"></i>Equipo de desarrollo</a>
+                <a href='/contactanos'><i class="fas fa-cog"></i>Contactanos</a>
+                <a href='/aboutus'><i class="fas fa-exclamation-circle"></i>¿Qué hacemos?</a>                
                 </div>
                 <br/>
             <div className='toggleCerrarSesion'>
-                <a id='btn_cerrarSesion' href='/' ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
+                <a id='btn_cerrarSesion' href='/login' ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
             </div>
                 
             

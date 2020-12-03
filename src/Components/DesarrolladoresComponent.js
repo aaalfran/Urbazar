@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-import { Navbar, NavbarToggler, NavbarBrand} from 'reactstrap';
+import NavbarComponent from './navbarComponent';
 
 import '../css/Desarrolladores.css'
 import bryan_photo from '../imagenes/bryan.jpeg'
@@ -11,29 +10,12 @@ function DesarrolladoresComponent(){
     const toggle = () => setIsOpen(!isOpen);
     return(
         <html>
-       
-        <meta name="author" content="Beescript"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
+            <head>
+                <meta name="author" content="Beescript"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+            </head>
         <body>
-        <Navbar color='faded' dark className='navbar'>
-            <NavbarToggler onClick={toggle} className="toggler mr-2 custom-toggler"/>
-            {/* hacer el menu del toggler */}
-            <NavbarBrand href='/' className='logo'>UrbazApp</NavbarBrand>
-            <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
-
-            <form className='mr-auto search_form'>
-                <input type='text' placeholder='Buscar...' name='search'/>
-                <button type='submit'><i className='fas fa-search mr-auto'></i></button>
-            </form>
-
-            <p id='p_bienvenido'>Bienvenido!</p>
-            <p id='nombre_user'>Walther López</p>
-
-            <button type='button' className='button_nav'><i className='fas fa-bell fa-lg'></i></button>
-            <button type='button' className='button_nav'><i className='fas fa-shopping-cart fa-lg'></i> </button>
-
-            </Navbar>
+        <NavbarComponent />
             <header id="eq_title">
              <h4>Equipo de desarrollo  </h4>
             </header>
