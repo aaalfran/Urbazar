@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Datetime from 'react-datetime';
 import 'intro.js/introjs.css';
-
-import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,
-        Card, CardTitle, CardBody } from 'reactstrap';
+import NavbarComponent from './navbarComponent';
+import { Card, CardTitle, CardBody } from 'reactstrap';
 import introJs from 'intro.js';
-import { Steps,  } from 'intro.js-react';
+import { Steps } from 'intro.js-react';
 
 import '../css/ContactanosComponent.css'
 import "react-datetime/css/react-datetime.css";
@@ -13,8 +12,6 @@ import "react-datetime/css/react-datetime.css";
 
 
 function ContactanosComponent(){        
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
     introJs().start();
       
     return (
@@ -23,24 +20,7 @@ function ContactanosComponent(){
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/introjs-rtl.min.css" integrity="sha512-CBhAm6vyK8E1WXomkztwQZ4Lq9mHE1PjWWXOICo5S5/deArabmCDoytC4+on0xxMdGhWJHBRTQdozFwZb9saYw==" crossorigin="anonymous" />
        <body>
-        <Navbar color='faded' dark className='navbar'>
-            <NavbarToggler onClick={toggle} className="toggler mr-2 custom-toggler"/>
-            {/* hacer el menu del toggler */}
-            <NavbarBrand href='/' className='logo'>UrbazApp</NavbarBrand>
-            <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
-
-            <form className='mr-auto search_form'>
-                <input type='text' placeholder='Buscar...' name='search'/>
-                <button type='submit'><i className='fas fa-search mr-auto'></i></button>
-            </form>
-
-            <p id='p_bienvenido'>Bienvenido!</p>
-            <p id='nombre_user'>Walther López</p>
-
-            <button type='button' className='button_nav'><i className='fas fa-bell fa-lg'></i></button>
-            <button type='button' className='button_nav'><i className='fas fa-shopping-cart fa-lg'></i> </button>
-
-            </Navbar>
+            <NavbarComponent/>
             <div id="header">
                 ¡En UrbazApp nos importan tus comentarios!
             </div>
@@ -78,7 +58,7 @@ function ContactanosComponent(){
                                 <select className="form-control">
                                     <option>---</option>
                                     <option>Las joyas</option>
-                                    <option>Los ceibod</option>
+                                    <option>Los ceibos</option>
                                     <option>Villa bonita</option>
                                     <option>Ciudad Celeste</option>
                                 </select>

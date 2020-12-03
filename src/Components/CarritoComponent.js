@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import ConfirmationComponent from './ConfirmationComponent';
 import '../css/CarritoComponent.css'
-import logo2 from "../logo.jpg";
+import NavbarComponent from './navbarComponent';
 import blusa from "../imagenes/producto2.jpg";
 import cupcake from "../imagenes/producto1.jpg";
 import celular from "../imagenes/producto3.jpg";
@@ -20,12 +20,9 @@ function CarritoComponent(){
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
                 </head>
             <body>
-                <nav className="navbar navbar-expand-lg navbar-light">
-                <a className="navbar-brand" href="/">
-                    <img src={logo2} width="30" height="30" className="d-inline-block align-top" alt="" loading="lazy"/>
-                    <h3 className="d-inline-block">UrbazApp</h3>
-                </a>
-                </nav>
+
+                <NavbarComponent/>
+
                 <div id="main">
                     <section id="productos_detail" className="col-md-8">
                     

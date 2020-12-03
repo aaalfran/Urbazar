@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import housing from '../imagenes/housing.png'
 import home from '../imagenes/home.png'
 import money from '../imagenes/bolsa-de-dinero.png'
-import { Navbar, NavbarToggler, NavbarBrand} from 'reactstrap';
+import NavbarComponent from './navbarComponent';
 import '../css/aboutusComponent.css'
 
 function AboutUSComponent(){    
@@ -15,24 +15,7 @@ function AboutUSComponent(){
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
         <body>
-        <Navbar color='faded' dark className='navbar'>
-            <NavbarToggler onClick={toggle} className="toggler mr-2 custom-toggler"/>
-            {/* hacer el menu del toggler */}
-            <NavbarBrand href='/' className='logo'>UrbazApp</NavbarBrand>
-            <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
-
-            <form className='mr-auto search_form'>
-                <input type='text' placeholder='Buscar...' name='search'/>
-                <button type='submit'><i className='fas fa-search mr-auto'></i></button>
-            </form>
-
-            <p id='p_bienvenido'>Bienvenido!</p>
-            <p id='nombre_user'>Walther López</p>
-
-            <button type='button' className='button_nav'><i className='fas fa-bell fa-lg'></i></button>
-            <button type='button' className='button_nav'><i className='fas fa-shopping-cart fa-lg'></i> </button>
-
-            </Navbar>
+        <NavbarComponent/>
             <header id="about_title">
                 <h1>¿Qué hacemos? </h1>
             </header>
@@ -43,10 +26,11 @@ function AboutUSComponent(){
                     </div>
                     <div className="content">
                         <p>
-                        Con <strong>UrbazApp </strong> ahora es posible el comercio entre urbanizaciones.
-                        Encuentra todo lo que necesitas cerca de ti, pídelo y espera en casa.
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                        Con <strong>UrbazApp </strong> ahora es posible el comercio entre urbanizaciones.<br/>
+                        Puedes tener la seguridad de contactarte con proveedores honestos y
+                        confiables que entregarán tu pedido en las mejores condiciones. ¡Tu comunidad te cuida! <br/>
+                        Encuentra todo lo que necesitas, pídelo y espera en casa.
+                        
                         </p>
                     </div>
                 </div>
@@ -54,11 +38,10 @@ function AboutUSComponent(){
                 <div className="ideas even">
                     <div className="content">
                         <p>
-                        ¡Comprar sin salir de casa nunca había sido tan fácil y seguro! <br/>
-                        Con UrbazApp puedes tener la seguridad de contactarte con proveedores honestos y
-                        confiables que entregarán tu pedido en las mejores condiciones.<br/> ¡Tu comunidad te cuida!
-                        
-                        
+                        ¿Por qué ir tan lejos? ¡Encuentra productos cerca de ti! <br/>
+                        Los residentes pueden comercializar artículos por medio de la plataforma, 
+                        el valor de ellos incrementa de acuerdo a la distancia entre los interesados. 
+                        Mientras más cercano este tu producto, menor es el importe ;)                         
                         </p>
                     </div>
                     <div className="imagen_descp">
@@ -72,10 +55,11 @@ function AboutUSComponent(){
                     </div>
                     <div className="content">
                         <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            No pierdas la oportunidad de emprender <br/>
+                            ¿Fabricaste un nuevo producto? ¿Hay algo que ya no usas? ¿Tienes artículos importados? 
+                            ¡Comercializalos en tu sector! Etiqueta el producto en una categoría, agrega una buena descripción, 
+                            adjunta una fotografía y espera a tus clientes. 
+                            
                         </p>
                     </div>
                 </div>
