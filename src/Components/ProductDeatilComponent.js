@@ -25,7 +25,7 @@ function ProductComponent() {
                       <h5 className="card-title">Cupcake de Vainilla</h5>
                     </div>
                     <div id="card-body-img">
-                        <img src={cupcakes} className="card-img-bottom" alt="Cupcakes"/>
+                        <img src={cupcakes} className="card-img-bottom image" alt="Cupcakes"/>
                     </div>
                   </div>
             </div>
