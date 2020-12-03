@@ -3,14 +3,12 @@ import cupcakes from "../imagenes/cupcakes.jpg";
 
 
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 
 import {Container} from 'reactstrap';
 
 import '../css/product.css'
+import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
 function ProductComponent() {
     return (
@@ -41,10 +39,10 @@ function ProductComponent() {
                         <div class="col-6 text-right">
                             <p>
                                 Calificación {" "}
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella" spin/>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella" spin/>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella" spin/>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella" spin/>
+                                <i className='fas fa-star'></i>
+                                <i className='fas fa-star mr-auto'></i>
+                                <i className='fas fa-star'></i>
+                                <i className='fas fa-star mr-auto'></i>
                                 </p>
                         </div>
                         <div class="col-12" id="productoDescripcion"> 
@@ -87,7 +85,7 @@ function ProductComponent() {
                             <p>$3.00</p>
                         </div>
                         <div class="col-12 text-center">
-                            <button type="button" id="btnAgregarCarrito" class="btn btn-primary"><FontAwesomeIcon icon={faShoppingCart} id= "iconEstrella" /> {" "}Agregar a carrito</button>
+                            <button type="button" id="btnAgregarCarrito" class="btn btn-primary"><i className='fas fa-shopping-cart fa-lg'></i>{" "}Agregar a carrito</button>
                         </div>
                     </div>
                 </div>
@@ -100,17 +98,16 @@ function ProductComponent() {
                             
                         </div>
                         <div class="col-6">
-                            <p><FontAwesomeIcon icon={faTwitter} id= "iconEstrella"/>
+                            <p><i className='fas fa-twitter mr-auto'></i>
                             {" "}Muy ricos </p>
                         </div>
                         <div class="col-6">
                             <p>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella"/>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella"/>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella"/>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella"/>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella"/>
-                                </p>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            </p>
                         </div>
                         <div class="col-12" id="productoTxtComentarios"> 
                             <p>
@@ -120,15 +117,14 @@ function ProductComponent() {
                         </div>
                         <div class="col-6">
                             <p>
-                            <FontAwesomeIcon icon={faFacebook} id= "iconEstrella"/>
+                            <i className='fas fa-facebook mr-auto'></i>
                             {" "}Un poco caros </p>
                         </div>
                         <div class="col-6">
                             <p>
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella" />
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella" />
-                                <FontAwesomeIcon icon={faStar} id= "iconEstrella" />
-                                </p>
+                                <i className='far fa-star mr-auto'></i>
+                                <i className='far fa-star mr-auto'></i>
+                            </p>
                         </div>
                         <div class="col-12" id="productoTxtComentarios"> 
                             <p>
