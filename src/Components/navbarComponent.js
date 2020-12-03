@@ -30,7 +30,7 @@ const NavbarComponent = () => {
         <p id='nombre_user'>Walther López</p>
 
         <button type='button' className='button_nav'><i className='fas fa-bell fa-lg'></i></button>
-        <button type='button' className='button_nav'><i className='fas fa-shopping-cart fa-lg'></i> </button>
+        <button type='button' className='button_nav' href='/carrito'><i className='fas fa-shopping-cart fa-lg'></i> </button>
 
       </Navbar>
 
