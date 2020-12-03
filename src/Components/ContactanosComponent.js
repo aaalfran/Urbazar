@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import Datetime from 'react-datetime';
+import 'intro.js/introjs.css';
 
 import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,
         Card, CardTitle, CardBody } from 'reactstrap';
+import introJs from 'intro.js';
+import { Steps, Hints } from 'intro.js-react';
 
 import '../css/ContactanosComponent.css'
 import "react-datetime/css/react-datetime.css";
 
-function ContactanosComponent(){
+
+
+function ContactanosComponent(){        
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
+    introJs().start();
+      
     return (
         <html>       
             <meta name="author" content="Beescript"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/introjs-rtl.min.css" integrity="sha512-CBhAm6vyK8E1WXomkztwQZ4Lq9mHE1PjWWXOICo5S5/deArabmCDoytC4+on0xxMdGhWJHBRTQdozFwZb9saYw==" crossorigin="anonymous" />
        <body>
         <Navbar color='faded' dark className='navbar'>
             <NavbarToggler onClick={toggle} className="toggler mr-2 custom-toggler"/>
@@ -42,7 +49,7 @@ function ContactanosComponent(){
                     <CardTitle id="titulo">Contáctanos</CardTitle>
                     <CardBody>
                     <form>
-                        <div className="form-double">
+                        <div data-intro='Hello step one!' className="form-double">
                             <div className="col-md-6 nombre">
                                 <label for="nombres">Nombres</label>
                                 <input type="text" class="form-control" id="nombres" name="nombres" required/>
@@ -101,7 +108,7 @@ function ContactanosComponent(){
                             <textarea type="text" class="form-control" id="mensaje" placeholder="Dejanos tu mensaje..."/>
                         </div> 
                         <div id="send_button">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="submit" data-intro='Hello step one!' class="btn btn-primary">Enviar</button>
                         </div>                       
                         </form>
                     </CardBody>
@@ -112,7 +119,8 @@ function ContactanosComponent(){
 
 
 
-
+        <script src="..\javascript\contacts.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/intro.min.js" integrity="sha512-8HbqTH7QzK30vhgVF/hTJ4loXwV85UU9vjI4nK04AfdOFzl8zG7b3LLAEHDmvIM8I0rvserMXmQx4Hw+kRknjw==" crossorigin="anonymous"></script>
        </body>
         </html>
     );
