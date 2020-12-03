@@ -18,7 +18,7 @@ const NavbarComponent = () => {
           setIsOpen={setIsOpen}
         />
 
-        <NavbarBrand href='/' className='logo'>UrbazApp</NavbarBrand>
+        <NavbarBrand  href='/' className='logo'>UrbazApp</NavbarBrand>
         <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
 
         <form className='mr-auto search_form'>

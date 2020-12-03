@@ -4,9 +4,10 @@ import CategoriaComponent from './CategoriaComponent';
 import { UncontrolledCarousel, Col } from 'reactstrap';
 import '../css/MainComponent.css';
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+import introJs from 'intro.js';
 
 function Main() {
-
+  introJs().start();
   const src_kitten ='https://static.toiimg.com/photo/msid-68523832/68523832.jpg?1137762';
   const src_cupcake = 'https://preppykitchen.com/wp-content/uploads/2016/07/Chocolate-cupcakes-recipe-light.jpg';
   const src_boots = 'https://i.pinimg.com/originals/dd/5c/cc/dd5ccc1e042a6747f07493a1b3943c89.jpg'
@@ -34,10 +35,11 @@ function Main() {
     }
   ];
 
-
   return (
     <>
-
+      <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/introjs.min.css" integrity="sha512-631ugrjzlQYCOP9P8BOLEMFspr5ooQwY3rgt8SMUa+QqtVMbY/tniEUOcABHDGjK50VExB4CNc61g5oopGqCEw==" crossorigin="anonymous" />
+       </head>
       <NavbarComponent />
       <CategoriaComponent isToggle={false}/>
 
@@ -50,11 +52,12 @@ function Main() {
       </section>
 
       {/* contenido productos */}
-      <section className='productos_container'>
-        <div className='list_productos'>
-          <h6>Recientes</h6>
+      <section dclassName='productos_container'>
+        <div className='list_productos' >
+          <h6 data-intro='¡Bienvenido a UrbazAp! En esta sección puedes encontrar
+              prodcutos recientes en el catálogo' >Recientes</h6>
           <hr className="my-2" />
-          <div className='productos'>
+          <div className='productos'> 
             <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
             <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
             <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
@@ -68,8 +71,8 @@ function Main() {
             <div className='slide_product'> <img src={src_kitten} alt='kitten'/> </div>
           </div>
         </div>
-        <div className='list_productos'>
-          <h6>Lo más destacado</h6>
+        <div className='list_productos' >
+          <h6 data-intro='Elige entre los productos más destacados de la Urbanización.'>Lo más destacado</h6>
           <hr className="my-2" />
           <div className='productos'>
             <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
@@ -81,8 +84,8 @@ function Main() {
             <div className='slide_product'> <img src={src_cupcake} alt='cupcake'/> </div>
           </div>
         </div>
-        <div className='list_productos'>
-          <h6>Cerca de ti</h6>
+        <div className='list_productos' >
+          <h6 data-intro='¿Por qué ir tan lejos? Encuentra productos cerca de tu ubicación.'>Cerca de ti</h6>
           <hr className="my-2" />
           <div className='productos'>
             <div className='slide_product'> <img src={src_boots} alt='boots'/> </div>
@@ -95,7 +98,7 @@ function Main() {
           </div>
         </div>
         <div className='list_productos'>
-          <h6>Promociones</h6>
+          <h6  data-intro='No te pierdas las promociones que UrbazApp tiene para ti.'>Promociones</h6>
           <hr className="my-2" />
           <div className='productos'>
             <div className='slide_product'> <img src={src_ham} alt='hamburger'/> </div>
@@ -113,7 +116,8 @@ function Main() {
       <footer>
         <p>&copy; 2020 Grupo BatScript - Todos los derechos reservados</p>
       </footer>
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/intro.min.js" integrity="sha512-8HbqTH7QzK30vhgVF/hTJ4loXwV85UU9vjI4nK04AfdOFzl8zG7b3LLAEHDmvIM8I0rvserMXmQx4Hw+kRknjw==" crossorigin="anonymous"></script>
+      {/*<script src="./main.js"></script>*/}
     </>
 
   );

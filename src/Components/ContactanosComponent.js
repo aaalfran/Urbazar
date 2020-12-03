@@ -13,10 +13,12 @@ function ContactanosComponent(){
     introJs().start();
       
     return (
-        <html>       
+        <html>      
+            <head>
             <meta name="author" content="Beescript"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/introjs-rtl.min.css" integrity="sha512-CBhAm6vyK8E1WXomkztwQZ4Lq9mHE1PjWWXOICo5S5/deArabmCDoytC4+on0xxMdGhWJHBRTQdozFwZb9saYw==" crossorigin="anonymous" />
+            </head> 
        <body>
             <NavbarComponent/>
             <div id="header">
