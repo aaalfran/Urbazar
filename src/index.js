@@ -14,6 +14,10 @@ import DesarrolladoresComponent from './Components/DesarrolladoresComponent';
 import AboutUsComponent from './Components/AboutUSComponent';
 import testJSON from './Components/testJSON';
 import GraphComponent from './Components/GraphComponent';
+import MainAdmins from './Components/MainAdmins';
+import PanelProducts from './Components/PanelProducts';
+import AccountComponent from './ComponentsAdmins/Account/Account';
+import ClientesComponent from './Components/ClientesComponent';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -29,8 +33,11 @@ ReactDOM.render(
       <Route path="/devs" exact component={DesarrolladoresComponent}/>
       <Route path="/aboutus" exact component={AboutUsComponent}/>
       <Route path="/test" exact component={testJSON}/>
-      <Route path="/admin/dashboard" exact component={GraphComponent}/>
-
+      <Route path="/admin/dashboard" exact component={MainAdmins}/>
+      <Route path="/admin/dashboard/report" exact component={GraphComponent}/>
+      <Route path="/admin/dashboard/panel" exact component={PanelProducts}/>
+      <Route path="/admin/dashboard/account" exact component={AccountComponent}/>
+      <Route path="/admin/dashboard/customer" exact component={ClientesComponent}/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

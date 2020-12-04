@@ -1,7 +1,8 @@
 import React from 'react';
 import {Container} from 'reactstrap';
 import ChartistGraph from 'react-chartist';
-import NavbarComponent from "./navbarComponent";
+import NavbarAdmins from "./navbarAdmins";
+import ToggleMenuAdmins from './TogglemenuAdmins';
 import {
     barChart,
     pieChart,
@@ -15,9 +16,9 @@ class GraphComponent extends React.Component {
     
     return (
         <>
-        <NavbarComponent />
-        
-        <Container>
+        <NavbarAdmins />
+        <ToggleMenuAdmins/>
+        <Container id="content">
          <div className="row justify-content-center">
             <div className= "col-sm-12 col-12">
             <br></br><br></br>
