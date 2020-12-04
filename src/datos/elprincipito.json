@@ -1,0 +1,16 @@
+[ 
+  { 
+ "id": "1",
+  "nombre": "El principito",
+  "categoria": "Libros",
+"precio": "2",
+"descripcion": "Libro \"El principito\" ideal para niños y jóvenes. El libro está en buen estado",
+"imagen": "https://imagessl4.casadellibro.com/a/l/t7/94/9788478887194.jpg",
+"valoracion": "5",
+"comentarios": ["Muy buen libro, y a un excelente precio"]
+}
+
+
+
+
+]
