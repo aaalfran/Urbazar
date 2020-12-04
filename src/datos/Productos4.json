@@ -1,0 +1,99 @@
+[ 
+  {
+    "id": "9",
+  "nombre": "Cocina Oster",
+  "precio": "350",
+  "descripcion": "Cocina de marca Oster en excelentes condiciones, se incluye tanque de gas.",
+  "imagen": "https://comandato.vteximg.com.br/arquivos/ids/196291-1000-1000/cocina-a-gas-mabe-em7630fx0-6-hornillas-color-inox-1.jpg?v=637066849614130000",
+  "valoracion": "5",
+  "comentarios": ["La cocina estaba en buenas condiciones."]
+},
+{
+    "id": "7",
+  "nombre": "Mesa redonda",
+  "precio": "34",
+  "descripcion": "Mesa con base redonda de madera, altura de 1 metro, ideal para espacios abiertos.",
+  "imagen": "https://www.menzzo.es/22035-thickbox_default/mesa-redonda-extensible-myriade-roble.jpg",
+  "valoracion": "5",
+  "comentarios": ["La mesa era de muy buen material", "Me gustó el estilo de la mesa. 5 estrellas para ti"]
+},
+{
+    "id": "10",
+  "nombre": "Cojines",
+  "precio": "5",
+  "descripcion": "Cojines ergonómicos, ideales para los muebles del hogar.",
+  "imagen": "https://i.pinimg.com/originals/dd/5e/83/dd5e83a15cb9e4d7ba52f3c321a2c15f.jpg",
+  "valoracion": "5",
+  "comentarios": ["Buen producto, los cojines son bastante suaves."]
+},
+  { 
+ "id": "1",
+  "nombre": "Cupcakes de Vainilla",
+"precio": "1",
+"descripcion": "Cupcakes sabor a vainilla, suaves y esponjosos. Incluyen crema batida y un aderezo a su elección",
+"imagen": "https://www.lifeloveandsugar.com/wp-content/uploads/2020/04/Vanilla-Cupcakes3.jpg",
+"valoracion": "5",
+"comentarios": ["Muy buenos", "Me gustaron, los volvería a comprar", "La masa está bastante suave y uniforme"]
+},
+{
+"id": "2",
+"nombre": "Blusa estampada",
+"precio": "20.50",
+"descripcion": "Blusa de tela algodón, de diferentes colores. Estampado con tela importada y colores vivos.",
+"imagen": "https://images-na.ssl-images-amazon.com/images/I/61kAcPP8ugL._AC_UX385_.jpg",
+"valoracion": "4",
+"comentarios": ["La blusa estaba muy linda, me encantó."]
+},
+  
+{
+"id": "3",
+"nombre": "Pantalón acampanado",
+"precio": "17,50",
+"descripcion": "Pantalón vintage. Estilo de los 80, acampanado de color negro. Ideal para ocasiones formales y semiformales",
+"imagen": "https://i.pinimg.com/originals/9e/42/a7/9e42a7f73fb52a786d588bd1efb0fb61.png",
+"valoracion": "3",
+"comentarios": ["El pedido lo recibí muy tarde, eso no me gustó", "El pantalón se ve más bonito en fotos que en la realidad. No me gustó el estilo"]
+} ,
+{
+  "id": "5",
+  "nombre": "Llavero iron man",
+  "precio": "7,50",
+  "descripcion": "Llavero con forma de iron man, enciende luz en su interior cuando se presiona en el lado frontal",
+  "imagen": "https://www.espadasyartedetoledo.com/image/cache/data/productos/art-toledo/llaveros/1476136239IRONMAN---500x500.jpg",
+  "valoracion": "5",
+  "comentarios": ["A mi hijo le encantó, lo usa todo el tiempo. Muchas gracias", "Está divino, me encanta este llavero."]
+},
+{
+    "id": "6",
+  "nombre": "Tomatodo",
+  "precio": "2,50",
+  "descripcion": "Tomatodo color morado, con capacidad de 2 litros.",
+  "imagen": "https://tiaecuador.vteximg.com.br/arquivos/ids/170438-1000-1000/110815000.jpg?v=637339050944470000",
+  "valoracion": "5",
+  "comentarios": ["El tomatodo era de muy buena calidad, me gustó. El vendedor era muy amable también.", "El tomatodo no tiene la capacidad indicada. No hagan publicidades engañosas por favor"]
+},
+
+
+{
+    "id": "8",
+  "nombre": "Coqueta",
+  "precio": "150",
+  "descripcion": "Coqueta ideal para dormitorios o salones de belleza. Color blanco y en buen estado",
+  "imagen": "https://i.pinimg.com/originals/16/3c/b2/163cb2e161f4242d97771eec326e19d8.jpg",
+  "valoracion": "4",
+  "comentarios": ["La coqueta era de muy buen material", "El vendedor se demoró mucho en entregar el producto, tuve que esperar tanto tiempo por el que ya no lo recibí de buen agrado."]
+},
+{
+"id": "4",
+"nombre": "Florero",
+"precio": "3,00",
+"descripcion": "Hermoso florero de cerámica. Ideal para los interiores de la casa.",
+"imagen": "https://i.pinimg.com/474x/af/09/b7/af09b7a2debf1de9096b4ae632fb8841.jpg",
+"valoracion": "4",
+"comentarios": ["Está muy lindo el florero, quedó bien en la sala de mi hogar", "El florero se veía algo opaco pero está bien para su precio."]
+}
+
+
+
+
+]

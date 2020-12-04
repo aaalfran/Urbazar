@@ -2,11 +2,11 @@
 import React, {useEffect, useState} from 'react';
 import Producto from './Producto';
 
-export default function UseTweets(){
+export default function UseTweets(ruta){
     const [tweets, setTweet] = useState([])
 
     useEffect(() => {
-                fetch('http://localhost:4000/api/datos')
+                fetch(ruta)
         .then(response => response.json())
         .then(data => {
             setTweet(data)})

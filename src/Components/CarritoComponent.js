@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import ConfirmationComponent from './ConfirmationComponent';
 import '../css/CarritoComponent.css'
 import NavbarComponent from './navbarComponent';
-import Practica from './LoadProducts';
 import blusa from "../imagenes/producto2.jpg";
 import cupcake from "../imagenes/producto1.jpg";
 import celular from "../imagenes/producto3.jpg";
@@ -185,7 +184,6 @@ function CarritoComponent(){
                                 <div id="btn_continue">
                                     <Button type="button" onClick={() => setLiveDemo(true)}> Confirmar </Button>
                                 </div>
-                                <Practica/>
                             
                                 <Modal isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
                                     <div className="modal-header">
