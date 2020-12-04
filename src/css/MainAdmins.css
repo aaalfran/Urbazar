@@ -1,0 +1,19 @@
+.toggleMenu{
+    padding-top: 10%;
+}
+
+.toggleContenido a:hover{
+    border-right: 5px solid #2c4258;
+}
+.fa-users-cog{
+    color:white;
+}
+#space{
+    width: 65%;
+}
+
+#content{
+    width: 80%;
+    float: right;
+    padding-right: 10%;
+}

@@ -10,7 +10,7 @@ const Producto = ({nombre, precio, foto_src, id}) => {
         <a href='/productdetail'>
         <div className='slide_product'> 
             {/* importar card */}
-            <Card onClick={ console.log("Dio click")}>
+            <Card >
                 <CardImg className="img" top width='100%' src={foto_src} alt={nombre} />
                 <CardBody>
                     <CardTitle id="name_product" tag='h5'>{nombre}</CardTitle>
