@@ -161,7 +161,7 @@
 
 .banner_container {
   padding: 5px !important;
-  
+ 
 }
 
 .banner .carousel-inner {
@@ -222,7 +222,7 @@ footer > p {
 
 .toggleMenu {
   left: 0;
-  top: 0;
+  top: 0 !important;
   border: none;
   background-color: #E8E8F0;
   position: fixed;
