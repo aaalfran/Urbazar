@@ -12,7 +12,7 @@ const Producto = ({nombre, precio, foto_src}) => {
             <Card>
                 <CardImg className="img" top width='100%' src={foto_src} alt={nombre} />
                 <CardBody>
-                    <CardTitle tag='h5'>{nombre}</CardTitle>
+                    <CardTitle id="name_product" tag='h5'>{nombre}</CardTitle>
     <               CardSubtitle tag='h6' className='mb-2 text-muted'>${precio}</CardSubtitle>
                 </CardBody>
             </Card>

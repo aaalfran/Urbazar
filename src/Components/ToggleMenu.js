@@ -40,15 +40,8 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                 <a href='/'><i className="fas fa-user-alt"></i>Perfil</a>
                 <a href='/'><i className="fas fa-cog"></i>Configuración</a>
                 <a href='/'><i className="fas fa-exclamation-circle"></i>Reportar</a>
-                </div>
+                
                 <br/>
-                {/*
-            <div className='toggleCerrarSesion'>
-                <a id='btn_cerrarSesion' href='/' ><i className="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
-                <a href='/'><i class="fas fa-user-alt"></i>Perfil</a>
-                <a href='/'><i class="fas fa-cog"></i>Configuración</a>
-                <a href='/'><i class="fas fa-exclamation-circle"></i>Reportar</a>
-                <br/>*/}
                 <p className='p_seccionToggler'>Más</p>
                 <hr className="my-2" />
                 <a href='/devs'><i class="fas fa-user-alt"></i>Equipo de desarrollo</a>
@@ -59,7 +52,7 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
             <div className='toggleCerrarSesion'>
                 <a id='btn_cerrarSesion' href='/login' ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
             </div>
-                
+            </div> 
             
         </div>      
                 
