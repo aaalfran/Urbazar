@@ -12,10 +12,11 @@ import mastercard from "../imagenes/mastercard.png";
 import paypal from "../imagenes/paypal.png";
 import { Label, Input, Button, Modal} from 'reactstrap';
 
-function CarritoComponent(){
+const CarritoComponent = () => {
     const [liveDemo, setLiveDemo] = React.useState(false);
-        return (
-            <html>
+
+    return ( 
+        <html>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
                 <script type="text/script" src="./Practica.js"></script>
@@ -242,5 +243,6 @@ function CarritoComponent(){
         );
     
 }
+ 
+export default CarritoComponent;
 
-export default CarritoComponent
