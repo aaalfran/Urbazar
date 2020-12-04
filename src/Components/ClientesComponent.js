@@ -2,6 +2,7 @@ import React from 'react';
 import NavbarAdmins from "./navbarAdmins";
 import ToggleMenuAdmins from './TogglemenuAdmins';
 import LoadCustomers from './LoadCustomers';
+import filtroproducto from './FilterTable';
 import {
     Container,
     Grid,
@@ -26,10 +27,11 @@ function PanelProducts(){
                     <Card>
                     <CardContent>
                         <Box maxWidth={500}>
-                        <TextField
+                        <TextField  onKeyUp={filtroproducto}
                             fullWidth
                             placeholder="Buscar cliente"
                             variant="outlined"
+                            id="Input"
                         />
                         </Box>
                     </CardContent>

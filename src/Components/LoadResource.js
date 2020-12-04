@@ -52,7 +52,7 @@ function useLoadResource(){
         >
          
             <Box minWidth={1050}>
-              <Table>
+              <Table className="tabla_productos">
 
                     
                 <TableHead>
@@ -85,6 +85,15 @@ function useLoadResource(){
                         </Box>
                     </Typography>
                     </TableCell>
+                    <TableCell>
+                    <Typography>
+                        <Box fontWeight="fontWeightBold">
+                      Descartar
+                        </Box>
+                    </Typography>
+                    </TableCell>
+
+
                   </TableRow>
                 </TableHead>
                
@@ -109,15 +118,28 @@ function useLoadResource(){
                       <Typography
                             color="textPrimary"
                             variant="body1"
-                          >
+                          className="interes">
                             {producto.nombre}
                           </Typography>
                       </TableCell>
-                      <TableCell>
+                      <TableCell >
+                      <Typography 
+                            color="textPrimary"
+                            variant="body1"
+                            className="interes">
                         {producto.precio}
+                        </Typography>
                       </TableCell>
                       <TableCell>
+                      <Typography 
+                        color="textPrimary"
+                        variant="body1"
+                        className="interes">
                         {producto.categoria}
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
+                     <i  className="far fa-trash-alt garbage"></i>
                       </TableCell>
                     </TableRow>
                   ))}

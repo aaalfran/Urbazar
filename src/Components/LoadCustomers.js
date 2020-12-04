@@ -114,15 +114,28 @@ function LoadCustomers(){
                       <Typography
                             color="textPrimary"
                             variant="body1"
+                            className="interes"
                           >
                             {customer.nombre}
                           </Typography>
                       </TableCell>
                       <TableCell>
+                      <Typography
+                            color="textPrimary"
+                            variant="body1"
+                            className="interes"
+                          >
                         {customer.id}
+                        </Typography>
                       </TableCell>
                       <TableCell>
+                      <Typography
+                            color="textPrimary"
+                            variant="body1"
+                            className="interes"
+                          >
                         {customer.etapa}
+                        </Typography>
                       </TableCell>
                     </TableRow>
                   ))}

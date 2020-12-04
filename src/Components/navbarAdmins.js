@@ -15,8 +15,8 @@ const NavbarAdmins = () => {
         {/* menu toggler */}
         
 
-        <NavbarBrand href='/' className='logo'>UrbazApp</NavbarBrand>
-        <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
+        <NavbarBrand  className='logo'>UrbazApp</NavbarBrand>
+        <NavbarBrand  className='logo2'>UApp</NavbarBrand>
         <div id="space"></div>
         <p id='p_bienvenido'>Bienvenido!</p>
         <p id='nombre_user'>Walther López</p>
