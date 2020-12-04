@@ -13,7 +13,6 @@ function ProductComponent() {
     <NavbarComponent />
     <Container>   
 
-        
         <div className="row justify-content-center">
             <div className="col-sm-6 col-12" id="imgContainer">
                 <div className="card mb-3" id="imgCard">
