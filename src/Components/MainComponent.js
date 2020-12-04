@@ -6,6 +6,7 @@ import { UncontrolledCarousel, Col } from 'reactstrap';
 import '../css/MainComponent.css';
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import introJs from 'intro.js';
+import Practica from "./Practica";
 
 function Main() {
   introJs().start();
@@ -35,13 +36,13 @@ function Main() {
       key: '3'
     }
   ];
-
-  const [productos, guardarProductos] = useState([
+/*
+  const [productos, guardarProductos] = useState ([ 
     { id: 1, nombre: 'Gato', precio: 50, foto_src: src_kitten},
     { id: 2, nombre: 'Cupcake', precio: 51, foto_src: src_cupcake},
     { id: 3, nombre: 'Boots', precio: 52, foto_src: src_boots},
     { id: 4, nombre: 'Hamburger', precio: 53, foto_src: src_ham},
-  ]);
+  ]);*/
 
   return (
     <>
@@ -66,56 +67,32 @@ function Main() {
               prodcutos recientes en el catálogo' >Recientes</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {productos.map(producto => (
-                <Producto
-                  key={producto.id}
-                  nombre={producto.nombre}
-                  precio={producto.precio}
-                  foto_src={producto.foto_src}
-                />
-            ))}
+          <Practica/>
+            
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='Elige entre los productos más destacados de la Urbanización.'>Lo más destacado</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {productos.map(producto => (
-                <Producto
-                  key={producto.id}
-                  nombre={producto.nombre}
-                  precio={producto.precio}
-                  foto_src={producto.foto_src}
-                />
-            ))}
+            <Practica/>
+            
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='¿Por qué ir tan lejos? Encuentra productos cerca de tu ubicación.'>Cerca de ti</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {productos.map(producto => (
-                <Producto
-                  key={producto.id}
-                  nombre={producto.nombre}
-                  precio={producto.precio}
-                  foto_src={producto.foto_src}
-                />
-            ))} 
+            <Practica/>
+            
           </div>
         </div>
         <div className='list_productos'>
           <h6  data-intro='No te pierdas las promociones que UrbazApp tiene para ti.'>Promociones</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {productos.map(producto => (
-                <Producto
-                  key={producto.id}
-                  nombre={producto.nombre}
-                  precio={producto.precio}
-                  foto_src={producto.foto_src}
-                />
-            ))} 
+            <Practica/>
+            
           </div>
         </div>
       </section>

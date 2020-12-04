@@ -1,0 +1,30 @@
+[{
+"producto":[{
+ "id": "1",
+  "nombre": "Cupcakes de Vainilla",
+"precio": " int(1)",
+"descripcion": "Cupcakes sabor a vainilla, suaves y esponjosos. Incluyen crema batida y un aderezo a su elección",
+"imagen": "https://www.lifeloveandsugar.com/wp-content/uploads/2020/04/Vanilla-Cupcakes3.jpg"
+}],
+"producto":[{
+"id": "2",
+"nombre": "Blusa estampada",
+"precio": "20.50",
+"descripcion": "Blusa de tela algodón, de diferentes colores. Estampado con tela importada y colores vivos.",
+"imagen": "https://images-na.ssl-images-amazon.com/images/I/61kAcPP8ugL._AC_UX385_.jpg"
+}],
+  
+"producto":[{
+"id": "3",
+"nombre": "Pantalón acampanado",
+"precio": "17,50",
+"descripcion": "Pantalón vintage. Estilo de los 80, acampanado de color negro. Ideal para ocasiones formales y semiformales",
+"imagen": "https://i.pinimg.com/originals/9e/42/a7/9e42a7f73fb52a786d588bd1efb0fb61.png"
+} ],
+  "producto":[{
+"id": "4",
+"nombre": "Florero",
+"precio": "3,00",
+"descripcion": "Hermoso florero de cerámica. Ideal para los interiores de la casa.",
+"imagen": "https://i.pinimg.com/474x/af/09/b7/af09b7a2debf1de9096b4ae632fb8841.jpg"
+} ]}]
