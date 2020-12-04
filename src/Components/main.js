@@ -11,7 +11,8 @@
     
 
 function filter(){
-    let productos = document.getElementsByClassName("target")
+    let productos = document.getElementsByClassName("MuiGrid-grid-lg-3")
+    console.log(productos)
     let input = document.getElementById("myInput")
     let inputText = input.value
     for (let i=0; i< productos.length; i++){
