@@ -75,3 +75,14 @@ app.get('/api/allproducts', async(req, res)=>{
     }
     
 })
+
+app.get('/api/customers', async(req, res)=>{
+    try{     
+        const data = require("./datos/Customerss.json")
+        res.json(data)
+    }        
+    catch{
+        console.log("Error")
+    }
+    
+})
