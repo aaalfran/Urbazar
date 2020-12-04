@@ -1,10 +1,6 @@
 
 import cupcakes from "../imagenes/cupcakes.jpg";
-
-
 import React from "react";
-
-
 import {Container} from 'reactstrap';
 
 import '../css/product.css'

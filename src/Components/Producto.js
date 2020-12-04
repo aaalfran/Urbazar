@@ -2,11 +2,12 @@ import React from 'react';
 import { Card, CardImg, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
 
-const Producto = ({nombre, precio, foto_src}) => {
+const Producto = ({nombre, precio, foto_src, id}) => {
     
     /* const {nombre, foto, precio} = producto_card; */
     
     return (  
+        <a href='/productdetail'>
         <div className='slide_product'> 
             {/* importar card */}
             <Card>
@@ -17,8 +18,9 @@ const Producto = ({nombre, precio, foto_src}) => {
                 </CardBody>
             </Card>
         </div>
-
-    );
+        </a>
+        );
+        
 }
  
 export default Producto;
