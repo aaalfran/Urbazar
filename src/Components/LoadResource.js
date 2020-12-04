@@ -1,8 +1,33 @@
 import React, {useEffect, useState} from 'react';
+import {
+    Avatar,
+    Box,
+    Card,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TablePagination,
+    TableRow,
+    Typography,
+    makeStyles
+  } from '@material-ui/core';
 
-
+  const useStyles = makeStyles((theme) => ({
+    root: {},
+    avatar: {
+      marginRight: theme.spacing(2)
+    }
+  }));
 function useLoadResource(){
+
+    const classes = useStyles();
+
     const [productos, setProductos] = useState([])
+
+    const [limit, setLimit] = useState(25);
+    const [page, setPage] = useState(0);
+
     useEffect(() => {
         fetch("http://localhost:4000/api/allproducts")
     .then(response => response.json())
@@ -10,29 +35,106 @@ function useLoadResource(){
         setProductos(data)})
     .catch(error=> console.log( "Hubo un error "+error))
     }, [] )
-    return(
-        <div  id="content">
-            <table id="table_products" className="col-md-12">     
-                {/*Cabecera */}   
-                <tr> 
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Categoria</th>
-                </tr>
 
-                {/*Cuerpo*/}
-                {productos.map(producto => (
-                    <tr>     
-                        <td><img width="30px" src={producto.imagen}></img> </td>
-                    <td> {producto.nombre} </td>
-                    <td> {producto.precio} </td>
-                        <td> {producto.categoria} </td>
-                        </tr>            
+    const handleLimitChange = (event) => {
+        setLimit(event.target.value);
+      };
+    
+      const handlePageChange = (event, newPage) => {
+        setPage(newPage);
+      };
+
+    return(
+        <>
                 
-            ))}
-            </table>
-        </div>
+        <Card
+         
+        >
+         
+            <Box minWidth={1050}>
+              <Table>
+
+                    
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
+                    <Typography>
+                        <Box fontWeight="fontWeightBold">
+                      Foto
+                        </Box>
+                    </Typography>
+                    </TableCell>
+                    <TableCell>
+                    <Typography>
+                        <Box fontWeight="fontWeightBold">
+                      Nombre
+                        </Box>
+                    </Typography>
+                    </TableCell>
+                    <TableCell>
+                    <Typography>
+                        <Box fontWeight="fontWeightBold">
+                      Precio
+                        </Box>
+                    </Typography>
+                    </TableCell>
+                    <TableCell>
+                    <Typography>
+                        <Box fontWeight="fontWeightBold">
+                      Categoria
+                        </Box>
+                    </Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+               
+                <TableBody>
+                  {productos.slice(0, limit).map((producto) => (
+                    <TableRow
+                      hover
+                    >
+                      <TableCell>
+                        <Box
+                          alignItems="center"
+                          display="flex"
+                        >
+                          <Avatar
+                            className={classes.avatar}
+                            src={producto.imagen}
+                          >
+                          </Avatar>
+                        </Box>
+                      </TableCell>
+                      <TableCell>
+                      <Typography
+                            color="textPrimary"
+                            variant="body1"
+                          >
+                            {producto.nombre}
+                          </Typography>
+                      </TableCell>
+                      <TableCell>
+                        {producto.precio}
+                      </TableCell>
+                      <TableCell>
+                        {producto.categoria}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+        <TablePagination
+        component="div"
+        count={productos.length}
+        onChangePage={handlePageChange}
+        onChangeRowsPerPage={handleLimitChange}
+        page={page}
+        rowsPerPage={limit}
+        rowsPerPageOptions={[25, 50, 100]}
+        />
+        </Card>
+    </>
     );
 
 }

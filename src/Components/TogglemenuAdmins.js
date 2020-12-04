@@ -1,15 +1,14 @@
 import React from 'react';
-import GraphComponent from './GraphComponent';
 
 const ToggleMenuAdmin = () => {
 
-    let menu = document.getElementById('bodyApp');
+  
 
     return ( 
     
     <>
         
-        <div className='toggleMenu' style={{transform: 'translateX(0px)' , transition: '0.3s'}}>
+        <div className='toggleMenu col-2'  style={{transform: 'translateX(0px)' , transition: '0.3s'}}>
                       
             
             <div className='toggleContenido'>      
