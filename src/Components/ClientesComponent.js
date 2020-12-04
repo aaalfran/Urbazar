@@ -4,7 +4,12 @@ import ToggleMenuAdmins from './TogglemenuAdmins';
 import LoadCustomers from './LoadCustomers';
 import {
     Container,
-    Grid
+    Grid,
+    Box,
+    Card,
+    CardContent,
+    TextField,
+    InputAdornment,
   } from '@material-ui/core';
 
 function PanelProducts(){
@@ -17,6 +22,19 @@ function PanelProducts(){
                     <ToggleMenuAdmins/>
                 </Grid>
                 <Grid item  lg={10} md={10} xs={12}> 
+                <Box mt={3}>
+        <Card>
+          <CardContent>
+            <Box maxWidth={500}>
+              <TextField
+                fullWidth
+                placeholder="Buscar cliente"
+                variant="outlined"
+              />
+            </Box>
+          </CardContent>
+        </Card>
+      </Box>
                     <LoadCustomers/>
                 </Grid>
             </Grid>
