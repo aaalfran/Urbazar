@@ -19,7 +19,7 @@ function AboutUSComponent(){
             <div id="contenedor_ideas">
                 <div className="ideas odd">
                     <div className="imagen_descp">
-                        <img src={housing} alt="house" width="700px" height="300px"/>
+                        <img src={housing} alt="house" />
                     </div>
                     <div className="content">
                         <p>
@@ -42,13 +42,13 @@ function AboutUSComponent(){
                         </p>
                     </div>
                     <div className="imagen_descp">
-                        <img src={home} alt="house" width="700px" height="200px"/>
+                        <img src={home} alt="house" />
                     </div>
                 </div>
 
                 <div className="ideas odd">
                     <div className="imagen_descp">
-                    <img src={money} alt="house" width="700px" height="200px"/>
+                    <img src={money} alt="house"/>
                     </div>
                     <div className="content">
                         <p>

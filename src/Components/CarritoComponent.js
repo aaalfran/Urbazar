@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import ConfirmationComponent from './ConfirmationComponent';
 import '../css/CarritoComponent.css'
 import NavbarComponent from './navbarComponent';
-import Practica from './Practica';
+import Practica from './LoadProducts';
 import blusa from "../imagenes/producto2.jpg";
 import cupcake from "../imagenes/producto1.jpg";
 import celular from "../imagenes/producto3.jpg";

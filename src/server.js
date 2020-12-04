@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.get('/api/datos', async(req, res)=>{
     try{     
-        const data = require("./datos/datos.json")
+        const data = require("./datos/prueba3.json")
         res.json(data)
     }    
      
