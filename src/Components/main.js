@@ -1,4 +1,15 @@
 
+
+ function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+    if (window.location.href !== "http://localhost:3000/buscador" ) {
+        window.location.href = "http://localhost:3000/buscador"
+    }
+    
+  }
+    
+
 function filter(){
     let productos = document.getElementsByClassName("target")
     let input = document.getElementById("myInput")
@@ -20,5 +31,8 @@ function filter(){
 
 }
 
-export default filter;
+module.exports = {
+    filter,
+    handleClick
+  };
 
