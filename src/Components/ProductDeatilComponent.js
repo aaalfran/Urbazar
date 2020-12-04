@@ -1,27 +1,48 @@
 
 import cupcakes from "../imagenes/cupcakes.jpg";
-import React from "react";
+import React, {createElement, useState} from "react";
 import {Container} from 'reactstrap';
 
 import '../css/product.css'
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import NavbarComponent from "./navbarComponent";
+import ListaProductos from './ListaProductos';
 
 function ProductComponent() {
+
+    const [tweets, setTweet] = useState([])
+    let carrito = [];
+    console.log(carrito)
+    
+    let lista_productos = ListaProductos("http://localhost:4000/api/allproducts"); 
+
+    let url2 = window.location.href;
+    let temp = url2.split('/');
+    let id_producto = temp[4].toString();
+
+    let producto_selec = '';
+    lista_productos.map(producto => (producto.id === id_producto ? producto_selec = producto : console.log('no hay')));
+
+    const seleccionarProducto = id => {
+        const producto = lista_productos.filter(producto => producto.id === id);
+        carrito.push(producto[0]);
+        console.log(carrito);
+    }
+
+
     return (
         <>
     <NavbarComponent />
-    <Container>   
+    <Container className='cont_detail'>   
 
-        
         <div className="row justify-content-center">
             <div className="col-sm-6 col-12" id="imgContainer">
                 <div className="card mb-3" id="imgCard">
                     <div className="card-body">
-                      <h5 className="card-title">Cupcake de Vainilla</h5>
+                      <h5 className="card-title">{producto_selec.nombre}</h5>
                     </div>
                     <div id="card-body-img">
-                        <img src={cupcakes} className="card-img-bottom image" alt="Cupcakes"/>
+                        <img src={producto_selec.imagen} className="card-img-bottom image" alt="Cupcakes"/>
                     </div>
                   </div>
             </div>
@@ -36,27 +57,21 @@ function ProductComponent() {
                         </div>
                         <div className="col-6 text-right">
                             <p>
-                                Calificación {" "}
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star mr-auto'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star mr-auto'></i>
+                                Calificación: 
+                                <div id='estrellas_val'>
+                                    {producto_selec.valoracion} estrellas
+                                </div>
                                 </p>
                         </div>
                         <div className="col-12" id="productoDescripcion"> 
-                            <p>
-                                Cupcakes de vainilla 100% veganos sin glúten 120g, con glaseado de coco y grageas de colores.
-                                Cupcakes de vainilla 100% veganos sin glúten 120g, con glaseado de coco y grageas de colores.
-                            </p>
-                            
-                            
+                            <p>{producto_selec.descripcion}</p>                            
                         </div>
                         
                         <div className="col-6">
                             <h6>Distancia</h6>
                         </div>
                         <div className="col-6">
-                            <p>6 Etapas</p>
+                            <p>{producto_selec.id} Etapas</p>
                         </div>
                     </div>
                 </div>
@@ -68,22 +83,23 @@ function ProductComponent() {
                             <p>Precio</p>
                         </div>
                         <div className="col-6 text-right">
-                            <p>$1.50</p>
+                            <p>$ {producto_selec.precio}</p>
                         </div>
                         <div className="col-6">
                             <p>Cantidad</p>
                         </div>
                         <div className="col-6 text-right">
-                            <p>-2+</p>
+                            <p>-1+</p>
                         </div>
                         <div className="col-6" id="totlabel">
                             <p>Total</p>
                         </div>
                         <div className="col-6 text-right" id = "valtotlabel">
-                            <p>$3.00</p>
+                            <p>$ {producto_selec.precio}</p>
                         </div>
                         <div className="col-12 text-center">
-                            <button type="button" id="btnAgregarCarrito" className="btn btn-primary"><i className='fas fa-shopping-cart fa-lg'></i>{" "}Agregar a carrito</button>
+                            <button type="button" id="btnAgregarCarrito" className="btn btn-primary"
+                            onClick = { () => seleccionarProducto(id_producto)}><i className='fas fa-shopping-cart fa-lg'></i>{" "}Agregar a carrito</button>
                         </div>
                     </div>
                 </div>
@@ -91,45 +107,11 @@ function ProductComponent() {
             <div className="col-sm-6 col-12" id="productoComentarios">
                 <div className="container" id="productoTwoRight">
                     <div className="row justify-content">
-                        <div className="col-12">
+                        <div id='div_comentarios' className="col-12">
                             <h5>Comentarios</h5>
-                            
+                                <p>{producto_selec.comentarios}</p>
                         </div>
-                        <div className="col-6">
-                            <p><i className='fas fa-twitter mr-auto'></i>
-                            {" "}Muy ricos </p>
-                        </div>
-                        <div className="col-6">
-                            <p>
-                            <i className="far fa-star"></i>
-                            <i className="far fa-star"></i>
-                            <i className="far fa-star"></i>
-                            <i className="far fa-star"></i>
-                            </p>
-                        </div>
-                        <div className="col-12" id="productoTxtComentarios"> 
-                            <p>
-                                Quedaron muy suaves, a mis hijas les gustaron.Quedaron muy suaves, a mis hijas les gustaron.Quedaron muy suaves, a mis hijas les gustaron.Quedaron muy suaves, a mis hijas les gustaron.Quedaron muy suaves, a mis hijas les gustaron.Quedaron muy suaves, a mis hijas les gustaron.
-                            </p>
 
-                        </div>
-                        <div className="col-6">
-                            <p>
-                            <i className='fas fa-facebook mr-auto'></i>
-                            {" "}Un poco caros </p>
-                        </div>
-                        <div className="col-6">
-                            <p>
-                                <i className='far fa-star mr-auto'></i>
-                                <i className='far fa-star mr-auto'></i>
-                            </p>
-                        </div>
-                        <div className="col-12" id="productoTxtComentarios"> 
-                            <p>
-                                La verdad que hubiese preferido hacerlos yo.
-                            </p>
-
-                        </div>
                         
                     </div>
                 </div>
@@ -144,4 +126,16 @@ function ProductComponent() {
 
   }
   
+/* function anadirComentarios (array, elem){
+    console.log(array);
+    let contenedor = document.getElementById(elem); 
+    let temp;
+    for (let i = 0; i < array.length; i++){
+        temp = document.createElement('p');
+        temp.innerHTML = array[i];
+        //contenedor.appendChild(temp);
+    }
+    
+} */
+
   export default ProductComponent;

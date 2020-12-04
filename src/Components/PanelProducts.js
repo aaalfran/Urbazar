@@ -2,12 +2,44 @@ import React from 'react';
 import NavbarAdmins from "./navbarAdmins";
 import ToggleMenuAdmins from './TogglemenuAdmins';
 import LoadResource from './LoadResource';
+import {
+    Container,
+    Grid,
+    Box,
+    Card,
+    CardContent,
+    TextField
+  } from '@material-ui/core';
+
 function PanelProducts(){
     return(
         <>
         <NavbarAdmins />
-        <ToggleMenuAdmins/>
-        <LoadResource/>
+        <Container maxWidth="lg">
+            <Grid container direction="row" justify="flex-end" spacing={10}>
+                <Grid item lg={2} md={2} xs={0}> 
+                    <ToggleMenuAdmins/>
+                </Grid>
+                <Grid item  lg={10} md={10} xs={12}> 
+
+                <Box mt={3}>
+                    <Card>
+                    <CardContent>
+                        <Box maxWidth={500}>
+                        <TextField
+                            fullWidth
+                            placeholder="Buscar producto"
+                            variant="outlined"
+                        />
+                        </Box>
+                    </CardContent>
+                    </Card>
+                </Box>
+
+                    <LoadResource/>
+                </Grid>
+            </Grid>
+        </Container>
         </>
     );
 }

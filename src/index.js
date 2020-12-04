@@ -29,7 +29,7 @@ ReactDOM.render(
       <Route path="/registro" exact component={Register}/>
       <Route path="/" exact component={MainComponent}/>
       <Route path="/carrito" exact component={CarritoComponent}/>
-      <Route path="/productdetail" exact component={ProductComponent}/>
+      <Route path="/productdetail/:id" exact component={ProductComponent}/>
       <Route path="/categoria" exact component={CategoriaComponent}/>
       <Route path="/contactanos" exact component={ContactanosComponent}/>
       <Route path="/devs" exact component={DesarrolladoresComponent}/>

@@ -4,6 +4,7 @@ import NavbarComponent from './navbarComponent';
 import '../css/Desarrolladores.css'
 import bryan_photo from '../imagenes/bryan.jpeg'
 import betsy_photo from '../imagenes/betsy.jpeg'
+import karla_photo from '../imagenes/karla.png'
 
 function DesarrolladoresComponent(){    
     const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +24,10 @@ function DesarrolladoresComponent(){
             
             <div id="container_devs">
                 <div id="dev_1" className="desarrollador col-md-6">
-                    <img src={betsy_photo} alt="Karla Durán"/>
+                    <img src={karla_photo} alt="Karla Durán"/>
                     <p className="nombre_dev"> Karla Durán </p>
-                    <p className="Description"> Estudiante de Ing. en Ciencias Computacionales en <a href="http://www.espol.edu.ec/">ESPOL</a><br/></p> 
+                    <p className="Description"> Estudiante de Ing. en Ciencias Computacionales en <a href="http://www.espol.edu.ec/">ESPOL</a><br/>
+                                                e-mail: kaduran@espol.edu.ec</p> 
                 </div>
 
                 <div id="dev_2" className="desarrollador col-md-6">

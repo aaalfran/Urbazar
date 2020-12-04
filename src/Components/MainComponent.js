@@ -8,6 +8,7 @@ import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import introJs from 'intro.js';
 import LoadProducts from "./LoadProducts";
 
+
 function Main() {
   introJs().start();
   const src_kitten ='https://static.toiimg.com/photo/msid-68523832/68523832.jpg?1137762';
