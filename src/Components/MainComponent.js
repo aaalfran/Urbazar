@@ -60,7 +60,7 @@ function Main() {
       </section>
 
       {/* contenido productos */}
-      <section dclassName='productos_container'>
+      <section className='productos_container'>
         <div className='list_productos' >
           <h6 data-intro='¡Bienvenido a UrbazAp! En esta sección puedes encontrar
               prodcutos recientes en el catálogo' >Recientes</h6>
