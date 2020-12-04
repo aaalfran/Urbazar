@@ -6,7 +6,7 @@ const CategoriaComponent = ({isToggle}) => {
     return ( 
     <>
         {/* Categorías */}
-        <Nav className={`${isToggle ? 'menu_cat_toggle' : 'nav_categorias'}`}>
+        <Nav data-intro="Utiliza filtros para encontrar más rápido lo que buscas" className={`${isToggle ? 'menu_cat_toggle' : 'nav_categorias'}`}>
         <NavItem>
           <NavLink href='#'>
           <i className='icon_cat fas fa-home'></i>

@@ -9,7 +9,7 @@ const Producto = ({nombre, precio, foto_src}) => {
     return (  
         <div className='slide_product'> 
             {/* importar card */}
-            <Card className="card_product">
+            <Card>
                 <CardImg className="img" top width='100%' src={foto_src} alt={nombre} />
                 <CardBody>
                     <CardTitle tag='h5'>{nombre}</CardTitle>

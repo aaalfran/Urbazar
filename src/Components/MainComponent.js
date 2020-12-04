@@ -47,7 +47,8 @@ function Main() {
   return (
     <>
       <head>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/introjs.min.css" integrity="sha512-631ugrjzlQYCOP9P8BOLEMFspr5ooQwY3rgt8SMUa+QqtVMbY/tniEUOcABHDGjK50VExB4CNc61g5oopGqCEw==" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@3.1.0/themes/introjs-nassim.min.css"/>
        </head>
       <NavbarComponent />
       <CategoriaComponent isToggle={false}/>
@@ -61,9 +62,9 @@ function Main() {
       </section>
 
       {/* contenido productos */}
-      <section dclassName='productos_container'>
+      <section className='productos_container'>
         <div className='list_productos' >
-          <h6 data-intro='¡Bienvenido a UrbazAp! En esta sección puedes encontrar
+          <h6 data-intro='En esta sección puedes encontrar
               prodcutos recientes en el catálogo' >Recientes</h6>
           <hr className="my-2" />
           <div className='productos'>
