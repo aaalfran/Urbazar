@@ -18,7 +18,7 @@ const NavbarComponent = () => {
           setIsOpen={setIsOpen}
         />
 
-        <NavbarBrand href='/' className='logo'>UrbazApp</NavbarBrand>
+        <NavbarBrand  href='/' className='logo'>UrbazApp</NavbarBrand>
         <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
 
         <form className='mr-auto search_form'>
@@ -30,7 +30,7 @@ const NavbarComponent = () => {
         <p id='nombre_user'>Walther López</p>
 
         <button type='button' className='button_nav'><i className='fas fa-bell fa-lg'></i></button>
-        <button type='button' className='button_nav'><i className='fas fa-shopping-cart fa-lg'></i> </button>
+        <button type='button' className='button_nav' href='/carrito'><i className='fas fa-shopping-cart fa-lg'></i> </button>
 
       </Navbar>
 

@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ConfirmationComponent from './ConfirmationComponent';
 import '../css/CarritoComponent.css'
 import NavbarComponent from './navbarComponent';
+import Practica from './Practica';
 import blusa from "../imagenes/producto2.jpg";
 import cupcake from "../imagenes/producto1.jpg";
 import celular from "../imagenes/producto3.jpg";
@@ -10,7 +11,7 @@ import zapatos from "../imagenes/producto4.jpg";
 import visa from "../imagenes/visa.png";
 import mastercard from "../imagenes/mastercard.png";
 import paypal from "../imagenes/paypal.png";
-import { Label, Input, Button, FormGroup, Modal} from 'reactstrap';
+import { Label, Input, Button, Modal} from 'reactstrap';
 
 function CarritoComponent(){
     const [liveDemo, setLiveDemo] = React.useState(false);
@@ -18,7 +19,8 @@ function CarritoComponent(){
             <html>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-                </head>
+                <script type="text/script" src="./Practica.js"></script>
+            </head>
             <body>
 
                 <NavbarComponent/>
@@ -185,6 +187,8 @@ function CarritoComponent(){
                                 <div id="btn_continue">
                                     <Button type="button" onClick={() => setLiveDemo(true)}> Confirmar </Button>
                                 </div>
+                                <Practica/>
+                            
                                 <Modal isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
                                     <div className="modal-header">
                                     <h5 className="modal-title" id="ConfirmationModel">
@@ -235,6 +239,8 @@ function CarritoComponent(){
                         </div>
                     </section>
                 </div>
+
+           
             </body>
             </html>
         );
