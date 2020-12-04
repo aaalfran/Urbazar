@@ -78,8 +78,6 @@ function CarritoComponent(){
                                 </div>
                             </div>
                         </div>
-
-
                         <div id="tarjeta3" className="producto media">
                             <div className="foto_producto align-self-center mr-3">
                                 <img src={celular} />
