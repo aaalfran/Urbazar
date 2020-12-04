@@ -13,6 +13,7 @@ import ContactanosComponent from './Components/ContactanosComponent';
 import DesarrolladoresComponent from './Components/DesarrolladoresComponent';
 import AboutUsComponent from './Components/AboutUSComponent';
 import testJSON from './Components/testJSON';
+import GraphComponent from './Components/GraphComponent';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Route path="/devs" exact component={DesarrolladoresComponent}/>
       <Route path="/aboutus" exact component={AboutUsComponent}/>
       <Route path="/test" exact component={testJSON}/>
+      <Route path="/admin/dashboard" exact component={GraphComponent}/>
 
     </Router>
   </React.StrictMode>,

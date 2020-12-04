@@ -1,6 +1,6 @@
 [ 
   { 
- "id": "1",
+ "id": "14",
   "nombre": "El principito",
 "precio": "2",
 "descripcion": "Libro \"El principito\" ideal para niños y jóvenes. El libro está en buen estado",
@@ -9,7 +9,7 @@
 "comentarios": ["Muy buen libro, y a un excelente precio"]
 },
 {
-"id": "2",
+"id": "15",
 "nombre": "Mouse",
 "precio": "12",
 "descripcion": "Mouse inalámbrico color negro, ideal para trabajar sobre toda superficie.",
@@ -19,7 +19,7 @@
 },
   
 {
-"id": "3",
+"id": "16",
 "nombre": "Casco de moto",
 "precio": "23",
 "descripcion": "Vendo casco de moto, tiene poco tiempo de uso, tengo en color negro y blanco",
@@ -28,7 +28,7 @@
 "comentarios": ["Buen producto, y el precio es bastante accesible"]
 } ,
 {
-"id": "4",
+"id": "17",
 "nombre": "Sueter",
 "precio": "5,00",
 "descripcion": "Sueter de lana, color rojo. Ideal para estos días lluviosos.",
@@ -37,7 +37,7 @@
 "comentarios": ["Lindo Sueter, me parece bastante comodo."]
 },
 {
-  "id": "5",
+  "id": "18",
   "nombre": "Luna humidificadora",
   "precio": "9,00",
   "descripcion": "Luna humidificadora para el hogar, tiene un aroma especial, pero puede elegir el que se acople a su gusto. Brilla en la obscuridad",
@@ -46,7 +46,7 @@
   "comentarios": ["Esta luna está muy bonita y sirve como adorno para el cuarto"]
 },
 {
-    "id": "6",
+    "id": "19",
   "nombre": "Arreglo floral",
   "precio": "20",
   "descripcion": "Arreglos florales para toda ocasión, realizamos el arreglo que más le guste.",
@@ -56,7 +56,7 @@
 },
 
 {
-    "id": "7",
+    "id": "20",
   "nombre": "Alcohol",
   "precio": "34",
   "descripcion": "Vendo alcohol antiséptico por galones o litros.",

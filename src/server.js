@@ -53,3 +53,25 @@ app.get('/api/productos4', async(req, res)=>{
     }
     
 })
+
+app.get('/api/elprincipito', async(req, res)=>{
+    try{     
+        const data = require("./datos/elprincipito.json")
+        res.json(data)
+    }        
+    catch{
+        console.log("Error")
+    }
+    
+})
+
+app.get('/api/allproducts', async(req, res)=>{
+    try{     
+        const data = require("./datos/ProductosAll.json")
+        res.json(data)
+    }        
+    catch{
+        console.log("Error")
+    }
+    
+})
