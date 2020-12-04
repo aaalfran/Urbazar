@@ -18,6 +18,8 @@ import MainAdmins from './Components/MainAdmins';
 import PanelProducts from './Components/PanelProducts';
 import AccountComponent from './ComponentsAdmins/Account/Account';
 import ClientesComponent from './Components/ClientesComponent';
+import MapComponent from './Components/MapComponent';
+import CatalogoComponent from './Components/CatalogoComponent';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -38,6 +40,8 @@ ReactDOM.render(
       <Route path="/admin/dashboard/panel" exact component={PanelProducts}/>
       <Route path="/admin/dashboard/account" exact component={AccountComponent}/>
       <Route path="/admin/dashboard/customer" exact component={ClientesComponent}/>
+      <Route path="/admin/dashboard/map" exact component={MapComponent}/>
+      <Route path="/buscador" exact component={CatalogoComponent}/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,12 +1,12 @@
 
-let filter = ()=>{
-    let productos = document.getElementsByClassName("slide_product")
+function filter(){
+    let productos = document.getElementsByClassName("target")
     let input = document.getElementById("myInput")
     let inputText = input.value
     for (let i=0; i< productos.length; i++){
         let producto = productos[i]      
 
-        let nombre_producto = producto.querySelector("#nameme_product")
+        let nombre_producto = producto.querySelector("#name_product")
         let texto = nombre_producto.textContent
         
         
@@ -20,7 +20,5 @@ let filter = ()=>{
 
 }
 
-document.addEventListener('keyup', function() {
-    filter()
-    console.log("HOLa")
-})
+export default filter;
+

@@ -15,5 +15,14 @@
 #content{
     width: 80%;
     float: right;
-    padding-right: 10%;
+}
+
+iframe{
+    width: 100%;
+    border: none;
+    min-height: 100%;
+}
+
+.mapa{
+    min-height: 100%;
 }

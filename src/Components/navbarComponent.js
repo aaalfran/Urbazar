@@ -3,7 +3,8 @@ import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
 import ToggleMenu from './ToggleMenu'
 import '../css/MainComponent.css';
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import CarritoComponent from './CarritoComponent';
+import filter from './main.js';
+import CatalogoComponent from './CatalogoComponent';
 
 const NavbarComponent = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ const NavbarComponent = () => {
         <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
 
         <form className='mr-auto search_form'>
-          <input id="myInput" data-intro="Busca productos de tu interés" type='text' placeholder='Buscar...' name='search'/>
+          <input id="myInput"  onMouseDown={CatalogoComponent} onKeyUp={filter} data-intro="Busca productos de tu interés" type='text' placeholder='Buscar...' name='search'/>
           <button type='submit'><i className='fas fa-search mr-auto'></i></button>
         </form>
 

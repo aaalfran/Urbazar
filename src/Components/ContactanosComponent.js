@@ -1,23 +1,20 @@
 import Datetime from 'react-datetime';
-import 'intro.js/introjs.css';
 import NavbarComponent from './navbarComponent';
 import { Card, CardTitle, CardBody } from 'reactstrap';
-import introJs from 'intro.js';
-
-import '../css/ContactanosComponent.css'
+import '../css/ContactanosComponent.css';
 import "react-datetime/css/react-datetime.css";
 
 
 
 function ContactanosComponent(){        
-    introJs().start();
+ 
       
     return (
         <html>      
             <head>
             <meta name="author" content="Beescript"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/introjs-rtl.min.css" integrity="sha512-CBhAm6vyK8E1WXomkztwQZ4Lq9mHE1PjWWXOICo5S5/deArabmCDoytC4+on0xxMdGhWJHBRTQdozFwZb9saYw==" crossorigin="anonymous" />
+           
             </head> 
        <body>
             <NavbarComponent/>
@@ -96,7 +93,7 @@ function ContactanosComponent(){
             </div>
 
             
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/intro.min.js" integrity="sha512-8HbqTH7QzK30vhgVF/hTJ4loXwV85UU9vjI4nK04AfdOFzl8zG7b3LLAEHDmvIM8I0rvserMXmQx4Hw+kRknjw==" crossorigin="anonymous"></script>
+        
        </body>
         </html>
     );
