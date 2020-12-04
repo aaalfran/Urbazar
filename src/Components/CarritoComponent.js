@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import ConfirmationComponent from './ConfirmationComponent';
+
 import '../css/CarritoComponent.css'
 import NavbarComponent from './navbarComponent';
 import blusa from "../imagenes/producto2.jpg";

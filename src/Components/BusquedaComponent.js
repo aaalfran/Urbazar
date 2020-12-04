@@ -10,6 +10,8 @@ import {
     makeStyles
   } from '@material-ui/core';
 
+  import '../css/buscador.css'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,7 +41,7 @@ function useLoadResource(){
 
         <Grid
           container
-          spacing={5}
+          spacing={1}
           direction="row"
           justify="center"
         >
@@ -49,9 +51,8 @@ function useLoadResource(){
             {productos.map(producto => (<>
                 <Grid
                     item
-                    lg={3}
-                    md = {6}
-                    xs={12}>
+                    lg= {3}
+                   >
                             <Card className={classes.root}>
                             <CardHeader id="name_product"
             
