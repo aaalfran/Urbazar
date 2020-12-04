@@ -6,6 +6,24 @@
   position: relative;
   width: 45%;
 }
+.slide_product CardImg{
+  -webkit-transition:all .9s ease;
+  width: 100%;
+}
+.slide_product .img{
+  transition:all .9s ease; 
+  width:100%;
+  }
+  .slide_product:hover .img {
+  transform:scale(1.25);
+  transform:scale(1.25);
+  cursor: pointer;
+  }
+  .slide_product {
+  width:300px;
+  height:180px;
+  overflow:hidden;
+  }
 
 .search_form > input {
   border-radius: 5px;

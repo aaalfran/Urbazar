@@ -12,7 +12,9 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
         menu.style.overflow = 'auto';
     }
 
-    return ( <>
+    return ( 
+    
+    <>
         {isOpen ?  
         <div className='toggleMenu' style={{transform: isOpen ? 'translateX(0px)' : 'translateX(-100%)', transition: '0.3s'}}>
             <div className='toggleTitulo'>
@@ -25,7 +27,7 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                     <i className="fas fa-user-circle fa-2x"></i>
                 </div>
                 <div id='perfilTags'>
-                    <p id='toggleNombre'>Walther López </p>
+                    <p id='toggleNombre'>Walther López</p>
                     <p id='toggleTipoUser'>Comprador</p>
                 </div>
             </div>
@@ -45,8 +47,8 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                 <a href='/devs'><i class="fas fa-user-alt"></i>Equipo de desarrollo</a>
                 <a href='/contactanos'><i class="fas fa-cog"></i>Contactanos</a>
                 <a href='/aboutus'><i class="fas fa-exclamation-circle"></i>¿Qué hacemos?</a>                
-                </div>
                 <br/>
+            </div>
             <div className='toggleCerrarSesion'>
                 <a id='btn_cerrarSesion' href='/login' ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
             </div>
@@ -54,9 +56,12 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
             
         </div>      
                 
-        : console.log('menu cerrado') }
+        : 
+        console.log('menu cerrado') }
         
-    </> );
+    </>
+  
+    );
 }
  
 export default ToggleMenu;
