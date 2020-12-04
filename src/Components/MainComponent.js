@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import Producto from './Producto';
 import NavbarComponent from './navbarComponent';
 import CategoriaComponent from './CategoriaComponent';
@@ -6,7 +6,7 @@ import { UncontrolledCarousel, Col } from 'reactstrap';
 import '../css/MainComponent.css';
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import introJs from 'intro.js';
-import Practica from "./Practica";
+import LoadProducts from "./LoadProducts";
 
 function Main() {
   introJs().start();
@@ -67,32 +67,28 @@ function Main() {
               prodcutos recientes en el catálogo' >Recientes</h6>
           <hr className="my-2" />
           <div className='productos'>
-          <Practica/>
-            
+            <LoadProducts/>
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='Elige entre los productos más destacados de la Urbanización.'>Lo más destacado</h6>
           <hr className="my-2" />
           <div className='productos'>
-            <Practica/>
-            
+            <LoadProducts/>
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='¿Por qué ir tan lejos? Encuentra productos cerca de tu ubicación.'>Cerca de ti</h6>
           <hr className="my-2" />
           <div className='productos'>
-            <Practica/>
-            
+            <LoadProducts/>
           </div>
         </div>
         <div className='list_productos'>
           <h6  data-intro='No te pierdas las promociones que UrbazApp tiene para ti.'>Promociones</h6>
           <hr className="my-2" />
           <div className='productos'>
-            <Practica/>
-            
+            <LoadProducts/>
           </div>
         </div>
       </section>
