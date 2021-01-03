@@ -22,11 +22,34 @@ function ProductComponent() {
 
     let producto_selec = '';
     lista_productos.map(producto => (producto.id === id_producto ? producto_selec = producto : console.log('no hay')));
-
     const seleccionarProducto = id => {
         const producto = lista_productos.filter(producto => producto.id === id);
-        carrito.push(producto[0]);
-        console.log(carrito);
+        let p = producto[0]
+        p.cantidad = 1
+        
+        if(localStorage.getItem("carrito")){
+            let inCarrito = false;
+            let data = JSON.parse(localStorage.getItem("carrito"))
+            for(let j of data.carrito){
+                if(p.id == j.id){
+                    j.cantidad = j.cantidad + 1;
+                    inCarrito = true;
+                    break;
+                }
+            }
+            if(!inCarrito){
+                data.carrito.push(p)
+            }
+            
+            localStorage.setItem("carrito",JSON.stringify(data))
+        }
+        else{
+            
+            localStorage.setItem("carrito",JSON.stringify({"carrito":[p]}))
+        }
+        
+
+        
     }
 
 
@@ -125,6 +148,7 @@ function ProductComponent() {
     );
 
   }
+
   
 /* function anadirComentarios (array, elem){
     console.log(array);

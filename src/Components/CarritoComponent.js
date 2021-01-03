@@ -11,6 +11,83 @@ import visa from "../imagenes/visa.png";
 import mastercard from "../imagenes/mastercard.png";
 import paypal from "../imagenes/paypal.png";
 import { Label, Input, Button, Modal} from 'reactstrap';
+import CarritoDetalle from "./CarritoDetalle"
+
+
+
+
+let Productos = () =>{
+
+    if(localStorage.getItem("carrito")){
+        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
+        var productLista = jsonCarro.carrito;
+        var listaComponent = []
+        
+       
+        for (var i = 0; i < productLista.length; i++) {
+            let nombre = productLista[i].nombre;
+            let precio = productLista[i].precio;
+            let imagen = productLista[i].imagen;
+            let desc = productLista[i].descripcion;
+            let cant = productLista[i].cantidad;
+            listaComponent.push(<CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
+                descripcion={desc} cantidad={cant} />)
+        }
+        console.log("hola")
+        return(<div>{listaComponent}</div>)
+    }
+    else{
+        return(<h1>No hay items</h1>);
+
+    
+    }
+}
+
+let Resumen = () =>{
+
+    let listaLi = []
+    if(localStorage.getItem("carrito")){
+        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
+        var productLista = jsonCarro.carrito;
+        for (var i = 0; i < productLista.length; i++) {
+            let nombre = productLista[i].nombre;
+            listaLi.push(<li>{nombre}</li>)
+        }
+        return(
+        <ol>
+            {listaLi}
+            <li><strong>Precio Total:</strong></li>
+        </ol>
+        );
+    }
+    else{
+        return(<p></p>)
+    }
+}
+
+let Precio = () =>{
+
+    let listaLi = []
+    if(localStorage.getItem("carrito")){
+        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
+        var productLista = jsonCarro.carrito;
+        let precioTotal = 0;
+        for (var i = 0; i < productLista.length; i++) {
+            let precio = parseFloat(productLista[i].precio) * productLista[i].cantidad;
+            precioTotal = precioTotal + precio;
+            listaLi.push(<li>{precio}</li>)
+        }
+        return(
+        <ul>
+            {listaLi}
+            <li><strong>{precioTotal}</strong></li>
+        </ul>);
+    }
+    else{
+        return(<p></p>)
+    }
+
+}
 
 const CarritoComponent = () => {
     const [liveDemo, setLiveDemo] = React.useState(false);
@@ -27,106 +104,8 @@ const CarritoComponent = () => {
 
                 <div id="main">
                     <section id="productos_detail" className="col-md-8">
-                    
-
-                        <div className="producto media" id="tarjeta1">
-                            <div className="foto_producto align-self-center mr-3">
-                                <img src={blusa} />
-                            </div>
-                            <div className="descripcion">
-                                <div>
-                                    <h5>Blusa de algodón</h5>
-                                </div>
-                                <div className="detail_body">
-                                    <div>
-                                        <p>
-                                            Blusa 100% algodón tela importada. Estampados de diferentes colores. Talla S, M y L.
-                                        </p>
-                                    </div>
-                                    <div className="valor">
-                                       <h3> $5 </h3>
-                                    </div>
-                                </div>
-                                <div>
-                                    <strong>Vendedor:</strong> Xavier Montaño<br/>
-                                    Cantidad: 1
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tarjeta2" className="producto media">
-                            <div className="foto_producto align-self-center mr-3">
-                                <img src={cupcake} />
-                            </div>
-                            <div className="descripcion">
-                                <div>
-                                    <h5>Cupcakes de vainilla</h5>
-                                </div>
-                                <div className="detail_body">
-                                    <div>
-                                        <p>
-                                            Cupcakes recién horneados sabor a Vainilla. A la venta la caja de 12 unidades.
-                                        </p>
-                                    </div>
-                                    <div className="valor">
-                                       <h3> $2.50 </h3>
-                                    </div>
-                                </div>
-                                <div>
-                                <strong>Vendedor:</strong> Carolina Cabeza<br/>
-                                    Cantidad: 2
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tarjeta3" className="producto media">
-                            <div className="foto_producto align-self-center mr-3">
-                                <img src={celular} />
-                            </div>
-                            <div className="descripcion">
-                                <div>
-                                    <h5>Samsung J5 pro</h5>
-                                </div>
-                                <div className="detail_body">
-                                    <div>
-                                        <p>
-                                        Samsung J5 pro 2019. Excelentes condiciones. Almacenamiento de 32G 250px
-                                        </p>
-                                    </div>
-                                    <div className="valor">
-                                       <h3> $195 </h3>
-                                    </div>
-                                </div>
-                                <div>
-                                <strong>Vendedor:</strong> Carlos Zapata<br/>
-                                    Cantidad: 2
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tarjeta4" className="producto media">
-                            <div className="foto_producto align-self-center mr-3">
-                                <img src={zapatos} />
-                            </div>
-                            <div className="descripcion">
-                                <div>
-                                    <h5>Zapatos Nike runs</h5>
-                                </div>
-                                <div className="detail_body">
-                                    <div>
-                                        <p>
-                                            Zapatos americanos marca Nike, excelentes condiciones. Tallas 40 y 42.
-                                        </p>
-                                    </div>
-                                    <div className="valor">
-                                       <h3> $52.00 </h3>
-                                    </div>
-                                </div>
-                                <div>
-                                <strong>Vendedor:</strong> Diana Peralta<br/>
-                                    Cantidad: 1
-                                </div>
-                            </div>
-                        </div>
+                        <Productos />
+                        
                     </section>
                     <section id="info_detail" className="col-md-4"> 
                         <div id="contenedor_info">
@@ -135,22 +114,10 @@ const CarritoComponent = () => {
                             </div>
                             <div className="Cuenta">
                                 <div id="lista_pedidos" >
-                                    <ol>
-                                        <li>  Blusa de algodón </li>
-                                        <li>  Cupcakes de vainilla </li>
-                                        <li>  Samsung J5 pro </li>
-                                        <li>  Zapatos Nike run  </li>
-                                        <strong><li>  Total a pagar  </li></strong>
-                                    </ol>                                
+                                    <Resumen />                              
                                 </div>   
                                 <div id="precios">
-                                <ul>
-                                        <li>5.00  </li>
-                                        <li>2.50  </li>
-                                        <li>195.00  </li>
-                                        <li>52.00  </li>
-                                        <strong><li>  257.50  </li></strong>
-                                    </ul>          
+                                    <Precio />        
                                 </div>                             
                             </div>
                             <div id="Pago">                                
