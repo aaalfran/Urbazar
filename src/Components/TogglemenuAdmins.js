@@ -8,7 +8,7 @@ const ToggleMenuAdmin = () => {
     
     <>
         
-        <div className='toggleMenu col-2'  style={{transform: 'translateX(0px)' , transition: '0.3s'}}>
+        <div className='toggleMenu toggle_admin col-2'  style={{transform: 'translateX(0px)' , transition: '0.3s'}}>
                       
             
             <div className='toggleContenido'>      
