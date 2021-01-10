@@ -4,7 +4,7 @@ let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
     return(
     <Container className="productoContenedor">
         <Row className="align-items-center px-5">
-            <Col sm="11">
+            <Col sm="10">
                 <div className="producto media" id="tarjeta1">
                     <div className="foto_producto align-self-center mr-3">
                         <img src={src} />
@@ -28,9 +28,9 @@ let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
                     </div>
                 </div>
             </Col>
-            <Col sm="1">
+            <Col sm="2">
                 <div className="valor">
-                    <h3> {precio} </h3>
+                    <h3> ${precio} </h3>
                 </div>
             </Col>
 

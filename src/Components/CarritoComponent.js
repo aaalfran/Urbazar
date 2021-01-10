@@ -33,7 +33,7 @@ let Productos = () =>{
         return(<div>{listaComponent}</div>)
     }
     else{
-        return(<h1 className="vacio">Carrito Vacío</h1>);
+        return(<h1 className="vacioCarrito">Carrito Vacío</h1>);
 
     
     }
