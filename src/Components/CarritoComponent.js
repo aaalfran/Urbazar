@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 
 
 import '../css/CarritoComponent.css'
 import NavbarComponent from './navbarComponent';
-import blusa from "../imagenes/producto2.jpg";
-import cupcake from "../imagenes/producto1.jpg";
-import celular from "../imagenes/producto3.jpg";
-import zapatos from "../imagenes/producto4.jpg";
 import visa from "../imagenes/visa.png";
 import mastercard from "../imagenes/mastercard.png";
 import paypal from "../imagenes/paypal.png";
@@ -37,7 +33,7 @@ let Productos = () =>{
         return(<div>{listaComponent}</div>)
     }
     else{
-        return(<h1>No hay items</h1>);
+        return(<h1 className="vacio">Carrito Vacío</h1>);
 
     
     }
@@ -46,18 +42,34 @@ let Productos = () =>{
 let Resumen = () =>{
 
     let listaLi = []
+    
+
     if(localStorage.getItem("carrito")){
         const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
         var productLista = jsonCarro.carrito;
+        let precioTotal = 0;
         for (var i = 0; i < productLista.length; i++) {
             let nombre = productLista[i].nombre;
-            listaLi.push(<li>{nombre}</li>)
+            let precio = parseFloat(productLista[i].precio) * productLista[i].cantidad;
+            precioTotal = precioTotal + precio;
+            listaLi.push(<tr>
+                <td>{nombre}</td>
+                <td>${precio}</td>
+            </tr>)
         }
+        localStorage.setItem("precio",precioTotal)
         return(
-        <ol>
+
+        <table className="w-100">
+            <tr>
+                <th>Productos</th>
+                <th>Precio</th>
+            </tr>
             {listaLi}
-            <li><strong>Precio Total:</strong></li>
-        </ol>
+            <tr>
+                <td colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
+            </tr>
+        </table>
         );
     }
     else{
@@ -65,33 +77,11 @@ let Resumen = () =>{
     }
 }
 
-let Precio = () =>{
 
-    let listaLi = []
-    if(localStorage.getItem("carrito")){
-        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
-        var productLista = jsonCarro.carrito;
-        let precioTotal = 0;
-        for (var i = 0; i < productLista.length; i++) {
-            let precio = parseFloat(productLista[i].precio) * productLista[i].cantidad;
-            precioTotal = precioTotal + precio;
-            listaLi.push(<li>{precio}</li>)
-        }
-        return(
-        <ul>
-            {listaLi}
-            <li><strong>{precioTotal}</strong></li>
-        </ul>);
-    }
-    else{
-        return(<p></p>)
-    }
-
-}
 
 const CarritoComponent = () => {
     const [liveDemo, setLiveDemo] = React.useState(false);
-
+    
     return ( 
         <html>
             <head>
@@ -112,13 +102,8 @@ const CarritoComponent = () => {
                             <div id="title_detail">
                                <h3> Resumen </h3>
                             </div>
-                            <div className="Cuenta">
-                                <div id="lista_pedidos" >
-                                    <Resumen />                              
-                                </div>   
-                                <div id="precios">
-                                    <Precio />        
-                                </div>                             
+                            <div>
+                                <Resumen />                            
                             </div>
                             <div id="Pago">                                
                                  Método de pago 
@@ -169,7 +154,7 @@ const CarritoComponent = () => {
                                     </button>
                                     </div>
                                     <div className="modal-body">
-                                    <p>Se descontará de su cuenta el saldo de $257.50<br/>
+                                    <p>Se descontará de su cuenta el saldo de ${localStorage.getItem("precio")}<br/>
                                         ¿Está seguro que desea realizar esta compra?
                                     </p>
                                     </div>
@@ -191,7 +176,14 @@ const CarritoComponent = () => {
                                         className="btn-link"
                                         type="button"
                                         id="btn_confModal"
-                                        onClick={() => setLiveDemo(false)}
+                                        onClick={() => {
+                                            setLiveDemo(false);
+                                            localStorage.setItem("carrito","")
+                                            localStorage.setItem("precio",0)
+                                            
+                                        }
+                                        
+                                        }
                                         >
                                         Aceptar
                                         </Button>

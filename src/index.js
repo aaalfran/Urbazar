@@ -28,6 +28,9 @@ const Index = () =>{
     if(!localStorage.getItem("carrito")){
       localStorage.setItem("carrito","")
     }
+    if(!localStorage.getItem("precio")){
+      localStorage.setItem("precio",0)
+    }
   
   })
 
