@@ -187,10 +187,17 @@
   white-space: nowrap;
   overflow: auto;
 }
+/*.productos::-webkit-scrollbar{
+  width: 0;
+}*/
 
 .slide_product {
   margin: 0;
   display: inline-block;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding: 8px 5px 0px
 }
 
 .slide_product img {
