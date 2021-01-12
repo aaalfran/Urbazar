@@ -12,7 +12,7 @@ import banner7 from '../imagenes/ban7.png';
 import banner9 from '../imagenes/ban9.png';
 
 function Main() {
-  introJs().start();
+  //introJs().start();
   
   /* banner items */
   const items = [

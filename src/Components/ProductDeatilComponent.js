@@ -1,8 +1,9 @@
 
-import cupcakes from "../imagenes/cupcakes.jpg";
+
 import React, {createElement, useState} from "react";
 import {Container} from 'reactstrap';
-
+import {LoadStars, LoadComentarios} from './LoadResourcesProducts';
+import {UncontrolledCarousel} from 'reactstrap';
 import '../css/product.css'
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import NavbarComponent from "./navbarComponent";
@@ -10,7 +11,6 @@ import ListaProductos from './ListaProductos';
 
 function ProductComponent() {
 
-    const [tweets, setTweet] = useState([])
     let carrito = [];
     console.log(carrito)
     
@@ -52,7 +52,6 @@ function ProductComponent() {
         
     }
 
-
     return (
         <>
     <NavbarComponent />
@@ -62,10 +61,11 @@ function ProductComponent() {
             <div className="col-sm-6 col-12" id="imgContainer">
                 <div className="card mb-3" id="imgCard">
                     <div className="card-body">
-                      <h5 className="card-title">{producto_selec.nombre}</h5>
+                      <h5 className="card-title name_product">{producto_selec.nombre}</h5>
                     </div>
                     <div id="card-body-img">
-                        <img src={producto_selec.imagen} className="card-img-bottom image" alt="Cupcakes"/>
+                        {/*<UncontrolledCarousel items={producto_selec.imagen} className="card-img-bottom image"/>*/}
+                        <img src={producto_selec.imagen} className="card-img-bottom image" />
                     </div>
                   </div>
             </div>
@@ -82,7 +82,7 @@ function ProductComponent() {
                             <p>
                                 Calificación: 
                                 <div id='estrellas_val'>
-                                    {producto_selec.valoracion} estrellas
+                                   <LoadStars estrellas={producto_selec.valoracion}/>
                                 </div>
                                 </p>
                         </div>
@@ -96,9 +96,38 @@ function ProductComponent() {
                         <div className="col-6">
                             <p>{producto_selec.id} Etapas</p>
                         </div>
+                        <div className="col-12" id="cont_comentarios">
+                            <h5>Comentarios</h5>
+                            <div data-list="[producto_selec.comentarios]" id="comentarios">
+                            </div>
+                           {/*} <script> 
+                                {
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        var div_com = document.getElementById("comentarios");
+                                        var array = div_com.dataset.list;
+                                        let ul = document.createElement("ul");
+                                        let comns = producto_selec.comentarios;
+                                        for (let c of array){
+                                            let li = document.createElement("li");
+                                            li.textContent= c;
+                                            ul.appendChild(li)
+                                        }
+                                        div_com.appendChild(ul)
+                                })
+                                }
+                            </script>*/}
+                           {/*<LoadComentarios comentarios={producto_selec.comentarios} />*/}
+                            <ul>
+                                {producto_selec.comentarios}
+                            </ul>
+                            
+                        </div>  
                     </div>
                 </div>
             </div>
+
+            
+
             <div className="col-sm-6 col-12" id="productoPreFactura">
                 <div className="container" id="productoTwoLeft">
                     <div className="row justify-content">
@@ -127,21 +156,9 @@ function ProductComponent() {
                     </div>
                 </div>
             </div>
-            <div className="col-sm-6 col-12" id="productoComentarios">
-                <div className="container" id="productoTwoRight">
-                    <div className="row justify-content">
-                        <div id='div_comentarios' className="col-12">
-                            <h5>Comentarios</h5>
-                                <p>{producto_selec.comentarios}</p>
-                        </div>
-
-                        
-                    </div>
-                </div>
-            </div>
+            
 
           </div>
-  
     </Container>
         </>
 
@@ -161,5 +178,6 @@ function ProductComponent() {
     }
     
 } */
+
 
   export default ProductComponent;

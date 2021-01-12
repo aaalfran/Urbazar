@@ -28,8 +28,8 @@ const NavbarComponent = () => {
           <button type='submit'><i className='fas fa-search mr-auto'></i></button>
         </form>
 
-        <p id='p_bienvenido'>Bienvenido!</p>
-        <p id='nombre_user'>Walther López</p>
+        <p id='p_bienvenido'>Bienvenido</p>
+        <p id='nombre_user'>Walther López!</p>
 
         <button type='button' className='button_nav'><i className='fas fa-bell fa-lg'></i></button>
         <a href='/carrito'><button type='button' data-intro="Accede a tu carrito de compras" className='button_nav' href="/carrito"><i className='fas fa-shopping-cart fa-lg'></i> </button></a>

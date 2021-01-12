@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardImg, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
-import ContactanosComponent from './ContactanosComponent';
 
 const Producto = ({nombre, precio, foto_src, id}) => {
     

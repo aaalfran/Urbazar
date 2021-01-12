@@ -1,11 +1,13 @@
 /* Estilo para el componente de Detalle de Productos*/
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 
 .image {
     border: 1px solid #ddd;
     border-radius: 10%;
-    max-width: 70%;
-    height: auto;
+    max-width: 50%;
+    max-height: 50%;
 }
 
 [id$=totlabel]>p {
@@ -16,7 +18,9 @@
 #btnAgregarCarrito{
     background-color: #506048;
 }
-
+.justify-content-center{
+    background-color: white;
+}
 #card-body-img{
     align-content: center;
     text-align: center;
@@ -31,12 +35,28 @@
     font-size: 12px;
 }
 
-#imgCard{
-    background-color:#F0F0E0;
-    color: black;
+.fa-star{
+    color:rgba(228, 228, 47, 0.842);
 }
 
+#imgCard{
+    background-color:#fafff8c9;
+    color: black;
+    border-color: transparent;
+    padding-bottom: 5%;
 
+}
+
+.name_product{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#cont_comentarios{
+    border-top: 0.5px solid rgba(128, 128, 128, 0.438);
+    padding: 30px;
+}
 
 #productoComentarios p{
     color: gray;
