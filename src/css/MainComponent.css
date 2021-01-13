@@ -18,11 +18,14 @@
   width:100%;
   }
   .slide_product:hover .img {
-  transform:scale(1.25);
-  transform:scale(1.25);
   cursor: pointer;
   }
   
+  .cont:hover .card-product-sld:hover {    
+  transform:scale(1.10);
+  transform:scale(1.10);
+  transition: .7s;
+  }
   .slide_product {
   width:300px;
   height:180px;
@@ -407,6 +410,11 @@ footer > p {
   text-decoration: none;
 }
 
+.card-product-sld{  
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.26);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.26);
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.26);
+}
 #btn_cerrarSesion:hover {
   background-color:  #b4b4b4d2;
   text-decoration: none;

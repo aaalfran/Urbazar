@@ -53,22 +53,24 @@ function useLoadResource(){
                     item
                     lg= {3}
                    >
-                            <Card className={classes.root}>
+                            <Card className={classes.root} id="card-products">
+
+                            <CardMedia
+                    className={classes.media}
+                    image={producto.imagen}
+                    title={producto.nombre}
+                />
                             <CardHeader id="name_product"
             
                     title={producto.nombre}
                     subheader={ "$" + producto.precio}
                 />
-                <CardMedia
-                    className={classes.media}
-                    image={producto.imagen}
-                    title={producto.nombre}
-                />
-                <CardContent>
+                
+                {/*<CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                     {producto.descripcion}
                     </Typography>
-                </CardContent>
+                </CardContent>*/}
 
                 </Card>
                 </Grid>
