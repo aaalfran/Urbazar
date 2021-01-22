@@ -29,7 +29,7 @@ function useLoadResource(){
 
     const [productos, setProductos] = useState([])
     useEffect(() => {
-        fetch("http://localhost:4000/api/allproducts")
+        fetch("http://localhost:3000/productos")
     .then(response => response.json())
     .then(data => {
         setProductos(data)})

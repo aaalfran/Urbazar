@@ -62,28 +62,28 @@ function Main() {
           <hr className="my-2" />
           
           <div className='productos mt-5 carousel'>
-            {LoadProducts("http://localhost:4000/api/productos")}
+            {LoadProducts("http://localhost:3000/productos")}
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='Elige entre los productos más destacados de la Urbanización.'>Lo más destacado</h6>
           <hr className="my-2" />
           <div className='productos'>
-          {LoadProducts("http://localhost:4000/api/productos2")}
+          {LoadProducts("http://localhost:3000/productos")}
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='¿Por qué ir tan lejos? Encuentra productos cerca de tu ubicación.'>Cerca de ti</h6>
           <hr className="my-2" />
           <div className='productos'>
-          {LoadProducts("http://localhost:4000/api/productos3")}
+          {LoadProducts("http://localhost:3000/productos")}
           </div>
         </div>
         <div className='list_productos'>
           <h6  data-intro='No te pierdas las promociones que UrbazApp tiene para ti.'>Promociones</h6>
           <hr className="my-2" />
           <div className='productos'>
-          {LoadProducts("http://localhost:4000/api/productos4")}
+          {LoadProducts("http://localhost:3000/productos")}
           </div>
         </div>
       </section>

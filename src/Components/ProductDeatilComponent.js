@@ -1,7 +1,7 @@
 
 
 import React, {createElement, useState} from "react";
-import {Container} from 'reactstrap';
+import {Container, FormText} from 'reactstrap';
 import {LoadStars, LoadComentarios} from './LoadResourcesProducts';
 import {UncontrolledCarousel} from 'reactstrap';
 import '../css/product.css'
@@ -14,20 +14,31 @@ function ProductComponent() {
     let carrito = [];
     console.log(carrito)
     
-    let lista_productos = ListaProductos("http://localhost:4000/api/allproducts"); 
-
+    let lista_productos = ListaProductos("http://localhost:3000/productos"); 
     let url2 = window.location.href;
     let temp = url2.split('/');
     let id_producto = temp[4].toString();
 
-    let producto_selec = '';
-    lista_productos.map(producto => (producto.id === id_producto ? producto_selec = producto : console.log('no hay')));
+
+    let producto_selec = {};
+    lista_productos.map(producto => {
+        if(producto.id == id_producto){
+            producto_selec = producto
+        }
+    });
     const seleccionarProducto = id => {
-        const producto = lista_productos.filter(producto => producto.id === id);
-        let p = producto[0]
+        let producto = {}
+        for(let prod of lista_productos){
+            if(prod.id == id){
+                producto = prod;
+            }
+        }
+        let p = producto
+        console.log(p)
         p.cantidad = 1
         
         if(localStorage.getItem("carrito")){
+            console.log("hola")
             let inCarrito = false;
             let data = JSON.parse(localStorage.getItem("carrito"))
             for(let j of data.carrito){
@@ -44,7 +55,7 @@ function ProductComponent() {
             localStorage.setItem("carrito",JSON.stringify(data))
         }
         else{
-            
+            console.log("hola1")
             localStorage.setItem("carrito",JSON.stringify({"carrito":[p]}))
         }
         
