@@ -57,7 +57,7 @@ function useLoadResource(){
 
                             <CardMedia
                     className={classes.media}
-                    image={producto.imagen}
+                    image={producto.source}
                     title={producto.nombre}
                 />
                             <CardHeader id="name_product"

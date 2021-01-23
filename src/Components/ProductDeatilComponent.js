@@ -26,9 +26,13 @@ function ProductComponent() {
             producto_selec = producto
         }
     });
+    console.log(lista_productos)
     const seleccionarProducto = id => {
         let producto = {}
+        
+        
         for(let prod of lista_productos){
+            
             if(prod.id == id){
                 producto = prod;
             }
@@ -76,7 +80,7 @@ function ProductComponent() {
                     </div>
                     <div id="card-body-img">
                         {/*<UncontrolledCarousel items={producto_selec.imagen} className="card-img-bottom image"/>*/}
-                        <img src={producto_selec.imagen} className="card-img-bottom image" />
+                        <img src={producto_selec.source} className="card-img-bottom image" />
                     </div>
                   </div>
             </div>

@@ -63,7 +63,7 @@ export default function UseTweets(ruta){
                     id={producto.id}
                     nombre={producto.nombre}
                     precio={producto.precio}
-                    foto_src={producto.imagen}
+                    foto_src={producto.source}
                 />
             ))
             }

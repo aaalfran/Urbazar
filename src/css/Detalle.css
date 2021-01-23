@@ -1,0 +1,10 @@
+.borrar{
+    color: red;
+    font-weight: 900;
+    font-size: large;
+    cursor: pointer;
+}
+.borrarDiv{
+    position: absolute;
+    z-index: 999;
+}

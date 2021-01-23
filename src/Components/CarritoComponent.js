@@ -23,7 +23,7 @@ let Productos = () =>{
         for (var i = 0; i < productLista.length; i++) {
             let nombre = productLista[i].nombre;
             let precio = productLista[i].precio;
-            let imagen = productLista[i].imagen;
+            let imagen = productLista[i].source;
             let desc = productLista[i].descripcion;
             let cant = productLista[i].cantidad;
             listaComponent.push(<CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
