@@ -102,17 +102,38 @@ nav a h3{
     grid-template-columns: 60% 40%;
 }
 
-#metodo_selection{
-    margin:auto ;
+#metodo_selection > div{
+    width: 100%;
 }
-
+#record_method{
+    text-align: left;
+    margin-left:70% ;
+    padding-bottom: 5%;
+    color: rgb(114, 114, 114);
+}
+.boton_notificacion{
+    margin-right: 3px!important;
+}
+#cont_icon_carrito{
+    position: relative;
+    padding: 0px;
+}
+#cont_icon_carrito p{
+    position: absolute;
+    top:0px;
+    right: 0px;
+    background-color: red;
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
 #Pago{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-top: 1px solid #b8b8b8;
     padding-top: 5%;
-    padding-bottom: 5%;
 }
 
 #btn_continue{

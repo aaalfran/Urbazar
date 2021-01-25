@@ -20,6 +20,7 @@ import AccountComponent from './ComponentsAdmins/Account/Account';
 import ClientesComponent from './Components/ClientesComponent';
 import MapComponent from './Components/MapComponent';
 import CatalogoComponent from './Components/CatalogoComponent';
+import PerfilComponent from './Components/PerfilComponent';
 
 
 const Index = () =>{
@@ -54,6 +55,7 @@ const Index = () =>{
         <Route path="/admin/dashboard/customer" exact component={ClientesComponent}/>
         <Route path="/admin/dashboard/map" exact component={MapComponent}/>
         <Route path="/buscador" exact component={CatalogoComponent}/>
+        <Route path="/perfil" exact component={PerfilComponent}/>
       </Router>
     </React.StrictMode>
   )

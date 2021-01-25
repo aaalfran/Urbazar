@@ -3,13 +3,9 @@ import React, { Component} from 'react'
 
 import '../css/CarritoComponent.css'
 import NavbarComponent from './navbarComponent';
-import visa from "../imagenes/visa.png";
-import mastercard from "../imagenes/mastercard.png";
-import paypal from "../imagenes/paypal.png";
-import { Label, Input, Button, Modal} from 'reactstrap';
-import CarritoDetalle from "./CarritoDetalle"
-
-
+import { Label, Input, Button, Modal, FormGroup} from 'reactstrap';
+import CarritoDetalle from "./CarritoDetalle";
+import PaymentInputs from "./PaymentComponent";
 
 
 let Productos = () =>{
@@ -107,31 +103,19 @@ const CarritoComponent = () => {
                             </div>
                             <div id="Pago">                                
                                  Método de pago 
-                                <div id="metodo_selection">
-                                    <div className="form-check-radio">
-                                        <Label className="form-check-label">
-                                        <Input type="radio" name="exampleRadios" id="exampleRadios2" value="option2" defaultChecked/>
-                                        <img src={visa} width="20" height="20" className="d-inline-block align-top" />Visa
-                                        <span className="form-check-sign"></span>
-                                        </Label>
-                                    </div>
-
-                                    <div className="form-check-radio">
-                                        <Label className="form-check-label">
-                                        <Input type="radio" name="exampleRadios" id="exampleRadios2" value="option2" defaultChecked/>
-                                        <img src={mastercard} width="20" height="20" className="d-inline-block align-top" />Mastercard
-                                        <span className="form-check-sign"></span>
-                                        </Label>
-                                    </div>
-                                    <div className="form-check-radio">
-                                        <Label className="form-check-label">
-                                        <Input type="radio" name="exampleRadios" id="exampleRadios3" value="option1" />
-                                        <img src={paypal} width="20" height="20" className="d-inline-block align-top" />Paypal
-                                        <span className="form-check-sign"></span>
-                                        </Label>
-                                    </div>
-                                    </div>
                             </div>
+                            <div id="metodo_selection">
+                                    <PaymentInputs/>                                    
+                            </div>
+                            <div id="record_method">
+                                <FormGroup check>
+                                    <Label check>
+                                    <Input type="checkbox" />{' '}
+                                    Guardar Tarjeta
+                                    </Label>
+                                </FormGroup>
+                            </div>
+
                             <div id="time_send">
                                 <Label> Tiempo estimado de recibo: 2 días</Label>
                                 <div id="btn_continue">

@@ -4,7 +4,7 @@ import React, {createElement, useState} from "react";
 import {Container, FormText} from 'reactstrap';
 import {LoadStars, LoadComentarios} from './LoadResourcesProducts';
 import {UncontrolledCarousel} from 'reactstrap';
-import '../css/product.css'
+import '../css/product.css';
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import NavbarComponent from "./navbarComponent";
 import ListaProductos from './ListaProductos';

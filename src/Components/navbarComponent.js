@@ -31,9 +31,11 @@ const NavbarComponent = () => {
         <p id='p_bienvenido'>Bienvenido</p>
         <p id='nombre_user'>Walther López!</p>
 
-        <button type='button' className='button_nav'><i className='fas fa-bell fa-lg'></i></button>
-        <a href='/carrito'><button type='button' data-intro="Accede a tu carrito de compras" className='button_nav' href="/carrito"><i className='fas fa-shopping-cart fa-lg'></i> </button></a>
-
+        <button type='button' className='button_nav boton_notificacion'><i className='fas fa-bell fa-lg'></i></button>
+        <div id="cont_icon_carrito">
+          <a href='/carrito'><button type='button' data-intro="Accede a tu carrito de compras" className='button_nav' href="/carrito"><i className='fas fa-shopping-cart fa-lg'></i> </button></a>
+          <p> 0 </p>
+        </div>
       </Navbar>
 
     </>

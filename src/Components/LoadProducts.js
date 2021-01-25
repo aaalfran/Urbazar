@@ -57,15 +57,18 @@ export default function UseTweets(ruta){
     return (
         <Slider {...settings} className="Slide_img">
              {   
+             
             tweets.map(producto => (
+              
+          
                 <Producto
                     key={producto.id}
                     id={producto.id}
                     nombre={producto.nombre}
                     precio={producto.precio}
-                    foto_src={producto.source}
+                    foto_src={producto.source}  
                 />
-            ))
+              ))            
             }
        </Slider>
     );

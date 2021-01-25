@@ -38,7 +38,7 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                 <br/>                
                 <p className='p_seccionToggler'>Configuración</p>
                 <hr className="my-2" />
-                <a href='/'><i className="fas fa-user-alt"></i>Perfil</a>
+                <a href='/perfil'><i className="fas fa-user-alt"></i>Perfil</a>
                 <a href='/'><i className="fas fa-cog"></i>Configuración</a>
                 <a href='/'><i className="fas fa-exclamation-circle"></i>Reportar</a>
                 
