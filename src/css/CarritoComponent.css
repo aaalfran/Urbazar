@@ -114,6 +114,12 @@ nav a h3{
 .boton_notificacion{
     margin-right: 3px!important;
 }
+
+#cvc{
+    margin-left: 20%;
+}
+
+
 #cont_icon_carrito{
     position: relative;
     padding: 0px;

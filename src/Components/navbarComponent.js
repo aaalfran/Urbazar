@@ -10,6 +10,7 @@ const NavbarComponent = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(true);
 
+
     return (  
      <>   
         <Navbar color='faded' dark className='navbar'>
@@ -34,7 +35,8 @@ const NavbarComponent = () => {
         <button type='button' className='button_nav boton_notificacion'><i className='fas fa-bell fa-lg'></i></button>
         <div id="cont_icon_carrito">
           <a href='/carrito'><button type='button' data-intro="Accede a tu carrito de compras" className='button_nav' href="/carrito"><i className='fas fa-shopping-cart fa-lg'></i> </button></a>
-          <p> 0 </p>
+          <p> {localStorage.getItem("contador_items")}
+          </p>
         </div>
       </Navbar>
 

@@ -1,4 +1,4 @@
-import React, { Component} from 'react'
+import React from 'react'
 
 
 import '../css/CarritoComponent.css'
@@ -25,7 +25,6 @@ let Productos = () =>{
             listaComponent.push(<CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
                 descripcion={desc} cantidad={cant} />)
         }
-        console.log("hola")
         return(<div>{listaComponent}</div>)
     }
     else{
@@ -164,6 +163,7 @@ const CarritoComponent = () => {
                                             setLiveDemo(false);
                                             localStorage.setItem("carrito","")
                                             localStorage.setItem("precio",0)
+                                            localStorage.setItem("contador_items", 0)
                                             
                                         }
                                         

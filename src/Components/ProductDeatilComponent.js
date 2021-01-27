@@ -1,7 +1,7 @@
 
 
-import React, {createElement, useEffect, useState} from "react";
-import {Container, FormText} from 'reactstrap';
+import React, {useEffect, useState} from "react";
+import {Container, Button, ButtonGroup} from 'reactstrap';
 import {LoadStars, LoadComentarios} from './LoadResourcesProducts';
 import {UncontrolledCarousel} from 'reactstrap';
 import '../css/product.css';
@@ -55,9 +55,9 @@ function ProductComponent() {
         let p = producto
         console.log(p)
         p.cantidad = 1
-        
+
+
         if(localStorage.getItem("carrito")){
-            console.log("hola")
             let inCarrito = false;
             let data = JSON.parse(localStorage.getItem("carrito"))
             for(let j of data.carrito){
@@ -69,19 +69,25 @@ function ProductComponent() {
             }
             if(!inCarrito){
                 data.carrito.push(p)
+                let items = parseInt(localStorage.getItem("contador_items"));
+                localStorage.setItem("contador_items", items+1)
+                let val_actual = document.getElementById("cont_icon_carrito").getElementsByTagName("p")[0];
+                val_actual.textContent = items+1;
             }
             
             localStorage.setItem("carrito",JSON.stringify(data))
         }
         else{
-            console.log("hola1")
             localStorage.setItem("carrito",JSON.stringify({"carrito":[p]}))
+            let items = parseInt(localStorage.getItem("contador_items"));
+            localStorage.setItem("contador_items", items+1)
+            let val_actual = document.getElementById("cont_icon_carrito").getElementsByTagName("p")[0];
+            val_actual.textContent = items+1;
         }
         
 
         
     }
-
     if(load){
         return (
             <>
@@ -172,7 +178,13 @@ function ProductComponent() {
                                 <p>Cantidad</p>
                             </div>
                             <div className="col-6 text-right">
-                                <p>-1+</p>
+                                <div id="cont_cantidad">
+                                    <p id="cant"> 1 </p>
+                                    <div id="btns_aumento">
+                                        <Button>-</Button>
+                                        <Button >+</Button>
+                                    </div> 
+                                </div>
                             </div>
                             <div className="col-6" id="totlabel">
                                 <p>Total</p>

@@ -32,6 +32,9 @@ const Index = () =>{
     if(!localStorage.getItem("precio")){
       localStorage.setItem("precio",0)
     }
+    if(!localStorage.getItem("contador_items")){
+      localStorage.setItem("contador_iems", 0)
+    }
   
   })
 

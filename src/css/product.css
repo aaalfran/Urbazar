@@ -40,12 +40,34 @@
 }
 
 #imgCard{
-    background-color:#f8f0e0;
     color: black;
     border-color: transparent;
+    border-right: 1px solid rgb(221, 221, 221);
     padding-bottom: 5%;
+    border-radius: 0px;
+    
 
 }
+#cont_cantidad{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+#btns_aumento{
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 3px;
+}
+#cont_cantidad Button{
+    border-radius: 0px;
+    background-color: #506048;
+    padding: 0px;
+    width: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+
 
 .name_product{
     text-align: center;

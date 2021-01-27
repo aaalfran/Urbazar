@@ -17,7 +17,11 @@ let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
 
         }
         let jsonNuevo = {carrito:listaNueva}
-        localStorage.setItem("carrito",JSON.stringify(jsonNuevo))
+        localStorage.setItem("carrito",JSON.stringify(jsonNuevo));
+        let items = parseInt(localStorage.getItem("contador_items"));
+        localStorage.setItem("contador_items", items-1)
+        let val_actual = document.getElementById("cont_icon_carrito").getElementsByTagName("p")[0];
+        val_actual.textContent = items-1;
 
     }
     if(borrado){
