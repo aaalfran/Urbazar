@@ -137,23 +137,7 @@ function ProductComponent() {
                                 <h5>Comentarios</h5>
                                 <div data-list="[producto_selec.comentarios]" id="comentarios">
                                 </div>
-                               {/*} <script> 
-                                    {
-                                        document.addEventListener('DOMContentLoaded', function() {
-                                            var div_com = document.getElementById("comentarios");
-                                            var array = div_com.dataset.list;
-                                            let ul = document.createElement("ul");
-                                            let comns = producto_selec.comentarios;
-                                            for (let c of array){
-                                                let li = document.createElement("li");
-                                                li.textContent= c;
-                                                ul.appendChild(li)
-                                            }
-                                            div_com.appendChild(ul)
-                                    })
-                                    }
-                                </script>*/}
-                               {/*<LoadComentarios comentarios={producto_selec.comentarios} />*/}
+                               
                                 <ul>
                                     {calificaciones.comentario}
                                 </ul>
@@ -178,13 +162,14 @@ function ProductComponent() {
                                 <p>Cantidad</p>
                             </div>
                             <div className="col-6 text-right">
-                                <div id="cont_cantidad">
+                                <p> +1- </p>
+                                {/*<div id="cont_cantidad">
                                     <p id="cant"> 1 </p>
                                     <div id="btns_aumento">
-                                        <Button>-</Button>
-                                        <Button >+</Button>
+                                        <Button className="btn_modification">-</Button>
+                                        <Button className="btn_modification">+</Button>
                                     </div> 
-                                </div>
+                                </div>*/}
                             </div>
                             <div className="col-6" id="totlabel">
                                 <p>Total</p>
@@ -199,7 +184,26 @@ function ProductComponent() {
                         </div>
                     </div>
                 </div>
-                
+                {/*<script>
+                    {
+                      document.addEventListener('DOMContentLoaded', function() {
+                        let btns = document.getElementsByClassName("btn_modification");
+                        //Disminuír
+                        btns[0].addEventListener('click', ()=>{
+                            let cant = document.getElementById("cant");
+                            cant.textContent = parseInt(cant.textContent)-1;
+                        });
+                        //Aumentar
+                        btns[1].addEventListener('click', ()=>{
+                            let cant = document.getElementById("cant");
+                            cant.textContent = parseInt(cant.textContent)+1;
+                        });
+                        console.log(producto_selec.comentarios)
+                      })
+                    
+                    }
+                </script>*/}
+                                    
     
               </div>
         </Container>

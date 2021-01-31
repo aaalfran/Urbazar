@@ -5,7 +5,7 @@
 #contact_form{
     max-width: 80%;
     margin: auto;
-    border-bottom: 5px solid #3C5E80 ;
+    border-bottom: 5px solid #506048 ;
     padding: 15px;    
 }
 #registro{
@@ -26,10 +26,11 @@
     width: 100%;
     text-align: center;
 }
-.btn-primary{
+.btn{
     margin:auto;
     width: 200px;
-    background: #3C5E80  ;
+    background: #506048  ;
+    color: white;
 }
 
 #message textarea{

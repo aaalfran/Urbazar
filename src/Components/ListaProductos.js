@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import Producto from './Producto';
+import {useEffect, useState} from 'react';
 
 export default function UseTweets(ruta){
     const [tweets, setTweet] = useState([])

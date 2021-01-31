@@ -13,7 +13,7 @@ function ConfirmationComponent() {
           </h5>
           <button
            aria-label="Close"
-                                        className="close"
+           className="close"
                                         data-dismiss="modal"
                                         type="button"
                                         onClick={() => setLiveDemo(false)}

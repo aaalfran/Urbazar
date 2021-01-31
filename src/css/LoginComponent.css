@@ -7,9 +7,13 @@
 
 .Login-logo{
     max-height: 200px;    
-    border: 1px solid  #203040;
+    border: 1px solid  #506048;
     border-radius: 100%;
     margin-bottom: 10px;
+}
+
+body, #root, #container{
+    height: 100%;
 }
 
 #info{
@@ -24,18 +28,15 @@
 
 #tarjeta{
     width: 70%;
+    height: 90%;
     margin: auto;
     background-color: #ffffff;
     margin-top: 30px;
     border: 1px solid #b8b8b8;
-    border-top: 5px solid  #3C5E80 ;
+    border-top: 5px solid  #506048 ;
 }
 
 
-html, body{
-    width: 100%;
-    height: 100%;
-}
 
 #registrate{
     margin-top: 30px;
@@ -44,7 +45,7 @@ html, body{
 }
 #btn-round{
     width: 40%;
-    background:  #5E88B2;
+    background: #506048;
     border:none;
 }
 
@@ -52,4 +53,8 @@ html, body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#registrate a{
+    color: #B06058;
 }

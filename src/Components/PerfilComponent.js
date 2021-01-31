@@ -31,7 +31,7 @@ function PerfilComponent(){
                             <div class="profile-img">
                                 <img src={Bryan} alt=""/>
                                 <div class="file btn btn-lg btn-primary">
-                                    Change Photo
+                                    Cambiar foto
                                     <input type="file" name="file"/>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ function PerfilComponent(){
                                             ¡Bienvenido Walter Lopez!
                                         </h3>
                                         <h6>
-                                        <FormControlLabel control={<Switch  name="modo_vendedor" />} label="Modo vendedor"/>
+                                        <FormControlLabel control={<Switch name="modo_vendedor" />} label="Modo vendedor"/>
                                         </h6>
                                         
                                 

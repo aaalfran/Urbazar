@@ -1,4 +1,4 @@
-import Datetime from 'react-datetime';
+import React from 'react';
 import NavbarComponent from './navbarComponent';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import '../css/ContactanosComponent.css';
@@ -6,9 +6,8 @@ import "react-datetime/css/react-datetime.css";
 
 
 
-function ContactanosComponent(){        
+function ContactanosComponent (){        
  
-      
     return (
         <html>      
             <head>
@@ -25,34 +24,16 @@ function ContactanosComponent(){
                 <Card id="contact_form">
                     <CardTitle id="titulo">Contáctanos</CardTitle>
                     <CardBody>
-                    <form>
-                        <div data-intro='Hello step one!' className="form-double">
-                            <div className="col-md-6 nombre">
-                                <label for="nombres">Nombres</label>
+                    <form action="http://localhost:4000/api/contactanos" method="post" >
+                        <div className="col-md-12 form-double">
+                            <div className="col-md-4 nombre">
+                                <label for="nombres">Nombre</label>
                                 <input type="text" className="form-control" id="nombres" name="nombres" required/>
                             </div>
-                            <div className="col-md-6 apellido">
-                                <label for="apellidos">Apellidos</label>
-                                <input type="text" className="form-control" id="apellidos" name="apellidos" required/>
-                            </div>
-                        </div>
-                        <div className="form-double">
-                            <div className="col-md-6 nombre">
-                                <label for="nombres">Ciudad de origen</label>
-                                <input type="text" className="form-control" id="nombres" name="nombres" required/>
-                            </div>
-                            <div className="col-md-6 form-group">
-                            <label for="Fecha de nacimiento">Fecha de nacimiento</label>
-                                <Datetime
-                                    timeFormat={false}
-                                    inputProps={{placeholder:""}}
-                                    />
-                            </div>
-                        </div>
-                        <div className="form-double">
-                            <div className="col-md-6">
+
+                            <div className="col-md-4">
                                 <label for="urbanizacion">Urbanización</label>
-                                <select className="form-control">
+                                <select name="urbanizacion" className="form-control">
                                     <option>---</option>
                                     <option>Las joyas</option>
                                     <option>Los ceibos</option>
@@ -61,9 +42,9 @@ function ContactanosComponent(){
                                 </select>
 
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-4">
                                 <label for="etapa">Etapa</label>
-                                <select className="form-control">
+                                <select name="etapa" className="form-control">
                                     <option>---</option>
                                     <option>Primera</option>
                                     <option>Segunda</option>
@@ -77,15 +58,22 @@ function ContactanosComponent(){
 
                         <div className="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp"/>
+                            <input type="email" name="email" className="form-control" id="email" aria-describedby="emailHelp"/>
                             <small id="emailHelp" className="form-text text-muted">Asegurate de ingresar un email válido al que podamos contactarte.</small>
                         </div>
+
+                        
+                        <div className="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" name="asunto" className="form-control" id="asunto"/>
+                        </div>
+
                         <div id="message" className="form-group">
                             <label for="mensaje">Mensaje</label>
-                            <textarea type="text" className="form-control" id="mensaje" placeholder="Dejanos tu mensaje..."/>
+                            <textarea type="text" className="form-control" name="mensaje" id="mensaje" placeholder="Dejanos tu mensaje..."/>
                         </div> 
                         <div id="send_button">
-                            <button type="submit" data-intro='Hello step one!' className="btn btn-primary">Enviar</button>
+                            <button type="submit"  className="btn">Enviar</button>
                         </div>                       
                         </form>
                     </CardBody>
@@ -97,6 +85,7 @@ function ContactanosComponent(){
        </body>
         </html>
     );
+    
 }
 
-export default ContactanosComponent
+export default ContactanosComponent; 

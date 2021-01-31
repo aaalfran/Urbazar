@@ -4,7 +4,6 @@ import { Card, CardImg, CardBody,
 
 const Producto = ({nombre, precio, foto_src, id}) => {
     
-    /* const {nombre, foto, precio} = producto_card; */
    
     return (  
         <a href={`/productdetail/${id}`}>
