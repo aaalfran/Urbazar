@@ -9,11 +9,11 @@ import {BrowserRouter as Router, Redirect} from 'react-router-dom';
 import '../../../css/LoginComponent.css';
 
 function LoginComponent(props) {
- {/*} if(props.auth){
-    {/*return  <Redirect to='/'/> 
+  if(props.auth){
+    return  <Redirect to='/'/> 
   }
   else
-{*/}
+{
     return (
      <html>
        <head>
@@ -64,7 +64,7 @@ function LoginComponent(props) {
       
 
     );
-  
+    }
   
 }
 

@@ -38,6 +38,15 @@ const Index = () =>{
     if(!localStorage.getItem("contador_items")){
       localStorage.setItem("contador_iems", 0)
     }
+    if(!localStorage.getItem("auth")){
+      localStorage.setItem("auth", false)
+    }
+    if(!localStorage.getItem("nombre_usuario")){
+      localStorage.setItem("nombre_usuario", "")
+    }
+    if(!localStorage.getItem("userid")){
+      localStorage.setItem("userId", "")
+    }
   
   })
 

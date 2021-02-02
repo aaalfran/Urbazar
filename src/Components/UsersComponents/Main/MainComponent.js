@@ -37,10 +37,13 @@ function Main(props) {
     }
   ];
 
-  {/*if(!props.auth){ 
-      {/*return  <Redirect to='/login'/> 
+  if(!localStorage.getItem("auth")){ 
+    return  <Redirect to='/login'/> 
+    
     }
-  else{*/}
+  else{
+  
+    console.log(localStorage.getItem("auth"));
     return (
       <>
         <head>
@@ -103,7 +106,7 @@ function Main(props) {
 
     );
   
-    
+    }
 }
 
 export default Main;

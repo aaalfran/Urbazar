@@ -76,9 +76,9 @@ let Resumen = () =>{
 const CarritoComponent = (props) => {
     const [liveDemo, setLiveDemo] = React.useState(false);
     
-  {/*}  if(!props.auth){ 
-        console.log("HOLa");
-        {/*return <Redirect to='/login'/>  
+   {/* if(!props.auth){ 
+        console.log(props.auth);
+        return <Redirect to='/login'/>  
       }
     else{*/}
         return ( 

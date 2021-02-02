@@ -9,14 +9,14 @@ class MainPC extends Component{
         this.props.authFn.logout();
     }
 
-    
+
     render(){
         return( <MainComponent 
-            logout = {this.props.logout}
-            auth= {this.props.auth} /> );
+                logout={this.props.logout}/> );
     }
 }
 
+  
 const mapStateToProps = (state) => {
     return{
         auth: state.AuthR.auth,

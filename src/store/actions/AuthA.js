@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const AuthA = (dispatch) =>{
     return {
-        signup: (data) =>{
+       /* signup: (data) =>{
             axios.post(process.env.REACT_APP_REG_URL, data)
             .then( (res)=>{
                 axios.post(process.env.REACT_APP_LOGIN_URL, data)
@@ -21,22 +21,30 @@ const AuthA = (dispatch) =>{
                 console.log(err);
                 dispatch({type:'SINGUP_ERR'});
             })            
-        },
+        },*/
         login: (data) =>{
             axios.get("http://localhost:3000/personas", data)
             .then(response => response.data)
             .then( (res)=> {
-
+                let flag = false;
+                let nombre ="";
+                let userid = "";
                 for(let i=0; i<res.length; i++){
                     if(res[i].username===data.user && res[i].contrasena===data.password){
-                        localStorage.setItem('user', data.user)
-                        localStorage.setItem('nombre_usuario', res[i].nombre)
-                        localStorage.setItem('userId', res[i].userId)
-                        dispatch({type: 'LOGIN'});
+                        flag=true;
+                        nombre = res[i].nombre;
+                        userid = res[i].id
                     }
                 }
-                
-                dispatch({type: 'LOGIN_ERR'});
+                if(flag){                    
+                    localStorage.setItem('user', data.user)
+                    localStorage.setItem('nombre_usuario', nombre)
+                    localStorage.setItem('userId', userid)
+                    localStorage.setItem('auth', true)
+                    dispatch({type: 'LOGIN'});
+                }else{
+                    dispatch({type: 'LOGIN_ERR'});
+                }
             })
 
             
@@ -45,7 +53,7 @@ const AuthA = (dispatch) =>{
                 dispatch({type: 'LOGIN_ERR'});
             } )
         },
-        logout: () =>{
+       logout: () =>{
             localStorage.clear()
             dispatch({type: 'LOGOUT'})
         }
