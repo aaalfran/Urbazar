@@ -1,85 +1,149 @@
-import React from 'react'
-import {Redirect} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import '../../../css/CarritoComponent.css';
-import NavbarComponent from '../navBar/navbarComponent';
+import NavbarComponent, {cantidadProd} from '../navBar/navbarComponent';
 import { Label, Input, Button, Modal, FormGroup} from 'reactstrap';
 import CarritoDetalle from "./CarritoDetalle";
 import PaymentInputs from "./PaymentComponent";
 
+export let listaIdProductos = new Map(); // clave: id, valor: [cantidad, id detalle-carrito]
+let listaNomProductos = new Map(); // clave: id, valor: [nombre, precio]
+let conjuntoIdProductos = new Set();
 
-let Productos = () =>{
+let cantProductos = 0;
 
-    if(localStorage.getItem("carrito")){
-        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
-        var productLista = jsonCarro.carrito;
-        var listaComponent = []
-        
-       
-        for (var i = 0; i < productLista.length; i++) {
-            let nombre = productLista[i].nombre;
-            let precio = productLista[i].precio;
-            let imagen = productLista[i].source;
-            let desc = productLista[i].descripcion;
-            let cant = productLista[i].cantidad;
-            listaComponent.push(<CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
-                descripcion={desc} cantidad={cant} />)
-        }
-        return(<div>{listaComponent}</div>)
-    }
-    else{
-        return(<h1 className="vacioCarrito">Carrito Vacío</h1>);
-
+ const Productos = () =>{
     
-    }
+    let listaInicial = [];
+    const [listaComponent, setListaComponent] = useState(listaInicial);
+    let url = window.location.href;
+    let temp = url.split('/');
+    let idCarrito = temp[4].toString();
+    
+    useEffect(() => {
+        axios.get('http://localhost:3000/detalle-carrito/')
+        .then(response => response.data)
+        .then( (res)=> {
+            for(let i=0; i<res.length; i++){
+                if(res[i].idCarrito == idCarrito){
+                    listaIdProductos.set(res[i].idProducto,
+                         [res[i].cantidad, res[i].idDetalle]);
+                    if(conjuntoIdProductos.size == 0) {
+                        cantProductos++;
+                    }     
+                    
+                }
+            }
+            console.log(cantProductos);
+            if(cantProductos > 0){
+                // se consultan todos los productos de la db
+                for (let [clave, valor] of listaIdProductos.entries()){       
+                    let url_productos = 'http://localhost:3000/productos/';
+                    axios.get(url_productos.concat(clave))
+                    .then(response => response.data)
+                    .then( (res)=> {
+                        let nombre = res.nombre;
+                        let precio = res.precio;
+                        let imagen = res.source;
+                        let desc = res.descripcion;
+                        let cant = valor[0];  
+                        if(!conjuntoIdProductos.has(clave)){
+                            listaNomProductos.set(clave, [res.nombre, res.precio]);
+                            conjuntoIdProductos.add(clave);
+                            setListaComponent(listaComponent => [...listaComponent, <CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
+                            descripcion={desc} cantidad={cant} />]);
+                            
+                        }    
+                    });
+                }
+                //return(<div>{listaComponent}</div>)
+            }
+            else{
+                //return(<h1 className="vacioCarrito">Carrito Vacío</h1>); 
+            };
+        });
+
+    })
+    if (cantProductos > 0) {
+        return(<div>{listaComponent}</div>);
+    } else {
+        return(<h1 className="vacioCarrito">Carrito Vacío</h1>); 
+    }  
+  
 }
 
 let Resumen = () =>{
 
     let listaLi = []
+    let precioTotal = 0;
+
+        console.log('longitud')
+        console.log(conjuntoIdProductos.length)
+        if(conjuntoIdProductos.length != 0){
+            //const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
+            //var productLista = jsonCarro.carrito;
+            console.log(listaIdProductos.entries());
+            for (let [clave, valor] of listaIdProductos.entries()) {
+                let nombre = listaNomProductos.get(clave)[0];
+                let precio = parseFloat(valor[0]) * listaNomProductos.get(clave)[1];
+                precioTotal = precioTotal + precio;
+                listaLi.push(<tr>
+                    <td>{nombre}</td>
+                    <td>${precio}</td>
+                </tr>)
+            }
+            localStorage.setItem("precio",precioTotal)
+            return(
     
-
-    if(localStorage.getItem("carrito")){
-        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
-        var productLista = jsonCarro.carrito;
-        let precioTotal = 0;
-        for (var i = 0; i < productLista.length; i++) {
-            let nombre = productLista[i].nombre;
-            let precio = parseFloat(productLista[i].precio) * productLista[i].cantidad;
-            precioTotal = precioTotal + precio;
-            listaLi.push(<tr>
-                <td>{nombre}</td>
-                <td>${precio}</td>
-            </tr>)
+            <table className="w-100">
+                <tr>
+                    <th>Productos</th>
+                    <th>Precio</th>
+                </tr>
+                {listaLi}
+                <tr>
+                    <td colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
+                </tr>
+            </table>
+            );
         }
-        localStorage.setItem("precio",precioTotal)
-        return(
+        else{
+            return(<p></p>)
+        }
 
-        <table className="w-100">
-            <tr>
-                <th>Productos</th>
-                <th>Precio</th>
-            </tr>
-            {listaLi}
-            <tr>
-                <td colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
-            </tr>
-        </table>
-        );
     }
+
+/* 
+    if(conjuntoIdProductos.length != 0) {
+        return(
+    
+            <table className="w-100">
+                <tr>
+                    <th>Productos</th>
+                    <th>Precio</th>
+                </tr>
+                {listaLi}
+                <tr>
+                    <td colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
+                </tr>
+            </table>
+            );
+
+    } 
     else{
         return(<p></p>)
     }
-}
-
+ */
 
 
 const CarritoComponent = (props) => {
+    conjuntoIdProductos.clear();
     const [liveDemo, setLiveDemo] = React.useState(false);
-    
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> 
-        }
-    else{
+   {/* if(!props.auth){ 
+        console.log(props.auth);
+        return <Redirect to='/login'/>  
+      }
+    else{*/}
         return ( 
         <html>
             <head>
@@ -107,7 +171,7 @@ const CarritoComponent = (props) => {
                                  Método de pago 
                             </div>
                             <div id="metodo_selection">
-                                   <PaymentInputs/>                                    
+                                    <PaymentInputs/>                                    
                             </div>
                             <div id="record_method">
                                 <FormGroup check>
@@ -163,13 +227,22 @@ const CarritoComponent = (props) => {
                                         type="button"
                                         id="btn_confModal"
                                         onClick={() => {
+                                            // se eliminan todos los detalle-carrito
+                                            for ( let [clave, valor] of listaIdProductos.entries()) {
+                                                // valor[1] contiene el id del detalle-carrito
+                                                let url_del_detalle = '/detalle-carrito/'
+                                                axios.delete(url_del_detalle.concat(valor[1]))
+                                                .then(response => response.data)
+                                                .then((res) => {
+                                                    console.log(res);
+                                                }); 
+                                            }
+                                            listaIdProductos.clear();    
                                             setLiveDemo(false);
-                                            localStorage.setItem("carrito","")
+                                            /* localStorage.setItem("carrito","")
                                             localStorage.setItem("precio",0)
-                                            localStorage.setItem("contador_items", 0)
-                                            
+                                            localStorage.setItem("contador_items", 0) */
                                         }
-                                        
                                         }
                                         >
                                         Aceptar
@@ -187,8 +260,10 @@ const CarritoComponent = (props) => {
             </body>
             </html>
         );
-    }
+    
 }
  
 export default CarritoComponent;
+
+
 
