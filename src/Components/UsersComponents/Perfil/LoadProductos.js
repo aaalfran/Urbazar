@@ -39,7 +39,7 @@ export default function LoadProductos(compras){
         d5.setAttribute("id", "card-footer")
         let ul = document.createElement("ul")
         let li1 = document.createElement("li")
-        li1.textContent = "vendedor: " + compras[i].vendedor 
+        li1.textContent = "Vendedor: " + compras[i].vendedor 
 
         let li2 = document.createElement("li")
         li2.textContent = "Precio: "+ compras[i].precio
@@ -57,7 +57,7 @@ export default function LoadProductos(compras){
         ul.appendChild(li3)
         ul.appendChild(li4)
         ul.appendChild(li5)
-        
+
         d5.appendChild(ul)
 
         d3.appendChild(d4)

@@ -4,15 +4,15 @@ import { Card, CardTitle, CardBody } from 'reactstrap';
 import '../../../css/ContactanosComponent.css';
 import "react-datetime/css/react-datetime.css";
 import {Redirect} from 'react-router-dom';
+import { Modal} from 'reactstrap';
 
-
-function ContactanosComponent (){        
+function ContactanosComponent (){     
+    const [liveDemo, setLiveDemo] = React.useState(false);   
     if((localStorage.getItem("auth")==="false")){ 
         return  <Redirect to='/login'/> 
         
         }
     else{
-      
         return (
             <html>      
                 <head>
@@ -20,7 +20,7 @@ function ContactanosComponent (){
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
             
                 </head> 
-        <body>
+            <body>
                 <NavbarComponent/>
                 <div id="header">
                     ¡En UrbazApp nos importan tus comentarios!
@@ -29,7 +29,7 @@ function ContactanosComponent (){
                     <Card id="contact_form">
                         <CardTitle id="titulo">Contáctanos</CardTitle>
                         <CardBody>
-                        <form action="http://localhost:4000/api/contactanos" method="post" >
+                        <form action="http://localhost:3000/api/contactanos" method="post" >
                             <div className="col-md-12 form-double">
                                 <div className="col-md-4 nombre">
                                     <label for="nombres">Nombre</label>
@@ -78,12 +78,34 @@ function ContactanosComponent (){
                                 <textarea type="text" className="form-control" name="mensaje" id="mensaje" placeholder="Dejanos tu mensaje..."/>
                             </div> 
                             <div id="send_button">
-                                <button type="submit"  className="btn">Enviar</button>
+                                <button type="submit" onClick={() => setLiveDemo(true)} className="btn">Enviar</button>
                             </div>                       
                             </form>
                         </CardBody>
                     </Card>
                 </div>
+
+                <Modal isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
+                                    <div className="modal-header">
+                                    <h5 className="modal-title" id="ConfirmationModel">
+                                        Correo enviado
+                                    </h5>
+                                    <button
+                                        aria-label="Close"
+                                        className="close"
+                                        data-dismiss="modal"
+                                        type="button"
+                                        onClick={() => setLiveDemo(false)}
+                                    >
+                                        <span aria-hidden={true}>×</span>
+                                    </button>
+                                    </div>
+                                    <div className="modal-body">
+                                    <p>El mensaje ha sido enviado de forma exitosa. Te contactaremos lo más pronto posible.
+                                    </p>
+                                    </div>
+                                    
+                                </Modal>
 
                 
             
