@@ -9,6 +9,7 @@ class NavBarPC extends Component{
 
     logout = () =>{
         this.props.authFn.logout();
+        document.location.href="/login";
     }
 
 
