@@ -7,6 +7,8 @@
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
+use urbazar;
+select * from producto;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -97,6 +99,26 @@ INSERT INTO `carrito` (`ID`, `ID_Usuario`) VALUES
 (2, 3),
 (3, 5),
 (4, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categoria` (
+  `ID` int(11) NOT NULL,
+  `nombre` varchar(24) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+INSERT INTO `categoria` (`ID`, `nombre`) VALUES
+(1, 'Ropa'),
+(2, 'Tecnología'),
+(3, 'Comida'),
+(4, 'Hogar'),
+(5, 'Maquillaje'),
+(4, 'Otros');
+
 
 -- --------------------------------------------------------
 
@@ -365,6 +387,8 @@ CREATE TABLE `producto` (
 --
 -- Volcado de datos para la tabla `producto`
 --
+ALTER TABLE `producto`
+	ADD column `ID_Categoria` int(11) NOT NULL;
 
 INSERT INTO `producto` (`ID`, `ID_vendedor`, `Nombre`, `Precio`, `Activo`, `Descripcion`, `Stock`, `Promedio_Puntuacion`, `Pedido_Anticipado`, `source`) VALUES
 (1, 2, 'zapatos', '23', 1, 'zapatos de vestir ', 20, 4, 1, 'https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000'),
