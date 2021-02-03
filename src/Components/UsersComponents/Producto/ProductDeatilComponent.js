@@ -8,6 +8,7 @@ import '../../../css/product.css';
 import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import NavbarComponent from "../navBar/navbarComponent";
 import ListaProductos from './ListaProductos';
+import axios from 'axios';
 
 function ProductComponent() {
     const [calificaciones,setCalificaciones] = useState("");
@@ -43,27 +44,60 @@ function ProductComponent() {
     },[])
 
     const seleccionarProducto = id => {
-        let producto = {}
-        
-        
-        for(let prod of lista_productos){
-            
-            if(prod.id == id){
-                producto = prod;
-            }
-        }
-        let p = producto
-        console.log(p)
-        p.cantidad = 1
+        let listaIdProductos = new Map(); // clave: id, valor: [cantidad, id detalle-carrito]
+        /* crear post para detail-carrito, 
+        pero antes preguntar si el producto ya existe,
+        si el producto ya existe, hacer un update de la cantidad de productos
+        el id del detail-producto debe ser 'id_usuario + cant_productos' 
+        */
+       let producto = {}
+       for(let prod of lista_productos){
+           // encontrar el producto en lista
+           if(prod.id == id){
+               producto = prod;
+           }
+       }
+       let p = producto
+       p.cantidad = 1
+       //obtener idCarrito
+       axios.get('/carrito', {"where": {"idUsuario": localStorage.getItem('userId')}})
+        .then(respuesta => respuesta.data)
+        .then(res => {
+            console.log(res);
+        });
 
+/*        axios.get('http://localhost:3000/detalle-carrito/')
+       .then(response => response.data)
+       .then( (res)=> {
+           console.log(res)
+           for(let i=0; i<res.length; i++){
+               if(res[i].idCarrito == idCarrito){
+                   listaIdProductos.set(res[i].idProducto,
+                        [res[i].cantidad, res[i].idDetalle]);
+                   cantProductos++;
+                   //let temp = cantProductos;
+                   //setCantProductos(temp++);
+               }
+           }
+        }
+       ); */
 
         if(localStorage.getItem("carrito")){
             let inCarrito = false;
             let data = JSON.parse(localStorage.getItem("carrito"))
             for(let j of data.carrito){
+                //verifica si ya existe en carrito
                 if(p.id == j.id){
                     j.cantidad = j.cantidad + 1;
                     inCarrito = true;
+
+/*                     axios.put('/detalle-carrito/{id}', {
+                        "where": {
+                          "username":"john",
+                          "email":"a@b.com"
+                        }
+                      }) */
+
                     break;
                 }
             }

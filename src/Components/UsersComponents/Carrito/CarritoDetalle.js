@@ -1,10 +1,26 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import {Row,Col,Container} from 'reactstrap';
 import '../../../css/Detalle.css'
+import CarritoComponent, {listaIdProductos} from '../Carrito/CarritoComponent';
+
+
 let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
     const [borrado,setBorrado] = useState(false);
     let borrarElemento = () =>{
         setBorrado(true)
+
+        console.log('hola')
+        console.log(listaIdProductos);
+        for ( let [clave, valor] of listaIdProductos.entries()) {
+            // valor[1] contiene el id del detalle-carrito
+            let url_del_detalle = '/detalle-carrito/'
+            axios.delete(url_del_detalle.concat(valor[1]))
+            .then(response => response.data)
+            .then((res) => {
+                console.log(res);
+            }); 
+        }
         const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
         var productLista = jsonCarro.carrito;
         var listaNueva = []
@@ -25,7 +41,7 @@ let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
 
     }
     if(borrado){
-        return(<span></span>)
+        return(<span></span>);
     }
     else{
         return(
