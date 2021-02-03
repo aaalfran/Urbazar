@@ -11,12 +11,26 @@ var delays = 80,
 var delays2 = 80,
   durations2 = 500;
 
+
+
+  fetch("http://localhost:3000/productos")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    barChart.data.labels = data.map(d => d.nombre)
+    //barChart.data.series = data.map(d => d.precio)
+  })
+  
+  .catch(error=> console.log( "Hubo un error "+error))
+
 // ##############################
 // // // Daily Sales
 // #############################
 
+
+
 const barChart = {
-   data : {
+  data : {
     labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
     series: [
       [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
@@ -24,8 +38,8 @@ const barChart = {
   },
 
    options : {
-    high: 10,
-    low: -10,
+    high: 100,
+    low: 0,
     axisX: {
       labelInterpolationFnc: function(value, index) {
         return index % 2 === 0 ? value : null;
@@ -317,11 +331,11 @@ const completedTasksChart = {
     }
   }
 };
-
 module.exports = {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart,
-  barChart,
-  pieChart
+    dailySalesChart,
+    emailsSubscriptionChart,
+    completedTasksChart,
+    barChart,
+    pieChart
 };
+
