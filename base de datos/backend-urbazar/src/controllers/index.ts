@@ -5,3 +5,4 @@ export * from './persona.controller';
 export * from './calificacion.controller';
 export * from './categoria.controller';
 export * from './compras.controller';
+export * from './correo.controller';
