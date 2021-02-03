@@ -408,6 +408,7 @@ footer > p {
   color:white;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .card-product-sld{  

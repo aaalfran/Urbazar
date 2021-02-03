@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import '../../../css/CarritoComponent.css';
 import NavbarComponent from '../navBar/navbarComponent';
 import { Label, Input, Button, Modal, FormGroup} from 'reactstrap';
@@ -76,11 +76,10 @@ let Resumen = () =>{
 const CarritoComponent = (props) => {
     const [liveDemo, setLiveDemo] = React.useState(false);
     
-   {/* if(!props.auth){ 
-        console.log(props.auth);
-        return <Redirect to='/login'/>  
-      }
-    else{*/}
+    if((localStorage.getItem("auth")==="false")){ 
+        return  <Redirect to='/login'/> 
+        }
+    else{
         return ( 
         <html>
             <head>
@@ -108,7 +107,7 @@ const CarritoComponent = (props) => {
                                  Método de pago 
                             </div>
                             <div id="metodo_selection">
-                                    <PaymentInputs/>                                    
+                                   <PaymentInputs/>                                    
                             </div>
                             <div id="record_method">
                                 <FormGroup check>
@@ -188,7 +187,7 @@ const CarritoComponent = (props) => {
             </body>
             </html>
         );
-    
+    }
 }
  
 export default CarritoComponent;

@@ -1,21 +1,26 @@
 import React from "react";
 import NavbarComponent from "../navBar/navbarComponent";
 import Bryan from "../../../imagenes/bryan.jpeg";
-import {LoadStars, LoadComentarios} from '../Producto/LoadResourcesProducts';
+import {LoadStars} from '../Producto/LoadResourcesProducts';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
-import ProductInfo from "./ProductInfo";
-import cupcakes from "../../../imagenes/cupcakes.jpg";
-import camisa from "../../../imagenes/producto2.jpg";
-import comida from "../../../imagenes/producto3.jpg";
-import producto from "../../../imagenes/producto1.jpg";
-
+import {Redirect} from 'react-router-dom';
+import LoadDatos from "./LoadDatosUsuario";
+import LoadCategories from './LoadCategories';
 import "../../../css/perfil.css";
+import LoadProductos from './LoadProductos';
 
-function PerfilComponent(){
+function PerfilComponent(props){
+    
+    if((localStorage.getItem("auth")==="false")){ 
+        return  <Redirect to='/login'/> }
+    else{    
+
+        let info = LoadDatos("http://localhost:3000/personas/"+ localStorage.getItem("userId"));
+        let categorias = LoadCategories();
+        
     return(
         <html>
             <head>
@@ -24,22 +29,22 @@ function PerfilComponent(){
             <body>
                 <NavbarComponent/>
 
-                <div class="container emp-profile">
+                <div className="container emp-profile">
                 <form method="post">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="profile-img">
+                    <div className="row">
+                        <div className="col-md-4">
+                            <div className="profile-img">
                                 <img src={Bryan} alt=""/>
-                                <div class="file btn btn-lg btn-primary">
+                                <div className="file btn btn-lg btn-primary">
                                     Cambiar foto
                                     <input type="file" name="file"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="profile-head">
+                        <div className="col-md-6">
+                            <div className="profile-head">
                                         <h3>
-                                            ¡Bienvenido Walter Lopez!
+                                            ¡Bienvenido {info.nombre}!
                                         </h3>
                                         <h6>
                                         <FormControlLabel control={<Switch name="modo_vendedor" />} label="Modo vendedor"/>
@@ -49,97 +54,97 @@ function PerfilComponent(){
                             </div>
                         
 
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">General</a>
+                        <ul className="nav nav-tabs" id="myTab" role="tablist">
+                                    <li className="nav-item">
+                                        <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">General</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Configuración</a>
+                                    <li className="nav-item">
+                                        <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Configuración</a>
                                     </li>
                                 </ul>
-                            <div class="tab-content profile-tab" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
+                            <div className="tab-content profile-tab" id="myTabContent">
+                                <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Nombre</label>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <p>Walter López</p>
+                                                <div className="col-md-6">
+                                                    <p>{info.nombre}</p>
                                                 </div>
                                             </div>
                                             
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Teléfono</label>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <p>0962762971</p>
+                                                <div className="col-md-6">
+                                                    <p>{info.telefono}</p>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Correo</label>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <p>bplaza@espol.edu.ec</p>
+                                                <div className="col-md-6">
+                                                    <p>{info.correo}</p>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Familia</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>Lopez Plaza</p>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Ubicación</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                     <p>Ciudadela Joya Etapa 2</p>
                                                 </div>
                                             </div>
                                 </div>
-                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Método de pago</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                     <p>Tarjeta xy <i class="fas fa-pencil-alt"></i></p>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Modo</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                     <p>Comprador </p>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Plan</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                     <p>Básico - comprador</p>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Estado</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                     <p>Activo</p>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
+                                            <div className="row">
+                                                <div className="col-md-6">
                                                     <label>Puntuación</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                     <p> <LoadStars estrellas={"0"}/> </p>
                                                 </div>
                                             </div>
@@ -150,7 +155,7 @@ function PerfilComponent(){
 
 
                     </div>
-                    <div class="row">
+                    <div className="row">
                     </div>
                         
                 </form> 
@@ -160,7 +165,7 @@ function PerfilComponent(){
                 </div>
                 <div className="mr-auto cont_productos">
                     <div id="panel_busqueda">
-                        <form className='mr-auto search_form col-md-6'>
+                       {/* <form className='mr-auto search_form col-md-6'>
                             <TextField className="col-12"  placeholder="Buscar..."/>
                             <button type='submit'><i className='fas fa-search mr-auto'></i></button>
                         </form>
@@ -172,28 +177,42 @@ function PerfilComponent(){
                             <option value={10}>Compras</option>
                             <option disabled="true" value={20}>Ventas</option>
                             </Select>
-                        </FormControl>
+                        </FormControl>*/}
+                        <p>Categoría: </p>
+                         <FormControl className="activitie col-md-3">
+                                <Select native inputProps={{ name: 'activitie', id: 'actividad-select', }}  onChange= {props.handleChange} >
 
+                                {
+                                categorias.map(categoria=>(
+                                    <option name='activitie' value={categoria.id}>{categoria.nombre}</option>
+                                ))
+                                }
+                                
+                                </Select>
+                        </FormControl>
+                            
                     </div>
                     <div id="container_productos">
-                        <ProductInfo nombre ="Cupcake" precio ="2.00" src={cupcakes}
+                        <p id="info_vacio">Seleccione una categoría</p>
+                      {/* <ProductInfo nombre ="Cupcake" precio ="2.00" src={cupcakes}
                               cantidad="1" vendedor="Karla Duran"/>
-                        <ProductInfo nombre ="Blusa" precio ="2.00" src={camisa}
+                         <ProductInfo nombre ="Blusa" precio ="2.00" src={camisa}
                               cantidad="2" vendedor="Daniel Aguiño"/>
                         <ProductInfo nombre ="Celular" precio ="2.00" src={comida}
                               cantidad="1" vendedor="Karla Duran"/>
                         <ProductInfo nombre ="Cupcake" precio ="2.00" src={producto}
-                             cantidad="1" vendedor="Bianca Quiñonez"/>
+                    cantidad="1" vendedor="Bianca Quiñonez"/>*/}
                     </div>
 
                 </div>
             </div> 
 
             </div>
-                
+                <script src={LoadProductos}></script>
             </body>
         </html>
-    )
+    );
+    }
 }
 
 export default PerfilComponent;

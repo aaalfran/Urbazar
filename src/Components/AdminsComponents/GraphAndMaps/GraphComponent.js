@@ -1,11 +1,9 @@
 import React from 'react';
-import {
-  Container,
-  Grid
-} from '@material-ui/core';
+import { Container, Grid} from '@material-ui/core';
 import ChartistGraph from 'react-chartist';
-import NavbarAdmins from "../navBar/navbarAdmins";
+import NavbarAdmins from "../navBar/navBarPC";
 import ToggleMenuAdmins from '../navBar/TogglemenuAdmins';
+import {Redirect} from 'react-router-dom';
 import {
     barChart,
     pieChart,
@@ -14,9 +12,12 @@ import {
   } from "./charts";
 
 class GraphComponent extends React.Component {
+  
   render() {
 
-    
+    if((localStorage.getItem("auth")==="false")){ 
+      return  <Redirect to='/login'/> }
+  else{ 
     return (
         <>
         <NavbarAdmins />
@@ -84,7 +85,8 @@ class GraphComponent extends React.Component {
         </Container>
 
     </>
-    )
+    );
+  }
   }
 }
 

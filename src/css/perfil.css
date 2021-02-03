@@ -154,17 +154,27 @@
 #switch_modo{
     color: #B06050;
 }
+#panel_busqueda p{
+    margin-right: 20px;
+}
+
 
 #panel_busqueda{
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
     width: 100%;
     margin-top: 20px;
 
 }
-
-#card-producti{
-    width: 10%;
-    height: auto;
+#container_productos p{
+    margin: 200px;
+    color:#b060508e;
+    font-size: 30px;
+}
+#container_productos{
+    text-align: center;
 }
 
 .card-image img{
@@ -192,3 +202,16 @@
 #card-footer{
     margin-top: 20px;    
 }
+
+#card-footer ul{
+    list-style: none;
+    margin: 0px;
+
+}
+
+#card-footer ul li{
+    float: left;
+    margin: 0.5px;
+
+}
+

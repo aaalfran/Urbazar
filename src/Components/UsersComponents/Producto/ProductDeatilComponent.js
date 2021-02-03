@@ -1,5 +1,5 @@
 
-
+import {Redirect} from 'react-router-dom';
 import React, {useEffect, useState} from "react";
 import {Container, Button, ButtonGroup} from 'reactstrap';
 import {LoadStars, LoadComentarios} from './LoadResourcesProducts';
@@ -88,6 +88,10 @@ function ProductComponent() {
 
         
     }
+    if((localStorage.getItem("auth")==="false")){ 
+        return  <Redirect to='/login'/> 
+    }
+    else{
     if(load){
         return (
             <>
@@ -324,7 +328,7 @@ function ProductComponent() {
         </>
 
     );
-
+    }
   }
 
   

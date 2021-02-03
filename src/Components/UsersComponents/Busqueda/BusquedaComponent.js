@@ -2,13 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
-import {
-    Container,
-    Grid,
-    makeStyles
-  } from '@material-ui/core';
-
-  import '../../../css/buscador.css';
+import { Container, Grid, makeStyles} from '@material-ui/core';
+import '../../../css/buscador.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,6 +28,8 @@ function useLoadResource(){
         setProductos(data)})
     .catch(error=> console.log( "Hubo un error "+error))
     }, [] )
+
+    
     return(
 <>
         <Container maxWidth="lg">
@@ -64,12 +61,6 @@ function useLoadResource(){
                     subheader={ "$" + producto.precio}
                 />
                 
-                {/*<CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                    {producto.descripcion}
-                    </Typography>
-                </CardContent>*/}
-
                 </Card>
                 </Grid>
            </>
@@ -79,6 +70,7 @@ function useLoadResource(){
         </Container>
         </>
     );
+  
 }
 
 export default useLoadResource;

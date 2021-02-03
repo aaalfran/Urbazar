@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
-import ToggleMenu from './ToggleMenu'
+import ToggleMenu from './ToggleMenuPC';
 import '../../../css/MainComponent.css';
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import {filter, handleClick} from '../Main/main.js';
@@ -17,7 +17,6 @@ const NavbarComponent = (props) => {
         <NavbarToggler onClick={toggle} className="toggler mr-2 custom-toggler"/>
         {/* menu toggler */}
         <ToggleMenu 
-          logout={props.logout}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
         />
@@ -31,7 +30,7 @@ const NavbarComponent = (props) => {
         </form>
 
         <p id='p_bienvenido'>Bienvenido</p>
-        <p id='nombre_user'>Walther López!</p>
+        <p id='nombre_user'>{localStorage.getItem("nombre_usuario")}!</p>
 
         <button type='button' className='button_nav boton_notificacion'><i className='fas fa-bell fa-lg'></i></button>
         <div id="cont_icon_carrito">

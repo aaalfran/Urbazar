@@ -3,7 +3,7 @@ import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
 import '../../../css/MainComponent.css';
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
-const NavbarAdmins = () => {
+const NavbarAdmins = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(true);
 
@@ -17,10 +17,10 @@ const NavbarAdmins = () => {
         <NavbarBrand  className='logo'>UrbazApp</NavbarBrand>
         <NavbarBrand  className='logo2'>UApp</NavbarBrand>
         <div id="space"></div>
-        <p id='p_bienvenido'>Bienvenido!</p>
-        <p id='nombre_user'>Walther López</p>
+        <p id='p_bienvenido'>Bienvenido</p>
+        <p id='nombre_user'>{localStorage.getItem("nombre_usuario")}!</p>
 
-        <button type='button' className='button_nav' href="/carrito"><i class="fas fa-users-cog"></i></button>
+        <button type='button' className='button_nav' onClick={props.logout} href="/login"><i class="fas fa-power-off"></i></button>
 
       </Navbar>
 

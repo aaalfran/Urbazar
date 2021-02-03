@@ -20,7 +20,7 @@ import AccountComponent from './Components/AdminsComponents/Account/Account';
 import ClientesComponent from './Components/AdminsComponents/PanelClientes/ClientesComponent';
 import MapComponent from './Components/AdminsComponents/GraphAndMaps/MapComponent';
 import CatalogoComponent from './Components/UsersComponents/Busqueda/CatalogoComponent';
-import PerfilComponent from './Components/UsersComponents/Perfil/PerfilComponent';
+import PerfilComponent from './Components/UsersComponents/Perfil/PerfilPC';
 import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
@@ -44,8 +44,11 @@ const Index = () =>{
     if(!localStorage.getItem("nombre_usuario")){
       localStorage.setItem("nombre_usuario", "")
     }
-    if(!localStorage.getItem("userid")){
+    if(!localStorage.getItem("userId")){
       localStorage.setItem("userId", "")
+    }
+    if(!localStorage.getItem("isAdmin")){
+      localStorage.setItem("isAdmin", 0)
     }
   
   })

@@ -4,7 +4,7 @@ import CategoriaComponent from '../navBar/CategoriaComponent';
 import { UncontrolledCarousel, Col } from 'reactstrap';
 import '../../../css/MainComponent.css';
 import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
-import {BrowserRouter as Router, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import introJs from 'intro.js';
 import LoadProducts from "./LoadProducts";
 import '../../../css/slider.scss';
@@ -12,7 +12,7 @@ import banner1 from '../../../imagenes/ban1.png';
 import banner7 from '../../../imagenes/ban7.png';
 import banner9 from '../../../imagenes/ban9.png';
 
-function Main(props) {
+function Main() {
   //introJs().start();
   
   /* banner items */
@@ -37,20 +37,19 @@ function Main(props) {
     }
   ];
 
-  if(!localStorage.getItem("auth")){ 
+  if((localStorage.getItem("auth")==="false")){ 
     return  <Redirect to='/login'/> 
     
     }
   else{
   
-    console.log(localStorage.getItem("auth"));
     return (
       <>
         <head>
-        {/*<link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css" />*/}
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@3.1.0/themes/introjs-nassim.min.css"/>
         </head>
-        <NavbarComponent logout={props.logout}/>
+        <NavbarComponent />
         <CategoriaComponent isToggle={false}/>
 
         {/* banner */}

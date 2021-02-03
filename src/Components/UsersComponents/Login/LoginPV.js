@@ -9,8 +9,11 @@ import {BrowserRouter as Router, Redirect} from 'react-router-dom';
 import '../../../css/LoginComponent.css';
 
 function LoginComponent(props) {
-  if(props.auth){
+  if(props.auth && localStorage.getItem('isAdmin')==0){
     return  <Redirect to='/'/> 
+  }
+  else if (props.auth && localStorage.getItem('isAdmin')==1){
+    return  <Redirect to='/admin/dashboard/report'/> 
   }
   else
 {

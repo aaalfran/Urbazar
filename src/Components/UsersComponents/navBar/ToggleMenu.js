@@ -1,12 +1,12 @@
 import React from 'react';
 import CategoriaComponent from './CategoriaComponent';
 
-const ToggleMenu = ({isOpen, setIsOpen}) => {
+const ToggleMenu = (props) => {
 
-    const cerrar = () => {setIsOpen(!isOpen)};
+    const cerrar = () => {props.setIsOpen(!props.isOpen)};
     let menu = document.getElementById('bodyApp');
 
-    if(isOpen) {
+    if(props.isOpen) {
         menu.style.overflow = 'hidden';
     } else {
         menu.style.overflow = 'auto';
@@ -15,8 +15,8 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
     return ( 
     
     <>
-        {isOpen ?  
-        <div className='toggleMenu' style={{transform: isOpen ? 'translateX(0px)' : 'translateX(-100%)', transition: '0.3s'}}>
+        {props.isOpen ?  
+        <div className='toggleMenu' style={{transform: props.isOpen ? 'translateX(0px)' : 'translateX(-100%)', transition: '0.3s'}}>
             <div className='toggleTitulo'>
                 <p className='p_toggleMenu'>Menú</p>
                 <button className='btn-cerrar-toggle' onClick={cerrar}><i className="fas fa-times fa-lg"></i></button>
@@ -27,7 +27,7 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                     <i className="fas fa-user-circle fa-2x"></i>
                 </div>
                 <div id='perfilTags'>
-                    <p id='toggleNombre'>Walther López</p>
+                    <p id='toggleNombre'>{localStorage.getItem("nombre_usuario")}</p>
                     <p id='toggleTipoUser'>Comprador</p>
                 </div>
             </div>
@@ -51,7 +51,7 @@ const ToggleMenu = ({isOpen, setIsOpen}) => {
                 <br/>
             
             <div className='toggleCerrarSesion'>
-                <a id='btn_cerrarSesion'  href='/login' ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
+                <a id='btn_cerrarSesion' onClick={props.logout} href="/login" ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
             </div>
             </div> 
             

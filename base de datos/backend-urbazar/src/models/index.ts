@@ -16,3 +16,5 @@ export * from './persona.model';
 export * from './urbanizacion.model';
 export * from './vendedor.model';
 export * from './venta.model';
+export * from './categoria.model';
+export * from './compras.model';

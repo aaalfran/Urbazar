@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavbarComponent from '../navBar/navbarComponent';
-
+import {Redirect} from 'react-router-dom';
 import '../../../css/Desarrolladores.css'
 import bryan_photo from '../../../imagenes/bryan.jpeg'
 import betsy_photo from '../../../imagenes/betsy.jpeg'
@@ -9,7 +9,12 @@ import karla_photo from '../../../imagenes/karla.png'
 function DesarrolladoresComponent(){    
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-    return(
+    if((localStorage.getItem("auth")==="false")){ 
+        return  <Redirect to='/login'/> 
+        
+        }
+    else{
+        return(
         <html>
             <head>
                 <meta name="author" content="Beescript"/>
@@ -50,6 +55,7 @@ function DesarrolladoresComponent(){
         </body>
        </html>
     );
+    }
 }
 
 export default DesarrolladoresComponent;

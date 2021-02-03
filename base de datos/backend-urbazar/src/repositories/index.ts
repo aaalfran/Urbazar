@@ -17,3 +17,5 @@ export * from './persona.repository';
 export * from './urbanizacion.repository';
 export * from './vendedor.repository';
 export * from './venta.repository';
+export * from './categoria.repository';
+export * from './compras.repository';
