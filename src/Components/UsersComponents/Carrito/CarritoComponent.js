@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 import axios from 'axios';
 import '../../../css/CarritoComponent.css';
 import NavbarComponent, {cantidadProd} from '../navBar/navbarComponent';
@@ -11,6 +11,7 @@ let listaNomProductos = new Map(); // clave: id, valor: [nombre, precio]
 let conjuntoIdProductos = new Set();
 
 let cantProductos = 0;
+let primeraCarga = true;
 
  const Productos = () =>{
     
@@ -20,7 +21,9 @@ let cantProductos = 0;
     let temp = url.split('/');
     let idCarrito = temp[4].toString();
     
-    useEffect(() => {
+    useLayoutEffect(() => {
+        if (primeraCarga) {
+            primeraCarga = false;
         axios.get('http://localhost:3000/detalle-carrito/')
         .then(response => response.data)
         .then( (res)=> {
@@ -34,6 +37,7 @@ let cantProductos = 0;
                     
                 }
             }
+            console.log('holAaaaaaaaaa')
             console.log(cantProductos);
             if(cantProductos > 0){
                 // se consultan todos los productos de la db
@@ -56,14 +60,16 @@ let cantProductos = 0;
                         }    
                     });
                 }
+                console.log(conjuntoIdProductos.size)
                 //return(<div>{listaComponent}</div>)
             }
             else{
                 //return(<h1 className="vacioCarrito">Carrito Vacío</h1>); 
-            };
-        });
+            }; 
+        }); }
 
     })
+
     if (cantProductos > 0) {
         return(<div>{listaComponent}</div>);
     } else {
@@ -76,25 +82,53 @@ let Resumen = () =>{
 
     let listaLi = []
     let precioTotal = 0;
+    useLayoutEffect(() => {
+            console.log('longitud')
+            console.log(conjuntoIdProductos.size)
+            if(conjuntoIdProductos.size != 0){
+                //const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
+                //var productLista = jsonCarro.carrito;
+                for (let item of conjuntoIdProductos){
+                    let url_productos = 'http://localhost:3000/productos/';
+                    axios.get(url_productos.concat(item))
+                    .then(response => response.data)
+                    .then( (res)=> {
+                        let nombre = res.nombre;
+                        let precio = res.precio;
+                        precioTotal = precioTotal + precio;
 
-        console.log('longitud')
-        console.log(conjuntoIdProductos.length)
-        if(conjuntoIdProductos.length != 0){
-            //const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
-            //var productLista = jsonCarro.carrito;
-            console.log(listaIdProductos.entries());
-            for (let [clave, valor] of listaIdProductos.entries()) {
-                let nombre = listaNomProductos.get(clave)[0];
-                let precio = parseFloat(valor[0]) * listaNomProductos.get(clave)[1];
-                precioTotal = precioTotal + precio;
-                listaLi.push(<tr>
-                    <td>{nombre}</td>
-                    <td>${precio}</td>
-                </tr>)
-            }
-            localStorage.setItem("precio",precioTotal)
-            return(
+                        listaLi.push(<tr>
+                            <td>{nombre}</td>
+                            <td>${precio}</td>
+                        </tr>)
     
+                    });
+
+                }
+                localStorage.setItem("precio",precioTotal)
+/*                 return(
+        
+                <table className="w-100">
+                    <tr>
+                        <th>Productos</th>
+                        <th>Precio</th>
+                    </tr>
+                    {listaLi}
+                    <tr>
+                        <td colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
+                    </tr>
+                </table>
+                ); */
+            }
+            else{
+                //return(<p></p>)
+            }
+
+    })
+
+    if (conjuntoIdProductos.length != 0) {
+        return(
+        
             <table className="w-100">
                 <tr>
                     <th>Productos</th>
@@ -106,10 +140,11 @@ let Resumen = () =>{
                 </tr>
             </table>
             );
-        }
-        else{
-            return(<p></p>)
-        }
+
+    }
+    else {
+        return(<p></p>);
+    }
 
     }
 
@@ -137,7 +172,7 @@ let Resumen = () =>{
 
 
 const CarritoComponent = (props) => {
-    conjuntoIdProductos.clear();
+    //conjuntoIdProductos.clear();
     const [liveDemo, setLiveDemo] = React.useState(false);
    {/* if(!props.auth){ 
         console.log(props.auth);
@@ -228,13 +263,16 @@ const CarritoComponent = (props) => {
                                         id="btn_confModal"
                                         onClick={() => {
                                             // se eliminan todos los detalle-carrito
-                                            for ( let [clave, valor] of listaIdProductos.entries()) {
+                                            console.log('holaaaa')
+                                            console.log(conjuntoIdProductos)
+                                            for ( let item of conjuntoIdProductos) {
                                                 // valor[1] contiene el id del detalle-carrito
                                                 let url_del_detalle = '/detalle-carrito/'
-                                                axios.delete(url_del_detalle.concat(valor[1]))
+                                                axios.delete(url_del_detalle.concat(item))
                                                 .then(response => response.data)
                                                 .then((res) => {
                                                     console.log(res);
+                                                    console.log('despues de borrar')
                                                 }); 
                                             }
                                             listaIdProductos.clear();    
