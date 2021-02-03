@@ -29,7 +29,7 @@ function useLoadResource(){
     const [page, setPage] = useState(0);
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/allproducts")
+        fetch("http://localhost:3000/productos")
     .then(response => response.json())
     .then(data => {
         setProductos(data)})
@@ -78,13 +78,7 @@ function useLoadResource(){
                         </Box>
                     </Typography>
                     </TableCell>
-                    <TableCell>
-                    <Typography>
-                        <Box fontWeight="fontWeightBold">
-                      Categoria
-                        </Box>
-                    </Typography>
-                    </TableCell>
+                    
                     <TableCell>
                     <Typography>
                         <Box fontWeight="fontWeightBold">
@@ -109,7 +103,7 @@ function useLoadResource(){
                         >
                           <Avatar
                             className={classes.avatar}
-                            src={producto.imagen}
+                            src={producto.source}
                           >
                           </Avatar>
                         </Box>
@@ -130,16 +124,9 @@ function useLoadResource(){
                         {producto.precio}
                         </Typography>
                       </TableCell>
+                      
                       <TableCell>
-                      <Typography 
-                        color="textPrimary"
-                        variant="body1"
-                        className="interes">
-                        {producto.categoria}
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                     <i  className="far fa-trash-alt garbage"></i>
+                     <i className="far fa-trash-alt garbage"></i>
                       </TableCell>
                     </TableRow>
                   ))}

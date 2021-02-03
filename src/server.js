@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
+
+
 app.post('/api/contactanos', async(req, res)=>{
     nodemailer.createTestAccount((err, account)=> {
         const htmlEmail = `
@@ -54,6 +56,17 @@ app.post('/api/contactanos', async(req, res)=>{
     });
     
 });
+
+app.get('/api/productos', async(req, res)=>{
+    try{     
+        const data = require("./datos/Productos.json")
+        res.json(data)
+    }        
+    catch{
+        console.log("Error")
+    }
+    
+})
 
 app.get('/api/productos2', async(req, res)=>{
     try{     
