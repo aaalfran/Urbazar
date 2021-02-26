@@ -78,6 +78,9 @@ const Index = () =>{
             <Route path="/admin/dashboard/customer" exact component={ClientesComponent}/>
             <Route path="/admin/dashboard/map" exact component={MapComponent}/>
             <Route path="/buscador" exact component={CatalogoComponent}/>
+            <Route path="/buscador/:id" exact>
+              <CatalogoComponent></CatalogoComponent>
+            </Route>
             <Route path="/perfil" exact component={PerfilComponent}/>
             </Switch>
       </Router>

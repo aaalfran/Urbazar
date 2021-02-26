@@ -366,19 +366,21 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`ID`, `identificacion`, `Nombre`, `Telefono`, `Correo`, `Edad`, `genero`, `Username`, `Contrasena`, `Activo`, `role`) VALUES
-(1, 9,'Jose Martinez', '0904739412', 'josea@hotmail.com', 22, "Masculino", 'pepem', 'hose12345', 1, 0),
-(2, 8,'Carla Suarez', '0921457329', 'CarlaS@hotmail.com', 19, 'CarlaSuarez',"Masculino", 'Carlita1234', 1, 1),
-(3, 7,'Maria Sanchez', '0989544843', 'mariasan@hotmail.com', 39, 'marisan', "Masculino",'marisan1234', 1, 0),
-(4, 6,'Ronny Apolo', '04242847', 'ronnya@hotmail.com', 24, 'ronap',"Masculino", 'ronny2425', 1, 0),
-(5, 5, 'Juan ', '021944946', 'Juanal@hotmaiil.com', 54, 'juanal',"Masculino", 'juanal2425', 1, 0),
-(6, 21,'Danilo ', '0907443971', 'Danburb@hotmail.com', 27, 'danburb',"Masculino", 'danilo1234', 1, 0),
-(7, 90,'Veronica ', '0921476212', 'verogarci@hotmail.com', 33, 'verogar', "Masculino",'veronica1234', 1, 1),
-(8, 0902, 'Noe ', '0923571295', 'Noe@hotmail.com', 22, 'noe23', "Masculino",'noe23456', 1, 2),
-(9, 021, 'Dayana ', '0988337758', 'Dayna22@hotmail.com', 22, 'dayavel',"Masculino", 'dayana223344', 1, 0),
-(10, 91, 'Olga', '0944771234', 'Olgamaria@hotmail.com', 42, 'olgamar', "Masculino",'olga123456', 1, 1),
-(11, 928, 'Daniel', '098957489', 'daro@hotmail.com', 33, 'daro', "Masculino",'1234', 1, 2),
-(12, 23, 'viviana', '0912314112', 'vivi@hotmail.com', 22, 'viviana', "Masculino",'12323', 1, 2);
-select * from persona
+(1, "9",'Jose Martinez', '0904739412', 'josea@hotmail.com', 22, "Masculino", 'pepem', 'hose12345', 1, 0),
+(2, "8",'Carla Suarez', '0921457329', 'CarlaS@hotmail.com', 19, "Masculino",'CarlaSuarez', 'Carlita1234', 1, 1),
+(3, "7",'Maria Sanchez', '0989544843', 'mariasan@hotmail.com', 39, "Masculino",'marisan', 'marisan1234', 1, 0),
+(4, "6",'Ronny Apolo', '04242847', 'ronnya@hotmail.com', 24,"Masculino", 'ronap', 'ronny2425', 1, 0),
+(5, "5", 'Juan ', '021944946', 'Juanal@hotmaiil.com', 54, "Masculino",'juanal', 'juanal2425', 1, 0),
+(6, "21",'Danilo ', '0907443971', 'Danburb@hotmail.com', 27, "Masculino",'danburb', 'danilo1234', 1, 0),
+(7, "90",'Veronica ', '0921476212', 'verogarci@hotmail.com', 33, "Masculino", 'verogar', 'veronica1234', 1, 1),
+(8, "0902", 'Noe ', '0923571295', 'Noe@hotmail.com', 22, "Masculino",'noe23', 'noe23456', 1, 2),
+(9, "021", 'Dayana ', '0988337758', 'Dayna22@hotmail.com', 22, "Masculino", 'dayavel','dayana223344', 1, 0),
+(10, "91", 'Olga', '0944771234', 'Olgamaria@hotmail.com', 42, "Femenino", 'olgamar', 'olga123456', 1, 1),
+(11, "928", 'Daniel', '098957489', 'daro@hotmail.com', 33, "Masculino",'daro', '1234', 1, 2),
+(12, "23", 'viviana', '0912314112', 'vivi@hotmail.com', 22, "Femenino",'viviana', '12323', 1, 2),
+(906, "0952242667", 'Pedro mayorga', '0952242667', 'pedrito@gmail.com', 22, "Masculino",'pepe', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2', 1, 0);
+
+
 -- --------------------------------------------------------
 
 --
@@ -404,12 +406,14 @@ CREATE TABLE `producto` (
 --
 
 
-INSERT INTO `producto` (`ID`, `ID_vendedor`, `Nombre`, `Precio`, `Activo`, `Descripcion`, `Stock`, `Promedio_Puntuacion`, `Pedido_Anticipado`, `source`, `ID_Categoria`) VALUES
-(1, 2, 'zapatos', '23', 1, 'zapatos de vestir ', 20, 4, 1, 'https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000', 1),
-(2, 2, 'camisa ', '20', 1, 'camisa de vestir', 7, 4, 1, 'https://bassil.com.ec/3168/camisa-amarilla-manga-corta-barcelona-sporting-club.jpg', 2),
-(3, 4, 'computadora ', '500', 1, 'computadora lenovo', 100, 5, 1, 'https://www.idcmayoristas.com/wp-content/uploads/2020/04/002589.jpg', 3),
-(4, 6, 'iphone', '5', 1, 'celular phone 10 ', 20, 5, 1, 'https://images-na.ssl-images-amazon.com/images/I/61ceSVoz1nL._AC_SX385_.jpg', 4),
-(5, 8, 'alcohol', '2', 1, 'alcohol antiseptico', 200, 5, 1, 'https://gontec.com.ec/wp-content/uploads/2020/05/alcohol_anti.png', 1);
+
+INSERT INTO `producto` (`ID`, `ID_vendedor`,`ID_Categoria`, `Nombre` ,`Precio`, `Activo`, `Descripcion`, `Stock`, `Promedio_Puntuacion`, `Pedido_Anticipado`, `source`) VALUES
+(1, 2,1, 'zapatos', '23', 1, 'zapatos de vestir ', 20, 4, 1, 'https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000'),
+(2, 2,1, 'camisa ', '20', 1, 'camisa de vestir', 7, 4, 1, 'https://bassil.com.ec/3168/camisa-amarilla-manga-corta-barcelona-sporting-club.jpg'),
+(3, 4,2, 'computadora ', '500', 1, 'computadora lenovo', 100, 5, 1, 'https://www.idcmayoristas.com/wp-content/uploads/2020/04/002589.jpg'),
+(4, 6,2, 'iphone', '5', 1, 'celular phone 10 ', 20, 5, 1, 'https://images-na.ssl-images-amazon.com/images/I/61ceSVoz1nL._AC_SX385_.jpg'),
+(5, 8,4, 'alcohol', '2', 1, 'alcohol antiseptico', 200, 5, 1, 'https://gontec.com.ec/wp-content/uploads/2020/05/alcohol_anti.png');
+
 
 -- --------------------------------------------------------
 

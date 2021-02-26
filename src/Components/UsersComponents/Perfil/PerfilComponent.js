@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import NavbarComponent from "../navBar/navbarComponent";
 import Bryan from "../../../imagenes/bryan.jpeg";
 import {LoadStars} from '../Producto/LoadResourcesProducts';
@@ -11,14 +11,48 @@ import LoadDatos from "./LoadDatosUsuario";
 import LoadCategories from './LoadCategories';
 import "../../../css/perfil.css";
 import LoadProductos from './LoadProductos';
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import VendedorCompra from "./VendedorCompra";
+const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'scroll',
+      
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+      
+    },
+  }));
 
 function PerfilComponent(props){
+
+    let [vendedor,setVendedor] = useState(false);
+    let [switchV,setSwitchV] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    const classes = useStyles();
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
     
     const auth = parseInt(localStorage.getItem("auth"), 10)
     const role= localStorage.getItem("role");
     
     
-    if( auth && (role=="0" || role=="1")){      
+    if( auth && (role=="0" || role=="1")){ 
+    
+
 
         let info = LoadDatos("http://localhost:3000/personas/"+ localStorage.getItem("userId"));
         let categorias = LoadCategories();
@@ -27,7 +61,30 @@ function PerfilComponent(props){
             <>
                 <NavbarComponent/>
 
+
                 <div className="emp-profile">
+
+                <Modal
+                className={classes.modal}
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 500,
+                }}>
+                    <Fade in={open}>
+                    <div className={classes.paper + " rounded w-75 modalResponsive"}>
+                        <h2 id="transition-modal-title">Modo Vendedor</h2>
+                        <p id="transition-modal-description">¿Quieres activar las funcionalidades de un vendedor?</p>
+                        <VendedorCompra setVendedor={setVendedor}  setOpen={setOpen}></VendedorCompra>
+                    </div>
+                    </Fade>
+                </Modal>
+                
+
                 <form method="post">
                     <div className="row">
                         <div className="col-md-4">
@@ -45,7 +102,15 @@ function PerfilComponent(props){
                                             ¡Bienvenido {info.nombre}!
                                         </h3>
                                         <h6>
-                                        <FormControlLabel control={<Switch name="modo_vendedor" />} label="Modo vendedor"/>
+                                        <FormControlLabel control={<Switch name="modo_vendedor" checked={switchV}/> } label="Modo vendedor"
+                                        onClick={(e) => {
+                                        if(!vendedor){
+                                            setOpen(!open)
+                                        }else{
+                                            setSwitchV(!switchV)
+                                        }
+                                        
+                                        }}/>
                                         </h6>
                                         
                                 

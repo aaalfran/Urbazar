@@ -215,4 +215,62 @@
     margin: 0.5px;
 
 }
+.listaCheck {
+    list-style: none;
+  }
+  
+.listaCheck li:before {
+    content: '✓';
+    color: #B06050 ;
+    padding: 5px;
+}
+.fondoCard{
+    background: rgb(80,96,72);
+    background: linear-gradient(155deg, rgba(80,96,72,1) 0%, rgba(192,255,161,1) 100%);
+    border-radius: 10px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 200px;
+    width: 380px;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.28);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.28);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.28);
 
+}
+.iconoCompra{
+    color: white;
+    text-align: center;
+    font-size: 70px;
+}
+
+
+@media only screen and (max-width: 1120px){
+    .iconoCompra{
+        display: none;
+    }
+    .fondoCard{
+        width: 0;
+        height: 0;
+        display: none;
+    }
+    .iconoCompra::before{
+        display: none;
+    }
+    .sombraCard{
+        margin-bottom: 10px;
+    }
+    .modalResponsive{
+        max-height: 90%;
+    }
+    .filaCompra{
+        max-height: 30rem;
+        overflow: scroll;
+        
+    }
+}
+.sombraCard{
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.21);
+    border-radius: 10px;
+}
