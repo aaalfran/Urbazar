@@ -8,28 +8,73 @@ import {
 } from '@loopback/repository';
 import {
   post,
+  RestBindings,
   param,
   get,
+  Request,
   getModelSchemaRef,
   patch,
   put,
   del,
   requestBody,
+  HttpErrors,
 } from '@loopback/rest';
 import {Persona} from '../models';
 import {PersonaRepository} from '../repositories';
+import {inject} from '@loopback/core';
+import {AuthService} from "../services/auth.service";
+
+class Credentials{
+  username: string;
+  password: string;
+}
 
 export class PersonaController {
+
+  authService: AuthService;
+
   constructor(
     @repository(PersonaRepository)
     public personaRepository : PersonaRepository,
-  ) {}
+    @inject(RestBindings.Http.REQUEST) 
+    private request: Request,
+  ) {
+    this.authService = new AuthService(this.personaRepository);
+  }
+
+  @post("/login", {
+    responses:{
+      "200":{
+        description: "Login para usuarios"
+      }
+    }
+  })
+  async login(
+    @requestBody() credentials: Credentials
+  ): Promise<object>{
+    let persona = await this.authService.Identify(credentials.username, credentials.password);
+    console.log(persona)
+    if (persona){
+      let tk = await this.authService.generateToken(persona);
+      return {
+        data: persona,
+        token: tk
+      }
+      
+    }else{
+      throw new HttpErrors[401]("User or Password invalid.")
+
+
+    }
+
+  }
 
   @post('/personas', {
     responses: {
       '200': {
         description: 'Persona model instance',
-        content: {'application/json': {schema: getModelSchemaRef(Persona)}},
+        content: {'application/json': {
+          schema: getModelSchemaRef(Persona)}},
       },
     },
   })
@@ -45,8 +90,8 @@ export class PersonaController {
       },
     })
     persona: Persona,
-  ): Promise<Persona> {
-    return this.personaRepository.create(persona);
+  ){
+    this.personaRepository.create(persona);
   }
 
   @get('/personas/count', {
@@ -83,6 +128,7 @@ export class PersonaController {
   ): Promise<Persona[]> {
     return this.personaRepository.find(filter);
   }
+
 
   @patch('/personas', {
     responses: {

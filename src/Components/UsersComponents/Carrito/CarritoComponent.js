@@ -75,11 +75,11 @@ let Resumen = () =>{
 
 const CarritoComponent = (props) => {
     const [liveDemo, setLiveDemo] = React.useState(false);
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
     
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> 
-        }
-    else{
+    
+    if( auth && (role=="0" || role=="1")){         
         return ( 
         <html>
             <head>
@@ -188,6 +188,13 @@ const CarritoComponent = (props) => {
             </html>
         );
     }
+    //Por ahora estas validaciones quedan de esta forma, cuando se desarrollen bien los dashboards de admins se dividirá esto
+    else if(auth && (role=="2" || role=="3")){
+        return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
+    
+    
 }
  
 export default CarritoComponent;

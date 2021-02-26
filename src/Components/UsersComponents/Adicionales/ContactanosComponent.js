@@ -8,19 +8,14 @@ import { Modal} from 'reactstrap';
 
 function ContactanosComponent (){     
     const [liveDemo, setLiveDemo] = React.useState(false);   
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> 
-        
-        }
-    else{
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
+    
+    
+    if( auth && (role=="0" || role=="1")){  
+      
         return (
-            <html>      
-                <head>
-                <meta name="author" content="Beescript"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-            
-                </head> 
-            <body>
+            <>
                 <NavbarComponent/>
                 <div id="header">
                     ¡En UrbazApp nos importan tus comentarios!
@@ -109,10 +104,14 @@ function ContactanosComponent (){
 
                 
             
-        </body>
-            </html>
+        </>
         );
     }
+    else if(auth && (role=="2" || role=="3")){
+        return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
+    
     
 }
 

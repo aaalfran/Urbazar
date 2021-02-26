@@ -9,11 +9,11 @@ import karla_photo from '../../../imagenes/karla.png'
 function DesarrolladoresComponent(){    
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> 
-        
-        }
-    else{
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
+    
+    
+    if( auth && (role=="0" || role=="1")){   
         return(
         <html>
             <head>
@@ -56,6 +56,10 @@ function DesarrolladoresComponent(){
        </html>
     );
     }
+    else if(auth && (role=="2" || role=="3")){
+        return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
 }
 
 export default DesarrolladoresComponent;

@@ -12,26 +12,31 @@
     margin-bottom: 10px;
 }
 
-body, #root, #container{
+body, #root, .container_login{
     height: 100%;
 }
 
+.container_login{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
 #info{
     width: 60%;
     margin: auto;
 }
 
-
+.input_pass{
+    margin-bottom: 0px;
+}
 .Login-title{
     text-align: center;
 }
 
-#tarjeta{
-    width: 70%;
-    height: 90%;
+#tarjeta_login{
+    width: 60% !important;
     margin: auto;
     background-color: #ffffff;
-    margin-top: 30px;
     border: 1px solid #b8b8b8;
     border-top: 5px solid  #506048 ;
 }
@@ -53,6 +58,7 @@ body, #root, #container{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 3%;
 }
 
 #registrate a{

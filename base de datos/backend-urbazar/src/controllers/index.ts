@@ -6,3 +6,5 @@ export * from './calificacion.controller';
 export * from './categoria.controller';
 export * from './compras.controller';
 export * from './correo.controller';
+export * from './metodo-de-pago.controller';
+export * from './familia.controller';

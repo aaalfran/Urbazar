@@ -2,12 +2,18 @@ import React, {Component} from 'react';
 import LoginPV from "./LoginPV";
 import {connect} from 'react-redux';
 import AuthA from '../../../store/actions/AuthA';
+import EncryptPassword from "./EncryptPassword";
 
 class LoginPC extends Component{
 
-    login = () =>{
+
+
+
+    login = async() =>{
+        //let pass_encrypt = await EncryptPassword(document.getElementById('password').value);        
+        
         let data = {
-            'user': document.getElementById('user').value,
+            'username': document.getElementById('username').value,
             'password': document.getElementById('password').value,
         }
 

@@ -1,6 +1,5 @@
 // Uncomment these imports to begin using these cool features!
 
-// import {inject} from '@loopback/core';
 import {RestBindings, post, Request, requestBody} from '@loopback/rest';
 const nodemailer = require('nodemailer');
 import {inject} from '@loopback/core';

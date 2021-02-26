@@ -15,12 +15,30 @@ export class MetodoDePago extends Entity {
   id: number;
 
   @property({
+    type: 'number',
+    required: true,
+    mysql: {columnName: 'cvv', dataType: 'varchar', dataLength: null, dataPrecision: null, dataScale: null, nullable: 'N'},
+  })
+  cvv: number;
+
+  
+  @property({
+    type: 'date',
+    required: true,
+    length: 100,
+    mysql: {columnName: 'NombreMetodo', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
+  })
+  fecha: Date;
+
+  @property({
     type: 'string',
     required: true,
     length: 100,
     mysql: {columnName: 'NombreMetodo', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
   })
   nombreMetodo: string;
+
+
 
   @property({
     type: 'number',

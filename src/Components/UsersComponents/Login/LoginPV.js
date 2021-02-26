@@ -5,27 +5,26 @@ import React from "react";
 import { Card, Button, CardTitle, CardText ,  
         Form, FormGroup, Input, 
         Container} from 'reactstrap';
-import {BrowserRouter as Router, Redirect} from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import '../../../css/LoginComponent.css';
 
 function LoginComponent(props) {
-  if(props.auth && localStorage.getItem('isAdmin')==0){
-    return  <Redirect to='/'/> 
-  }
-  else if (props.auth && localStorage.getItem('isAdmin')==1){
+
+  const auth = parseInt(localStorage.getItem("auth"), 10)
+  const role= localStorage.getItem("role");
+    
+    
+  if( auth && (role=="2" || role=="3")){ 
     return  <Redirect to='/admin/dashboard/report'/> 
   }
-  else
-{
+  else if(auth && (role=="0" || role=="1")){
+    return  <Redirect to='/'/> 
+  }
+  else{
     return (
-     <html>
-       <head>
-          <meta name="author" content="Beescript"/>
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-       </head>
-       <body>
-        <Container>       
-          <Card body id="tarjeta">
+     
+        <Container className="container_login">       
+          <Card body id="tarjeta_login">
 
             <div className= "Login-title">
             <CardTitle> 
@@ -38,12 +37,15 @@ function LoginComponent(props) {
             <CardText id="info">          
               <Form>
                 <FormGroup className="has-success">
-                <Input type="text" name="user" id="user" placeholder="Usuario" />
+                  <Input id="username" name="usuario" placeholder="Usuario"/>
+                
                 </FormGroup>
             
-                <FormGroup className="has-success">
-                <Input type="password" name="password" id="password" placeholder="Contraseña" />
+                <FormGroup className="has-success input_pass">
+                <Input id="password" type="password" name="contrasena" placeholder="Contraseña"/>
+                
                 </FormGroup>
+                <div id="FeedbackLogin" className="feedback"></div>
                 <div id="cont_button">
                   <Button onClick={props.login} id="btn-round">
                     Ingresar 
@@ -61,9 +63,7 @@ function LoginComponent(props) {
           </Card>
 
           </Container>
-        </body>
-        
-      </html>
+       
       
 
     );

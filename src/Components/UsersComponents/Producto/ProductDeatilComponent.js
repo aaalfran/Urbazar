@@ -122,11 +122,12 @@ function ProductComponent() {
 
         
     }
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> 
-    }
-    else{
-    if(load){
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
+    
+    
+    if( auth && (role=="0" || role=="1")){       
+        if(load){
         return (
             <>
         <NavbarComponent />
@@ -201,13 +202,6 @@ function ProductComponent() {
                             </div>
                             <div className="col-6 text-right">
                                 <p> +1- </p>
-                                {/*<div id="cont_cantidad">
-                                    <p id="cant"> 1 </p>
-                                    <div id="btns_aumento">
-                                        <Button className="btn_modification">-</Button>
-                                        <Button className="btn_modification">+</Button>
-                                    </div> 
-                                </div>*/}
                             </div>
                             <div className="col-6" id="totlabel">
                                 <p>Total</p>
@@ -222,25 +216,6 @@ function ProductComponent() {
                         </div>
                     </div>
                 </div>
-                {/*<script>
-                    {
-                      document.addEventListener('DOMContentLoaded', function() {
-                        let btns = document.getElementsByClassName("btn_modification");
-                        //Disminuír
-                        btns[0].addEventListener('click', ()=>{
-                            let cant = document.getElementById("cant");
-                            cant.textContent = parseInt(cant.textContent)-1;
-                        });
-                        //Aumentar
-                        btns[1].addEventListener('click', ()=>{
-                            let cant = document.getElementById("cant");
-                            cant.textContent = parseInt(cant.textContent)+1;
-                        });
-                        console.log(producto_selec.comentarios)
-                      })
-                    
-                    }
-                </script>*/}
                                     
     
               </div>
@@ -299,22 +274,6 @@ function ProductComponent() {
                             <h5>Comentarios</h5>
                             <div data-list="[producto_selec.comentarios]" id="comentarios">
                             </div>
-                           {/*} <script> 
-                                {
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        var div_com = document.getElementById("comentarios");
-                                        var array = div_com.dataset.list;
-                                        let ul = document.createElement("ul");
-                                        let comns = producto_selec.comentarios;
-                                        for (let c of array){
-                                            let li = document.createElement("li");
-                                            li.textContent= c;
-                                            ul.appendChild(li)
-                                        }
-                                        div_com.appendChild(ul)
-                                })
-                                }
-                            </script>*/}
                            {/*<LoadComentarios comentarios={producto_selec.comentarios} />*/}
                             <ul>
                                 {"No hay comentarios disponibles por el momento."}
@@ -364,19 +323,13 @@ function ProductComponent() {
     );
     }
   }
+  else if(auth && (role=="2" || role=="3")){
+    return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
 
   
-/* function anadirComentarios (array, elem){
-    console.log(array);
-    let contenedor = document.getElementById(elem); 
-    let temp;
-    for (let i = 0; i < array.length; i++){
-        temp = document.createElement('p');
-        temp.innerHTML = array[i];
-        //contenedor.appendChild(temp);
-    }
-    
-} */
+
 
 }
   export default ProductComponent;

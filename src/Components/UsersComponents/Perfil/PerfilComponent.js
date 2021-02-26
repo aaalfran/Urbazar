@@ -14,22 +14,20 @@ import LoadProductos from './LoadProductos';
 
 function PerfilComponent(props){
     
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> }
-    else{    
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
+    
+    
+    if( auth && (role=="0" || role=="1")){      
 
         let info = LoadDatos("http://localhost:3000/personas/"+ localStorage.getItem("userId"));
         let categorias = LoadCategories();
         
-    return(
-        <html>
-            <head>
-                <title> Perfil_UrbazApp </title>
-            </head>
-            <body>
+        return(
+            <>
                 <NavbarComponent/>
 
-                <div className="container emp-profile">
+                <div className="emp-profile">
                 <form method="post">
                     <div className="row">
                         <div className="col-md-4">
@@ -194,14 +192,6 @@ function PerfilComponent(props){
                     </div>
                     <div id="container_productos">
                         <p id="info_vacio">Seleccione una categoría</p>
-                      {/* <ProductInfo nombre ="Cupcake" precio ="2.00" src={cupcakes}
-                              cantidad="1" vendedor="Karla Duran"/>
-                         <ProductInfo nombre ="Blusa" precio ="2.00" src={camisa}
-                              cantidad="2" vendedor="Daniel Aguiño"/>
-                        <ProductInfo nombre ="Celular" precio ="2.00" src={comida}
-                              cantidad="1" vendedor="Karla Duran"/>
-                        <ProductInfo nombre ="Cupcake" precio ="2.00" src={producto}
-                    cantidad="1" vendedor="Bianca Quiñonez"/>*/}
                     </div>
 
                 </div>
@@ -209,10 +199,15 @@ function PerfilComponent(props){
 
             </div>
                 <script src={LoadProductos}></script>
-            </body>
-        </html>
+            
+        </>
     );
     }
+    else if(auth && (role=="2" || role=="3")){
+        return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
+    
 }
 
 export default PerfilComponent;

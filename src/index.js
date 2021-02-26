@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import LoginComponent from './Components/UsersComponents/Login/LoginPC';
-import Register from './Components/UsersComponents/Login/register';
+import Register from './Components/UsersComponents/Registro/RegisterPC';
 import CarritoComponent from './Components/UsersComponents/Carrito/CarritoPC';
 import ProductComponent from './Components/UsersComponents/Producto/ProductDeatilComponent';
 import MainComponent from './Components/UsersComponents/Main/MainPC';
@@ -39,7 +39,7 @@ const Index = () =>{
       localStorage.setItem("contador_iems", 0)
     }
     if(!localStorage.getItem("auth")){
-      localStorage.setItem("auth", false)
+      localStorage.setItem("auth", 0)
     }
     if(!localStorage.getItem("nombre_usuario")){
       localStorage.setItem("nombre_usuario", "")
@@ -47,8 +47,11 @@ const Index = () =>{
     if(!localStorage.getItem("userId")){
       localStorage.setItem("userId", "")
     }
-    if(!localStorage.getItem("isAdmin")){
-      localStorage.setItem("isAdmin", 0)
+    if(!localStorage.getItem("role")){
+      localStorage.setItem("role", 0)
+    }
+    if(!localStorage.getItem("token")){
+      localStorage.setItem("token", "")
     }
   
   })

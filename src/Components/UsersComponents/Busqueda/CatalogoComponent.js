@@ -4,11 +4,11 @@ import {Redirect} from 'react-router-dom';
 import '../../../css/catalogo.css';
 
 function Buscador(){
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> 
-        
-        }
-    else{
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
+    
+    
+    if( auth && (role=="0" || role=="1")){         
         return(
             <html>      
                 <head>
@@ -24,6 +24,10 @@ function Buscador(){
         </html> 
         );
     }
+    else if(auth && (role=="2" || role=="3")){
+        return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
 }
 
 export default Buscador;

@@ -4,13 +4,21 @@ import {Entity, model, property} from '@loopback/repository';
 export class Persona extends Entity {
   @property({
     type: 'number',
-    required: true,
+    generated: true,
     precision: 10,
     scale: 0,
     id: 1,
     mysql: {columnName: 'ID', dataType: 'int', dataLength: null, dataPrecision: 10, dataScale: 0, nullable: 'N'},
   })
   id: number;
+
+  @property({
+    type: 'string',
+    required: true,
+    length: 100,
+    mysql: {columnName: 'Identificacion', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
+  })
+  identificacion: number;
 
   @property({
     type: 'string',
@@ -49,6 +57,14 @@ export class Persona extends Entity {
     type: 'string',
     required: true,
     length: 100,
+    mysql: {columnName: 'Genero', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
+  })
+  genero: string;
+
+  @property({
+    type: 'string',
+    required: true,
+    length: 100,
     mysql: {columnName: 'Username', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
   })
   username: string;
@@ -66,6 +82,17 @@ export class Persona extends Entity {
     required: true,
     precision: 3,
     scale: 0,
+    default: 0,
+    mysql: {columnName: 'Role', dataType: 'tinyint', dataLength: null, dataPrecision: 3, dataScale: 0, nullable: 'N'},
+  })
+  role: string;
+
+  @property({
+    type: 'number',
+    required: false,
+    precision: 3,
+    scale: 0,
+    default: 1,
     mysql: {columnName: 'Activo', dataType: 'tinyint', dataLength: null, dataPrecision: 3, dataScale: 0, nullable: 'N'},
   })
   activo: number;

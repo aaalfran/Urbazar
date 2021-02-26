@@ -37,17 +37,17 @@ function Main() {
     }
   ];
 
-  if((localStorage.getItem("auth")==="false")){ 
-    return  <Redirect to='/login'/> 
+  const auth = parseInt(localStorage.getItem("auth"), 10)
+  const role= localStorage.getItem("role");
     
-    }
-  else{
+    
+  if( auth && (role=="0" || role=="1")){      
   
     return (
       <>
         <head>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@3.1.0/themes/introjs-nassim.min.css"/>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@3.1.0/themes/introjs-nassim.min.css"/>
         </head>
         <NavbarComponent />
         <CategoriaComponent isToggle={false}/>
@@ -106,6 +106,10 @@ function Main() {
     );
   
     }
+    else if(auth && (role=="2" || role=="3")){
+      return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
 }
 
 export default Main;

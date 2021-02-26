@@ -6,18 +6,14 @@ import '../../../css/aboutusComponent.css';
 import {Redirect} from 'react-router-dom';
 
 function AboutUSComponent(){    
-    if((localStorage.getItem("auth")==="false")){ 
-        return  <Redirect to='/login'/> 
-        }
-    else{
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
+    
+    
+    if( auth && (role=="0" || role=="1")){  
       
         return(
-            <html>
-        
-            <meta name="author" content="Beescript"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
-            <body>
+           <>
             <NavbarComponent/>
                 <header id="about_title">
                     <h1>¿Qué hacemos? </h1>
@@ -67,10 +63,15 @@ function AboutUSComponent(){
                         </div>
                     </div>
                 </div>
-                </body>
-            </html>
+            </>
+                
         );
     }
+    else if(auth && (role=="2" || role=="3")){
+        return  <Redirect to='/admin/dashboard/report'/> 
+    }
+    else return  <Redirect to='/login'/> 
+    
 }
 
 export default AboutUSComponent
