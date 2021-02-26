@@ -1,14 +1,28 @@
 import NavbarComponent from '../navBar/navbarComponent';
 import BusquedaComponent from './BusquedaComponent';
-import {Redirect} from 'react-router-dom';
+import {Redirect,useParams} from 'react-router-dom';
 import '../../../css/catalogo.css';
+import React,{useState} from "react";
 
-function Buscador(){
+let ParamBusqueda = () =>{
+    let {id} = useParams();
+    if(id){
+        return(
+            <BusquedaComponent categoria={id}/>
+        );
+    }
+    return(
+        <BusquedaComponent categoria={""}/>
+    );
+
+}
+let Buscador = ({match}) => {
     if((localStorage.getItem("auth")==="false")){ 
         return  <Redirect to='/login'/> 
         
         }
     else{
+
         return(
             <html>      
                 <head>
@@ -18,7 +32,7 @@ function Buscador(){
                 </head> 
                 <body>
                 <NavbarComponent/>
-                <BusquedaComponent/>
+                <ParamBusqueda/>
 
                 </body>
         </html> 

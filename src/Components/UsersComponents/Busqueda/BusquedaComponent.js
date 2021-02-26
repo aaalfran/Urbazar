@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function useLoadResource(){
-
+let useLoadResource = ({categoria}) => {
+    console.log(categoria)
     const classes = useStyles();
 
     const [productos, setProductos] = useState([])
@@ -25,7 +25,19 @@ function useLoadResource(){
         fetch("http://localhost:3000/productos")
     .then(response => response.json())
     .then(data => {
-        setProductos(data)})
+        if(categoria === ""){
+          setProductos(data);
+        }
+        else{
+          let listaProd = []
+          for(let producto of data){
+            if(producto.ID_Categoria === categoria){
+              listaProd.push(producto)
+            }
+          }
+          setProductos(listaProd)
+        }
+})
     .catch(error=> console.log( "Hubo un error "+error))
     }, [] )
 
@@ -71,6 +83,6 @@ function useLoadResource(){
         </>
     );
   
-}
+};
 
 export default useLoadResource;

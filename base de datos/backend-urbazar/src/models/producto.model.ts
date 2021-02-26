@@ -26,6 +26,14 @@ export class Producto extends Entity {
     type: 'string',
     required: true,
     length: 100,
+    mysql: {columnName: 'ID_Categoria', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
+  })
+  ID_Categoria: number;
+
+  @property({
+    type: 'string',
+    required: true,
+    length: 100,
     mysql: {columnName: 'Nombre', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
   })
   nombre: string;
