@@ -1,0 +1,276 @@
+#personal_container{
+    width: 80%;
+    display: inline-flex;
+    margin-top: 20px;
+
+}
+
+#personal_container #info_personal{
+    display: inline-flex;
+}
+
+.info li{
+    list-style-type: none;
+    display: inline-flex;
+}
+
+#photo_container img{
+    max-width: 60%;
+    max-height: 50%;
+    border-radius: 100%;
+}
+#photo_container{
+    height: 20%;
+}
+
+
+#container{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+}
+
+.inf li{
+    list-style-type: none;
+    display: inline-flex;
+}
+
+.inf_comp li{
+    list-style-type: none;
+}
+
+
+
+
+
+.emp-profile{
+    padding: 3%;
+    margin: 3% 10% 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #B06050;;
+}
+
+.proile-rating{
+    font-size: 12px;
+    color: #506048;;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #506048;;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #304050;
+}
+.nav-item:hover .nav-link{
+    color: #B06050;
+
+}
+
+.nav-link{
+    color: #506048;
+
+}
+
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color:#6a7e60;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color:#6a7e60;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color:#6a7e60;
+}
+
+#myTab{
+    margin-top: 20px;
+}
+
+.cont_productos{
+    margin: 10px;
+    border-top: 1px solid rgb(206, 206, 206);
+}
+
+.container_productos{
+    margin-top: 30px;
+}
+
+#switch_modo{
+    color: #B06050;
+}
+#panel_busqueda p{
+    margin-right: 20px;
+}
+
+
+#panel_busqueda{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+
+}
+#container_productos p{
+    margin: 200px;
+    color:#b060508e;
+    font-size: 30px;
+}
+#container_productos{
+    text-align: center;
+}
+.card-image{
+    padding: 0px;
+}
+.card-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.card-producti{
+    display: inline-flex;
+    margin-top: 30px;
+    padding: 0px;
+    border: 1px solid #e0e0e0;    
+    width: 45%;
+    height: 200px;
+    margin-left: 50px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.26);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.26);
+}
+
+.card-content{
+    border-left: 1px solid #e0e0e0;
+}
+
+#card-footer{
+    margin-top: 20px;    
+}
+
+#card-footer ul{
+    list-style: none;
+    margin: 0px;
+
+}
+
+#card-footer ul li{
+    float: left;
+    margin: 0.5px;
+
+}
+.listaCheck {
+    list-style: none;
+  }
+  
+.listaCheck li:before {
+    content: '✓';
+    color: #B06050 ;
+    padding: 5px;
+}
+.fondoCard{
+    background: rgb(80,96,72);
+    background: linear-gradient(155deg, rgba(80,96,72,1) 0%, rgba(192,255,161,1) 100%);
+    border-radius: 10px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 200px;
+    width: 380px;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.28);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.28);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.28);
+
+}
+.iconoCompra{
+    color: white;
+    text-align: center;
+    font-size: 70px;
+}
+
+
+@media only screen and (max-width: 1120px){
+    .iconoCompra{
+        display: none;
+    }
+    .fondoCard{
+        width: 0;
+        height: 0;
+        display: none;
+    }
+    .iconoCompra::before{
+        display: none;
+    }
+    .sombraCard{
+        margin-bottom: 10px;
+    }
+    .modalResponsive{
+        max-height: 90%;
+    }
+    .filaCompra{
+        max-height: 30rem;
+        overflow: scroll;
+        
+    }
+}
+.sombraCard{
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.21);
+    border-radius: 10px;
+}

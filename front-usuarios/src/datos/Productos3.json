@@ -1,0 +1,73 @@
+[ {
+    "id": "19",
+  "nombre": "Arreglo floral",
+  "precio": "20",
+  "descripcion": "Arreglos florales para toda ocasión, realizamos el arreglo que más le guste.",
+  "imagen": "https://i.pinimg.com/originals/17/a6/fd/17a6fdf41ef7de7a1c0e578fe932b5f7.jpg",
+  "valoracion": "5",
+  "comentarios": ["Muy lindo el arreglo, a mi novia le encantó"]
+},
+
+{
+  "id": "18",
+  "nombre": "Luna humidificadora",
+  "precio": "9,00",
+  "descripcion": "Luna humidificadora para el hogar, tiene un aroma especial, pero puede elegir el que se acople a su gusto. Brilla en la obscuridad",
+  "imagen": "https://m.media-amazon.com/images/I/71UwcGfLN3L.jpg",
+  "valoracion": "5",
+  "comentarios": ["Esta luna está muy bonita y sirve como adorno para el cuarto"]
+},
+
+{
+"id": "16",
+"nombre": "Casco de moto",
+"precio": "23",
+"descripcion": "Vendo casco de moto, tiene poco tiempo de uso, tengo en color negro y blanco",
+"imagen": "https://i.blogs.es/9df1a0/shoei-it-ht/1366_2000.jpg",
+"valoracion": "5",
+"comentarios": ["Buen producto, y el precio es bastante accesible"]
+} ,
+{
+    "id": "20",
+  "nombre": "Alcohol",
+  "precio": "34",
+  "descripcion": "Vendo alcohol antiséptico por galones o litros.",
+  "imagen": "https://santiagopapeleria.com/wp-content/uploads/2020/07/ALCOHOL-LITRO.jpg",
+  "valoracion": "4",
+  "comentarios": ["El alcohol no es de buena calidad, no limpia nada y luce amarillento."]
+},
+  { 
+ "id": "14",
+  "nombre": "El principito",
+"precio": "2",
+"descripcion": "Libro \"El principito\" ideal para niños y jóvenes. El libro está en buen estado",
+"imagen": "https://imagessl4.casadellibro.com/a/l/t7/94/9788478887194.jpg",
+"valoracion": "5",
+"comentarios": ["Muy buen libro, y a un excelente precio"]
+},
+{
+"id": "15",
+"nombre": "Mouse",
+"precio": "12",
+"descripcion": "Mouse inalámbrico color negro, ideal para trabajar sobre toda superficie.",
+"imagen": "https://www.chedraui.com.mx/medias/7502222387875-00-CH515Wx515H?context=bWFzdGVyfHJvb3R8MTM1ODJ8aW1hZ2UvanBlZ3xoZTEvaGIzLzk1MDMzMDU0NjU4ODYuanBnfDZiZjY2M2Q2MjViZTFmMWQ2MTM3Yjc0OWUwNTNjNGExNjgxMzk0ZDk5MTQzZjIxNzYwMGIwMzRlMTE0ZTQ5ZTI",
+"valoracion": "5",
+"comentarios": ["Me agradaa el estilo del mouse, se ve my estilizado"]
+},
+  
+
+{
+"id": "17",
+"nombre": "Sueter",
+"precio": "5,00",
+"descripcion": "Sueter de lana, color rojo. Ideal para estos días lluviosos.",
+"imagen": "https://i.pinimg.com/originals/19/7e/d7/197ed719c72e88112e34af7634b71a4b.jpg",
+"valoracion": "5",
+"comentarios": ["Lindo Sueter, me parece bastante comodo."]
+}
+
+
+
+
+
+]

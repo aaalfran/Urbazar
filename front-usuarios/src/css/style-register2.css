@@ -1,0 +1,47 @@
+#contenedor{
+
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 90%;
+    height: 95%;
+    margin:auto;
+    padding-top: 10px;
+    border: solid 1px #bbbbbb;
+    background-color: white;
+}
+
+#main{
+    height: 100%;
+    background-color: #EFEFEF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo-img{
+    border: 1px solid #cacaca;
+    border-radius: 100%;
+
+  
+}
+
+#rows{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#info_izquierda, #info_derecha{
+    margin:20px;
+}
+
+#cont-informacion{
+    margin:auto;
+}
+
+#cont-logo{
+    height: 100%;
+    background: rgb(89, 162, 205);
+}

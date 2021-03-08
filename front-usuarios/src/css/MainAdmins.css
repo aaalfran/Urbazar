@@ -1,0 +1,28 @@
+.toggle_admin{
+    padding-top: 10%;
+}
+
+.toggleContenido a:hover{
+    border-right: 5px solid #2c4258;
+}
+.fa-power-off{
+    color:white;
+}
+#space{
+    width: 65%;
+}
+
+#content{
+    width: 80%;
+    float: right;
+}
+
+iframe{
+    width: 100%;
+    border: none;
+    min-height: 100%;
+}
+
+.mapa{
+    min-height: 100%;
+}

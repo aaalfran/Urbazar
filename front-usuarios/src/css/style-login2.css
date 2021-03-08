@@ -1,0 +1,55 @@
+.promociones{
+    width: 200px;
+    height: 200px;
+}
+
+#hero{
+    height: 100%;
+}
+#cont{
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+#logo, #informacion, #politicas{
+    margin: 15px;
+}
+
+input{
+    width: 400px;
+    height: 40px;
+}
+
+
+#contenedor{
+    text-align: center;
+    background-color: white;
+    margin: auto;    
+}
+
+#politicas{
+    border-top: solid 1px #E6E6E6;
+}
+
+#logo-img{
+    border: solid 1px #E6E6E6;
+    border-radius: 100%;
+}
+
+#datos{
+   margin: 20px;
+}
+h3{
+    font-family: sans-serif;
+}
+
+#Usuario, #Contrasena{
+    margin-bottom: 20px;
+}
+
+#registro{
+    margin-top: 60px;
+}

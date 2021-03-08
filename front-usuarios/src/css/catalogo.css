@@ -1,0 +1,21 @@
+
+#catalogo .target_img{
+    width: 100%;
+    height: 50%;
+}
+.target{
+    width: 20%;
+    height: 350px;
+    margin: 20px;
+}
+
+#catalogo{
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: auto;
+
+}
+
+.garbage{
+    cursor: pointer;
+}

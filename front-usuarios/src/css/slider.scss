@@ -1,0 +1,30 @@
+.productos_container{
+    overflow: hidden ;
+}
+
+.productos{
+    overflow: hidden ;
+}
+
+.single-item{ margin-left: 10%; margin-right: 10%; }
+
+
+.slick-prev, .slick-next{
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.747);
+    
+}
+
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus{
+    color: #fff;
+    outline: none;
+    background: white;
+}
+
+.slick-prev:before, .slick-next:before{
+    color: tomato;
+    
+}
+
+.slick-prev { margin-left: 30px; } .slick-next { margin-right: 30px; }
