@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from "./Components/navBar/navbarAdmins";
 import ToggleBar from "./Components/navBar/TogglemenuAdmins";
 import MainAdmin from "./Components/Main/MainAdmins";
+import GraphComponent from "./Components/GraphAndMaps/GraphComponent";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Router>
           <Switch>
             <Route path="/main" exact component={MainAdmin}/>
+            <Route path="/report" exact component={GraphComponent}/>
             
           </Switch>
       </Router> 

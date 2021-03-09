@@ -220,7 +220,8 @@ footer > p {
 }
 
 .toggleContenido > a:hover {
-  background-color: #ffffff;
+  background-color: #506048;
+  color: white;
   transform: scale(1.08) translate(10px);
 }
 
@@ -243,7 +244,7 @@ footer > p {
 }
 
 .menu_cat_toggle .nav-item > a:hover {
-  background-color: #ffffff;
+  background-color: #506048;
   transform: scale(1.08) translate(10px);
 }
 
