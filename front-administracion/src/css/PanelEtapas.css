@@ -1,19 +1,18 @@
 
 .cont_panel{
-    margin-left: 21%;
+    margin-left: 5%;
 }
 
 #search{
     width: 100%;
     margin-top: 2%;
     margin-bottom: 3%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .input_busq{
-    width: 90%;
-    height: 25px;
-    
+    height: 25px;    
 }
 
 .header_table{
@@ -37,4 +36,26 @@
 .controles{
     display: flex  !important;
     
+}
+
+#button_Add{
+    cursor: pointer;
+    border: 2px solid gray;
+    border-radius:  4px;
+
+}
+
+.modal-footer{
+    margin: auto;
+}
+
+.btn-cncl{
+    color: white;
+    background: red;
+}
+
+.btn-registrar{
+    color: white;
+    background: #506048;
+
 }

@@ -1,17 +1,21 @@
+html,.fondo{
+  background-color: #f0f0f0;
+}
+
 .logo{
   color: white
 }
 
 .navbar {
-  background-color: white;
+  background-color: #506048;
+  color: white;
   position: sticky;
-  height: 50px !important;
   padding: 1% 5px 1%;
-  margin-left: 21%;
+  margin-left: 3%;
   top: 0;
   z-index: 999;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
   border-bottom: 1px solid gray;
 }
 
@@ -171,6 +175,9 @@ footer > p {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden; 
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.41);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.41);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.41);
 }
 
 
@@ -224,6 +231,7 @@ footer > p {
 .toggleContenido > a:hover {
   background-color: #506048;
   color: white;
+  text-decoration: none;
   transform: scale(1.08) translate(10px);
 }
 
@@ -284,6 +292,7 @@ footer > p {
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  
 }
 
 #toggleNombre {
@@ -306,6 +315,9 @@ footer > p {
   flex-wrap: wrap;
   /*background-color: #b06058;
   color: white*/
+
+  align-items: center;
+
 }
 
 #logo_box img{
@@ -337,19 +349,46 @@ iframe{
   min-height: 100%;
 }
 
-.notificaciones{
 
-}
 
 #account{
   display: flex;
+  height: 100%;
   width: 30%;
 
 }
 
-.photo_account{
-}
+
 .photo_account{
   border-radius: 100%;
   width: 20%;
+  margin-right: 3%;
+
+}
+.titulo{
+  font-size: 30px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btnUapp{
+  background-color: #506048;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  color: white;
+  border:none;
+}
+.btnUapp:active{
+  animation: push 0.3s linear 1;
+}
+@keyframes push{
+  50%  {transform: scale(0.95);}
+
+
+
+}
+
+.header_table{
+  display: flex;
+  justify-content: space-between;
 }

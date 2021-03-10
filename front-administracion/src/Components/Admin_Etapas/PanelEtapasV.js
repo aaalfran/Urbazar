@@ -15,13 +15,12 @@ import CreateIcon from '@material-ui/icons/Create';
 import '../../css/PanelEtapas.css';
 
 
-export default function PanelEtapasV(){
+export default function PanelEtapasV(props){
     return(
         
         <div className="cont_panel">
             <div id="search">
-                <Input className="col-md-8 input_busq" placeholder="Buscar..." />
-                <AddIcon className="col-md-2"/>
+                <Input className="col-md-12 input_busq" placeholder="Buscar..." />
             </div>
 
             <TableContainer component={Paper}>
@@ -29,6 +28,9 @@ export default function PanelEtapasV(){
                 <Typography variant="h6" id="tableTitle" component="div">
                     Etapas Villa bonita
                 </Typography>
+                <div id="button_Add" onClick={props.handleModal}>
+                 <AddIcon/>
+                </div>
                 
             </Toolbar >
                 <Table  size="small" aria-label="a dense table">
@@ -57,10 +59,110 @@ export default function PanelEtapasV(){
 
                         <TableRow >
                         <TableCell component="th" scope="row">
-                            Etapa Linda 2jiji
+                            <div className="contenido_cel">
+                                <img className="img_cond" src="https://e7.pngegg.com/pngimages/1008/786/png-clipart-drawing-building-building-condominium.png"/> 
+                                <div className="info">
+                                                
+                                    Etapa 1<br/>
+                                    Administrador: Lola Suarez
+                                </div>
+                            </div>
+                        </TableCell>
+                        <TableCell align="right">
+                            <div className="controles" >
+                                <CreateIcon />
+                                <DeleteOutlineIcon/>
+                            </div>
                         </TableCell>
                         
+                        
                         </TableRow>
+
+                        <TableRow >
+                        <TableCell component="th" scope="row">
+                            <div className="contenido_cel">
+                                <img className="img_cond" src="https://e7.pngegg.com/pngimages/1008/786/png-clipart-drawing-building-building-condominium.png"/> 
+                                <div className="info">
+                                                
+                                    Etapa 1<br/>
+                                    Administrador: Lola Suarez
+                                </div>
+                            </div>
+                        </TableCell>
+                        <TableCell align="right">
+                            <div className="controles" >
+                                <CreateIcon />
+                                <DeleteOutlineIcon/>
+                            </div>
+                        </TableCell>
+                        
+                        
+                        </TableRow>
+
+                        <TableRow >
+                        <TableCell component="th" scope="row">
+                            <div className="contenido_cel">
+                                <img className="img_cond" src="https://e7.pngegg.com/pngimages/1008/786/png-clipart-drawing-building-building-condominium.png"/> 
+                                <div className="info">
+                                                
+                                    Etapa 1<br/>
+                                    Administrador: Lola Suarez
+                                </div>
+                            </div>
+                        </TableCell>
+                        <TableCell align="right">
+                            <div className="controles" >
+                                <CreateIcon />
+                                <DeleteOutlineIcon/>
+                            </div>
+                        </TableCell>
+                        
+                        
+                        </TableRow>
+
+                        <TableRow >
+                        <TableCell component="th" scope="row">
+                            <div className="contenido_cel">
+                                <img className="img_cond" src="https://e7.pngegg.com/pngimages/1008/786/png-clipart-drawing-building-building-condominium.png"/> 
+                                <div className="info">
+                                                
+                                    Etapa 1<br/>
+                                    Administrador: Lola Suarez
+                                </div>
+                            </div>
+                        </TableCell>
+                        <TableCell align="right">
+                            <div className="controles" >
+                                <CreateIcon />
+                                <DeleteOutlineIcon/>
+                            </div>
+                        </TableCell>
+                        
+                        
+                        </TableRow>
+
+                        <TableRow >
+                        <TableCell component="th" scope="row">
+                            <div className="contenido_cel">
+                                <img className="img_cond" src="https://e7.pngegg.com/pngimages/1008/786/png-clipart-drawing-building-building-condominium.png"/> 
+                                <div className="info">
+                                                
+                                    Etapa 1<br/>
+                                    Administrador: Lola Suarez
+                                </div>
+                            </div>
+                        </TableCell>
+                        <TableCell align="right">
+                            <div className="controles" >
+                                <CreateIcon />
+                                <DeleteOutlineIcon/>
+                            </div>
+                        </TableCell>
+                        
+                        
+                        </TableRow>
+
+
                 
                     </TableBody>
                 </Table>

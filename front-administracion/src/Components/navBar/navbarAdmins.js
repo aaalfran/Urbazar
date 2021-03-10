@@ -8,7 +8,7 @@ const NavbarAdmins = (props) => {
     
     return (  
      <>   
-      <Navbar color='faded' dark className='navbar'>
+      <Navbar color='faded' dark className='navbar-admin'>
         {/* menu toggler */}
         
 
