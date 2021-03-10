@@ -3,15 +3,16 @@
 }
 
 .navbar {
-  background-color: #E8E8F0;
+  background-color: white;
   position: sticky;
-  height: 30% !important;
+  height: 50px !important;
   padding: 1% 5px 1%;
-  margin-left: 20%;
+  margin-left: 21%;
   top: 0;
-  display: flex;
-  justify-content: space-between;
   z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid gray;
 }
 
 #nombre_user, #p_bienvenido {
@@ -210,6 +211,7 @@ footer > p {
   transition: transform .2s;
   color: #506048;
   margin-bottom: 5px;
+  padding-left: 15px;
   display: flex;
   align-items: center;
 } 
@@ -294,11 +296,16 @@ footer > p {
 
 .toggle_admin{
   margin: auto;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.6);
+
 }
 #logo_box{
   border-bottom: 1px solid rgba(177, 177, 177, 0.466);
   display: flex;
   flex-wrap: wrap;
+  /*background-color: #b06058;
+  color: white*/
 }
 
 #logo_box img{
@@ -330,6 +337,19 @@ iframe{
   min-height: 100%;
 }
 
-.mapa{
-  min-height: 100%;
+.notificaciones{
+
+}
+
+#account{
+  display: flex;
+  width: 30%;
+
+}
+
+.photo_account{
+}
+.photo_account{
+  border-radius: 100%;
+  width: 20%;
 }

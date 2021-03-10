@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GraphComponent from "./Components/GraphAndMaps/GraphComponent"
+//import 'bootstrap/dist/css/bootstrap.css';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );

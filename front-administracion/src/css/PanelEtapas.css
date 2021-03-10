@@ -1,0 +1,40 @@
+
+.cont_panel{
+    margin-left: 21%;
+}
+
+#search{
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+.input_busq{
+    width: 90%;
+    height: 25px;
+    
+}
+
+.header_table{
+    border-left: 2px solid #b06048;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+}
+
+.img_cond{
+    border-radius: 100%;
+    width: 10%;
+}
+
+.contenido_cel{
+    display: flex;
+}
+
+.contenido_cel img{
+    margin-right: 4%;
+}
+
+.controles{
+    display: flex  !important;
+    
+}

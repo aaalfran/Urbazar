@@ -7,15 +7,19 @@ import NavBar from "./Components/navBar/navbarAdmins";
 import ToggleBar from "./Components/navBar/TogglemenuAdmins";
 import MainAdmin from "./Components/Main/MainAdmins";
 import GraphComponent from "./Components/GraphAndMaps/GraphComponent";
+import PanelEtapasPC from "./Components/Admin_Etapas/PanelEtapasPC";
+
 
 function App() {
   return (
-    <React.StrictMode>
+    <React.StrictMode> 
+      <NavBar/>
       <ToggleBar/>
-      <Router>
+      <Router> 
           <Switch>
             <Route path="/main" exact component={MainAdmin}/>
             <Route path="/report" exact component={GraphComponent}/>
+            <Route path="/etapas" exact component={PanelEtapasPC}/>
             
           </Switch>
       </Router> 
