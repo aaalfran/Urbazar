@@ -11,6 +11,7 @@ import PanelEtapasPC from "./Components/Admin_Etapas/PanelEtapasPC";
 import { Col, Row } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Perfil from './Components/Perfil/Perfil';
+import Cliente from './Components/Clientes/Cliente';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/report" exact component={GraphComponent}/>
             <Route path="/etapas" exact component={PanelEtapasPC}/>
             <Route path="/admin/dashboard/account" exact component={Perfil}/>
+            <Route path="/admin/dashboard/customer" exact component={Cliente}/>
 
           </Switch>
       </Router> 

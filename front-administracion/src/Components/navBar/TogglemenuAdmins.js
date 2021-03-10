@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "../../logo.svg";
-import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
 
 const ToggleMenuAdmin = () => {
 

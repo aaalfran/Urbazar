@@ -1,0 +1,15 @@
+thead.ClienteHead{
+    border: 1px solid #dee2e6;
+    border-left: 3px solid #B06048;
+    background: white;
+    border-radius: 1000px;
+}
+.TituloCliente{
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 40px;
+}
+.ClienteData{
+    background-color: white;
+    border: 1px solid #dee2e6;
+}
