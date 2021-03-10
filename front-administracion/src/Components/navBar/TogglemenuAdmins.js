@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from "../../logo.svg";
 const ToggleMenuAdmin = () => {
 
   
@@ -8,11 +7,11 @@ const ToggleMenuAdmin = () => {
     
     <>
         
-        <div className='toggleMenu toggle_admin col-2'  style={{transform: 'translateX(0px)' , transition: '0.3s'}}>
+        <div className='toggleMenu toggle_admin'>
                       
             <div id="logo_box">
-                <img src={logo}/>
-                <p>UrbazApp </p>
+                <img className="rounded-lg p-3" src={process.env.PUBLIC_URL + "/Uapp.svg"} alt="uapp"/>
+                <p className="m-0 titulo">UrbazApp </p>
             </div>
             
             <div className='toggleContenido'>   

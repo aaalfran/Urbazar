@@ -18,15 +18,8 @@ class GraphComponent extends React.Component {
         <>
         
 
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" className="mt-5">
             <Grid container direction="row" justify="flex-end" spacing={10}>
-                <Grid item lg={2} md={2} xs={0}> 
-                    
-                </Grid>
-                <Grid item  lg={10} md={10} xs={12}> 
-                    
-                
-
           <Container id="content" maxWidth="lg">
           <div className="row justify-content-left">
               <div className= "col-sm-12 col-12">
@@ -76,7 +69,6 @@ class GraphComponent extends React.Component {
           </div>
           </Container>
 
-          </Grid>
             </Grid>
         </Container>
 

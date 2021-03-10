@@ -7,18 +7,31 @@ import NavBar from "./Components/navBar/navbarAdmins";
 import ToggleBar from "./Components/navBar/TogglemenuAdmins";
 import MainAdmin from "./Components/Main/MainAdmins";
 import GraphComponent from "./Components/GraphAndMaps/GraphComponent";
-
+import { Col, Row } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Perfil from './Components/Perfil/Perfil';
 function App() {
   return (
     <React.StrictMode>
-      <ToggleBar/>
-      <Router>
+      
+      <div className="container-fluid fondo">
+        <div className="row">
+          <Col sm="2">
+          <ToggleBar/>
+          </Col>
+          <Col sm="10">
+          <Router>
           <Switch>
             <Route path="/main" exact component={MainAdmin}/>
             <Route path="/report" exact component={GraphComponent}/>
-            
+            <Route path="/admin/dashboard/account" exact component={Perfil}/>
           </Switch>
       </Router> 
+
+          </Col>
+        </div>
+      </div>
+
     </React.StrictMode>
   );
 }
