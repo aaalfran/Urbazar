@@ -12,6 +12,7 @@ import { Col, Row } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Perfil from './Components/Perfil/Perfil';
 import Cliente from './Components/Clientes/Cliente';
+import Ubicaciones from './Components/Ubicaciones/Ubicaciones';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route path="/etapas" exact component={PanelEtapasPC}/>
             <Route path="/admin/dashboard/account" exact component={Perfil}/>
             <Route path="/admin/dashboard/customer" exact component={Cliente}/>
-
+            <Route path="/admin/dashboard/map" exact component={Ubicaciones}/>
           </Switch>
       </Router> 
 
