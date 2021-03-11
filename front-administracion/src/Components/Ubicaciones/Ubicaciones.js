@@ -12,22 +12,23 @@ const Ubicaciones = () => {
     })
     var listaFilas = []
     const listRows  = matrix.vertexes.map((etapa) => {
-        lista.push(<tr>
-            <td>{etapa}</td>
+        listaFilas.push(<tr>
+            <td><strong>{etapa}</strong></td>
             {matrix.vertexes.map((valor) => {
                 return <td>{matrix.getEdge(valor,etapa)}</td>
             })}
         </tr>);
     })
     return (
-        <Container>
-            <Table>
+        <Container className="mt-5">
+            <h1 className="mb-3">Etapas de la urbanización: Villa Bonita</h1>
+            <Table bordered className="bg-white text-center table-bordered">
                 <thead>
                     <th>Etapas</th>
                     {lista}
                 </thead>
                 <tbody>
-                    
+                    {listaFilas}
                 </tbody>
             </Table>
         </Container>
