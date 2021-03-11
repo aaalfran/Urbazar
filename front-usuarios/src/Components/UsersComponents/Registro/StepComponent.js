@@ -234,7 +234,7 @@ class HorizontalNonLinearStepper extends Component{
         ...this.state.form, [e.target.name]: e.target.value
       }
     })
-    console.log(this.state.form)
+    
   }
 
 

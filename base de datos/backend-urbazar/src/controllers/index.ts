@@ -8,3 +8,5 @@ export * from './compras.controller';
 export * from './correo.controller';
 export * from './metodo-de-pago.controller';
 export * from './familia.controller';
+export * from './etapas.controller';
+export * from './administrador-etapa.controller';

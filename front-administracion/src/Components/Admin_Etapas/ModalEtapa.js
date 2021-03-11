@@ -15,7 +15,7 @@ function ModalComponent(props) {
                     data-dismiss="modal"
                     type="button"
                     onClick={props.handleModal}
-                    href="/login"
+                    
                 >
                     <span aria-hidden={true}>×</span>
                 </button>
@@ -23,33 +23,34 @@ function ModalComponent(props) {
             <div className="modal-body col-md-10">
             <Form >
                 <FormGroup row>
-                    <Label for="nombre" sm={4} >Nombre Etapa</Label>
+                    <Label for="nombre_etapa" sm={4} >Nombre Etapa</Label>
                     <Col sm={8}>    
-                        <Input name="nombre" id="nombre_Etapa" placeholder="" />
+                        <Input name="nombre_etapa" id="nombre_etapa" onChange={props.handleForm}  placeholder="" />
                     </Col>
                     
                 </FormGroup>
 
                 <FormGroup row>
-                    <Label for="nombre" sm={4} >Administrador</Label>
+                    <Label for="id_etapa" sm={4} >Identificador</Label>
                     <Col sm={8}>  
-                    <Input name="nombre_Admin" id="nombre_Admin" placeholder="" />
+                        <Input name="id_etapa" id="id_etapa" onChange={props.handleForm}  placeholder="" />
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
-                    <Label for="nombre" sm={4} >Identificación</Label>
+                    <Label for="ubicacion" sm={4} >Ubicación</Label>
                     <Col sm={8}>  
-                    <Input name="id_admin" id="id_admin" placeholder="" />
+                    <Input name="ubicacion" id="ubicacion"  onChange={props.handleForm} placeholder="" />
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
-                    <Label for="nombre" sm={4} >Habitantes promedio</Label>
+                    <Label for="nombre_admin" sm={4} >Administrador</Label>
                     <Col sm={8}>  
-                    <Input name="habitantes" id="cant_personas" placeholder="" />
+                    <Input name="nombre_admin" id="nombre_admin"  onChange={props.handleForm} placeholder="" />
                     </Col>
                 </FormGroup>
+
 
 
             </Form>
@@ -60,7 +61,7 @@ function ModalComponent(props) {
                     className="btn-registrar"
                     type="button"
                     id="btn_confModal"
-                    href="/login"
+                    onClick={props.addEtapa}
                 >
                     Registrar
                                 </Button>
@@ -68,8 +69,8 @@ function ModalComponent(props) {
                                 <Button
                     className="btn-cncl"
                     type="button"
-                    id="btn_confModal"
-                    href="/login"
+                    id="btn_cncl"
+                    onClick={props.handleModal}
                 >
                     Cancelar
                                 </Button>
