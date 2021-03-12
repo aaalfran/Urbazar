@@ -18,17 +18,19 @@ import Fade from '@material-ui/core/Fade';
 import VendedorCompra from "./VendedorCompra";
 const useStyles = makeStyles((theme) => ({
     modal: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      overflow: 'scroll',
+        position:'absolute',
+        top:'10%',
+        left:'50%',
+        overflow:'scroll',
+        height:'100%',
+        display:'block',
+        alignItems: 'center'
       
     },
     paper: {
       backgroundColor: theme.palette.background.paper,
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
-      
     },
   }));
 
@@ -76,7 +78,7 @@ function PerfilComponent(props){
                 timeout: 500,
                 }}>
                     <Fade in={open}>
-                    <div className={classes.paper + " rounded w-75 modalResponsive"}>
+                    <div className={classes.paper + " rounded w-75 mx-auto my-3 modalResponsive"}>
                         <h2 id="transition-modal-title">Modo Vendedor</h2>
                         <p id="transition-modal-description">¿Quieres activar las funcionalidades de un vendedor?</p>
                         <VendedorCompra setVendedor={setVendedor}  setOpen={setOpen}></VendedorCompra>
