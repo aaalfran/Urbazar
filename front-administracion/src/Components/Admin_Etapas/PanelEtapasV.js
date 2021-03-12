@@ -17,6 +17,11 @@ import LoadEtapas from "./LoadEtapas";
 
 export default function PanelEtapasV(props){
     let etapas = LoadEtapas("http://localhost:3000/etapas/");
+   
+    
+
+   
+    
 
     return(
         
@@ -36,21 +41,35 @@ export default function PanelEtapasV(props){
                 
             </Toolbar >
                 <Table  size="small" aria-label="a dense table">
+                <TableHead>
+                <TableRow>
+                    <TableCell>Identificador</TableCell>
+                    <TableCell align="right">Nombre</TableCell>
+                    <TableCell align="right">Ubicación</TableCell>
+                    <TableCell align="right">Habitantes</TableCell>
+                    <TableCell align="right"></TableCell>
+                </TableRow>
+                </TableHead>
                     <TableBody>
+                        
                     {etapas.map(etapa=>(
                         <TableRow >
-                        <TableCell component="th" scope="row">
-                            <div className="contenido_cel">
-                                <img className="img_cond" src="https://e7.pngegg.com/pngimages/1008/786/png-clipart-drawing-building-building-condominium.png"/> 
-                                <div className="info">
-                                                
-                                    {etapa.nombre}<br/>
-                                    Ubicación: {etapa.ubicacion}
-                                </div>
-                            </div>
-                        </TableCell>
+                            <TableCell component="th" scope="row">
+                                {etapa.id}
+                            </TableCell>
+                            <TableCell align="right">
+                                {etapa.nombre}
+                            </TableCell>
+                            <TableCell align="right">
+                                {etapa.ubicacion}
+                            </TableCell>
+
+                        
                         <TableCell align="right">
-                            <div className="controles" >
+                                342
+                            </TableCell>
+                        <TableCell align="right">
+                            <div align="right" className="controles" >
                                 <CreateIcon />
                                 <DeleteOutlineIcon/>
                             </div>

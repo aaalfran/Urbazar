@@ -1,0 +1,29 @@
+.cont_graphs{
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5%;
+    position: absolute;
+    top: 20px;
+}
+
+.glove{
+    position: relative;
+    margin-top: 5%;
+}
+.graph2{
+    margin-top: 10%
+}
+
+
+.title_graph{
+    background-color: rgb(235, 169, 47);
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    padding: 5px 15px 5px;
+
+}
