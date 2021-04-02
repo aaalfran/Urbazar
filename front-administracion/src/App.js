@@ -35,21 +35,22 @@ function App() {
   
   })
 
-  const auth = parseInt(localStorage.getItem("auth"), 10)
-
   return (
-    <React.StrictMode>
-      {!auth ? (
+    <>
+      {!parseInt(localStorage.getItem("auth"), 10) ? (
+          <React.StrictMode>
               <Router>
                 <Switch>
-                <Route path="/login" exact component={LoginComponent}/>
+                <Route path="/" exact component={LoginComponent}/>
               
                 </Switch>
               </Router>
+          </React.StrictMode>
 
           ) : (
+            <React.StrictMode>
             <div className="container-fluid fondo">
-        <div className="row">
+            <div className="row">
           <Col sm="2">
           <ToggleBar/>
           </Col>
@@ -57,7 +58,7 @@ function App() {
           <NavBar/>
           <Router>
           <Switch>
-            <Route path="/login" exact component={LoginComponent}/>
+            <Route path="/" exact component={LoginComponent}/>
             <Route path="/report" exact component={GraphComponent}/>
             <Route path="/etapas" exact component={PanelEtapasPC}/>
             <Route path="/admin/dashboard/account" exact component={Perfil}/>
@@ -69,12 +70,14 @@ function App() {
           </Col>
         </div>
       </div>
+      </React.StrictMode>
 
           )}
+          </>
      
       
      
-    </React.StrictMode>
+    
   );
 }
 

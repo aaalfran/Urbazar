@@ -63,7 +63,7 @@ const Cliente = () => {
     );
     }
     else{
-        return <Redirect to='/login'/>
+        return <Redirect to='/'/>
 
     }
 }

@@ -47,7 +47,7 @@ const Ubicaciones = () => {
         );
     }
     else{
-        return <Redirect to="/login"/>
+        return <Redirect to="/"/>
     }
 }
 
