@@ -6,9 +6,19 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddIcon from '@material-ui/icons/Add';
 import '../../css/Cliente.css'
 import ClienteModal from './ClienteModal';
+import { Redirect} from 'react-router-dom';
+
 const Cliente = () => {
     let [open,setOpen] = useState(false);
     const toggle = () => setOpen(!open);
+
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
+    
+    
+  
+    if(auth && role=="3"){
+    
     return (
         <Container className="mt-3 pr-0">
             <ClienteModal open={open} toggle={toggle}></ClienteModal>
@@ -51,6 +61,11 @@ const Cliente = () => {
             </Table>
         </Container>
     );
+    }
+    else{
+        return <Redirect to='/login'/>
+
+    }
 }
 
 export default Cliente;

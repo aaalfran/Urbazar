@@ -7,6 +7,13 @@ import MeetingRoom from '@material-ui/icons/MeetingRoom';
 import PersonIcon from '@material-ui/icons/Person';
 
 const NavbarAdmins = (props) => {
+  let logout = () => {
+    localStorage.setItem("auth", 0);
+    localStorage.setItem('nombre_usuario', "");
+    localStorage.setItem('userId', "");
+    localStorage.setItem('role', "");
+    localStorage.setItem('token', "");
+  }
     
     return (  
      <>   
@@ -27,7 +34,7 @@ const NavbarAdmins = (props) => {
         </div>
 
         <div className="notificaciones">
-          <a ><button type='button' className='button_nav' ><MeetingRoom/> </button></a>
+          <a href="/login" ><button type='button' className='button_nav' onClick={logout} ><MeetingRoom/> </button></a>
           
 
         </div>

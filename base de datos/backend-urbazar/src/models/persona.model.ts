@@ -82,7 +82,6 @@ export class Persona extends Entity {
     required: true,
     precision: 3,
     scale: 0,
-    default: 0,
     mysql: {columnName: 'Role', dataType: 'tinyint', dataLength: null, dataPrecision: 3, dataScale: 0, nullable: 'N'},
   })
   role: string;
