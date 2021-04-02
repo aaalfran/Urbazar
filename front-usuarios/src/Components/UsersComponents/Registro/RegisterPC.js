@@ -229,11 +229,12 @@ class RegisterPC extends Component{
         let data = {
             nombre: nombreV,
             id: parseInt(idV, 10),
-            edad: 10,
+            edad: parseInt(edadV, 10),
             telefono: telefonoV,
             correo: correoV,
             username: usernameV,
             contrasena: pass_encrypt,
+            role: 0,
         }
         
         console.log(data)

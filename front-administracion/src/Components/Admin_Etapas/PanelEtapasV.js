@@ -14,14 +14,18 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import CreateIcon from '@material-ui/icons/Create';
 import '../../css/PanelEtapas.css';
 import LoadEtapas from "./LoadEtapas";
+import { Redirect} from 'react-router-dom';
+
 
 export default function PanelEtapasV(props){
     let etapas = LoadEtapas("http://localhost:3000/etapas/");
-   
-    
 
-   
+    const auth = parseInt(localStorage.getItem("auth"), 10)
+    const role= localStorage.getItem("role");
     
+    
+  
+    if(auth && role=="3"){
 
     return(
         
@@ -88,6 +92,11 @@ export default function PanelEtapasV(props){
         
 
     );
+    }
+    else{
+        return <Redirect to='/login'/>
+    
+    }
 
 
 

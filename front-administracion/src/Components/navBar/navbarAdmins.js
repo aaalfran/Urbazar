@@ -3,8 +3,17 @@ import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
 import Betsy from "../../imagenes/betsy.jpeg";
 import '../../css/MainComponent.css';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import MeetingRoom from '@material-ui/icons/MeetingRoom';
+import PersonIcon from '@material-ui/icons/Person';
 
 const NavbarAdmins = (props) => {
+  let logout = () => {
+    localStorage.setItem("auth", 0);
+    localStorage.setItem('nombre_usuario', "");
+    localStorage.setItem('userId', "");
+    localStorage.setItem('role', "");
+    localStorage.setItem('token', "");
+  }
     
     return (  
      <>   
@@ -12,22 +21,24 @@ const NavbarAdmins = (props) => {
         {/* menu toggler */}
         
 
-        {/*<div className="notificaciones">
+        <div className="notificaciones">
           <a ><button type='button' className='button_nav' ><NotificationsIcon/> </button></a>
           
 
-        </div>*/}
+        </div>
 
-        <div id="account">
-            <img src={Betsy} className="photo_account"/>
-
-          <div className="informacion_account">
-            Diana Almeida<br/>
-            Administrador de Conjunto
-
-          </div>
+        <div className="notificaciones">
+          <a ><button type='button' className='button_nav' ><PersonIcon/> </button></a>
+          
 
         </div>
+
+        <div className="notificaciones">
+          <a href="/login" ><button type='button' className='button_nav' onClick={logout} ><MeetingRoom/> </button></a>
+          
+
+        </div>
+        
 
       </Navbar>
 

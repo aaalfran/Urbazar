@@ -1,0 +1,101 @@
+.Login{
+    margin-left: 5% ;
+    margin-right: 5% ;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+html, body{
+    height: 100%;
+}
+.Login-logo{  
+    width: 80%;
+}
+
+body, #root, .container_login{
+    height: 100%;
+}
+
+.container_login{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+#info{
+    width: 60%;
+    margin: auto;
+}
+
+.input_pass{
+    margin-bottom: 0px;
+}
+.Login-title{
+    text-align: center;
+}
+
+#tarjeta_login{
+    width: 60% !important;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: #ffffff;
+    border: 1px solid #b8b8b8;
+    border-top: 5px solid  #506048 ;
+}
+
+#img_login{
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
+#registrate{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 11px;
+}
+#btn-round{
+    background: #506048;
+    border:none;
+}
+
+#cont_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+#registrate a{
+    color: #B06058;
+}
+
+
+/*Responsive*/
+@media only screen and (max-width: 800px) {
+    #tarjeta_login{
+        display: block;
+        margin: auto;
+    }
+    
+    .container_login{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 701px) {
+    #tarjeta_login{
+        display: block;
+        margin: auto;
+    }
+    
+    .container_login{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+  
