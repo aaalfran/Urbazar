@@ -34,7 +34,7 @@ const NavbarAdmins = (props) => {
         </div>
 
         <div className="notificaciones">
-          <a href="/login" ><button type='button' className='button_nav' onClick={logout} ><MeetingRoom/> </button></a>
+          <a href="/" ><button type='button' className='button_nav' onClick={logout} ><MeetingRoom/> </button></a>
           
 
         </div>

@@ -1,5 +1,5 @@
 
-import logo2 from "../../imagenes/banner_reg_ofi.png";
+import conf from "../../imagenes/customer-support.png";
 import React from "react";
 
 import { Card, Button, CardTitle, CardText ,  
@@ -24,16 +24,13 @@ function LoginComponent(props) {
         <Container className="container_login">       
           <Card body id="tarjeta_login">
 
-            <div id="img_login">
-              <img src={logo2} className="Login-logo" alt="logo" />
-            </div>
+            
             <div>
 
               <div className= "Login-title">
-              <CardTitle> 
                 <h3> UrbazApp </h3>            
-                {/*<img src={logo2} className="Login-logo" alt="logo" />*/}
-              </CardTitle>          
+                <img src={conf} className="Login-logo" alt="configuracion" />
+                  
               </div>
 
               <div className= "Login-content">
@@ -70,8 +67,8 @@ function LoginComponent(props) {
 
     );
     }
-  
-}
+  }
+
 
   
 

@@ -11,10 +11,13 @@ html, body{
     width: 80%;
 }
 
-body, #root, .container_login{
+body, #root, .container_login, .fondo{
     height: 100%;
 }
 
+#root{
+    background-color: #f0f0f0;
+}
 .container_login{
     display: flex;
     justify-content: center;
@@ -29,14 +32,21 @@ body, #root, .container_login{
     margin-bottom: 0px;
 }
 .Login-title{
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.Login-title img{
+    width: 5%;
+
 }
 
 #tarjeta_login{
     width: 60% !important;
     margin: auto;
-    display: grid;
-    grid-template-columns: 30% 70%;
     background-color: #ffffff;
     border: 1px solid #b8b8b8;
     border-top: 5px solid  #506048 ;

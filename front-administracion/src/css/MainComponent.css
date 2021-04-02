@@ -11,6 +11,7 @@ html,.fondo{
   color: black;
   position: sticky !important;
   padding: 1% 5px 1%;
+  height: 80px;
   margin-left: 3%;
   top: 0;
   z-index: 999;
@@ -277,6 +278,7 @@ html,.fondo{
   flex-wrap: wrap;
   color: white;
   align-items: center;
+  height: 80px;
 
 }
 
