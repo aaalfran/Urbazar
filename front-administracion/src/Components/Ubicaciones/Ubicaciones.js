@@ -5,7 +5,9 @@ const Ubicaciones = () => {
     let matrix = new GraphMA(false);
     matrix.addVertex("etapa1"); 
     matrix.addVertex("etapa21");
+    matrix.addVertex("etapa3");
     matrix.addEdge("etapa1","etapa21",3)   
+    matrix.addEdge("etapa1","etapa3",5)   
     var lista = []
     const listItems = matrix.vertexes.map((etapa) => {
         lista.push(<th>{etapa}</th>);
