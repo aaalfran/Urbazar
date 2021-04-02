@@ -1,14 +1,22 @@
 import { Card } from '@material-ui/core';
-import React from 'react';
-import { Container, Row ,Col, CardImg, CardBody,CardTitle,CardSubtitle,Button} from 'reactstrap';
+import React,{useState,useEffect} from 'react';
+import { Container, Row ,Col, CardImg, CardBody,CardTitle,CardSubtitle,Button } from 'reactstrap';
 import { Redirect} from 'react-router-dom';
-
-
+import Formulario from './Formulario';
+import DatosPerfil from  './DatosPerfil';
+import axios from 'axios';
 const Perfil = () => {
     const auth = parseInt(localStorage.getItem("auth"), 10)
     const role= localStorage.getItem("role");
-    
-    
+    const [editar,setEditar] = useState(false);
+    const [load,setLoad] = useState(false)
+    const [user,setUser] = useState({});
+    useEffect(() => {
+        axios.get(`http://localhost:3000/personas/${localStorage.getItem("userId")}`).then((result) => {
+            setUser(result.data);
+            setLoad(true)
+        })
+    }, []);
   
     if(auth && role=="3"){
         return (
@@ -22,17 +30,16 @@ const Perfil = () => {
                                 </CardImg>
                                 </div>
                                 <CardBody className="text-center">
-                                <CardTitle tag="h5">@Usuario</CardTitle>
+                                <CardTitle tag="h5">@{user.username}</CardTitle>
                                 <CardSubtitle tag="h6" className="mb-2 text-muted">Urbanizacion la Joya</CardSubtitle>
-                                <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button className="btnUapp">Editar Perfil</button>
+                                <button className="btnUapp" onClick={e => {setEditar(!editar)}}>Editar Perfil</button>
                                 </CardBody>
                             </Card>
                         </Col>
                         <Col sm="8">
                             <Card>
                                 <CardBody>
-                                    Contenido
+                                    { load ? editar ?  <Formulario user={user}></Formulario> :<DatosPerfil user={user}></DatosPerfil> : <div></div> }
                                 </CardBody>
                             </Card>
                         </Col>

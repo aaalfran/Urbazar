@@ -50,6 +50,18 @@ export class GraphMA{
         }
 
     }
+    setEdge(source,destination,data){
+        if(source === undefined || destination === undefined) return null;
+        let indexS= this.vertexes.indexOf(source);
+        let indexD = this.vertexes.indexOf(destination);
+        if(indexS > -1 && indexD > -1){
+            this.matrix[indexS][indexD] = data;
+            if(!this.directed){
+                this.matrix[indexD][indexS] = data;
+            }
+        }
+
+    }
     removeVertex(element){
         if(!this.vertexes.includes(element) || element === undefined) return false;
         let indice = this.vertexes.indexOf(element);
