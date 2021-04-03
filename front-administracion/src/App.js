@@ -54,7 +54,7 @@ function App() {
           <Col sm="2">
           <ToggleBar/>
           </Col>
-          <Col sm="10">
+          <Col sm="10" className="pr-0">
           <NavBar/>
           <Router>
           <Switch>
