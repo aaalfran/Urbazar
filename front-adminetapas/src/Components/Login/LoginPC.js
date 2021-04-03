@@ -26,7 +26,7 @@ class LoginPC extends Component{
                         }
                     })
                     .then(res => {
-                        if (res.data.role!=3){
+                        if (res.data.role!=2){
                             feed.innerHTML = "No tienes permisos de acceso";
                             feed.style.color="red";
 
@@ -43,8 +43,6 @@ class LoginPC extends Component{
                         
                        
                         }
-                       
-                        
                     
                     })
     
