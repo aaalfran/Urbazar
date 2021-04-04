@@ -39,9 +39,6 @@ class HorizontalNonLinearStepper extends Component{
     
 
     this.handleNext = this.handleNext.bind(this);
-    this.handleBack = this.handleBack.bind(this);
-    this.handleStep = this.handleStep.bind(this);
-    this.handleChangeForm = this.handleChangeForm.bind(this);
     this.signUp = this.signUp.bind(this);
     this.validarUSername = this.validarUSername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);

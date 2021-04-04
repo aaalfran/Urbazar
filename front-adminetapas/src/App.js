@@ -8,7 +8,9 @@ import NavBar from "./Components/navBar/navbarAdmins";
 import LoginComponent from './Components/Login/LoginPC';
 import ToggleBar from "./Components/navBar/TogglemenuAdmins";
 import GraphComponent from "./Components/GraphAndMaps/GraphComponent";
+import FamiliaPC from "./Components/Familias/FamiliaPC";
 import React,{useContext} from 'react';
+import FamiliaPV from './Components/Familias/FamiliaPV';
 
 function App() { 
   React.useEffect(() => {
@@ -54,6 +56,7 @@ function App() {
           <Router>
           <Switch>
             <Route path="/report" exact component={GraphComponent}/>
+            <Route path="/familias" exact component={FamiliaPC}/>
           </Switch>
       </Router> 
 

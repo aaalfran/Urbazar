@@ -4,8 +4,8 @@ import {Entity, model, property} from '@loopback/repository';
 export class Familia extends Entity {
   @property({
     type: 'number',
-    required: true,
     precision: 10,
+    generated: true,
     scale: 0,
     id: 1,
     mysql: {columnName: 'ID', dataType: 'int', dataLength: null, dataPrecision: 10, dataScale: 0, nullable: 'N'},

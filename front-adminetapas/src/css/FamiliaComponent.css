@@ -1,0 +1,96 @@
+#title img{
+    width: 5%;
+}
+
+#familypanel{
+    margin: 2% 6% 2%;
+    
+}
+
+#title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+    height: 50px;
+}
+
+#title > div{
+    font-size: x-large;
+    color: #585858;
+}
+
+#title img{
+    position: absolute;
+    right: 0px;
+}
+
+#content_add{
+    margin-top: 2%;
+}
+
+.first_child, .second_child{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.first_child label, .second_child label{
+    padding-right: 0px;
+}
+.cont_input{
+    padding-left: 0px;
+}
+
+.addFamily{  
+    padding: 10px;  
+    background-color: white;
+    border-color: 1px solid #f0f0f0;
+    border-radius: 15px;
+}
+
+#button_add{
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #f0f0f0;
+}
+
+#codigoArea{
+    text-align: center;
+}
+
+#codigoArea textarea{
+    margin-bottom: 2%;
+}
+
+#btn_codigo{
+    color: white;
+    background-color: #506048;
+}
+
+#button_add a{
+    color: #506048;
+}
+
+#button_add a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#cont_familias{
+    margin-top: 3%;
+}
+
+#codigoF{
+    color: #b06048;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    height: 60px;
+}
+
+#select_et{
+    width: 100%;
+}
