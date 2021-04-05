@@ -22,23 +22,22 @@ const NavbarAdmins = (props) => {
         
 
         <div className="notificaciones">
-          <a ><button type='button' className='button_nav' ><NotificationsIcon/> </button></a>
+          <a ><button type='button' className='button_nav d-flex' >Notificaciones<NotificationsIcon/> </button></a>
           
 
         </div>
 
         <div className="notificaciones">
-          <a ><button type='button' className='button_nav' ><PersonIcon/> </button></a>
+          <a href="/admin/dashboard/account"><button type='button' className='button_nav d-flex' >Perfil<PersonIcon/> </button></a>
           
 
         </div>
 
         <div className="notificaciones">
-          <a href="/" ><button type='button' className='button_nav' onClick={logout} ><MeetingRoom/> </button></a>
+          <a href="/" ><button type='button' className='button_nav d-flex' onClick={logout} >Salir<MeetingRoom/> </button></a>
           
 
         </div>
-        
         
 
       </Navbar>

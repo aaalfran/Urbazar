@@ -7,7 +7,7 @@ const config = {
   url: '',
   host: 'localhost',
   user: '',
-  password: 'root',
+  password: '',
   database: 'urbazapp',
   useNewUrlParser: true
 };

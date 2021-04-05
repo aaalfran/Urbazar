@@ -20,8 +20,7 @@ const ToggleMenuAdmin = () => {
             <div className='toggleContenido'>   
                 <a href='/report'> <i className="fas fa-tasks"></i> Reportes</a>   
                 <a href='/familias'><i className="fas fa-street-view"> </i>Familias</a>
-                <a href='/admin/dashboard/customer'> <i className="fas fa-users"></i> Productos </a>
-                <a href='/admin/dashboard/account'><i className="fas fa-user-tie"></i>Perfil</a>
+                <a href='/admin/dashboard/productos'> <i className="fas fa-users"></i> Productos </a>
                        
             </div> 
             

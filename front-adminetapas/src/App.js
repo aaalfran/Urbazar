@@ -11,7 +11,8 @@ import GraphComponent from "./Components/GraphAndMaps/GraphComponent";
 import FamiliaPC from "./Components/Familias/FamiliaPC";
 import React,{useContext} from 'react';
 import FamiliaPV from './Components/Familias/FamiliaPV';
-
+import Perfil from './Components/Perfil/Perfil';
+import Productos from './Components/Productos/Productos';
 function App() { 
   React.useEffect(() => {
     if(!localStorage.getItem("auth")){
@@ -51,12 +52,14 @@ function App() {
           <Col sm="2">
           <ToggleBar/>
           </Col>
-          <Col sm="10">
+          <Col sm="10" className="pr-0">
           <NavBar/>
           <Router>
           <Switch>
             <Route path="/report" exact component={GraphComponent}/>
             <Route path="/familias" exact component={FamiliaPC}/>
+            <Route path="/admin/dashboard/account" exact component={Perfil}/>
+            <Route path="/admin/dashboard/productos" exact component={Productos}/>
           </Switch>
       </Router> 
 
