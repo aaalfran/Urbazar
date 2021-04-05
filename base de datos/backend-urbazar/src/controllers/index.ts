@@ -10,3 +10,4 @@ export * from './metodo-de-pago.controller';
 export * from './familia.controller';
 export * from './etapas.controller';
 export * from './administrador-etapa.controller';
+export * from './matriz.controller';
