@@ -4,20 +4,44 @@ import { Container, Row ,Col, CardImg, CardBody,CardTitle,CardSubtitle,Button } 
 import { Redirect} from 'react-router-dom';
 import Formulario from './Formulario';
 import DatosPerfil from  './DatosPerfil';
+import { useLocation,useHistory } from "react-router-dom";
 import axios from 'axios';
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+
 const Perfil = () => {
+    const query = useQuery();
+    const history = useHistory();
     const auth = parseInt(localStorage.getItem("auth"), 10)
     const role= localStorage.getItem("role");
     const [editar,setEditar] = useState(false);
     const [load,setLoad] = useState(false)
     const [user,setUser] = useState({});
+    
     useEffect(() => {
         axios.get(`http://localhost:3000/personas/${localStorage.getItem("userId")}`).then((result) => {
             setUser(result.data);
             setLoad(true)
         })
     }, []);
-  
+    useEffect(() => {
+        if(query.get("email")){
+            axios.get(`http://localhost:3000/personas/${localStorage.getItem("userId")}`).then((result) => {
+                let persona = result.data;
+                persona.nombre = query.get("nombre")
+                persona.edad = Number(query.get("edad"));
+                persona.telefono = query.get("telefono")
+                axios.put(`http://localhost:3000/personas/${localStorage.getItem("userId")}`,persona).then((result) => {
+                    history.push("/admin/dashboard/account")
+                    window.location.reload();
+                })
+            });
+        }
+    },[])
+    
+    
     if(auth && role=="2"){
         return (
             <Container className="mt-5 ml-3">
