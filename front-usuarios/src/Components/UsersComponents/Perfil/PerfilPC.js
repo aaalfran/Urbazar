@@ -20,7 +20,7 @@ class PerfilPC extends Component{
                 this.setState({compras: res});
             })
             .catch(error=> console.log( "Hubo un error "+error))
-        let panel = LoadProductos(this.state.compras);
+        LoadProductos(this.state.compras);
         
         
     }

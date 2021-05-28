@@ -6,10 +6,10 @@ export default function LoadProductos(compras){
     let p  = document.getElementById("info_vacio");
 
     let nuevo_div = document.getElementById("ct");
-    if(p!=undefined){
+    if(p!==undefined){
         div.removeChild(p);
     }
-    if(nuevo_div!=undefined){      
+    if(nuevo_div!==undefined){      
         div.removeChild(nuevo_div)
     }
     nuevo_div = document.createElement("div");

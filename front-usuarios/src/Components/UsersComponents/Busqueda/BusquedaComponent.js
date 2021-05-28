@@ -4,11 +4,12 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Container, Grid, makeStyles} from '@material-ui/core';
 import '../../../css/buscador.css';
-
+import CategoriaComponent from '../navBar/CategoriaComponent';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 345,
+      minWidth: 345,
     },
     media: {
       height: 0,
@@ -19,31 +20,58 @@ const useStyles = makeStyles((theme) => ({
 let useLoadResource = ({categoria}) => {
     console.log(categoria)
     const classes = useStyles();
-
+    const urlParams = new URLSearchParams(window.location.search);
     const [productos, setProductos] = useState([])
+    const [load,setLoad] = useState(false)
     useEffect(() => {
-        fetch("http://localhost:3000/productos")
-    .then(response => response.json())
-    .then(data => {
-        if(categoria === ""){
-          setProductos(data);
+      if(!load){
+        if(urlParams.get("search") !== null){
+          fetch(`http://localhost:3000/productos/nombre/${urlParams.get("search")}`)
+          .then(response => response.json())
+          .then(data => {
+              if(categoria === ""){
+                setProductos(data);
+              }
+              else{
+                let listaProd = []
+                for(let producto of data){
+                  if(producto.ID_Categoria === categoria){
+                    listaProd.push(producto)
+                  }
+                }
+                setProductos(listaProd)
+              }
+          })
+          .catch(error=> console.log( "Hubo un error "+error))
+          
         }
         else{
-          let listaProd = []
-          for(let producto of data){
-            if(producto.ID_Categoria === categoria){
-              listaProd.push(producto)
-            }
-          }
-          setProductos(listaProd)
+          fetch("http://localhost:3000/productos")
+          .then(response => response.json())
+          .then(data => {
+              if(categoria === ""){
+                setProductos(data);
+              }
+              else{
+                let listaProd = []
+                for(let producto of data){
+                  if(producto.ID_Categoria === categoria){
+                    listaProd.push(producto)
+                  }
+                }
+                setProductos(listaProd)
+              }
+          })
+          .catch(error=> console.log( "Hubo un error "+error))
         }
-})
-    .catch(error=> console.log( "Hubo un error "+error))
-    }, [] )
+        setLoad(true)
+      }
+    }, [urlParams,load] )
 
     
     return(
 <>
+        <CategoriaComponent></CategoriaComponent>
         <Container maxWidth="lg">
 
         <Grid
@@ -51,15 +79,16 @@ let useLoadResource = ({categoria}) => {
           spacing={1}
           direction="row"
           justify="center"
+          alignItems="center"
         >
 
-        <div id="catalogo">
         
-            {productos.map(producto => (<>
+            {Array.isArray(productos) ? productos.map(producto => (<a href={`http://${window.location.host}/productdetail/${producto.id}`}>
                 <Grid
                     item
-                    lg= {3}
+                    xs={3}
                    >
+                     <Box flexGrow={1}>
                             <Card className={classes.root} id="card-products">
 
                             <CardMedia
@@ -74,10 +103,10 @@ let useLoadResource = ({categoria}) => {
                 />
                 
                 </Card>
+                </Box>
                 </Grid>
-           </>
-       ))}
-        </div>
+           </a>
+       )) : <></>}
         </Grid>
         </Container>
         </>

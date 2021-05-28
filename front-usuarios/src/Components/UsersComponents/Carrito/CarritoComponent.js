@@ -79,7 +79,7 @@ const CarritoComponent = (props) => {
     const role= localStorage.getItem("role");
     
     
-    if( auth && (role=="0" || role=="1")){         
+    if( auth && (role==="0" || role==="1")){         
         return ( 
         <html>
             <head>

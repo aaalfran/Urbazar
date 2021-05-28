@@ -2,7 +2,7 @@ import NavbarComponent from '../navBar/navbarComponent';
 import BusquedaComponent from './BusquedaComponent';
 import {Redirect,useParams} from 'react-router-dom';
 import '../../../css/catalogo.css';
-import React,{useState} from "react";
+import React from "react";
 
 
 let ParamBusqueda = () =>{
@@ -22,7 +22,7 @@ let Buscador = ({match}) => {
         const role= localStorage.getItem("role");
         
         
-        if( auth && (role=="0" || role=="1")){  
+        if( auth && (role==="0" || role==="1")){  
 
 
         return(
@@ -40,7 +40,7 @@ let Buscador = ({match}) => {
         </html> 
         );
     }
-    else if(auth && (role=="2" || role=="3")){
+    else if(auth && (role==="2" || role==="3")){
         return  <Redirect to='/admin/dashboard/report'/> 
     }
     else return  <Redirect to='/login'/> 

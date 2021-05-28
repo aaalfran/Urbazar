@@ -24,6 +24,19 @@ export class ProductoController {
     @repository(ProductoRepository)
     public productoRepository : ProductoRepository,
   ) {}
+  @get('/productos/nombre/{nombre}',{
+    responses: {
+      '200' : {
+        description: 'Success',
+        content: {'application/json': {schema: getModelSchemaRef(Producto)}},
+      },
+    },
+  })
+  async searchName(
+    @param.path.string('nombre') nombre: String,
+  ) :Promise<Producto[]>{
+    return this.productoRepository.find({where: {nombre: {regexp: `/${nombre}?[A-z]+/`}}});
+  }
 
   @post('/productos', {
     responses: {
@@ -170,4 +183,6 @@ export class ProductoController {
   async deleteById(@param.path.number('id') id: number): Promise<void> {
     await this.productoRepository.deleteById(id);
   }
+
+
 }

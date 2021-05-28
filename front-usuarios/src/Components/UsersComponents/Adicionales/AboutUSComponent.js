@@ -10,7 +10,7 @@ function AboutUSComponent(){
     const role= localStorage.getItem("role");
     
     
-    if( auth && (role=="0" || role=="1")){  
+    if( auth && (role==="0" || role==="1")){  
       
         return(
            <>
@@ -67,7 +67,7 @@ function AboutUSComponent(){
                 
         );
     }
-    else if(auth && (role=="2" || role=="3")){
+    else if(auth && (role==="2" || role==="3")){
         return  <Redirect to='/admin/dashboard/report'/> 
     }
     else return  <Redirect to='/login'/> 

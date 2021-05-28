@@ -1,9 +1,8 @@
 
 import {Redirect} from 'react-router-dom';
 import React, {useEffect, useState} from "react";
-import {Container, Button, ButtonGroup} from 'reactstrap';
-import {LoadStars, LoadComentarios} from './LoadResourcesProducts';
-import {UncontrolledCarousel} from 'reactstrap';
+import {Container} from 'reactstrap';
+import {LoadStars} from './LoadResourcesProducts';
 import '../../../css/product.css';
 import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import NavbarComponent from "../navBar/navbarComponent";
@@ -13,8 +12,6 @@ import axios from 'axios';
 function ProductComponent() {
     const [calificaciones,setCalificaciones] = useState("");
     const [load,setLoad] = useState(false)
-    let carrito = [];
-    
     let lista_productos = ListaProductos("http://localhost:3000/productos"); 
     let url2 = window.location.href;
     let temp = url2.split('/');
@@ -33,7 +30,7 @@ function ProductComponent() {
         .then(data =>{
             console.log(data[1])
             for(let i =0 ; i < data.length ; i++ ){
-                if(data[i].idProducto == producto_selec.id){
+                if(data[i].idProducto === producto_selec.id){
                     setCalificaciones(data[i])
                     console.log("xd")
                     console.log(calificaciones.comentario)

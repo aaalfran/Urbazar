@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Cajon from '../Carrito/CarritoComponent';
+import React, { useState} from 'react';
 import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
 import axios from 'axios';
 import ToggleMenu from './ToggleMenuPC';
 import '../../../css/MainComponent.css';
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import {filter, handleClick} from '../Main/main.js';
-import CatalogoComponent from '../Busqueda/CatalogoComponent';
-
 export let idCarritoDef;
 export let cantidadProd = 0;
 
@@ -21,7 +17,7 @@ const NavbarComponent = (props) => {
     .then(response => response.data)
     .then( (res)=> {
         for(let i=0; i<res.length; i++){
-            if(res[i].idUsuario == localStorage.getItem('userId')){
+            if(res[i].idUsuario === localStorage.getItem('userId')){
               setIdCarrito(res[i].id);
             }
         }
@@ -34,7 +30,7 @@ const NavbarComponent = (props) => {
     .then(response => response.data)
     .then( (res2)=> {
         for(let i=0; i<res2.length; i++){
-            if(res2[i].idCarrito == idCarrito){
+            if(res2[i].idCarrito === idCarrito){
               cantidad++;
             }
         }
@@ -56,8 +52,8 @@ const NavbarComponent = (props) => {
         <NavbarBrand data-intro="¡Bienvenido a UrbazApp! Demos un tour" href='/' className='logo'>UrbazApp</NavbarBrand>
         <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
 
-        <form className='mr-auto search_form'>
-          <input id="myInput"  onMouseDown={CatalogoComponent} onKeyUp={filter} onClick={handleClick} data-intro="Busca productos de tu interés" type='text' placeholder='Buscar...' name='search'/>
+        <form className='mr-auto search_form' action={`http://${window.location.host}/buscador`}>
+          <input id="myInput" data-intro="Busca productos de tu interés" type='text' placeholder='Buscar...' name='search' required/>
           <button type='submit'><i className='fas fa-search mr-auto'></i></button>
         </form>
 

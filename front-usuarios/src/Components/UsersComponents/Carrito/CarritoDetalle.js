@@ -11,7 +11,7 @@ let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
         for (var i = 0; i < productLista.length; i++) {
             let n = productLista[i].nombre;
             
-            if(n != nombre){
+            if(n !== nombre){
                 listaNueva.push(productLista[i])
             }
 

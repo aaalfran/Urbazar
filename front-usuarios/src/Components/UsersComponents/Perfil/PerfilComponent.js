@@ -40,9 +40,6 @@ function PerfilComponent(props){
     let [switchV,setSwitchV] = useState(false);
     const [open, setOpen] = React.useState(false);
     const classes = useStyles();
-    const handleOpen = () => {
-      setOpen(true);
-    };
   
     const handleClose = () => {
       setOpen(false);
@@ -52,7 +49,7 @@ function PerfilComponent(props){
     const role= localStorage.getItem("role");
     
     
-    if( auth && (role=="0" || role=="1")){ 
+    if( auth && (role==="0" || role==="1")){ 
     
 
 
@@ -270,7 +267,7 @@ function PerfilComponent(props){
         </>
     );
     }
-    else if(auth && (role=="2" || role=="3")){
+    else if(auth && (role==="2" || role==="3")){
         return  <Redirect to='/admin/dashboard/report'/> 
     }
     else return  <Redirect to='/login'/> 
