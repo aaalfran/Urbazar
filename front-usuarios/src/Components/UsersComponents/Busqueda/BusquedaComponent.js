@@ -29,38 +29,16 @@ let useLoadResource = ({categoria}) => {
           fetch(`http://localhost:3000/productos/nombre/${urlParams.get("search")}`)
           .then(response => response.json())
           .then(data => {
-              if(categoria === ""){
-                setProductos(data);
-              }
-              else{
-                let listaProd = []
-                for(let producto of data){
-                  if(producto.ID_Categoria === categoria){
-                    listaProd.push(producto)
-                  }
-                }
-                setProductos(listaProd)
-              }
+            setProductos(data);
           })
           .catch(error=> console.log( "Hubo un error "+error))
           
         }
         else{
-          fetch("http://localhost:3000/productos")
+          fetch(`${categoria ? `http://localhost:3000/productos/categoria/${categoria}` : "http://localhost:3000/productos"}`)
           .then(response => response.json())
           .then(data => {
-              if(categoria === ""){
-                setProductos(data);
-              }
-              else{
-                let listaProd = []
-                for(let producto of data){
-                  if(producto.ID_Categoria === categoria){
-                    listaProd.push(producto)
-                  }
-                }
-                setProductos(listaProd)
-              }
+            setProductos(data);
           })
           .catch(error=> console.log( "Hubo un error "+error))
         }
@@ -83,7 +61,7 @@ let useLoadResource = ({categoria}) => {
         >
 
         
-            {Array.isArray(productos) ? productos.map(producto => (<a href={`http://${window.location.host}/productdetail/${producto.id}`}>
+            {Array.isArray(productos) ? productos.map(producto => (<a className="tarjeta" href={`http://${window.location.host}/productdetail/${producto.id}`}>
                 <Grid
                     item
                     xs={3}

@@ -26,9 +26,10 @@ const NavbarComponent = (props) => {
     idCarritoDef = idCarrito;
     let cantidad = 0;
  
-    axios.get('http://localhost:3000/detalle-carrito')
+    axios.get(`http://localhost:3000/detalle-carrito/${idCarritoDef}`)
     .then(response => response.data)
     .then( (res2)=> {
+
         for(let i=0; i<res2.length; i++){
             if(res2[i].idCarrito === idCarrito){
               cantidad++;

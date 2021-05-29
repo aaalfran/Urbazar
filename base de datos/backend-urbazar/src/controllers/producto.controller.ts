@@ -24,6 +24,22 @@ export class ProductoController {
     @repository(ProductoRepository)
     public productoRepository : ProductoRepository,
   ) {}
+
+  @get('/productos/categoria/{categoria}',{
+    responses: {
+      '200' : {
+        description: 'Success',
+        content: {'application/json': {schema: getModelSchemaRef(Producto)}},
+      },
+    },
+  })
+  async filterCategoria(
+    @param.path.string('categoria') categoria: String,
+  ) :Promise<Producto[]>{
+    return this.productoRepository.find({where: {ID_Categoria : categoria}});
+  }
+
+
   @get('/productos/nombre/{nombre}',{
     responses: {
       '200' : {

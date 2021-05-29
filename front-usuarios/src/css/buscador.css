@@ -5,3 +5,7 @@
 #card-products{
     margin: 15px;
 }
+
+.tarjeta:hover{
+    text-decoration: none;
+}

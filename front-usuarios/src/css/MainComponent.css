@@ -34,11 +34,18 @@
 
 .search_form > input {
   border-radius: 5px;
-  border-style: none;
+  border:  transparent;
   padding: 8px 10px;
   width: 100%;
   height: 35px;
   margin: 0;
+  transition: 0.3s ease;
+}
+
+.search_form > input:focus{
+  outline: none;
+  border:  2px solid #B06058;
+  transition: 0.1s ease;
 }
 
 .search_form > input::placeholder {
@@ -52,6 +59,8 @@
   top: 10%;
   bottom: 10%;
   right: 1px;
+  outline: none;
+
 }
 
 
