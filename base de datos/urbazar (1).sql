@@ -246,6 +246,7 @@ INSERT INTO `familia` (`ID`, `ID_Etapa`, `Apellido`, `Clave`) VALUES
 -- Estructura de tabla para la tabla `historico_administrador_etapa`
 --
 
+
 CREATE TABLE `historico_administrador_etapa` (
   `ID` int(11) NOT NULL,
   `ID-Administrador_Etapa` int(11) NOT NULL,
