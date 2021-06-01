@@ -7,7 +7,7 @@
     border: 1px solid #ddd;
     border-radius: 10%;
     max-width: 50%;
-    max-height: 50%;
+    margin: auto;
 }
 
 [id$=totlabel]>p {
@@ -102,4 +102,16 @@
 
 .cont_detail{
     padding-bottom: 10%;
+}
+
+
+.cantProductoBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.commentsBox{
+    display: flex;
+    flex-wrap: wrap;
 }

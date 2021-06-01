@@ -8,7 +8,6 @@
 -- Versión de PHP: 8.0.0
 
 use urbazar;
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -78,6 +77,14 @@ CREATE TABLE `calificacion` (
   `Fecha` date NOT NULL,
   `id_vendedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+INSERT INTO `calificacion` (`ID`, `ID_Producto`, `ID_Cliente`, `Estrellas`, `comentario`, `Fecha`, `id_vendedor`) VALUES
+(1, 1, 1, 4, "Buen producto", '2020-08-10' , 2),
+(3, 3, 5, 3, "Buen producto", '2020-08-10' ,6),
+(4, 4, 3, 5, "Buen producto", '2020-08-10' ,8),
+(5, 5, 1, 4, "Buen producto", '2020-08-10' ,2);
+
+
 
 -- --------------------------------------------------------
 
@@ -246,7 +253,6 @@ INSERT INTO `familia` (`ID`, `ID_Etapa`, `Apellido`, `Clave`) VALUES
 -- Estructura de tabla para la tabla `historico_administrador_etapa`
 --
 
-
 CREATE TABLE `historico_administrador_etapa` (
   `ID` int(11) NOT NULL,
   `ID-Administrador_Etapa` int(11) NOT NULL,
@@ -367,19 +373,19 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`ID`, `identificacion`, `Nombre`, `Telefono`, `Correo`, `Edad`, `genero`, `Username`, `Contrasena`, `Activo`, `role`) VALUES
-(1, "9",'Jose Martinez', '0904739412', 'josea@hotmail.com', 22, "Masculino", 'pepem', 'hose12345', 1, 0),
-(2, "8",'Carla Suarez', '0921457329', 'CarlaS@hotmail.com', 19, "Masculino",'CarlaSuarez', 'Carlita1234', 1, 1),
-(3, "7",'Maria Sanchez', '0989544843', 'mariasan@hotmail.com', 39, "Masculino",'marisan', 'marisan1234', 1, 0),
-(4, "6",'Ronny Apolo', '04242847', 'ronnya@hotmail.com', 24,"Masculino", 'ronap', 'ronny2425', 1, 0),
-(5, "5", 'Juan ', '021944946', 'Juanal@hotmaiil.com', 54, "Masculino",'juanal', 'juanal2425', 1, 0),
-(6, "21",'Danilo ', '0907443971', 'Danburb@hotmail.com', 27, "Masculino",'danburb', 'danilo1234', 1, 0),
-(7, "90",'Veronica ', '0921476212', 'verogarci@hotmail.com', 33, "Masculino", 'verogar', 'veronica1234', 1, 1),
-(8, "0902", 'Noe ', '0923571295', 'Noe@hotmail.com', 22, "Masculino",'noe23', 'noe23456', 1, 2),
-(9, "021", 'Dayana ', '0988337758', 'Dayna22@hotmail.com', 22, "Masculino", 'dayavel','dayana223344', 1, 0),
-(10, "91", 'Olga', '0944771234', 'Olgamaria@hotmail.com', 42, "Femenino", 'olgamar', 'olga123456', 1, 1),
-(11, "928", 'Daniel', '098957489', 'daro@hotmail.com', 33, "Masculino",'daro', '1234', 1, 2),
-(12, "23", 'viviana', '0912314112', 'vivi@hotmail.com', 22, "Femenino",'viviana', '12323', 1, 2),
-(906, "0952242667", 'Pedro mayorga', '0952242667', 'pedrito@gmail.com', 22, "Masculino",'pepe', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2', 1, 0);
+(1, 9,'Jose Martinez', '0904739412', 'josea@hotmail.com', 22, "Masculino", 'pepem', 'hose12345', 1, 0),
+(2, 8,'Carla Suarez', '0921457329', 'CarlaS@hotmail.com', 19, "Masculino",'CarlaSuarez', 'Carlita1234', 1, 1),
+(3, 7,'Maria Sanchez', '0989544843', 'mariasan@hotmail.com', 39, "Masculino",'marisan', 'marisan1234', 1, 0),
+(4, 6,'Ronny Apolo', '04242847', 'ronnya@hotmail.com', 24,"Masculino", 'ronap', 'ronny2425', 1, 0),
+(5, 5, 'Juan ', '021944946', 'Juanal@hotmaiil.com', 54, "Masculino",'juanal', 'juanal2425', 1, 0),
+(6, 21,'Danilo ', '0907443971', 'Danburb@hotmail.com', 27, "Masculino",'danburb', 'danilo1234', 1, 0),
+(7, 90,'Veronica ', '0921476212', 'verogarci@hotmail.com', 33, "Masculino", 'verogar', 'veronica1234', 1, 1),
+(8, 0902, 'Noe ', '0923571295', 'Noe@hotmail.com', 22, "Masculino",'noe23', 'noe23456', 1, 2),
+(9, 021, 'Dayana ', '0988337758', 'Dayna22@hotmail.com', 22, "Masculino", 'dayavel','dayana223344', 1, 0),
+(10, 91, 'Olga', '0944771234', 'Olgamaria@hotmail.com', 42, 'olgamar', 'olga123456', 1, 1),
+(11, 928, 'Daniel', '098957489', 'daro@hotmail.com', 33, "Masculino",'daro', '1234', 1, 2),
+(12, 23, 'viviana', '0912314112', 'vivi@hotmail.com', 22, "Femenino",'viviana', '12323', 1, 2),
+(906, "0952242667", 'Pedro mayorga', '0952242667', 'pedrito@gmail.com', 22, "Masculino",'pepe', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2', 0, 1);
 
 
 -- --------------------------------------------------------
@@ -406,7 +412,8 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-
+ALTER TABLE `producto`
+	ADD column `ID_Categoria` int(11) NOT NULL;
 
 INSERT INTO `producto` (`ID`, `ID_vendedor`,`ID_Categoria`, `Nombre` ,`Precio`, `Activo`, `Descripcion`, `Stock`, `Promedio_Puntuacion`, `Pedido_Anticipado`, `source`) VALUES
 (1, 2,1, 'zapatos', '23', 1, 'zapatos de vestir ', 20, 4, 1, 'https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000'),
@@ -415,7 +422,32 @@ INSERT INTO `producto` (`ID`, `ID_vendedor`,`ID_Categoria`, `Nombre` ,`Precio`, 
 (4, 6,2, 'iphone', '5', 1, 'celular phone 10 ', 20, 5, 1, 'https://images-na.ssl-images-amazon.com/images/I/61ceSVoz1nL._AC_SX385_.jpg'),
 (5, 8,4, 'alcohol', '2', 1, 'alcohol antiseptico', 200, 5, 1, 'https://gontec.com.ec/wp-content/uploads/2020/05/alcohol_anti.png');
 
+-- --------------------------
+use urbazar; 
 
+CREATE TABLE `sources` (
+  `ID` int(11) NOT NULL,
+  `ID_Producto` int(11) NOT NULL,
+  `Source` varchar(300) COLLATE utf8_spanish_ci NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  
+  INSERT INTO `sources` (`ID`, `ID_Producto`,`Source`) VALUES
+  (1,1, 'https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000'),
+  (2,1, 'https://http2.mlstatic.com/D_NQ_NP_697199-MEC44983042563_022021-W.jpg'), 
+  (3, 1, 'https://i.pinimg.com/originals/19/f5/2c/19f52c5e499016adbffe02b729b5309e.jpg'),
+  (4, 2, 'https://bassil.com.ec/4653/camisa-amarilla-manga-corta-barcelona-sporting-club.jpg'),
+  (5, 2, 'https://todosobrecamisetas.com/wp-content/uploads/camiseta-barcelona-sc-200-anios-guayaquil-2.jpg'),
+  (6, 2, 'https://bassil.com.ec/3168/camisa-amarilla-manga-corta-barcelona-sporting-club.jpg'),
+  (7, 3, 'https://www.idcmayoristas.com/wp-content/uploads/2020/04/002589.jpg'),
+  (8, 3, 'https://images-na.ssl-images-amazon.com/images/I/61gn5whRfNL._SL1000_.jpg'),
+  (9, 3, 'https://1700digital.com/wp-content/uploads/lenovo-s340gamer2.jpg'),
+  (10, 4, 'https://images-na.ssl-images-amazon.com/images/I/61ceSVoz1nL._AC_SX385_.jpg'),
+  (11, 4, 'https://i1.wp.com/hipertextual.com/wp-content/uploads/2019/09/hipertextual-iphone-11-2019772090.jpeg?fit=1200%2C788&ssl=1'),
+  (12, 4, 'https://www.muycomputer.com/wp-content/uploads/2020/10/iPhone-12.jpg'),
+  (13, 5, 'https://gontec.com.ec/wp-content/uploads/2020/05/alcohol_anti.png'),
+  (14, 5, 'https://http2.mlstatic.com/D_NQ_NP_608422-MEC43308746534_082020-O.jpg');
+  
+  
 -- --------------------------------------------------------
 
 --

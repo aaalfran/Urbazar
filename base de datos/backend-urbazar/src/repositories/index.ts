@@ -20,3 +20,4 @@ export * from './venta.repository';
 export * from './categoria.repository';
 export * from './compras.repository';
 export * from './matriz.repository';
+export * from './sources.repository';

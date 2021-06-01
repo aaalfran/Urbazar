@@ -19,3 +19,4 @@ export * from './venta.model';
 export * from './categoria.model';
 export * from './compras.model';
 export * from './matriz.model';
+export * from './sources.model';
