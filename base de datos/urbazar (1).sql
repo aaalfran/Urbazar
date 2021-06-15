@@ -6,7 +6,7 @@
 -- Tiempo de generación: 10-01-2021 a las 19:24:31
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
-
+CREATE SCHEMA `urbazar` ;
 use urbazar;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -143,6 +143,7 @@ CREATE TABLE `cliente` (
 --
 -- Volcado de datos para la tabla `cliente`
 --
+
 
 INSERT INTO `cliente` (`ID`, `ID_Persona`, `ID_Familia`, `subscripcion`) VALUES
 (1, 5, 1, 0),
@@ -381,8 +382,8 @@ INSERT INTO `persona` (`ID`, `identificacion`, `Nombre`, `Telefono`, `Correo`, `
 (6, 21,'Danilo ', '0907443971', 'Danburb@hotmail.com', 27, "Masculino",'danburb', 'danilo1234', 1, 0),
 (7, 90,'Veronica ', '0921476212', 'verogarci@hotmail.com', 33, "Masculino", 'verogar', 'veronica1234', 1, 1),
 (8, 0902, 'Noe ', '0923571295', 'Noe@hotmail.com', 22, "Masculino",'noe23', 'noe23456', 1, 2),
+(10, 91, 'Olga', '0944771234', 'Olgamaria@hotmail.com', 42,"Femenino", 'olgamar', 'olga123456', 1, 1),
 (9, 021, 'Dayana ', '0988337758', 'Dayna22@hotmail.com', 22, "Masculino", 'dayavel','dayana223344', 1, 0),
-(10, 91, 'Olga', '0944771234', 'Olgamaria@hotmail.com', 42, 'olgamar', 'olga123456', 1, 1),
 (11, 928, 'Daniel', '098957489', 'daro@hotmail.com', 33, "Masculino",'daro', '1234', 1, 2),
 (12, 23, 'viviana', '0912314112', 'vivi@hotmail.com', 22, "Femenino",'viviana', '12323', 1, 2),
 (906, "0952242667", 'Pedro mayorga', '0952242667', 'pedrito@gmail.com', 22, "Masculino",'pepe', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2', 0, 1);
@@ -412,8 +413,6 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-ALTER TABLE `producto`
-	ADD column `ID_Categoria` int(11) NOT NULL;
 
 INSERT INTO `producto` (`ID`, `ID_vendedor`,`ID_Categoria`, `Nombre` ,`Precio`, `Activo`, `Descripcion`, `Stock`, `Promedio_Puntuacion`, `Pedido_Anticipado`, `source`) VALUES
 (1, 2,1, 'zapatos', '23', 1, 'zapatos de vestir ', 20, 4, 1, 'https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000'),
