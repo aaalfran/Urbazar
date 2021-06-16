@@ -39,6 +39,19 @@ export class ProductoController {
     return this.productoRepository.find({where: {ID_Categoria : categoria}});
   }
 
+  @get('/productos/categoria/{categoria}/count', {
+    responses: {
+      '200': {
+        description: 'Producto category model count',
+        content: {'application/json': {schema: CountSchema}},
+      },
+    },
+  })
+  async countCat(
+    @param.path.string('categoria') categoria: String, @param.where(Producto) where?: Where<Producto>, 
+  ): Promise<number>{
+    return (await this.productoRepository.find({where: {ID_Categoria : categoria}})).length;
+  }
 
   @get('/productos/nombre/{nombre}',{
     responses: {
