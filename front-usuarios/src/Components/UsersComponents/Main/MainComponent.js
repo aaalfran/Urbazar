@@ -7,6 +7,7 @@ import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import {Redirect} from 'react-router-dom';
 import introJs from 'intro.js';
 import LoadProducts from "./LoadProducts";
+import GoogleAds from '../Adicionales/GoogleAds';
 import '../../../css/slider.scss';
 import banner1 from '../../../imagenes/ban1.png';
 import banner7 from '../../../imagenes/ban7.png';
@@ -59,6 +60,14 @@ function Main() {
           </Col>
           
         </section>
+       
+       
+      <div>addd</div>
+      <div className="ad-class">
+        {/* add your slot id  */}
+     <GoogleAds slot="4186053521" />
+        </div>
+        <div>addd</div>
 
         {/* contenido productos */}
         <section className='productos_container'>
