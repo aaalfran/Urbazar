@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-export default function UseTweets(ruta){
+export default function UseTweets(ruta,navigation){
     const [tweets, setTweet] = useState([])
 
     let settings={
@@ -67,6 +67,7 @@ export default function UseTweets(ruta){
                     nombre={producto.nombre}
                     precio={producto.precio}
                     foto_src={producto.source}  
+                    navegacion={navigation}
                 />
               ))            
             }

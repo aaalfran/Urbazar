@@ -2,11 +2,15 @@ import React from 'react';
 import { Card, CardImg, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
 
-const Producto = ({nombre, precio, foto_src, id}) => {
+const Producto = ({nombre, precio, foto_src, id,navegacion}) => {
     
    
     return (  
-        <a href={`/productdetail/${id}`}>
+        <div onClick={() => {
+            navegacion.push('ProductoDetail',{
+                id
+            })
+        }}>
         <div className='slide_product'> 
             {/* importar card */}
             <div className="cont">
@@ -20,7 +24,7 @@ const Producto = ({nombre, precio, foto_src, id}) => {
             </div>
         </div>
         
-        </a>
+        </div>
     );
         
 }

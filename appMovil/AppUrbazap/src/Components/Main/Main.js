@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
 
 
-const Main = () => {
+const Main = ({navigation}) => {
 
   const items = [
     {
@@ -42,7 +42,7 @@ const Main = () => {
 
 
   return (
-    <View>
+    <View >
 
       <NavBarComponent />
       <CategoriaComponent />
@@ -61,28 +61,28 @@ const Main = () => {
           <hr className="my-2" />
 
           <div className='productos mt-5 carousel'>
-            {LoadProducts("http://localhost:3000/productos")}
+            {LoadProducts("http://localhost:3000/productos",navigation)}
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='Elige entre los productos más destacados de la Urbanización.'>Lo más destacado</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {LoadProducts("http://localhost:3000/productos")}
+            {LoadProducts("http://localhost:3000/productos",navigation)}
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='¿Por qué ir tan lejos? Encuentra productos cerca de tu ubicación.'>Cerca de ti</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {LoadProducts("http://localhost:3000/productos")}
+            {LoadProducts("http://localhost:3000/productos",navigation)}
           </div>
         </div>
         <div className='list_productos'>
           <h6 data-intro='No te pierdas las promociones que UrbazApp tiene para ti.'>Promociones</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {LoadProducts("http://localhost:3000/productos")}
+            {LoadProducts("http://localhost:3000/productos",navigation)}
           </div>
         </div>
       </section>
