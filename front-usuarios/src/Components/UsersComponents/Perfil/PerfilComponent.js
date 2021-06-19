@@ -155,7 +155,7 @@ function PerfilComponent(props){
                                                 <div className="col-md-6">
                                                     <label>Familia</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                     <p>Lopez Plaza</p>
                                                 </div>
                                             </div>
@@ -174,7 +174,7 @@ function PerfilComponent(props){
                                                     <label>Método de pago</label>
                                                 </div>
                                                 <div className="col-md-6">
-                                                    <p>Tarjeta xy <i class="fas fa-pencil-alt"></i></p>
+                                                    <p>Tarjeta xy <i className="fas fa-pencil-alt"></i></p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -246,7 +246,7 @@ function PerfilComponent(props){
 
                                 {
                                 categorias.map(categoria=>(
-                                    <option name='activitie' value={categoria.id}>{categoria.nombre}</option>
+                                    <option key="options" name='activitie' value={categoria.id}>{categoria.nombre}</option>
                                 ))
                                 }
                                 

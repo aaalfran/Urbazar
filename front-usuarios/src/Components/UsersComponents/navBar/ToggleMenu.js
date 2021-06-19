@@ -16,7 +16,7 @@ const ToggleMenu = (props) => {
     
     <>
         {props.isOpen ?  
-        <div className='toggleMenu' style={{transform: props.isOpen ? 'translateX(0px)' : 'translateX(-100%)', transition: '0.3s'}}>
+        <div className='toggleMenu' style={{transform: 'translateX(0px)' , transition: '0.3s'}}>
             <div className='toggleTitulo'>
                 <p className='p_toggleMenu'>Menú</p>
                 <button className='btn-cerrar-toggle' onClick={cerrar}><i className="fas fa-times fa-lg"></i></button>
@@ -45,13 +45,13 @@ const ToggleMenu = (props) => {
                 <br/>
                 <p className='p_seccionToggler'>Más</p>
                 <hr className="my-2" />
-                <a href='/devs'><i class="fas fa-user-alt"></i>Equipo de desarrollo</a>
-                <a href='/contactanos'><i class="fas fa-cog"></i>Contactanos</a>
-                <a href='/aboutus'><i class="fas fa-exclamation-circle"></i>¿Qué hacemos?</a>                
+                <a href='/devs'><i className="fas fa-user-alt"></i>Equipo de desarrollo</a>
+                <a href='/contactanos'><i className="fas fa-cog"></i>Contactanos</a>
+                <a href='/aboutus'><i className="fas fa-exclamation-circle"></i>¿Qué hacemos?</a>                
                 <br/>
             
             <div className='toggleCerrarSesion'>
-                <a id='btn_cerrarSesion' onClick={props.logout} href="/login" ><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
+                <a id='btn_cerrarSesion' onClick={props.logout} href="/login" ><i className="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
             </div>
             </div> 
             

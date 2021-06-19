@@ -53,6 +53,9 @@ const Index = () =>{
     if(!localStorage.getItem("token")){
       localStorage.setItem("token", "")
     }
+    if(!localStorage.getItem("etapa")){
+      localStorage.setItem("etapa", "")
+    }
   
   })
 
@@ -65,7 +68,7 @@ const Index = () =>{
             <Route path="/registro" exact component={Register}/>
             <Route path="/" exact component={MainComponent}/>
             <Route path="/carrito/:idCarrito" exact component={CarritoComponent}/>
-            <Route path="/productdetail/:id" exact component={ProductComponent}/>
+            <Route path="/productdetail/:id/:idvendedor" exact component={ProductComponent}/>
             <Route path="/categoria" exact component={CategoriaComponent}/>
             <Route path="/contactanos" exact component={ContactanosComponent}/>
             <Route path="/devs" exact component={DesarrolladoresComponent}/>

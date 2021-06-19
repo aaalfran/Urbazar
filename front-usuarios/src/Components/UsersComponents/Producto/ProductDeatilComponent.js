@@ -1,14 +1,14 @@
 
 import {Redirect} from 'react-router-dom';
-import React, {useEffect, useState} from "react";
+import React,{useState,useEffect} from 'react';
 import {Container} from 'reactstrap';
 import {LoadStars} from './LoadResourcesProducts';
 import '../../../css/product.css';
-import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import NavbarComponent from "../navBar/navbarComponent";
 import ListaProductos from './ListaProductos';
+import CalcularImporte from "./Importe";
 import axios from 'axios';
-import { Avatar, Grid, Paper } from "@material-ui/core";
+import { Avatar, Grid } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -18,13 +18,63 @@ function ProductComponent() {
     const [calificaciones,setCalificaciones] = useState("");
     const [load,setLoad] = useState(false)
     const [cantidad, setCantidad] = React.useState(1);
+    const [etapaVendedor, setEtapaVendedor] = useState('');
+    const [etapaCliente, setEtapaCliente] = useState('');
+    const [importe, setImporte] = useState(0);
+    
+
 
     let lista_productos = ListaProductos("http://localhost:3000/productos"); 
+    
+    
     let url2 = window.location.href;
     let temp = url2.split('/');
     let id_producto = temp[4].toString();
+    let id_vendedor = temp[5].toString();
+    
 
     
+
+    useEffect(() => {
+        
+        axios.get(`http://localhost:3000/personas/`+id_vendedor)
+            .then((response) => {
+                    return response.data.id_etapa;
+                })
+
+            .then((idetapa)=>{
+                        axios.get(`http://localhost:3000/etapas/`+idetapa)
+                        .then((response)=>{                            
+                            setEtapaVendedor(response.data.nombre);                            
+
+
+                        })
+
+            })
+            
+    
+              
+    }, [])
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:3000/etapas/`+localStorage.getItem("etapa"))
+            .then((response)=>{                            
+                setEtapaCliente(response.data.nombre);   
+               
+            })
+                                 
+              
+    }, []);
+    
+    
+
+
+
+    console.log("Etapa1", etapaCliente);
+    console.log("Etapa2" , etapaVendedor);
+
+   
     let producto_selec = {};
     lista_productos.map(producto => {
         if(producto.id == id_producto){
@@ -50,15 +100,9 @@ function ProductComponent() {
     
 
     const seleccionarProducto = id => {
-        let listaIdProductos = new Map(); // clave: id, valor: [cantidad, id detalle-carrito]
-        /* crear post para detail-carrito, 
-        pero antes preguntar si el producto ya existe,
-        si el producto ya existe, hacer un update de la cantidad de productos
-        el id del detail-producto debe ser 'id_usuario + cant_productos' 
-        */
+        
        let producto = {}
        for(let prod of lista_productos){
-           // encontrar el producto en lista
            if(prod.id == id){
                producto = prod;
            }
@@ -72,21 +116,7 @@ function ProductComponent() {
             console.log(res);
         });
 
-/*        axios.get('http://localhost:3000/detalle-carrito/')
-       .then(response => response.data)
-       .then( (res)=> {
-           console.log(res)
-           for(let i=0; i<res.length; i++){
-               if(res[i].idCarrito == idCarrito){
-                   listaIdProductos.set(res[i].idProducto,
-                        [res[i].cantidad, res[i].idDetalle]);
-                   cantProductos++;
-                   //let temp = cantProductos;
-                   //setCantProductos(temp++);
-               }
-           }
-        }
-       ); */
+
 
         if(localStorage.getItem("carrito")){
             let inCarrito = false;
@@ -97,12 +127,6 @@ function ProductComponent() {
                     j.cantidad = j.cantidad + 1;
                     inCarrito = true;
 
-/*                     axios.put('/detalle-carrito/{id}', {
-                        "where": {
-                          "username":"john",
-                          "email":"a@b.com"
-                        }
-                      }) */
 
                     break;
                 }
@@ -129,9 +153,33 @@ function ProductComponent() {
         
     }
 
+   
+
+    const printImporte = () =>{
+        
+        axios.get(`http://localhost:3000/matriz/1`)
+        .then((response) => {
+                let respuesta = JSON.parse(response.data.data);
+                let posc = respuesta.vertexes.indexOf(etapaCliente);
+                let posv = respuesta.vertexes.indexOf(etapaVendedor);
+                setImporte(respuesta.matrix[posv][posc]);   
+                let div = document.getElementById("info_Importe");
+                div.innerHTML =  `El proveedor se encuentra en la etapa "${etapaVendedor}". 
+                El importe por envío tiene un costo de $`+respuesta.matrix[posv][posc]; 
+                
+        
+
+        });
+
+    }
+
 
     const aumentar = () => {
-        setCantidad(cantidad+1);
+        if(cantidad<producto_selec.stock){
+            setCantidad(cantidad+1);
+            
+        }
+       
     };
 
     const disminuir = () => {
@@ -142,12 +190,13 @@ function ProductComponent() {
 
     const auth = parseInt(localStorage.getItem("auth"), 10)
     const role= localStorage.getItem("role");
-    
+      
     
     if( auth && (role=="0" || role=="1")){       
 
         return (
             <>
+            {console.log(etapaVendedor, etapaCliente, "sd")}
         <NavbarComponent />
         <Container className='cont_detail'>   
     
@@ -162,7 +211,7 @@ function ProductComponent() {
                             <Slider {...settings} className="Slide_img">
                                 {   
                                     sources.map(fuentes =>(
-                                        <img src={fuentes.source} className="card-img-bottom image" />
+                                        <img key="imagen" src={fuentes.source} className="card-img-bottom image" />
                                     )     )
                                          
                                 }
@@ -180,13 +229,13 @@ function ProductComponent() {
                                 <p>Andrea Rodriguez</p> 
                             </div>
                             <div className="col-6 text-right">
-                                <p>
+                                <div>
                                     Calificación: 
                                     <div id='estrellas_val'>
                                         
                                        <LoadStars estrellas={producto_selec.promedioPuntuacion}/>
                                     </div>
-                                    </p>
+                                    </div>
                             </div>
                             <div className="col-12" id="productoDescripcion"> 
                                 <p>{producto_selec.descripcion}</p>                            
@@ -202,11 +251,11 @@ function ProductComponent() {
                                 <h5>Comentarios</h5>
                                 <div data-list="[producto_selec.comentarios]" id="comentarios">
                                 </div>
-                               
+                                                           
                                 
                                     {console.log(comentarios)}
                                     {comentarios.map(comenta=>(
-                                            <div style={{ padding: 14 }} className="commentsBox">
+                                            <div key="box" style={{ padding: 14 }} className="commentsBox">
                                             
                                                 <Grid style={{ margin: "10px" }} item>
                                                 <Avatar alt="Remy Sharp" src={"https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"} />
@@ -239,6 +288,9 @@ function ProductComponent() {
                             <div className="col-6 text-center">
                                 <p>$ {producto_selec.precio}</p>
                             </div>
+
+
+
                             <div className="col-6">
                                 <p>Cantidad</p>
                             </div>
@@ -251,15 +303,25 @@ function ProductComponent() {
                                 <p>Total</p>
                             </div>
                             <div className="col-6 text-center" id = "valtotlabel">
-                                <p>$ {producto_selec.precio * cantidad}</p>
+                                <p>$ {producto_selec.precio  * cantidad}</p> 
                             </div>
+                            
                             <div className="col-12 text-center">
                                 <button type="button" id="btnAgregarCarrito" className="btn btn-primary"
-                                onClick = { () => seleccionarProducto(id_producto)}><i className='fas fa-shopping-cart fa-lg'></i>{" "}Agregar a carrito</button>
-                            </div>
+                                onClick = { () => {seleccionarProducto(id_producto); printImporte()}}><i className='fas fa-shopping-cart fa-lg'></i>{" "}Agregar a carrito</button>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                    <div id="info_Importe_cont">
+                        <div className="col-1 text-center">
+                                <i className="fas fa-info-circle"  onClick={printImporte}></i>
+                            </div>
+                        <div id="info_Importe" className="text-justify">
+                            
+                        </div>
+                        
+                    </div>
+                </div>  
                                     
     
               </div>

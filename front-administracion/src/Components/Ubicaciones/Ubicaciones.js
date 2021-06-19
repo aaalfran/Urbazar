@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Container, Table,Form,FormGroup,Input ,Label} from 'reactstrap';
+import { Container, Table,FormGroup,Input ,Label} from 'reactstrap';
 import {GraphMA} from '../../GraphMA';
 import { Redirect} from 'react-router-dom';
 import axios from 'axios';
@@ -48,7 +48,7 @@ const Ubicaciones = () => {
             l.push(<tr>
                 <td><strong>{etapa}</strong></td>
                 {matriz.vertexes.map((valor) => {
-                    return <td>{matriz.getEdge(valor,etapa)}</td>
+                    return <td key="row">{matriz.getEdge(valor,etapa)}</td>
                 })}
             </tr>);
         })
@@ -65,7 +65,7 @@ const Ubicaciones = () => {
                 {load ? <>   <h1 className="mb-3">Etapas de la urbanización: Villa Bonita</h1>
                 <Table bordered className="bg-white text-center table-bordered">
                     <thead>
-                        <th>Etapas</th>
+                        <th key="field">Etapas</th>
                         {lista}
                     </thead>
                     <tbody>

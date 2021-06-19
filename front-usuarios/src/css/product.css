@@ -94,6 +94,10 @@
     padding-top: 2%;
 }
 
+#productoPreFactura{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
 
 #productoUpRight{
     padding: 4%;
@@ -114,4 +118,16 @@
 .commentsBox{
     display: flex;
     flex-wrap: wrap;
+}
+
+
+
+.fa-info-circle{
+    color:#506048;
+    cursor: pointer;
+}
+
+#info_Importe{
+    font-size: x-small;
+    color: rgb(126, 126, 126);
 }

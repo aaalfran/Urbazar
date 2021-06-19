@@ -19,6 +19,7 @@ const AuthA = (dispatch) => {
                     localStorage.setItem('user', res.data.username);
                     localStorage.setItem('nombre_usuario', res.data.nombre);
                     localStorage.setItem('userId', res.data.id);
+                    localStorage.setItem('etapa', res.data.id_etapa);
                     localStorage.setItem('auth', 1);
                     localStorage.setItem('token', res.token);
                     localStorage.setItem('role', res.data.role);

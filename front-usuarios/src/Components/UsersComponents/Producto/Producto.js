@@ -2,11 +2,11 @@ import React from 'react';
 import { Card, CardImg, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
 
-const Producto = ({nombre, precio, foto_src, id}) => {
+const Producto = ({nombre, precio, foto_src, id, idVendedor}) => {
     
    
     return (  
-        <a href={`/productdetail/${id}`}>
+        <a href={`/productdetail/${id}/${idVendedor}`}>
         <div className='slide_product'> 
             {/* importar card */}
             <div className="cont">
