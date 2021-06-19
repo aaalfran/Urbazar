@@ -78,12 +78,6 @@ export class Persona extends Entity {
   })
   username: string;
 
-  @property({
-    type: 'string',
-    length: 100,
-    mysql: {columnName: 'ubicacion', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
-  })
-  ubicacion: string;
 
   @property({
     type: 'string',
