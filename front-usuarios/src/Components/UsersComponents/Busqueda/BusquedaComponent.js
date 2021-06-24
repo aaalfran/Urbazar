@@ -5,6 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { Container, Grid, makeStyles} from '@material-ui/core';
 import '../../../css/buscador.css';
 import CategoriaComponent from '../navBar/CategoriaComponent';
+import Paginate from '../Pagination/Paginate';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
@@ -86,6 +87,7 @@ let useLoadResource = ({categoria}) => {
            </a>
        )) : <></>}
         </Grid>
+        <Paginate></Paginate>
         </Container>
         </>
     );
