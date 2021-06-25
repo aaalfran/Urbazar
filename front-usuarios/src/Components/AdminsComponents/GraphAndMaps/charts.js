@@ -13,15 +13,15 @@ var delays2 = 80,
 
 
 
-  fetch("http://localhost:3000/productos")
+fetch("//134.209.215.193:3000/productos")
   .then(response => response.json())
   .then(data => {
     console.log(data)
     barChart.data.labels = data.map(d => d.nombre)
     //barChart.data.series = data.map(d => d.precio)
   })
-  
-  .catch(error=> console.log( "Hubo un error "+error))
+
+  .catch(error => console.log("Hubo un error " + error))
 
 // ##############################
 // // // Daily Sales
@@ -30,24 +30,24 @@ var delays2 = 80,
 
 
 const barChart = {
-  data : {
+  data: {
     labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
     series: [
       [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
     ]
   },
 
-   options : {
+  options: {
     high: 100,
     low: 0,
     axisX: {
-      labelInterpolationFnc: function(value, index) {
+      labelInterpolationFnc: function (value, index) {
         return index % 2 === 0 ? value : null;
       }
     }
   },
   animation: {
-    draw: function(data) {
+    draw: function (data) {
       if (data.type === "bar") {
         data.element.animate({
           opacity: {
@@ -62,27 +62,27 @@ const barChart = {
     }
   },
 
-  type : 'Bar'
+  type: 'Bar'
 };
 
 const pieChart = {
-  data : {
-    labels: ['Ropa', 'Tecnologia', 'Alimentos' ],
+  data: {
+    labels: ['Ropa', 'Tecnologia', 'Alimentos'],
     series: [20, 15, 50]
   },
-  
-  options :{
-    labelInterpolationFnc: function(value) {
+
+  options: {
+    labelInterpolationFnc: function (value) {
       return value[0]
     }
   },
-  
-  responsiveOptions : [
+
+  responsiveOptions: [
     ['screen and (min-width: 640px)', {
       chartPadding: 30,
       labelOffset: 100,
       labelDirection: 'explode',
-      labelInterpolationFnc: function(value) {
+      labelInterpolationFnc: function (value) {
         return value;
       }
     }],
@@ -92,37 +92,37 @@ const pieChart = {
     }]
   ],
   animation: {
-    draw: function(data) {
-      
+    draw: function (data) {
+
       if (data.type === 'slice') {
         // Get the total path length in order to use for dash array animation
         var pathLength = data.element._node.getTotalLength();
 
         // Set a dasharray that matches the path length as prerequisite to animate dashoffset
         data.element.attr({
-            'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+          'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
         });
 
         // Create animation definition while also assigning an ID to the animation for later sync usage
         var animationDefinition = {
-            'stroke-dashoffset': {
-                id: 'anim' + data.index,
-                dur: 500 * data.value / data.totalDataSum,
-                from: -pathLength + 'px',
-                to: '0px',
-                // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
-                fill: 'freeze'
-            }
+          'stroke-dashoffset': {
+            id: 'anim' + data.index,
+            dur: 500 * data.value / data.totalDataSum,
+            from: -pathLength + 'px',
+            to: '0px',
+            // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+            fill: 'freeze'
+          }
         };
 
         // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
         if (data.index !== 0) {
-            animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+          animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
         }
 
         // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
         data.element.attr({
-            'stroke-dashoffset': -pathLength + 'px'
+          'stroke-dashoffset': -pathLength + 'px'
         });
 
         // We can't use guided mode as the animations need to rely on setting begin manually
@@ -131,36 +131,36 @@ const pieChart = {
 
         // add (naive) bounce
         if (data.endAngle === 360) {
-            var index = data.index;
-            var dur = 1000 * data.value / data.totalDataSum / 2;
-            var from = 0;
-            var to = -pathLength / 3;
+          var index = data.index;
+          var dur = 1000 * data.value / data.totalDataSum / 2;
+          var from = 0;
+          var to = -pathLength / 3;
 
-            for (var i = 0; i < 4; i++) {
-                data.element.animate({
-                    'stroke-dashoffset': {
-                        id: 'anim' + (index + 1),
-                        dur: dur,
-                        from: from + 'px',
-                        to: to + 'px',
-                        fill: 'freeze',
-                        begin: 'anim' + index + '.end'
-                    }
-                }, false);
+          for (var i = 0; i < 4; i++) {
+            data.element.animate({
+              'stroke-dashoffset': {
+                id: 'anim' + (index + 1),
+                dur: dur,
+                from: from + 'px',
+                to: to + 'px',
+                fill: 'freeze',
+                begin: 'anim' + index + '.end'
+              }
+            }, false);
 
-                index++;
-                dur /= 1.75;
+            index++;
+            dur /= 1.75;
 
-                var t = from;
-                from = to;
-                to = t / 2.5;
-            }
+            var t = from;
+            from = to;
+            to = t / 2.5;
+          }
         }
-    }
-      
-      
       }
-    
+
+
+    }
+
   }
 };
 
@@ -184,7 +184,7 @@ const dailySalesChart = {
   },
   // for animation
   animation: {
-    draw: function(data) {
+    draw: function (data) {
       if (data.type === "line" || data.type === "area") {
         data.element.animate({
           d: {
@@ -255,7 +255,7 @@ const emailsSubscriptionChart = {
       {
         seriesBarDistance: 5,
         axisX: {
-          labelInterpolationFnc: function(value) {
+          labelInterpolationFnc: function (value) {
             return value[0];
           }
         }
@@ -263,7 +263,7 @@ const emailsSubscriptionChart = {
     ]
   ],
   animation: {
-    draw: function(data) {
+    draw: function (data) {
       if (data.type === "bar") {
         data.element.animate({
           opacity: {
@@ -302,7 +302,7 @@ const completedTasksChart = {
     }
   },
   animation: {
-    draw: function(data) {
+    draw: function (data) {
       if (data.type === "line" || data.type === "area") {
         data.element.animate({
           d: {
@@ -332,10 +332,10 @@ const completedTasksChart = {
   }
 };
 module.exports = {
-    dailySalesChart,
-    emailsSubscriptionChart,
-    completedTasksChart,
-    barChart,
-    pieChart
+  dailySalesChart,
+  emailsSubscriptionChart,
+  completedTasksChart,
+  barChart,
+  pieChart
 };
 
