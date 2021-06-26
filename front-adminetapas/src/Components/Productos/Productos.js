@@ -5,7 +5,7 @@ const Productos = () => {
     const [productoLista,setProductoLista] = useState([]);
     const [load,setLoad] = useState(false)
     useEffect(() => {
-        axios.get("http://localhost:3000/productos/").then((response) => {
+        axios.get("http://134.209.215.193:3000/productos/").then((response) => {
             setProductoLista(response.data);
             setLoad(true);
         })
@@ -19,9 +19,9 @@ const Productos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {load ? productoLista.map((item) => {
+                    {load ? productoLista.map((item,id) => {
                         return(
-                            <tr>
+                            <tr key={id}>
                                 <td>{item.id}</td>
                                 <td>{item.nombre}</td>
                                 <td>{item.precio}</td>
@@ -29,26 +29,26 @@ const Productos = () => {
                                 <td>
                                     <div className="d-flex justify-content-center">
                                         <button className="btn btn-success mx-2" onClick={e => {
-                                            axios.get(`http://localhost:3000/productos/${item.id}`).then((response) => {
+                                            axios.get(`http://134.209.215.193:3000/productos/${item.id}`).then((response) => {
                                                 let producto = response.data;
                                                 producto.activo = 1;
-                                                axios.put(`http://localhost:3000/productos/${item.id}`,producto).then((response) => {
+                                                axios.put(`http://134.209.215.193:3000/productos/${item.id}`,producto).then((response) => {
                                                     window.location.reload();
                                                 })
                                             })
                                         }}>Activar</button>
                                         <button className="btn btn-dark mx-2" onClick={e => {
-                                            axios.get(`http://localhost:3000/productos/${item.id}`).then((response) => {
+                                            axios.get(`http://134.209.215.193:3000/productos/${item.id}`).then((response) => {
                                                 let producto = response.data;
                                                 producto.activo = 0;
-                                                axios.put(`http://localhost:3000/productos/${item.id}`,producto).then((response) => {
+                                                axios.put(`http://134.209.215.193:3000/productos/${item.id}`,producto).then((response) => {
                                                     window.location.reload();
                                                 })
                                             })
                                         }}>Desactivar</button>
                                         <button className="btn btn-danger mx-2" onClick={e => {
-                                            axios.get(`http://localhost:3000/productos/${item.id}`).then((response) => {
-                                                axios.delete(`http://localhost:3000/productos/${item.id}`).then((response) => {
+                                            axios.get(`http://134.209.215.193:3000/productos/${item.id}`).then((response) => {
+                                                axios.delete(`http://134.209.215.193:3000/productos/${item.id}`).then((response) => {
                                                     window.location.reload();
                                                 })
                                             })

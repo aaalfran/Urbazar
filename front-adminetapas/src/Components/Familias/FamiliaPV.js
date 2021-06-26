@@ -7,7 +7,7 @@ import LoadInfo from "./LoadInfo";
 
 const FamiliaPV = (props) => {
 
-    let etapas = LoadInfo("http://localhost:3000/etapas");
+    let etapas = LoadInfo("http://134.209.215.193:3000/etapas");
 
     return (  
 
@@ -33,8 +33,8 @@ const FamiliaPV = (props) => {
                                 <Input className="second_child" type="select" id="select_et" name="etapa" >
                                     <option value=""> </option>
                                     {
-                                    etapas.map(etapa=>(
-                                        <option value={etapa.id}> {etapa.nombre} </option>
+                                    etapas.map((etapa,id)=>(
+                                        <option key={id} value={etapa.id}> {etapa.nombre} </option>
                                     ))
                                     }
                                         
