@@ -24,15 +24,15 @@ function ContactanosComponent (){
                     <Card id="contact_form">
                         <CardTitle id="titulo">Contáctanos</CardTitle>
                         <CardBody>
-                        <form action="http://localhost:3000/api/contactanos" method="post" >
+                        <form action="http://134.209.215.193:3000/api/contactanos" method="post" >
                             <div className="col-md-12 form-double">
                                 <div className="col-md-4 nombre">
-                                    <label for="nombres">Nombre</label>
+                                    <label htmlFor="nombres">Nombre</label>
                                     <input type="text" className="form-control" id="nombres" name="nombres" required/>
                                 </div>
 
                                 <div className="col-md-4">
-                                    <label for="urbanizacion">Urbanización</label>
+                                    <label htmlFor="urbanizacion">Urbanización</label>
                                     <select name="urbanizacion" className="form-control">
                                         <option>---</option>
                                         <option>Las joyas</option>
@@ -43,7 +43,7 @@ function ContactanosComponent (){
 
                                 </div>
                                 <div className="col-md-4">
-                                    <label for="etapa">Etapa</label>
+                                    <label htmlFor="etapa">Etapa</label>
                                     <select name="etapa" className="form-control">
                                         <option>---</option>
                                         <option>Primera</option>
@@ -57,19 +57,19 @@ function ContactanosComponent (){
                             </div>
 
                             <div className="form-group">
-                                <label for="email">Email address</label>
+                                <label htmlFor="email">Email address</label>
                                 <input type="email" name="email" className="form-control" id="email" aria-describedby="emailHelp"/>
                                 <small id="emailHelp" className="form-text text-muted">Asegurate de ingresar un email válido al que podamos contactarte.</small>
                             </div>
 
                             
                             <div className="form-group">
-                                <label for="asunto">Asunto</label>
+                                <label htmlFor="asunto">Asunto</label>
                                 <input type="text" name="asunto" className="form-control" id="asunto"/>
                             </div>
 
                             <div id="message" className="form-group">
-                                <label for="mensaje">Mensaje</label>
+                                <label htmlFor="mensaje">Mensaje</label>
                                 <textarea type="text" className="form-control" name="mensaje" id="mensaje" placeholder="Dejanos tu mensaje..."/>
                             </div> 
                             <div id="send_button">

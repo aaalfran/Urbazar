@@ -37,13 +37,13 @@ function ProductComponent() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:3000/personas/` + id_vendedor)
+        axios.get(`http://134.209.215.193:3000/personas/` + id_vendedor)
             .then((response) => {
                 return response.data.id_etapa;
             })
 
             .then((idetapa) => {
-                axios.get(`http://localhost:3000/etapas/` + idetapa)
+                axios.get(`http://134.209.215.193:3000/etapas/` + idetapa)
                     .then((response) => {
                         setEtapaVendedor(response.data.nombre);
 
@@ -58,7 +58,7 @@ function ProductComponent() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/etapas/` + localStorage.getItem("etapa"))
+        axios.get(`http://134.209.215.193:3000/etapas/` + localStorage.getItem("etapa"))
             .then((response) => {
                 setEtapaCliente(response.data.nombre);
 
@@ -82,8 +82,8 @@ function ProductComponent() {
         }
     });
 
-    let comentarios = ListaProductos("http://localhost:3000/calificaciones?filter[where][idProducto]=" + id_producto)
-    let sources = ListaProductos("http://localhost:3000/sourcesproductos?filter[where][id_producto]=" + id_producto)
+    let comentarios = ListaProductos("http://134.209.215.193:3000/calificaciones?filter[where][idProducto]=" + id_producto)
+    let sources = ListaProductos("http://134.209.215.193:3000/sourcesproductos?filter[where][id_producto]=" + id_producto)
 
     let settings = {
         arrows: true,
@@ -157,7 +157,7 @@ function ProductComponent() {
 
     const printImporte = () => {
 
-        axios.get(`http://localhost:3000/matriz/1`)
+        axios.get(`http://134.209.215.193:3000/matriz/1`)
             .then((response) => {
                 let respuesta = JSON.parse(response.data.data);
                 let posc = respuesta.vertexes.indexOf(etapaCliente);

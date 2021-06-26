@@ -8,7 +8,7 @@ const useImporte = (etapaCliente, etapaVendedor)=>{
     const [importe, setImporte] = useState(0);
     
     useEffect(() => {
-        axios.get(`http://localhost:3000/matriz/1`)
+        axios.get(`http://134.209.215.193:3000/matriz/1`)
         .then((response) => {
                 let respuesta = JSON.parse(response.data.data);
                 let posc = respuesta.vertexes.indexOf(etapaCliente);
