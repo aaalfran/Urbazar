@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 import EncryptPassword from "../Login/EncryptPassword";
-import {Input, Label, FormGroup, FormFeedback, FormText} from "reactstrap";
+import {Input, FormGroup, FormText} from "reactstrap";
 import PaymentComponent from "../Carrito/PaymentComponent";
 import axios from 'axios';
 import ModalComponent from "./ModalComponent";

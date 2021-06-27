@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import NavbarComponent from '../navBar/navbarComponent';
-import CategoriaComponent from '../navBar/CategoriaComponent';
-import { UncontrolledCarousel, Col } from 'reactstrap';
-import '../../../css/MainComponent.css';
-import "../../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
-import { Redirect } from 'react-router-dom';
-import introJs from 'intro.js';
-import LoadProducts from "./LoadProducts";
-import GoogleAds from '../Adicionales/GoogleAds';
-import '../../../css/slider.scss';
-import banner1 from '../../../imagenes/ban1.png';
-import banner7 from '../../../imagenes/ban7.png';
-import banner9 from '../../../imagenes/ban9.png';
+import React from 'react'
+import NavbarComponent from '../navBar/navbarComponent'
+import CategoriaComponent from '../navBar/CategoriaComponent'
+import { UncontrolledCarousel, Col } from 'reactstrap'
+import '../../../css/MainComponent.css'
+import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
+import { Redirect } from 'react-router-dom'
+import LoadProducts from './LoadProducts'
+import GoogleAds from '../Adicionales/GoogleAds'
+import '../../../css/slider.scss'
+import banner1 from '../../../imagenes/ban1.png'
+import banner7 from '../../../imagenes/ban7.png'
+import banner9 from '../../../imagenes/ban9.png'
 
-function Main() {
-  //introJs().start();
+function Main () {
+  // introJs().start();
 
   /* banner items */
   const items = [
@@ -36,14 +35,12 @@ function Main() {
       altText: 'Slide 3',
       key: '3'
     }
-  ];
+  ]
 
-  const auth = parseInt(localStorage.getItem("auth"), 10)
-  const role = localStorage.getItem("role");
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
 
-
-  if (auth && (role == "0" || role == "1")) {
-
+  if (auth && (role === '0' || role === '1')) {
     return (
       <>
         <head>
@@ -61,7 +58,6 @@ function Main() {
 
         </section>
 
-
         <div>addd</div>
         <div className="ad-class">
           {/* add your slot id  */}
@@ -77,28 +73,28 @@ function Main() {
             <hr className="my-2" />
 
             <div className='productos mt-5 carousel'>
-              {LoadProducts("http://134.209.215.193:3000/productos")}
+              {LoadProducts('http://134.209.215.193:3000/productos')}
             </div>
           </div>
           <div className='list_productos' >
             <h6 data-intro='Elige entre los productos más destacados de la Urbanización.'>Lo más destacado</h6>
             <hr className="my-2" />
             <div className='productos'>
-              {LoadProducts("http://134.209.215.193:3000/productos")}
+              {LoadProducts('http://134.209.215.193:3000/productos')}
             </div>
           </div>
           <div className='list_productos' >
             <h6 data-intro='¿Por qué ir tan lejos? Encuentra productos cerca de tu ubicación.'>Cerca de ti</h6>
             <hr className="my-2" />
             <div className='productos'>
-              {LoadProducts("http://134.209.215.193:3000/productos")}
+              {LoadProducts('http://134.209.215.193:3000/productos')}
             </div>
           </div>
           <div className='list_productos'>
             <h6 data-intro='No te pierdas las promociones que UrbazApp tiene para ti.'>Promociones</h6>
             <hr className="my-2" />
             <div className='productos'>
-              {LoadProducts("http://134.209.215.193:3000/productos")}
+              {LoadProducts('http://134.209.215.193:3000/productos')}
             </div>
           </div>
         </section>
@@ -112,13 +108,10 @@ function Main() {
         <script src="./main.js"></script>
       </>
 
-    );
-
-  }
-  else if (auth && (role == "2" || role == "3")) {
+    )
+  } else if (auth && (role === '2' || role === '3')) {
     return <Redirect to='/admin/dashboard/report' />
-  }
-  else return <Redirect to='/login' />
+  } else return <Redirect to='/login' />
 }
 
-export default Main;
+export default Main

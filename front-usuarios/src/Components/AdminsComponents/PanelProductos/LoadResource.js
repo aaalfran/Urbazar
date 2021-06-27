@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import {
   Avatar,
   Box,
@@ -11,39 +11,38 @@ import {
   TableRow,
   Typography,
   makeStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
   avatar: {
     marginRight: theme.spacing(2)
   }
-}));
-function useLoadResource() {
-
-  const classes = useStyles();
+}))
+function useLoadResource () {
+  const classes = useStyles()
 
   const [productos, setProductos] = useState([])
 
-  const [limit, setLimit] = useState(25);
-  const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(25)
+  const [page, setPage] = useState(0)
 
   useEffect(() => {
-    fetch("http://134.209.215.193:3000/productos")
+    fetch('http://134.209.215.193:3000/productos')
       .then(response => response.json())
       .then(data => {
         setProductos(data)
       })
-      .catch(error => console.log("Hubo un error " + error))
+      .catch(error => console.log('Hubo un error ' + error))
   }, [])
 
   const handleLimitChange = (event) => {
-    setLimit(event.target.value);
-  };
+    setLimit(event.target.value)
+  }
 
   const handlePageChange = (event, newPage) => {
-    setPage(newPage);
-  };
+    setPage(newPage)
+  }
 
   return (
     <>
@@ -54,7 +53,6 @@ function useLoadResource() {
 
         <Box minWidth={1050}>
           <Table className="tabla_productos">
-
 
             <TableHead>
               <TableRow>
@@ -87,7 +85,6 @@ function useLoadResource() {
                     </Box>
                   </Typography>
                 </TableCell>
-
 
               </TableRow>
             </TableHead>
@@ -145,8 +142,7 @@ function useLoadResource() {
         />
       </Card>
     </>
-  );
-
+  )
 }
 
-export default useLoadResource;
+export default useLoadResource

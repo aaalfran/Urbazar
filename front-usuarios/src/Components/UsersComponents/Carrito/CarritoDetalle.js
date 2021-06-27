@@ -1,34 +1,31 @@
 import React, { useState } from 'react'
-import {Row,Col,Container} from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap'
 import '../../../css/Detalle.css'
-let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
-    const [borrado,setBorrado] = useState(false);
-    let borrarElemento = () =>{
-        setBorrado(true)
-        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
-        var productLista = jsonCarro.carrito;
-        var listaNueva = []
-        for (var i = 0; i < productLista.length; i++) {
-            let n = productLista[i].nombre;
-            
-            if(n !== nombre){
-                listaNueva.push(productLista[i])
-            }
+const CarritoDetalle = ({ src, nombre, descripcion, precio, cantidad }) => {
+  const [borrado, setBorrado] = useState(false)
+  const borrarElemento = () => {
+    setBorrado(true)
+    const jsonCarro = JSON.parse(localStorage.getItem('carrito'))
+    const productLista = jsonCarro.carrito
+    const listaNueva = []
+    for (let i = 0; i < productLista.length; i++) {
+      const n = productLista[i].nombre
 
-        }
-        let jsonNuevo = {carrito:listaNueva}
-        localStorage.setItem("carrito",JSON.stringify(jsonNuevo));
-        let items = parseInt(localStorage.getItem("contador_items"));
-        localStorage.setItem("contador_items", items-1)
-        let val_actual = document.getElementById("cont_icon_carrito").getElementsByTagName("p")[0];
-        val_actual.textContent = items-1;
-
+      if (n !== nombre) {
+        listaNueva.push(productLista[i])
+      }
     }
-    if(borrado){
-        return(<span></span>)
-    }
-    else{
-        return(
+    const jsonNuevo = { carrito: listaNueva }
+    localStorage.setItem('carrito', JSON.stringify(jsonNuevo))
+    const items = parseInt(localStorage.getItem('contador_items'))
+    localStorage.setItem('contador_items', items - 1)
+    const val_actual = document.getElementById('cont_icon_carrito').getElementsByTagName('p')[0]
+    val_actual.textContent = items - 1
+  }
+  if (borrado) {
+    return (<span></span>)
+  } else {
+    return (
             <Container className="productoContenedor">
                 <div className="w-100 text-right borrarDiv"><span className="pr-5 borrar" onClick={borrarElemento}>X</span></div>
                 <Row className="align-items-center px-5">
@@ -47,7 +44,7 @@ let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
                                             {descripcion}
                                         </p>
                                     </div>
-        
+
                                 </div>
                                 <div>
                                     <strong>Vendedor:</strong> prueba<br/>
@@ -61,13 +58,12 @@ let CarritoDetalle = ({src,nombre,descripcion,precio,cantidad}) =>{
                             <h3> ${precio} </h3>
                         </div>
                     </Col>
-        
-                </Row>    
+
+                </Row>
             </Container>
-        
-        
-        );
-    }
+
+    )
+  }
 }
 
-export default CarritoDetalle;
+export default CarritoDetalle

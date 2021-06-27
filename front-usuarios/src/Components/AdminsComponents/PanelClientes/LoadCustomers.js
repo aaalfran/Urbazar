@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 import {
   Avatar,
@@ -12,43 +12,39 @@ import {
   TableRow,
   Typography,
   makeStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
   avatar: {
     marginRight: theme.spacing(2)
   }
-}));
+}))
 
-
-
-function LoadCustomers() {
-  const classes = useStyles();
+function LoadCustomers () {
+  const classes = useStyles()
 
   const [customers, setCustomers] = useState([])
 
-  const [limit, setLimit] = useState(25);
-  const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(25)
+  const [page, setPage] = useState(0)
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/customers")
+    fetch('http://localhost:4000/api/customers')
       .then(response => response.json())
       .then(data => {
         setCustomers(data)
       })
-      .catch(error => console.log("Hubo un error " + error))
+      .catch(error => console.log('Hubo un error ' + error))
   }, [])
 
   const handleLimitChange = (event) => {
-    setLimit(event.target.value);
-  };
+    setLimit(event.target.value)
+  }
 
   const handlePageChange = (event, newPage) => {
-    setPage(newPage);
-  };
-
-
+    setPage(newPage)
+  }
 
   return (
     <>
@@ -59,7 +55,6 @@ function LoadCustomers() {
 
         <Box minWidth={1050}>
           <Table>
-
 
             <TableHead>
               <TableRow>
@@ -154,8 +149,7 @@ function LoadCustomers() {
         />
       </Card>
     </>
-  );
-
+  )
 }
 
 export default LoadCustomers

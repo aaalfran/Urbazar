@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import {
   Avatar,
   Box,
@@ -10,15 +10,15 @@ import {
   Divider,
   Typography,
   makeStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
 
 const user = {
   avatar: '/static/media/bryan.fa8c2fdf.jpeg',
   city: 'Guayaquil',
   country: 'Ecuador',
   jobTitle: 'Senior Developer',
-  name: 'Walther Lopez',
-};
+  name: 'Walther Lopez'
+}
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -26,10 +26,10 @@ const useStyles = makeStyles(() => ({
     height: 100,
     width: 100
   }
-}));
+}))
 
 const Profile = ({ className, ...rest }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Card
@@ -78,11 +78,11 @@ const Profile = ({ className, ...rest }) => {
         </Button>
       </CardActions>
     </Card>
-  );
-};
+  )
+}
 
 Profile.propTypes = {
   className: PropTypes.string
-};
+}
 
-export default Profile;
+export default Profile

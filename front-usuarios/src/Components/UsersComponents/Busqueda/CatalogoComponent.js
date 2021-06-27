@@ -1,31 +1,26 @@
-import NavbarComponent from '../navBar/navbarComponent';
-import BusquedaComponent from './BusquedaComponent';
-import { Redirect, useParams } from 'react-router-dom';
-import '../../../css/catalogo.css';
-import React from "react";
+import NavbarComponent from '../navBar/navbarComponent'
+import BusquedaComponent from './BusquedaComponent'
+import { Redirect, useParams } from 'react-router-dom'
+import '../../../css/catalogo.css'
+import React from 'react'
 
-
-let ParamBusqueda = () => {
-    let { id } = useParams();
-    if (id) {
-        return (
-            <BusquedaComponent categoria={id} />
-        );
-    }
+const ParamBusqueda = () => {
+  const { id } = useParams()
+  if (id) {
     return (
-        <BusquedaComponent categoria={""} />
-    );
-
+            <BusquedaComponent categoria={id} />
+    )
+  }
+  return (
+        <BusquedaComponent categoria={''} />
+  )
 }
-let Buscador = ({ match }) => {
-    const auth = parseInt(localStorage.getItem("auth"), 10)
-    const role = localStorage.getItem("role");
+const Buscador = ({ match }) => {
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
 
-
-    if (auth && (role === "0" || role === "1")) {
-
-
-        return (
+  if (auth && (role === '0' || role === '1')) {
+    return (
             <html>
                 <head>
                     <meta name="author" content="Beescript" />
@@ -38,12 +33,10 @@ let Buscador = ({ match }) => {
 
                 </body>
             </html>
-        );
-    }
-    else if (auth && (role === "2" || role === "3")) {
-        return <Redirect to='/admin/dashboard/report' />
-    }
-    else return <Redirect to='/login' />
+    )
+  } else if (auth && (role === '2' || role === '3')) {
+    return <Redirect to='/admin/dashboard/report' />
+  } else return <Redirect to='/login' />
 }
 
-export default Buscador;
+export default Buscador

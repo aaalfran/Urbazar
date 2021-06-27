@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ToggleMenu from "./ToggleMenu";
 import {connect} from 'react-redux';
 import AuthA from '../../../store/actions/AuthA';
-import {Redirect} from 'react-router-dom';
 
 class ToggleMenuPC extends Component{
 

@@ -1,65 +1,59 @@
-import React, { useState } from "react";
-import NavbarComponent from "../navBar/navbarComponent";
-import Bryan from "../../../imagenes/bryan.jpeg";
-import { LoadStars } from '../Producto/LoadResourcesProducts';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import { Redirect } from 'react-router-dom';
-import LoadDatos from "./LoadDatosUsuario";
-import LoadCategories from './LoadCategories';
-import "../../../css/perfil.css";
-import LoadProductos from './LoadProductos';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import VendedorCompra from "./VendedorCompra";
+import React, { useState } from 'react'
+import NavbarComponent from '../navBar/navbarComponent'
+import Bryan from '../../../imagenes/bryan.jpeg'
+import { LoadStars } from '../Producto/LoadResourcesProducts'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Switch from '@material-ui/core/Switch'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
+import { Redirect } from 'react-router-dom'
+import LoadDatos from './LoadDatosUsuario'
+import LoadCategories from './LoadCategories'
+import '../../../css/perfil.css'
+import LoadProductos from './LoadProductos'
+import { makeStyles } from '@material-ui/core/styles'
+import Modal from '@material-ui/core/Modal'
+import Backdrop from '@material-ui/core/Backdrop'
+import Fade from '@material-ui/core/Fade'
+import VendedorCompra from './VendedorCompra'
 const useStyles = makeStyles((theme) => ({
-    modal: {
-        position: 'absolute',
-        top: '10%',
-        left: '50%',
-        overflow: 'scroll',
-        height: '100%',
-        display: 'block',
-        alignItems: 'center'
+  modal: {
+    position: 'absolute',
+    top: '10%',
+    left: '50%',
+    overflow: 'scroll',
+    height: '100%',
+    display: 'block',
+    alignItems: 'center'
 
-    },
-    paper: {
-        backgroundColor: theme.palette.background.paper,
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-    },
-}));
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3)
+  }
+}))
 
-function PerfilComponent(props) {
+function PerfilComponent (props) {
+  const [vendedor, setVendedor] = useState(false)
+  const [switchV, setSwitchV] = useState(false)
+  const [open, setOpen] = React.useState(false)
+  const classes = useStyles()
 
-    let [vendedor, setVendedor] = useState(false);
-    let [switchV, setSwitchV] = useState(false);
-    const [open, setOpen] = React.useState(false);
-    const classes = useStyles();
+  const handleClose = () => {
+    setOpen(false)
+  }
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
 
-    const auth = parseInt(localStorage.getItem("auth"), 10)
-    const role = localStorage.getItem("role");
+  if (auth && (role === '0' || role === '1')) {
+    const info = LoadDatos('http://134.209.215.193:3000/personas' + localStorage.getItem('userId'))
+    const categorias = LoadCategories()
 
-
-    if (auth && (role === "0" || role === "1")) {
-
-
-
-        let info = LoadDatos("http://134.209.215.193:3000/personas" + localStorage.getItem("userId"));
-        let categorias = LoadCategories();
-
-        return (
+    return (
             <>
                 <NavbarComponent />
-
 
                 <div className="emp-profile">
 
@@ -72,17 +66,16 @@ function PerfilComponent(props) {
                         closeAfterTransition
                         BackdropComponent={Backdrop}
                         BackdropProps={{
-                            timeout: 500,
+                          timeout: 500
                         }}>
                         <Fade in={open}>
-                            <div className={classes.paper + " rounded w-75 mx-auto my-3 modalResponsive"}>
+                            <div className={classes.paper + ' rounded w-75 mx-auto my-3 modalResponsive'}>
                                 <h2 id="transition-modal-title">Modo Vendedor</h2>
                                 <p id="transition-modal-description">¿Quieres activar las funcionalidades de un vendedor?</p>
                                 <VendedorCompra setVendedor={setVendedor} setOpen={setOpen}></VendedorCompra>
                             </div>
                         </Fade>
                     </Modal>
-
 
                     <form method="post">
                         <div className="row">
@@ -103,18 +96,15 @@ function PerfilComponent(props) {
                                     <h6>
                                         <FormControlLabel control={<Switch name="modo_vendedor" checked={switchV} />} label="Modo vendedor"
                                             onClick={(e) => {
-                                                if (!vendedor) {
-                                                    setOpen(!open)
-                                                } else {
-                                                    setSwitchV(!switchV)
-                                                }
-
+                                              if (!vendedor) {
+                                                setOpen(!open)
+                                              } else {
+                                                setSwitchV(!switchV)
+                                              }
                                             }} />
                                     </h6>
 
-
                                 </div>
-
 
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item">
@@ -207,14 +197,13 @@ function PerfilComponent(props) {
                                                 <label>Puntuación</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p> <LoadStars estrellas={"0"} /> </p>
+                                                <p> <LoadStars estrellas={'0'} /> </p>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-
 
                         </div>
                         <div className="row">
@@ -239,10 +228,10 @@ function PerfilComponent(props) {
                             <option value={10}>Compras</option>
                             <option disabled="true" value={20}>Ventas</option>
                             </Select>
-                        </FormControl>*/}
+                        </FormControl> */}
                                 <p>Categoría: </p>
                                 <FormControl className="activitie col-md-3">
-                                    <Select native inputProps={{ name: 'activitie', id: 'actividad-select', }} onChange={props.handleChange} >
+                                    <Select native inputProps={{ name: 'activitie', id: 'actividad-select' }} onChange={props.handleChange} >
 
                                         {
                                             categorias.map(categoria => (
@@ -265,13 +254,10 @@ function PerfilComponent(props) {
                 <script src={LoadProductos}></script>
 
             </>
-        );
-    }
-    else if (auth && (role === "2" || role === "3")) {
-        return <Redirect to='/admin/dashboard/report' />
-    }
-    else return <Redirect to='/login' />
-
+    )
+  } else if (auth && (role === '2' || role === '3')) {
+    return <Redirect to='/admin/dashboard/report' />
+  } else return <Redirect to='/login' />
 }
 
-export default PerfilComponent;
+export default PerfilComponent

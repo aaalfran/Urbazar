@@ -1,14 +1,14 @@
-import "./Paginate.css";
-import React, { useState } from "react";
-import JsonData from "./dataTest.json";
-import ReactPaginate from "react-paginate";
+import './Paginate.css'
+import React, { useState } from 'react'
+import JsonData from './dataTest.json'
+import ReactPaginate from 'react-paginate'
 
-function Paginate() {
-  const [users, setUsers] = useState(JsonData.slice(0, 10));
-  const [pageNumber, setPageNumber] = useState(0);
+function Paginate () {
+  const [users, setUsers] = useState(JsonData.slice(0, 10))
+  const [pageNumber, setPageNumber] = useState(0)
 
-  const usersPerPage = 10;
-//  const pagesVisited = pageNumber * usersPerPage;
+  const usersPerPage = 10
+  //  const pagesVisited = pageNumber * usersPerPage;
 
   /*
   const displayUsers = users
@@ -24,27 +24,27 @@ function Paginate() {
     });
     */
 
-  const pageCount = Math.ceil(users.length / usersPerPage);
+  const pageCount = Math.ceil(users.length / usersPerPage)
 
   const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
+    setPageNumber(selected)
+  }
 
   return (
     <div className="App">
       <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
+        previousLabel={'Previous'}
+        nextLabel={'Next'}
         pageCount={pageCount}
         onPageChange={changePage}
-        containerClassName={"paginationBttns"}
-        previousLinkClassName={"previousBttn"}
-        nextLinkClassName={"nextBttn"}
-        disabledClassName={"paginationDisabled"}
-        activeClassName={"paginationActive"}
+        containerClassName={'paginationBttns'}
+        previousLinkClassName={'previousBttn'}
+        nextLinkClassName={'nextBttn'}
+        disabledClassName={'paginationDisabled'}
+        activeClassName={'paginationActive'}
       />
     </div>
-  );
+  )
 }
 
-export default Paginate;
+export default Paginate

@@ -1,58 +1,50 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom';
-import '../../../css/CarritoComponent.css';
-import NavbarComponent from '../navBar/navbarComponent';
-import { Label, Input, Button, Modal, FormGroup} from 'reactstrap';
-import CarritoDetalle from "./CarritoDetalle";
-import PaymentInputs from "./PaymentComponent";
+import { Redirect } from 'react-router-dom'
+import '../../../css/CarritoComponent.css'
+import NavbarComponent from '../navBar/navbarComponent'
+import { Label, Input, Button, Modal, FormGroup } from 'reactstrap'
+import CarritoDetalle from './CarritoDetalle'
+import PaymentInputs from './PaymentComponent'
 
+const Productos = () => {
+  if (localStorage.getItem('carrito')) {
+    const jsonCarro = JSON.parse(localStorage.getItem('carrito'))
+    const productLista = jsonCarro.carrito
+    const listaComponent = []
 
-let Productos = () =>{
-
-    if(localStorage.getItem("carrito")){
-        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
-        var productLista = jsonCarro.carrito;
-        var listaComponent = []
-        
-       
-        for (var i = 0; i < productLista.length; i++) {
-            let nombre = productLista[i].nombre;
-            let precio = productLista[i].precio;
-            let imagen = productLista[i].source;
-            let desc = productLista[i].descripcion;
-            let cant = productLista[i].cantidad;
-            listaComponent.push(<CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
+    for (let i = 0; i < productLista.length; i++) {
+      const nombre = productLista[i].nombre
+      const precio = productLista[i].precio
+      const imagen = productLista[i].source
+      const desc = productLista[i].descripcion
+      const cant = productLista[i].cantidad
+      listaComponent.push(<CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
                 descripcion={desc} cantidad={cant} />)
-        }
-        return(<div>{listaComponent}</div>)
     }
-    else{
-        return(<h1 className="vacioCarrito">Carrito Vacío</h1>);
-
-    
-    }
+    return (<div>{listaComponent}</div>)
+  } else {
+    return (<h1 className="vacioCarrito">Carrito Vacío</h1>)
+  }
 }
 
-let Resumen = () =>{
+const Resumen = () => {
+  const listaLi = []
 
-    let listaLi = []
-    
-
-    if(localStorage.getItem("carrito")){
-        const jsonCarro = JSON.parse(localStorage.getItem("carrito"));
-        var productLista = jsonCarro.carrito;
-        let precioTotal = 0;
-        for (var i = 0; i < productLista.length; i++) {
-            let nombre = productLista[i].nombre;
-            let precio = parseFloat(productLista[i].precio) * productLista[i].cantidad;
-            precioTotal = precioTotal + precio;
-            listaLi.push(<tr>
+  if (localStorage.getItem('carrito')) {
+    const jsonCarro = JSON.parse(localStorage.getItem('carrito'))
+    const productLista = jsonCarro.carrito
+    let precioTotal = 0
+    for (let i = 0; i < productLista.length; i++) {
+      const nombre = productLista[i].nombre
+      const precio = parseFloat(productLista[i].precio) * productLista[i].cantidad
+      precioTotal = precioTotal + precio
+      listaLi.push(<tr>
                 <td>{nombre}</td>
                 <td>${precio}</td>
             </tr>)
-        }
-        localStorage.setItem("precio",precioTotal)
-        return(
+    }
+    localStorage.setItem('precio', precioTotal)
+    return (
 
         <table className="w-100">
             <tr>
@@ -64,23 +56,19 @@ let Resumen = () =>{
                 <td colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
             </tr>
         </table>
-        );
-    }
-    else{
-        return(<p></p>)
-    }
+    )
+  } else {
+    return (<p></p>)
+  }
 }
 
-
-
 const CarritoComponent = (props) => {
-    const [liveDemo, setLiveDemo] = React.useState(false);
-    const auth = parseInt(localStorage.getItem("auth"), 10)
-    const role= localStorage.getItem("role");
-    
-    
-    if( auth && (role==="0" || role==="1")){         
-        return ( 
+  const [liveDemo, setLiveDemo] = React.useState(false)
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
+
+  if (auth && (role === '0' || role === '1')) {
+    return (
         <html>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
@@ -93,21 +81,21 @@ const CarritoComponent = (props) => {
                 <div id="main">
                     <section id="productos_detail" className="col-md-8">
                         <Productos />
-                        
+
                     </section>
-                    <section id="info_detail" className="col-md-4"> 
+                    <section id="info_detail" className="col-md-4">
                         <div id="contenedor_info">
                             <div id="title_detail">
                                <h3> Resumen </h3>
                             </div>
                             <div>
-                                <Resumen />                            
+                                <Resumen />
                             </div>
-                            <div id="Pago">                                
-                                 Método de pago 
+                            <div id="Pago">
+                                 Método de pago
                             </div>
                             <div id="metodo_selection">
-                                   <PaymentInputs/>                                    
+                                   <PaymentInputs/>
                             </div>
                             <div id="record_method">
                                 <FormGroup check>
@@ -123,7 +111,7 @@ const CarritoComponent = (props) => {
                                 <div id="btn_continue">
                                     <Button type="button" onClick={() => setLiveDemo(true)}> Confirmar </Button>
                                 </div>
-                            
+
                                 <Modal isOpen={liveDemo} toggle={() => setLiveDemo(false)}>
                                     <div className="modal-header">
                                     <h5 className="modal-title" id="ConfirmationModel">
@@ -140,7 +128,7 @@ const CarritoComponent = (props) => {
                                     </button>
                                     </div>
                                     <div className="modal-body">
-                                    <p>Se descontará de su cuenta el saldo de ${localStorage.getItem("precio")}<br/>
+                                    <p>Se descontará de su cuenta el saldo de ${localStorage.getItem('precio')}<br/>
                                         ¿Está seguro que desea realizar esta compra?
                                     </p>
                                     </div>
@@ -163,13 +151,12 @@ const CarritoComponent = (props) => {
                                         type="button"
                                         id="btn_confModal"
                                         onClick={() => {
-                                            setLiveDemo(false);
-                                            localStorage.setItem("carrito","")
-                                            localStorage.setItem("precio",0)
-                                            localStorage.setItem("contador_items", 0)
-                                            
+                                          setLiveDemo(false)
+                                          localStorage.setItem('carrito', '')
+                                          localStorage.setItem('precio', 0)
+                                          localStorage.setItem('contador_items', 0)
                                         }
-                                        
+
                                         }
                                         >
                                         Aceptar
@@ -177,25 +164,20 @@ const CarritoComponent = (props) => {
                                     </div>
                                     </div>
                                 </Modal>
-                                
+
                             </div>
                         </div>
                     </section>
                 </div>
 
-           
             </body>
             </html>
-        );
-    }
-    //Por ahora estas validaciones quedan de esta forma, cuando se desarrollen bien los dashboards de admins se dividirá esto
-    else if(auth && (role=="2" || role=="3")){
-        return  <Redirect to='/admin/dashboard/report'/> 
-    }
-    else return  <Redirect to='/login'/> 
-    
-    
+    )
+  }
+  // Por ahora estas validaciones quedan de esta forma, cuando se desarrollen bien los dashboards de admins se dividirá esto
+  else if (auth && (role === '2' || role === '3')) {
+    return <Redirect to='/admin/dashboard/report'/>
+  } else return <Redirect to='/login'/>
 }
- 
-export default CarritoComponent;
 
+export default CarritoComponent

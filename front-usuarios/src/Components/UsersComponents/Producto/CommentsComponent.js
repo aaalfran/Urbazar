@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react'
 
-import { Divider, Avatar, Grid, Paper } from "@material-ui/core";
+import { Divider, Avatar, Grid, Paper } from '@material-ui/core'
 
-import "./styles.css";
+import './styles.css'
 
 const imgLink =
-  "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+  'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
 
-function Coments(props) {
+function Coments (props) {
   return (
     <div style={{ padding: 14 }} className="App">
       <h1>Comments</h1>
-      <Paper style={{ padding: "40px 20px" }}>
+      <Paper style={{ padding: '40px 20px' }}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
             <Avatar alt="Remy Sharp" src={imgLink} />
           </Grid>
           <Grid justifyContent="left" item xs zeroMinWidth>
-            <h4 style={{ margin: 0, textAlign: "left" }}>Michel Michel</h4>
-            <p style={{ textAlign: "left" }}>
+            <h4 style={{ margin: 0, textAlign: 'left' }}>Michel Michel</h4>
+            <p style={{ textAlign: 'left' }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
               luctus ut est sed faucibus. Duis bibendum ac ex vehicula laoreet.
               Suspendisse congue vulputate lobortis. Pellentesque at interdum
@@ -27,21 +27,21 @@ function Coments(props) {
               metus, efficitur lobortis nisi quis, molestie porttitor metus.
               Pellentesque et neque risus. Aliquam vulputate, mauris vitae
               tincidunt interdum, mauris mi vehicula urna, nec feugiat quam
-              lectus vitae ex.{" "}
+              lectus vitae ex.{' '}
             </p>
-            <p style={{ textAlign: "left", color: "gray" }}>
+            <p style={{ textAlign: 'left', color: 'gray' }}>
               posted 1 minute ago
             </p>
           </Grid>
         </Grid>
-        <Divider variant="fullWidth" style={{ margin: "30px 0" }} />
+        <Divider variant="fullWidth" style={{ margin: '30px 0' }} />
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
             <Avatar alt="Remy Sharp" src={imgLink} />
           </Grid>
           <Grid justifyContent="left" item xs zeroMinWidth>
-            <h4 style={{ margin: 0, textAlign: "left" }}>Michel Michel</h4>
-            <p style={{ textAlign: "left" }}>
+            <h4 style={{ margin: 0, textAlign: 'left' }}>Michel Michel</h4>
+            <p style={{ textAlign: 'left' }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
               luctus ut est sed faucibus. Duis bibendum ac ex vehicula laoreet.
               Suspendisse congue vulputate lobortis. Pellentesque at interdum
@@ -50,19 +50,18 @@ function Coments(props) {
               metus, efficitur lobortis nisi quis, molestie porttitor metus.
               Pellentesque et neque risus. Aliquam vulputate, mauris vitae
               tincidunt interdum, mauris mi vehicula urna, nec feugiat quam
-              lectus vitae ex.{" "}
+              lectus vitae ex.{' '}
             </p>
-            <p style={{ textAlign: "left", color: "gray" }}>
+            <p style={{ textAlign: 'left', color: 'gray' }}>
               posted 1 minute ago
             </p>
           </Grid>
         </Grid>
       </Paper>
 
-      
     </div>
-  );
+  )
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)

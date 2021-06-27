@@ -1,20 +1,17 @@
-import React from 'react';
-import NavbarComponent from '../navBar/navbarComponent';
-import { Card, CardTitle, CardBody } from 'reactstrap';
-import '../../../css/ContactanosComponent.css';
-import "react-datetime/css/react-datetime.css";
-import {Redirect} from 'react-router-dom';
-import { Modal} from 'reactstrap';
+import React from 'react'
+import NavbarComponent from '../navBar/navbarComponent'
+import { Card, CardTitle, CardBody, Modal } from 'reactstrap'
+import '../../../css/ContactanosComponent.css'
+import 'react-datetime/css/react-datetime.css'
+import { Redirect } from 'react-router-dom'
 
-function ContactanosComponent (){     
-    const [liveDemo, setLiveDemo] = React.useState(false);   
-    const auth = parseInt(localStorage.getItem("auth"), 10)
-    const role= localStorage.getItem("role");
-    
-    
-    if( auth && (role==="0" || role==="1")){  
-      
-        return (
+function ContactanosComponent () {
+  const [liveDemo, setLiveDemo] = React.useState(false)
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
+
+  if (auth && (role === '0' || role === '1')) {
+    return (
             <>
                 <NavbarComponent/>
                 <div id="header">
@@ -62,7 +59,6 @@ function ContactanosComponent (){
                                 <small id="emailHelp" className="form-text text-muted">Asegurate de ingresar un email válido al que podamos contactarte.</small>
                             </div>
 
-                            
                             <div className="form-group">
                                 <label htmlFor="asunto">Asunto</label>
                                 <input type="text" name="asunto" className="form-control" id="asunto"/>
@@ -71,10 +67,10 @@ function ContactanosComponent (){
                             <div id="message" className="form-group">
                                 <label htmlFor="mensaje">Mensaje</label>
                                 <textarea type="text" className="form-control" name="mensaje" id="mensaje" placeholder="Dejanos tu mensaje..."/>
-                            </div> 
+                            </div>
                             <div id="send_button">
                                 <button type="submit" onClick={() => setLiveDemo(true)} className="btn">Enviar</button>
-                            </div>                       
+                            </div>
                             </form>
                         </CardBody>
                     </Card>
@@ -99,20 +95,14 @@ function ContactanosComponent (){
                                     <p>El mensaje ha sido enviado de forma exitosa. Te contactaremos lo más pronto posible.
                                     </p>
                                     </div>
-                                    
+
                                 </Modal>
 
-                
-            
         </>
-        );
-    }
-    else if(auth && (role==="2" || role==="3")){
-        return  <Redirect to='/admin/dashboard/report'/> 
-    }
-    else return  <Redirect to='/login'/> 
-    
-    
+    )
+  } else if (auth && (role === '2' || role === '3')) {
+    return <Redirect to='/admin/dashboard/report'/>
+  } else return <Redirect to='/login'/>
 }
 
-export default ContactanosComponent; 
+export default ContactanosComponent
