@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Container, Table,Form,FormGroup,Input ,Label} from 'reactstrap';
+import { Container, Table,FormGroup,Input ,Label} from 'reactstrap';
 import {GraphMA} from '../../GraphMA';
 import { Redirect} from 'react-router-dom';
 import axios from 'axios';
@@ -19,7 +19,7 @@ const Ubicaciones = () => {
         return l;
     }
     useEffect(() => {
-    axios.get(`http://localhost:3000/matriz/1`).then((response) => {
+    axios.get(`http://134.209.215.193:3000/matriz/1`).then((response) => {
             let respuesta = JSON.parse(response.data.data);
             let mat = new GraphMA(false)
             console.log(respuesta)
@@ -30,7 +30,7 @@ const Ubicaciones = () => {
             setMatriz(mat);
             setLoad(true);
     }).catch((err) => {
-        axios.post("http://localhost:3000/matriz",{
+        axios.post("http://134.209.215.193:3000/matriz",{
             id: 1,
             data: JSON.stringify(new GraphMA(false)),
             urbanizacion: "Villa Bonita"
@@ -48,7 +48,7 @@ const Ubicaciones = () => {
             l.push(<tr>
                 <td><strong>{etapa}</strong></td>
                 {matriz.vertexes.map((valor) => {
-                    return <td>{matriz.getEdge(valor,etapa)}</td>
+                    return <td key="row">{matriz.getEdge(valor,etapa)}</td>
                 })}
             </tr>);
         })
@@ -65,7 +65,7 @@ const Ubicaciones = () => {
                 {load ? <>   <h1 className="mb-3">Etapas de la urbanización: Villa Bonita</h1>
                 <Table bordered className="bg-white text-center table-bordered">
                     <thead>
-                        <th>Etapas</th>
+                        <th key="field">Etapas</th>
                         {lista}
                     </thead>
                     <tbody>
@@ -102,7 +102,7 @@ const Ubicaciones = () => {
                             matriz.addVertex(source)
                             matriz.addVertex(dest)
                             matriz.addEdge(source,dest,valor)
-                            axios.put("http://localhost:3000/matriz/1",{
+                            axios.put("http://134.209.215.193:3000/matriz/1",{
                                 id: 1,
                                 data: JSON.stringify(matriz),
                                 urbanizacion: "Villa Bonita"
@@ -138,7 +138,7 @@ const Ubicaciones = () => {
                         <div className="d-flex justify-content-center">
                         <button className="btnUapp" onClick={e => {
                             matriz.setEdge(source,dest,valor)
-                            axios.put("http://localhost:3000/matriz/1",{
+                            axios.put("http://134.209.215.193:3000/matriz/1",{
                                 id: 1,
                                 data: JSON.stringify(matriz),
                                 urbanizacion: "Villa Bonita"

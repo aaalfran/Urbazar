@@ -1,56 +1,57 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
-import { Container, Grid, makeStyles} from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import '../../../css/buscador.css';
 import CategoriaComponent from '../navBar/CategoriaComponent';
+import Paginate from '../Pagination/Paginate';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      minWidth: 345,
-    },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    },
-  }));
+  root: {
+    minWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+}));
 
-let useLoadResource = ({categoria}) => {
-    console.log(categoria)
-    const classes = useStyles();
-    const urlParams = new URLSearchParams(window.location.search);
-    const [productos, setProductos] = useState([])
-    const [load,setLoad] = useState(false)
-    useEffect(() => {
-      if(!load){
-        if(urlParams.get("search") !== null){
-          fetch(`http://localhost:3000/productos/nombre/${urlParams.get("search")}`)
+let useLoadResource = ({ categoria }) => {
+  console.log(categoria)
+  const classes = useStyles();
+  const urlParams = new URLSearchParams(window.location.search);
+  const [productos, setProductos] = useState([])
+  const [load, setLoad] = useState(false)
+  useEffect(() => {
+    if (!load) {
+      if (urlParams.get("search") !== null) {
+        fetch(`http://134.209.215.193:3000/productos/nombre/${urlParams.get("search")}`)
           .then(response => response.json())
           .then(data => {
             setProductos(data);
           })
-          .catch(error=> console.log( "Hubo un error "+error))
-          
-        }
-        else{
-          fetch(`${categoria ? `http://localhost:3000/productos/categoria/${categoria}` : "http://localhost:3000/productos"}`)
-          .then(response => response.json())
-          .then(data => {
-            setProductos(data);
-          })
-          .catch(error=> console.log( "Hubo un error "+error))
-        }
-        setLoad(true)
+          .catch(error => console.log("Hubo un error " + error))
+
       }
-    }, [urlParams,load] )
+      else {
+        fetch(`${categoria ? `http://134.209.215.193:3000/productos/categoria/${categoria}` : "http://134.209.215.193:3000/productos"}`)
+          .then(response => response.json())
+          .then(data => {
+            setProductos(data);
+          })
+          .catch(error => console.log("Hubo un error " + error))
+      }
+      setLoad(true)
+    }
+  }, [urlParams, load])
 
-    
-    return(
-<>
-        <CategoriaComponent></CategoriaComponent>
-        <Container maxWidth="lg">
+
+  return (
+    <>
+      <CategoriaComponent></CategoriaComponent>
+      <Container maxWidth="lg">
 
         <Grid
           container
@@ -60,36 +61,37 @@ let useLoadResource = ({categoria}) => {
           alignItems="center"
         >
 
-        
-            {Array.isArray(productos) ? productos.map(producto => (<a className="tarjeta" href={`http://${window.location.host}/productdetail/${producto.id}`}>
-                <Grid
-                    item
-                    xs={3}
-                   >
-                     <Box flexGrow={1}>
-                            <Card className={classes.root} id="card-products">
 
-                            <CardMedia
+          {Array.isArray(productos) ? productos.map((producto,id) => (<a key={id} className="tarjeta" href={`http://${window.location.host}/productdetail/${producto.id}`}>
+            <Grid
+              item
+              xs={3}
+            >
+              <Box flexGrow={1}>
+                <Card className={classes.root} id="card-products">
+
+                  <CardMedia
                     className={classes.media}
                     image={producto.source}
                     title={producto.nombre}
-                />
-                            <CardHeader id="name_product"
-            
+                  />
+                  <CardHeader id="name_product"
+
                     title={producto.nombre}
-                    subheader={ "$" + producto.precio}
-                />
-                
+                    subheader={"$" + producto.precio}
+                  />
+
                 </Card>
-                </Box>
-                </Grid>
-           </a>
-       )) : <></>}
+              </Box>
+            </Grid>
+          </a>
+          )) : <></>}
         </Grid>
-        </Container>
-        </>
-    );
-  
+        <Paginate></Paginate>
+      </Container>
+    </>
+  );
+
 };
 
 export default useLoadResource;

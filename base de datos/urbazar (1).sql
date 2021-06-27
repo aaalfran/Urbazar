@@ -354,6 +354,7 @@ INSERT INTO `metodo_de_pago` (`ID`, `NombreMetodo`, `ID_Cliente`, `cvv`, `fecha`
 CREATE TABLE `persona` (
   `ID` int(11) NOT NULL,
   `identificacion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `id_etapa` int(11) NOT NULL,
   `Nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `Telefono` varchar(13) COLLATE utf8_spanish_ci NOT NULL,
   `Correo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
@@ -366,27 +367,30 @@ CREATE TABLE `persona` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
-    
+
 
     
 --
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`ID`, `identificacion`, `Nombre`, `Telefono`, `Correo`, `Edad`, `genero`, `Username`, `Contrasena`, `Activo`, `role`) VALUES
-(1, 9,'Jose Martinez', '0904739412', 'josea@hotmail.com', 22, "Masculino", 'pepem', 'hose12345', 1, 0),
-(2, 8,'Carla Suarez', '0921457329', 'CarlaS@hotmail.com', 19, "Masculino",'CarlaSuarez', 'Carlita1234', 1, 1),
-(3, 7,'Maria Sanchez', '0989544843', 'mariasan@hotmail.com', 39, "Masculino",'marisan', 'marisan1234', 1, 0),
-(4, 6,'Ronny Apolo', '04242847', 'ronnya@hotmail.com', 24,"Masculino", 'ronap', 'ronny2425', 1, 0),
-(5, 5, 'Juan ', '021944946', 'Juanal@hotmaiil.com', 54, "Masculino",'juanal', 'juanal2425', 1, 0),
-(6, 21,'Danilo ', '0907443971', 'Danburb@hotmail.com', 27, "Masculino",'danburb', 'danilo1234', 1, 0),
-(7, 90,'Veronica ', '0921476212', 'verogarci@hotmail.com', 33, "Masculino", 'verogar', 'veronica1234', 1, 1),
-(8, 0902, 'Noe ', '0923571295', 'Noe@hotmail.com', 22, "Masculino",'noe23', 'noe23456', 1, 2),
-(10, 91, 'Olga', '0944771234', 'Olgamaria@hotmail.com', 42,"Femenino", 'olgamar', 'olga123456', 1, 1),
-(9, 021, 'Dayana ', '0988337758', 'Dayna22@hotmail.com', 22, "Masculino", 'dayavel','dayana223344', 1, 0),
-(11, 928, 'Daniel', '098957489', 'daro@hotmail.com', 33, "Masculino",'daro', '1234', 1, 2),
-(12, 23, 'viviana', '0912314112', 'vivi@hotmail.com', 22, "Femenino",'viviana', '12323', 1, 2),
-(906, "0952242667", 'Pedro mayorga', '0952242667', 'pedrito@gmail.com', 22, "Masculino",'pepe', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2', 0, 1);
+INSERT INTO `persona` (`ID`, `identificacion`,`id_etapa`, `Nombre`, `Telefono`, `Correo`, `Edad`, `genero`, `Username`, `Contrasena`, `Activo`, `role`) VALUES
+(1, 9,1, 'Jose Martinez', '0904739412', 'josea@hotmail.com', 22, "Masculino", 'pepem', 'hose12345', 1, 0),
+(2, 8,1, 'Carla Suarez', '0921457329', 'CarlaS@hotmail.com', 19, "Masculino",'CarlaSuarez', 'Carlita1234',1, 1),
+(3, 7,2,'Maria Sanchez', '0989544843', 'mariasan@hotmail.com', 39, "Masculino",'marisan', 'marisan1234', 1, 0),
+(4, 6,1, 'Ronny Apolo', '04242847', 'ronnya@hotmail.com', 24,"Masculino", 'ronap', 'ronny2425', 1, 0),
+(5, 5,1,  'Juan ', '021944946', 'Juanal@hotmaiil.com', 54, "Masculino",'juanal', 'juanal2425',1, 0),
+(6, 21,1,'Danilo ', '0907443971', 'Danburb@hotmail.com', 27, "Masculino",'danburb', 'danilo1234', 1, 0),
+(7, 90,2, 'Veronica ', '0921476212', 'verogarci@hotmail.com', 33, "Masculino", 'verogar', 'veronica1234', 1, 1),
+(8, 0902,1,  'Noe ', '0923571295', 'Noe@hotmail.com', 22, "Masculino",'noe23', 'noe23456',1, 2),
+(10, 91, 1,'Olga', '0944771234', 'Olgamaria@hotmail.com', 42,"Femenino", 'olgamar', 'olga123456', 1, 1),
+(9, 021, 2,'Dayana ', '0988337758', 'Dayna22@hotmail.com', 22, "Masculino", 'dayavel','dayana223344', 1, 0),
+(11, 928, 1,'Daniel', '098957489', 'daro@hotmail.com', 33, "Masculino",'daro', '1234', 1, 2),
+(12, 23, 2, 'viviana', '0912314112', 'vivi@hotmail.com', 22, "Femenino",'viviana', '12323', 1, 2),
+(906, "0952242667", 1, 'Pedro mayorga', '0952242667', 'pedrito@gmail.com', 22, "Masculino",'pepe', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2',1, 1),
+(907, "0952242667", 1, 'Diana Alvarado', '0972242667', 'pedrito@gmail.com', 22, "Masculino",'adminetapa', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2',1, 2),
+(908, "0952242667", 1, 'Carlos Gutierrez', '0852242667', 'pedrito@gmail.com', 22, "Masculino",'adminconjunto', '$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2',1, 3);
+
 
 
 -- --------------------------------------------------------
@@ -474,7 +478,7 @@ INSERT INTO `urbanizacion` (`ID`, `nombre`, `Ubicacion`) VALUES
 --
 
 CREATE TABLE `vendedor` (
-  `ID_Usuario` int(11) NOT NULL,
+  `ID_Usuario` int(11) NOT NULL,  
   `Valoracion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -482,7 +486,7 @@ CREATE TABLE `vendedor` (
 -- Volcado de datos para la tabla `vendedor`
 --
 
-INSERT INTO `vendedor` (`ID_Usuario`, `Valoracion`) VALUES
+INSERT INTO `vendedor` (`ID_Usuario`,`Valoracion`) VALUES
 (2, 5),
 (4, 5),
 (6, 5),

@@ -13,7 +13,7 @@ var delays2 = 80,
 
 
 
-  fetch("http://localhost:3000/productos")
+  fetch("http://134.209.215.193:3000/productos")
   .then(response => response.json())
   .then(data => {
     console.log(data)

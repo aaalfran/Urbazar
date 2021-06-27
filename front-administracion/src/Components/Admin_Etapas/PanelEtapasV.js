@@ -18,7 +18,7 @@ import { Redirect} from 'react-router-dom';
 
 
 export default function PanelEtapasV(props){
-    let etapas = LoadEtapas("http://localhost:3000/etapas/");
+    let etapas = LoadEtapas("http://134.209.215.193:3000/etapas/");
 
     const auth = parseInt(localStorage.getItem("auth"), 10)
     const role= localStorage.getItem("role");
@@ -56,8 +56,8 @@ export default function PanelEtapasV(props){
                 </TableHead>
                     <TableBody>
                         
-                    {etapas.map(etapa=>(
-                        <TableRow >
+                    {etapas.map((etapa,id)=>(
+                        <TableRow key={id} >
                             <TableCell component="th" scope="row">
                                 {etapa.id}
                             </TableCell>

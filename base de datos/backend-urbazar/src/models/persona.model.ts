@@ -21,6 +21,15 @@ export class Persona extends Entity {
   identificacion: number;
 
   @property({
+    type: 'number',
+    required: true,
+    precision: 10,
+    scale: 0,
+    mysql: {columnName: 'id_etapa', dataType: 'int', dataLength: null, dataPrecision: 10, dataScale: 0, nullable: 'N'},
+  })
+  id_etapa: number;
+
+  @property({
     type: 'string',
     required: true,
     length: 100,
@@ -68,6 +77,7 @@ export class Persona extends Entity {
     mysql: {columnName: 'Username', dataType: 'varchar', dataLength: 100, dataPrecision: null, dataScale: null, nullable: 'N'},
   })
   username: string;
+
 
   @property({
     type: 'string',

@@ -8,7 +8,7 @@ const AuthA = (dispatch) => {
             let feed = document.getElementById("FeedbackLogin");
 
             console.log(data)
-            axios.post(`http://localhost:3000/login`, data)
+            axios.post(`http://134.209.215.193:3000/login`, data)
                 .then(response => {
                     if (response.status == 200) {
                         return response.data
@@ -19,6 +19,7 @@ const AuthA = (dispatch) => {
                     localStorage.setItem('user', res.data.username);
                     localStorage.setItem('nombre_usuario', res.data.nombre);
                     localStorage.setItem('userId', res.data.id);
+                    localStorage.setItem('etapa', res.data.id_etapa);
                     localStorage.setItem('auth', 1);
                     localStorage.setItem('token', res.token);
                     localStorage.setItem('role', res.data.role);

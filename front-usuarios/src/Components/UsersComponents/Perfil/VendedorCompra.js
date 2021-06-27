@@ -9,7 +9,7 @@ const VendedorCompra = ({setVendedor,setOpen}) => {
         <div className="row filaCompra">
             <div className="col d-flex align-items-stretch justify-content-center my-3">
                 <div className="card sombraCard">
-                <div className="fondoCard d-flex justify-content-center "><i class="iconoCompra d-flex align-items-center" aria-hidden="true">Gratis</i></div>
+                <div className="fondoCard d-flex justify-content-center "><i className="iconoCompra d-flex align-items-center" aria-hidden="true">Gratis</i></div>
                     <div className="card-body">
                         
                         <h5 className="card-title m-0">Plan Gratis</h5>
@@ -27,7 +27,7 @@ const VendedorCompra = ({setVendedor,setOpen}) => {
             </div>
             <div className="col d-flex align-items-stretch justify-content-center my-3">
                 <div className="card sombraCard">
-                <div className="fondoCard d-flex justify-content-center "><i class="fa fa-user iconoCompra d-flex align-items-center" aria-hidden="true"></i></div>
+                <div className="fondoCard d-flex justify-content-center "><i className="fa fa-user iconoCompra d-flex align-items-center" aria-hidden="true"></i></div>
                     <div className="card-body">
                         
                         <h5 className="card-title m-0">Plan Básico</h5>
@@ -45,7 +45,7 @@ const VendedorCompra = ({setVendedor,setOpen}) => {
             </div>
             <div className="col d-flex align-items-stretch justify-content-center my-3">
                 <div className="card sombraCard">
-                <div className="fondoCard d-flex justify-content-center "><i class="fa fa-star iconoCompra d-flex align-items-center" aria-hidden="true"></i></div>
+                <div className="fondoCard d-flex justify-content-center "><i className="fa fa-star iconoCompra d-flex align-items-center" aria-hidden="true"></i></div>
                     <div className="card-body ">
                         <h5 className="card-title m-0">Plan Premium</h5>
                         <p className="card-text "><small className="text-muted">$10.00 al mes</small></p>
@@ -64,7 +64,7 @@ const VendedorCompra = ({setVendedor,setOpen}) => {
             </div>
             <div className="col d-flex align-items-stretch justify-content-center my-3">
                 <div className="card sombraCard">
-                <div className="fondoCard d-flex justify-content-center "><i class="fa fa-building iconoCompra d-flex align-items-center" aria-hidden="true"></i></div>
+                <div className="fondoCard d-flex justify-content-center "><i className="fa fa-building iconoCompra d-flex align-items-center" aria-hidden="true"></i></div>
                     <div className="card-body ">
                         <h5 className="card-title m-0">Plan Empresa</h5>
                         <p className="card-text "><small className="text-muted">$100.00 al mes</small></p>
