@@ -1,59 +1,56 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import LoadInfo from "./LoadInfo";
-
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TablePagination from '@material-ui/core/TablePagination'
+import TableRow from '@material-ui/core/TableRow'
+import LoadInfo from './LoadInfo'
 
 const columns = [
   { id: 'familia', label: 'Familia', minWidth: 170 },
   { id: 'integrantes', label: 'Integrantes', minWidth: 100 },
   { id: 'registrados', label: 'Activos', minWidth: 170 },
-  { id: 'codigo', label: 'Código', minWidth: 170 },
-  
-];
+  { id: 'codigo', label: 'Código', minWidth: 170 }
 
-
+]
 
 const rows = [
   {
-    familia: "Nazareno Aguiño",
+    familia: 'Nazareno Aguiño',
     integrantes: 5,
     registrados: 2,
-    codigo: "jndndj909"
+    codigo: 'jndndj909'
   }
-];
+]
 
 const useStyles = makeStyles({
   root: {
-    width: '100%',
+    width: '100%'
   },
   container: {
-    maxHeight: 440,
-  },
-});
+    maxHeight: 440
+  }
+})
 
-export default function StickyHeadTable() {
-  const familias = LoadInfo("http://134.209.215.193:3000/familias")
+export default function StickyHeadTable () {
+  const familias = LoadInfo('http://134.209.215.193:3000/familias')
   console.log(familias)
-  const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const classes = useStyles()
+  const [page, setPage] = React.useState(0)
+  const [rowsPerPage, setRowsPerPage] = React.useState(10)
 
   const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+    setPage(newPage)
+  }
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
+    setRowsPerPage(+event.target.value)
+    setPage(0)
+  }
 
   return (
     <Paper className={classes.root}>
@@ -93,7 +90,7 @@ export default function StickyHeadTable() {
                   </TableCell>
 
                 </TableRow>
-              );
+              )
             })}
           </TableBody>
         </Table>
@@ -108,5 +105,5 @@ export default function StickyHeadTable() {
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
     </Paper>
-  );
+  )
 }
