@@ -96,7 +96,7 @@ function LoadCustomers () {
                 >
                   <TableCell>
                     <Box
-                      alignItems="center"
+                      alignItems="center" // deepscan-disable-line REACT_MISSING_KEY_PROP
                       display="flex"
                     >
                       <Avatar
