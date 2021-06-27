@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 import EncryptPassword from "../Login/EncryptPassword";
-import {Input, Label, FormGroup, FormFeedback, FormText} from "reactstrap";
+import {Input, FormGroup, FormText} from "reactstrap";
 import PaymentComponent from "../Carrito/PaymentComponent";
 import axios from 'axios';
 import ModalComponent from "./ModalComponent";
@@ -350,7 +350,7 @@ class HorizontalNonLinearStepper extends Component{
     let feed = document.getElementById("FormFeedbackCodigo");
     let divcodigo = document.getElementById("codigoF");
     let codigoF = this.state.form.codigoF;
-    let url = "http://localhost:3000/familias?filter[where][clave]=" + codigoF;
+    let url = "http://134.209.215.193:3000/familias?filter[where][clave]=" + codigoF;
     axios.get(url)
     .then(response => {
       console.log(response)
@@ -404,7 +404,7 @@ class HorizontalNonLinearStepper extends Component{
     
     console.log(data);
     if(this.props.validarVacios() && this.state.user_check && this.state.password_check && this.state.password2_check && this.state.codigo_check){
-      axios.post("http://localhost:3000/personas", data)
+      axios.post("http://134.209.215.193:3000/personas", data)
           .then(response => response.data)
           .then( res=> console.log(res))
       this.props.handleModal()

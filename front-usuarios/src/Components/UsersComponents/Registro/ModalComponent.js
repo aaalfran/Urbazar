@@ -1,9 +1,8 @@
-import { Button, Modal} from 'reactstrap';
-import React from 'react';
+import { Button, Modal } from 'reactstrap'
+import React from 'react'
 
-
-function ModalComponent(props) {
-    return (
+function ModalComponent (props) {
+  return (
         <Modal isOpen={props.estado} toggle={props.handleModal}>
             <div className="modal-header">
                 <h5 className="modal-title" id="ConfirmationModel">
@@ -36,7 +35,7 @@ function ModalComponent(props) {
                                 </Button>
             </div>
         </Modal>
-    );
+  )
 }
 
-export default ModalComponent;
+export default ModalComponent

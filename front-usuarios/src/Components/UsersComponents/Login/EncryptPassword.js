@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+import bcrypt from 'bcryptjs'
 
 
 async function EncryptPassword(password){
@@ -6,6 +6,4 @@ async function EncryptPassword(password){
     return  await bcrypt.hash(password, salt);
 }
 
-
-
-export default EncryptPassword;
+export default EncryptPassword

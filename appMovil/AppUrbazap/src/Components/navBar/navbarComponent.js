@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
-import axios from 'axios';
-import '../../css/MainComponent.css';
-export let idCarritoDef;
-export let cantidadProd = 0;
+import React from 'react'
+import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
+import '../../css/MainComponent.css'
+export let idCarritoDef
+export const cantidadProd = 0
 
 const NavbarComponent = (props) => {
-  /*const [isOpen, setIsOpen] = useState(false);
+  /* const [isOpen, setIsOpen] = useState(false);
   const [cantProductos, setCantProductos] = useState(0);
   const [idCarrito, setIdCarrito] = useState(0);
-  const toggle = () => setIsOpen(true);*/
+  const toggle = () => setIsOpen(true); */
 
-  /*axios.get('http://localhost:3000/carrito')
+  /* axios.get('http://localhost:3000/carrito')
   .then(response => response.data)
   .then( (res)=> {
       for(let i=0; i<res.length; i++){
@@ -19,12 +18,12 @@ const NavbarComponent = (props) => {
             setIdCarrito(res[i].id);
           }
       }
-  })*/
+  }) */
 
-  /*idCarritoDef = idCarrito;
-  let cantidad = 0;*/
+  /* idCarritoDef = idCarrito;
+  let cantidad = 0; */
 
-  /*axios.get(`http://localhost:3000/detalle-carrito/${idCarritoDef}`)
+  /* axios.get(`http://localhost:3000/detalle-carrito/${idCarritoDef}`)
   .then(response => response.data)
   .then( (res2)=> {
 
@@ -35,7 +34,7 @@ const NavbarComponent = (props) => {
       }
         setCantProductos(cantidad);
         cantidadProd = cantProductos;
-    } 
+    }
   );    */
 
   return (
@@ -43,7 +42,6 @@ const NavbarComponent = (props) => {
       <Navbar color='faded' dark className='navbar'>
         <NavbarToggler className="toggler mr-2 custom-toggler" />
         {/* menu toggler */}
-
 
         <NavbarBrand data-intro="¡Bienvenido a UrbazApp! Demos un tour" href='/' className='logo'>UrbazApp</NavbarBrand>
         <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
@@ -53,15 +51,12 @@ const NavbarComponent = (props) => {
           <button type='submit'><i className='fas fa-search mr-auto'></i></button>
         </form>
 
-
-
-
         <button type='button' className='button_nav boton_notificacion'><i className='fas fa-bell fa-lg'></i></button>
 
       </Navbar>
 
     </>
-  );
+  )
 }
 
-export default NavbarComponent;
+export default NavbarComponent

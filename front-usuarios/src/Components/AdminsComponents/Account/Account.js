@@ -1,15 +1,14 @@
-import React from 'react';
+import React from 'react'
 import {
   Container,
   Grid,
   makeStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
 
-import Profile from './Profile';
-import ProfileDetails from './ProfileDetails';
-import NavbarAdmins from "../navBar/navbarAdmins";
-import ToggleMenuAdmins from "../navBar/TogglemenuAdmins";
-import {Redirect} from 'react-router-dom';
+import Profile from './Profile'
+import NavbarAdmins from '../navBar/navbarAdmins'
+import ToggleMenuAdmins from '../navBar/TogglemenuAdmins'
+import { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,18 +17,18 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
   }
-}));
+}))
 
 const Account = () => {
-  useStyles();
-  if((localStorage.getItem("auth")==="false")){ 
-    return  <Redirect to='/login'/> }
-  else{ 
+  useStyles()
+  if ((localStorage.getItem('auth') === 'false')) {
+    return <Redirect to='/login'/>
+  } else {
     return (
       <>
           <NavbarAdmins />
           <ToggleMenuAdmins/>
-      
+
         <br></br><br></br>
         <Container maxWidth="lg">
 
@@ -55,15 +54,15 @@ const Account = () => {
               md={6}
               xs={12}
             >
-              <ProfileDetails />
+              {/* <ProfileDetails /> */}
             </Grid>
           </Grid>
-          
-        </Container>
-        
-        </>
-    );
-  }
-};
 
-export default Account;
+        </Container>
+
+        </>
+    )
+  }
+}
+
+export default Account

@@ -1,39 +1,30 @@
-import React,{useState,useEffect} from 'react';
-import {GraphMA} from '../../../GraphMA';
-import axios from 'axios';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
+const useImporte = (etapaCliente, etapaVendedor) => {
+  const [importe, setImporte] = useState(0)
 
+  useEffect(() => {
+    axios.get('http://134.209.215.193:3000/matriz/1')
+      .then((response) => {
+        const respuesta = JSON.parse(response.data.data)
+        const posc = respuesta.vertexes.indexOf(etapaCliente)
+        const posv = respuesta.vertexes.indexOf(etapaVendedor)
+        // console.log("et1", etapa_vendedor);
+        // console.log("et2", localStorage.getItem("etapa"));
+        console.log(respuesta.matrix)
+        console.log(respuesta.vertexes)
+        console.log(posv, posc)
+        console.log('HOLA')
+        setImporte(respuesta.matrix[posv][posc])
+        console.log('importe', importe)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
 
-const useImporte = (etapaCliente, etapaVendedor)=>{
-    const [importe, setImporte] = useState(0);
-    
-    useEffect(() => {
-        axios.get(`http://localhost:3000/matriz/1`)
-        .then((response) => {
-                let respuesta = JSON.parse(response.data.data);
-                let posc = respuesta.vertexes.indexOf(etapaCliente);
-                let posv = respuesta.vertexes.indexOf(etapaVendedor);
-                //console.log("et1", etapa_vendedor);
-                //console.log("et2", localStorage.getItem("etapa"));
-                console.log(respuesta.matrix);
-                console.log(respuesta.vertexes);
-                console.log(posv, posc);
-                console.log("HOLA")
-                setImporte(respuesta.matrix[posv][posc]);
-                console.log("importe", importe);
-
-               
-             
-
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }, []);
-    
-    return importe;
-    
-
+  return importe
 }
 
-export default useImporte;
+export default useImporte

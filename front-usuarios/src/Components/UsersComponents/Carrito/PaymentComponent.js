@@ -1,15 +1,15 @@
-import React from 'react';
-import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
-import images from 'react-payment-inputs/images';
+import React from 'react'
+import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs'
+import images from 'react-payment-inputs/images'
 
-export default function PaymentInputs() {
+export default function PaymentInputs () {
   const {
     wrapperProps,
     getCardImageProps,
     getCardNumberProps,
     getExpiryDateProps,
     getCVCProps
-  } = usePaymentInputs();
+  } = usePaymentInputs()
 
   return (
     <PaymentInputsWrapper {...wrapperProps}>
@@ -18,5 +18,5 @@ export default function PaymentInputs() {
       <input {...getExpiryDateProps()} />
       <input {...getCVCProps()} />
     </PaymentInputsWrapper>
-  );
+  )
 }

@@ -9,32 +9,22 @@ import { Card, CardTitle,
         Container} from 'reactstrap';
 import logo2 from "../../../imagenes/banner_reg_ofi.png";
 
+function Register (props) {
+  const [checkTarjeta, setCheckTarjeta] = React.useState(false)
 
-function Register(props) {
-    
+  const handleChecked = (event) => {
+    setCheckTarjeta({ checkTarjeta: event.target.checked })
+    // addPaymentComponent();
+  }
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
 
-    const [checkTarjeta, setCheckTarjeta] = React.useState(false);
-    
-    const handleChecked = (event) => {
-        setCheckTarjeta({checkTarjeta: event.target.checked });
-        //addPaymentComponent();
-    };
-    const auth = parseInt(localStorage.getItem("auth"), 10)
-    const role= localStorage.getItem("role");
-        
-        
-    if( auth && (role=="2" || role=="3")){ 
-        return  <Redirect to='/admin/dashboard/report'/> 
-    }
-    else if(auth && (role=="0" || role=="1")){
-        return  <Redirect to='/'/> 
-    }
-    else{      
-
-        
-
-        
-        return (
+  if (auth && (role == '2' || role == '3')) {
+    return <Redirect to='/admin/dashboard/report'/>
+  } else if (auth && (role == '0' || role == '1')) {
+    return <Redirect to='/'/>
+  } else {
+    return (
             <div id="cont_general">
 
                 <div className="cabecera">
@@ -47,7 +37,7 @@ function Register(props) {
                             <img src={logo2} />
                         </div>
                         <div className="panelDatos col-md-7">
-                            <Container className="container_reg">       
+                            <Container className="container_reg">
                                 <Card body id="tarjeta" className="trj">
                                     <div id="logo_resp">
                                         <img src={logo2} />
@@ -59,7 +49,7 @@ function Register(props) {
                                     </CardTitle>
                                     <div id="contenido_registro">
                                         <form>
-                                        <StepComponent 
+                                        <StepComponent
                                             signUp={props.signUp}
                                             usernames = {props.usernames}
                                             validarCedula={props.validarCedula}
@@ -88,4 +78,4 @@ function Register(props) {
 }
 
 
-export default Register;
+export default Register

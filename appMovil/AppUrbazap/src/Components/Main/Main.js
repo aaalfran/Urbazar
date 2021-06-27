@@ -1,24 +1,20 @@
-import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import NavBarComponent from "../navBar/navbarComponent";
-import banner1 from '../../images/ban1.png';
-import banner7 from '../../images/ban7.png';
-import banner9 from '../../images/ban9.png';
-import CategoriaComponent from '../navBar/CategoriaComponent';
-import { UncontrolledCarousel, Col } from 'reactstrap';
-import LoadProducts from "./LoadProducts";
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import NavBarComponent from '../navBar/navbarComponent'
+import banner1 from '../../images/ban1.png'
+import banner7 from '../../images/ban7.png'
+import banner9 from '../../images/ban9.png'
+import CategoriaComponent from '../navBar/CategoriaComponent'
+import { UncontrolledCarousel, Col } from 'reactstrap'
+import LoadProducts from './LoadProducts'
 
-
-const styles = StyleSheet.create({
+StyleSheet.create({
   center: {
     alignItems: 'center'
   }
 })
 
-
-
-const Main = ({navigation}) => {
-
+const Main = ({ navigation }) => {
   const items = [
     {
       src: banner1,
@@ -38,8 +34,7 @@ const Main = ({navigation}) => {
       altText: 'Slide 3',
       key: '3'
     }
-  ];
-
+  ]
 
   return (
     <View >
@@ -61,35 +56,34 @@ const Main = ({navigation}) => {
           <hr className="my-2" />
 
           <div className='productos mt-5 carousel'>
-            {LoadProducts("http://localhost:3000/productos",navigation)}
+            {LoadProducts('http://localhost:3000/productos', navigation)}
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='Elige entre los productos más destacados de la Urbanización.'>Lo más destacado</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {LoadProducts("http://localhost:3000/productos",navigation)}
+            {LoadProducts('http://localhost:3000/productos', navigation)}
           </div>
         </div>
         <div className='list_productos' >
           <h6 data-intro='¿Por qué ir tan lejos? Encuentra productos cerca de tu ubicación.'>Cerca de ti</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {LoadProducts("http://localhost:3000/productos",navigation)}
+            {LoadProducts('http://localhost:3000/productos', navigation)}
           </div>
         </div>
         <div className='list_productos'>
           <h6 data-intro='No te pierdas las promociones que UrbazApp tiene para ti.'>Promociones</h6>
           <hr className="my-2" />
           <div className='productos'>
-            {LoadProducts("http://localhost:3000/productos",navigation)}
+            {LoadProducts('http://localhost:3000/productos', navigation)}
           </div>
         </div>
       </section>
 
-
     </View>
-  );
+  )
 }
 
-export default Main;
+export default Main

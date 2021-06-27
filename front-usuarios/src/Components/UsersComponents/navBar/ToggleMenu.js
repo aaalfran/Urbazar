@@ -1,67 +1,66 @@
-import React from 'react';
-import CategoriaComponent from './CategoriaComponent';
+import React from 'react'
+import CategoriaComponent from './CategoriaComponent'
 
 const ToggleMenu = (props) => {
+  const cerrar = () => { props.setIsOpen(!props.isOpen) }
+  const menu = document.getElementById('bodyApp')
 
-    const cerrar = () => {props.setIsOpen(!props.isOpen)};
-    let menu = document.getElementById('bodyApp');
+  if (props.isOpen) {
+    menu.style.overflow = 'hidden'
+  } else {
+    menu.style.overflow = 'auto'
+  }
 
-    if(props.isOpen) {
-        menu.style.overflow = 'hidden';
-    } else {
-        menu.style.overflow = 'auto';
-    }
+  return (
 
-    return ( 
-    
     <>
-        {props.isOpen ?  
-        <div className='toggleMenu' style={{transform: 'translateX(0px)' , transition: '0.3s'}}>
+        {props.isOpen
+          ? <div className='toggleMenu' style={{ transform: 'translateX(0px)', transition: '0.3s' }}>
             <div className='toggleTitulo'>
                 <p className='p_toggleMenu'>Menú</p>
                 <button className='btn-cerrar-toggle' onClick={cerrar}><i className="fas fa-times fa-lg"></i></button>
             </div>
-            
+
             <div className='togglePerfil'>
                 <div className='img_perfil_div'>
                     <i className="fas fa-user-circle fa-2x"></i>
                 </div>
                 <div id='perfilTags'>
-                    <p id='toggleNombre'>{localStorage.getItem("nombre_usuario")}</p>
+                    <p id='toggleNombre'>{localStorage.getItem('nombre_usuario')}</p>
                     <p id='toggleTipoUser'>Comprador</p>
                 </div>
             </div>
             <div className='toggleContenido'>
-                <p className='p_seccionToggler'>Categorías</p>  
-                <hr className="my-2" /> 
+                <p className='p_seccionToggler'>Categorías</p>
+                <hr className="my-2" />
                 <CategoriaComponent isToggle={true}/>
-                <br/>                
+                <br/>
                 <p className='p_seccionToggler'>Configuración</p>
                 <hr className="my-2" />
                 <a href='/perfil'><i className="fas fa-user-alt"></i>Perfil</a>
                 <a href='/'><i className="fas fa-cog"></i>Configuración</a>
                 <a href='/'><i className="fas fa-exclamation-circle"></i>Reportar</a>
-                
+
                 <br/>
                 <p className='p_seccionToggler'>Más</p>
                 <hr className="my-2" />
                 <a href='/devs'><i className="fas fa-user-alt"></i>Equipo de desarrollo</a>
                 <a href='/contactanos'><i className="fas fa-cog"></i>Contactanos</a>
-                <a href='/aboutus'><i className="fas fa-exclamation-circle"></i>¿Qué hacemos?</a>                
+                <a href='/aboutus'><i className="fas fa-exclamation-circle"></i>¿Qué hacemos?</a>
                 <br/>
-            
+
             <div className='toggleCerrarSesion'>
                 <a id='btn_cerrarSesion' onClick={props.logout} href="/login" ><i className="fas fa-sign-out-alt"></i>  Cerrar Sesión</a>
             </div>
-            </div> 
-            
-        </div>      
-                
-        : console.log('menu cerrado') }
-        
+            </div>
+
+        </div>
+
+          : console.log('menu cerrado') }
+
     </>
-  
-    );
+
+  )
 }
- 
-export default ToggleMenu;
+
+export default ToggleMenu

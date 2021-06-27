@@ -1,76 +1,65 @@
 
-import conf from "../../imagenes/customer-support.png";
-import React from "react";
+import conf from '../../imagenes/customer-support.png'
+import React from 'react'
 
-import { Card, Button, CardTitle, CardText ,  
-        Form, FormGroup, Input, 
-        Container} from 'reactstrap';
-import { Redirect} from 'react-router-dom';
-import '../../css/LoginComponent.css';
+import {
+  Card, Button,
+  Form, FormGroup, Input,
+  Container
+} from 'reactstrap'
+import { Redirect } from 'react-router-dom'
+import '../../css/LoginComponent.css'
 
-function LoginComponent(props) {
+function LoginComponent (props) {
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
 
-  const auth = parseInt(localStorage.getItem("auth"), 10)
-  const role= localStorage.getItem("role");
-    
-    
-  
-  if(auth && role=="3"){
+  if (auth && role === '3') {
     return <Redirect to='/report'/>
-  }
-  else{
+  } else {
     return (
-     
-        <Container className="container_login">       
+
+        <Container className="container_login">
           <Card body id="tarjeta_login">
 
-            
             <div>
 
               <div className= "Login-title">
-                <h3> UrbazApp </h3>            
+                <h3> UrbazApp </h3>
                 <img src={conf} className="Login-logo" alt="configuracion" />
-                  
+
               </div>
 
               <div className= "Login-content">
-                <div id="info">          
+                <div id="info">
                   <Form>
                     <FormGroup className="has-success">
                       <Input id="username" name="usuario" placeholder="Usuario"/>
-                    
+
                     </FormGroup>
-                
+
                     <FormGroup className="has-success input_pass">
                     <Input id="password" type="password" name="contrasena" placeholder="Contraseña"/>
-                    
+
                     </FormGroup>
                     <div id="FeedbackLogin" className="feedback"></div>
                     <div id="cont_button">
                       <Button onClick={props.login} id="btn-round">
-                        Ingresar 
-                      </Button> 
+                        Ingresar
+                      </Button>
                     </div>
-                  </Form>  
-                  
-                        
+                  </Form>
+
                 </div>
               </div>
 
-              
             </div>
           </Card>
 
           </Container>
-       
-      
 
-    );
-    }
+    )
   }
+}
 
-
-  
-
-
-  export default LoginComponent;
+export default LoginComponent

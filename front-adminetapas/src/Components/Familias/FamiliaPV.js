@@ -1,15 +1,14 @@
-import React from 'react';
-import family from "../../imagenes/family.png";
-import "../../css/FamiliaComponent.css";
-import {Input, Label, FormGroup, Col, Button} from "reactstrap";
-import StickyHeadTable from "./Tabla";
-import LoadInfo from "./LoadInfo";
+import React from 'react'
+import family from '../../imagenes/family.png'
+import '../../css/FamiliaComponent.css'
+import { Input, Label, FormGroup, Col, Button } from 'reactstrap'
+import StickyHeadTable from './Tabla'
+import LoadInfo from './LoadInfo'
 
 const FamiliaPV = (props) => {
+  const etapas = LoadInfo('http://134.209.215.193:3000/etapas')
 
-    let etapas = LoadInfo("http://localhost:3000/etapas");
-
-    return (  
+  return (
 
         <div id="familypanel">
             <div className="addFamily">
@@ -23,24 +22,24 @@ const FamiliaPV = (props) => {
                             <Label for="apellidos" sm={3}>Apellidos</Label>
                             <Col className="cont_input" sm={9}>
                                 <Input id="apellidos" name="apellidos" />
-                                
+
                             </Col>
                         </div>
 
-                        <div className="second_child"  >
+                        <div className="second_child" >
                             <Label for="etapa" sm={2}>Etapa</Label>
                             <Col className="cont_input" sm={10}>
                                 <Input className="second_child" type="select" id="select_et" name="etapa" >
                                     <option value=""> </option>
                                     {
-                                    etapas.map(etapa=>(
-                                        <option value={etapa.id}> {etapa.nombre} </option>
+                                    etapas.map((etapa, id) => (
+                                        <option key={id} value={etapa.id}> {etapa.nombre} </option>
                                     ))
                                     }
-                                        
+
                                 </Input>
                             </Col>
-                            
+
                         </div>
 
                     </FormGroup>
@@ -58,7 +57,6 @@ const FamiliaPV = (props) => {
                     </div>
 
                 </div>
-                
 
             </div>
 
@@ -66,8 +64,7 @@ const FamiliaPV = (props) => {
                 <StickyHeadTable/>
             </div>
         </div>
-    );
-
+  )
 }
 
-export default FamiliaPV;
+export default FamiliaPV
