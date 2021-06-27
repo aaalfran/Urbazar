@@ -194,7 +194,7 @@ class RegisterPC extends Component{
     }
 
     cargarUsernames(){
-        axios.get("http://localhost:3000/personas?filter[fields][username]=true")
+        axios.get("http://134.209.215.193:3000/personas?filter[fields][username]=true")
             .then(response => response.data)
             .then( res=> {
                 this.setState({usernames: res})
@@ -239,7 +239,7 @@ class RegisterPC extends Component{
         
         console.log(data)
 
-        axios.post("http://localhost:3000/personas", data)
+        axios.post("http://134.209.215.193:3000/personas", data)
             .then(response => response.data)
             .then( res=> console.log(res))
         
