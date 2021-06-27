@@ -8,7 +8,7 @@ import CategoriaComponent from '../navBar/CategoriaComponent'
 import { UncontrolledCarousel, Col } from 'reactstrap'
 import LoadProducts from './LoadProducts'
 
-const styles = StyleSheet.create({
+StyleSheet.create({
   center: {
     alignItems: 'center'
   }

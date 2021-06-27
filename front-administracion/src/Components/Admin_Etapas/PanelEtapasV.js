@@ -1,34 +1,30 @@
-import React, { Component } from 'react';
-import { Input } from 'reactstrap';
-import AddIcon from '@material-ui/icons/Add';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import CreateIcon from '@material-ui/icons/Create';
-import '../../css/PanelEtapas.css';
-import LoadEtapas from "./LoadEtapas";
-import { Redirect} from 'react-router-dom';
+import React from 'react'
+import { Input } from 'reactstrap'
+import AddIcon from '@material-ui/icons/Add'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
+import CreateIcon from '@material-ui/icons/Create'
+import '../../css/PanelEtapas.css'
+import LoadEtapas from './LoadEtapas'
+import { Redirect } from 'react-router-dom'
 
+export default function PanelEtapasV (props) {
+  const etapas = LoadEtapas('http://134.209.215.193:3000/etapas/')
 
-export default function PanelEtapasV(props){
-    let etapas = LoadEtapas("http://134.209.215.193:3000/etapas/");
+  const auth = parseInt(localStorage.getItem('auth'), 10)
+  const role = localStorage.getItem('role')
 
-    const auth = parseInt(localStorage.getItem("auth"), 10)
-    const role= localStorage.getItem("role");
-    
-    
-  
-    if(auth && role=="3"){
+  if (auth && role === '3') {
+    return (
 
-    return(
-        
         <div className="cont_panel">
             <div id="search">
                 <Input className="col-md-12 input_busq" placeholder="Buscar..." />
@@ -42,9 +38,9 @@ export default function PanelEtapasV(props){
                 <div id="button_Add" onClick={props.handleModal}>
                  <AddIcon/>
                 </div>
-                
+
             </Toolbar >
-                <Table  size="small" aria-label="a dense table">
+                <Table size="small" aria-label="a dense table">
                 <TableHead>
                 <TableRow>
                     <TableCell>Identificador</TableCell>
@@ -55,8 +51,8 @@ export default function PanelEtapasV(props){
                 </TableRow>
                 </TableHead>
                     <TableBody>
-                        
-                    {etapas.map((etapa,id)=>(
+
+                    {etapas.map((etapa, id) => (
                         <TableRow key={id} >
                             <TableCell component="th" scope="row">
                                 {etapa.id}
@@ -68,7 +64,6 @@ export default function PanelEtapasV(props){
                                 {etapa.ubicacion}
                             </TableCell>
 
-                        
                         <TableCell align="right">
                                 342
                             </TableCell>
@@ -78,26 +73,18 @@ export default function PanelEtapasV(props){
                                 <DeleteOutlineIcon/>
                             </div>
                         </TableCell>
-                        
-                        
+
                         </TableRow>
 
                     ))}
                     </TableBody>
-                    
-                        
+
                 </Table>
             </TableContainer>
             </div>
-        
 
-    );
-    }
-    else{
-        return <Redirect to='/'/>
-    
-    }
-
-
-
+    )
+  } else {
+    return <Redirect to='/'/>
+  }
 }
