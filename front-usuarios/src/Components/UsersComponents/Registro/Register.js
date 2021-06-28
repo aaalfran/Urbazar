@@ -1,17 +1,17 @@
 
-import React, { Component } from 'react'
+import React from 'react'
 import '../../../css/register.css';
 import NavbarComponent from "./navBarRegistro";
 import PaymentInputs from "../Carrito/PaymentComponent";
 import StepComponent from "./StepComponent";
 import {Redirect} from 'react-router-dom';
-import { Card, CardTitle, CardText, 
+import { Card, CardTitle,
         Container} from 'reactstrap';
 import logo2 from "../../../imagenes/banner_reg_ofi.png";
 
 
 function Register(props) {
-    const edades= getEdades();
+    
 
     const [checkTarjeta, setCheckTarjeta] = React.useState(false);
     
@@ -86,12 +86,6 @@ function Register(props) {
     
 
 }
-function getEdades(){
-    let ages = []
-    for(let i=12; i<100; i++){
-      ages.push(i)
-    }
-    return ages
-}
+
 
 export default Register;

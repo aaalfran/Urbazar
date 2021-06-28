@@ -8,7 +8,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {Redirect} from 'react-router-dom';
 import LoadDatos from "./LoadDatosUsuario";
-import LoadCategories from './LoadCategories';
 import "../../../css/perfil.css";
 import LoadProductos from './LoadProductos';
 import { makeStyles } from '@material-ui/core/styles';
@@ -54,7 +53,7 @@ function PerfilComponent(props){
 
 
         let info = LoadDatos("http://localhost:3000/personas/"+ localStorage.getItem("userId"));
-        let categorias = LoadCategories();
+        let categorias = LoadDatos("http://localhost:3000/categorias");
         
         return(
             <>

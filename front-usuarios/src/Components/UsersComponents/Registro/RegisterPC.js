@@ -45,19 +45,19 @@ class RegisterPC extends Component{
     
             //Agrupo los impares, los multiplico por un factor de 2, si la resultante es > que 9 le restamos el 9 a la resultante
             var numero1 = (cedula.substring(0,1)*2);
-            if( numero1 > 9 ){ var numero1 = (numero1 - 9); }
+            if( numero1 > 9 ){ numero1 = (numero1 - 9); }
     
             var numero3 = (cedula.substring(2,3)*2);
-            if( numero3 > 9 ){ var numero3 = (numero3 - 9); }
+            if( numero3 > 9 ){ numero3 = (numero3 - 9); }
     
             var numero5 = (cedula.substring(4,5)*2);
-            if( numero5 > 9 ){ var numero5 = (numero5 - 9); }
+            if( numero5 > 9 ){ numero5 = (numero5 - 9); }
     
             var numero7 = (cedula.substring(6,7)*2);
-            if( numero7 > 9 ){ var numero7 = (numero7 - 9); }
+            if( numero7 > 9 ){ numero7 = (numero7 - 9); }
     
             var numero9 = (cedula.substring(8,9)*2);
-            if( numero9 > 9 ){ var numero9 = (numero9 - 9); }
+            if( numero9 > 9 ){ numero9 = (numero9 - 9); }
     
             var impares = numero1 + numero3 + numero5 + numero7 + numero9;
     
@@ -75,7 +75,7 @@ class RegisterPC extends Component{
     
             //Si el digito validador es = a 10 toma el valor de 0
             if(digito_validador == 10)
-              var digito_validador = 0;
+              digito_validador = 0;
             
             //Validamos que el digito validador sea igual al de la cedula
             if(digito_validador == ultimo_digito){

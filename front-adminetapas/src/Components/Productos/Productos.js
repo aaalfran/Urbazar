@@ -21,7 +21,7 @@ const Productos = () => {
                 <tbody>
                     {load ? productoLista.map((item) => {
                         return(
-                            <tr>
+                            <tr key="row">
                                 <td>{item.id}</td>
                                 <td>{item.nombre}</td>
                                 <td>{item.precio}</td>

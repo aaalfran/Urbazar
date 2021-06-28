@@ -61,7 +61,7 @@ let Resumen = () =>{
             </tr>
             {listaLi}
             <tr>
-                <td colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
+                <td id="precioTotal" colSpan="2"><strong>Precio Total: ${precioTotal}</strong></td>
             </tr>
         </table>
         );
@@ -81,13 +81,7 @@ const CarritoComponent = (props) => {
     
     if( auth && (role==="0" || role==="1")){         
         return ( 
-        <html>
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-                <script type="text/script" src="./Practica.js"></script>
-            </head>
-            <body>
-
+        <>
                 <NavbarComponent/>
 
                 <div id="main">
@@ -184,12 +178,12 @@ const CarritoComponent = (props) => {
                 </div>
 
            
-            </body>
-            </html>
+            
+            </>
         );
     }
     //Por ahora estas validaciones quedan de esta forma, cuando se desarrollen bien los dashboards de admins se dividirá esto
-    else if(auth && (role=="2" || role=="3")){
+   else if(auth && (role=="2" || role=="3")){
         return  <Redirect to='/admin/dashboard/report'/> 
     }
     else return  <Redirect to='/login'/> 

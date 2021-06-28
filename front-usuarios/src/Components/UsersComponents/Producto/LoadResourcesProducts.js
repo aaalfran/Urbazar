@@ -20,16 +20,4 @@ function LoadStars(estrellas){
     );
 }
 
-function LoadComentarios(comentarios){
-    var coments = comentarios["comentarios"];
-    return (
-        <ul>
-            {
-                coments.map(comentario=>(
-                   <li> {comentario} </li>
-                ))
-            }
-        </ul>
-    );
-}
-export {LoadStars, LoadComentarios} 
+export {LoadStars} 

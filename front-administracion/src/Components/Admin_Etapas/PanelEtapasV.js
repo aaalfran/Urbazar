@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Input } from 'reactstrap';
 import AddIcon from '@material-ui/icons/Add';
 import Table from '@material-ui/core/Table';
@@ -57,7 +57,7 @@ export default function PanelEtapasV(props){
                     <TableBody>
                         
                     {etapas.map(etapa=>(
-                        <TableRow >
+                        <TableRow key="table">
                             <TableCell component="th" scope="row">
                                 {etapa.id}
                             </TableCell>

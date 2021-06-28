@@ -21,29 +21,31 @@ function ProductComponent() {
     const [etapaVendedor, setEtapaVendedor] = useState('');
     const [etapaCliente, setEtapaCliente] = useState('');
     const [importe, setImporte] = useState(0);
+    const [message, setMessage] = useState("");
+    const [message2, setMessage2] = useState("");
     
 
 
-    let lista_productos = ListaProductos("http://localhost:3000/productos"); 
+    let lista_productos = ListaProductos("http://134.209.215.193:3000/productos"); 
     
     
     let url2 = window.location.href;
     let temp = url2.split('/');
-    let id_producto = temp[4].toString();
-    let id_vendedor = temp[5].toString();
+    let id_producto = temp[4];
+    let id_vendedor = temp[5];
     
 
     
 
     useEffect(() => {
         
-        axios.get(`http://localhost:3000/personas/`+id_vendedor)
+        axios.get(`http://134.209.215.193:3000/personas/`+id_vendedor)
             .then((response) => {
                     return response.data.id_etapa;
                 })
 
             .then((idetapa)=>{
-                        axios.get(`http://localhost:3000/etapas/`+idetapa)
+                        axios.get(`http://134.209.215.193:3000/etapas/`+idetapa)
                         .then((response)=>{                            
                             setEtapaVendedor(response.data.nombre);                            
 
@@ -58,7 +60,7 @@ function ProductComponent() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/etapas/`+localStorage.getItem("etapa"))
+        axios.get(`http://134.209.215.193:3000/etapas/`+localStorage.getItem("etapa"))
             .then((response)=>{                            
                 setEtapaCliente(response.data.nombre);   
                
@@ -69,11 +71,6 @@ function ProductComponent() {
     
     
 
-
-
-    console.log("Etapa1", etapaCliente);
-    console.log("Etapa2" , etapaVendedor);
-
    
     let producto_selec = {};
     lista_productos.map(producto => {
@@ -82,8 +79,8 @@ function ProductComponent() {
         }
     });
    
-    let comentarios = ListaProductos("http://localhost:3000/calificaciones?filter[where][idProducto]="+id_producto)
-    let sources = ListaProductos("http://localhost:3000/sourcesproductos?filter[where][id_producto]="+id_producto)
+    let comentarios = ListaProductos("http://134.209.215.193:3000/calificaciones?filter[where][idProducto]="+id_producto)
+    let sources = ListaProductos("http://134.209.215.193:3000/sourcesproductos?filter[where][id_producto]="+id_producto)
     
     let settings={
         arrows:true,
@@ -157,7 +154,7 @@ function ProductComponent() {
 
     const printImporte = () =>{
         
-        axios.get(`http://localhost:3000/matriz/1`)
+        axios.get(`http://134.209.215.193:3000/matriz/1`)
         .then((response) => {
                 let respuesta = JSON.parse(response.data.data);
                 let posc = respuesta.vertexes.indexOf(etapaCliente);
@@ -165,11 +162,15 @@ function ProductComponent() {
                 setImporte(respuesta.matrix[posv][posc]);   
                 let div = document.getElementById("info_Importe");
                 div.innerHTML =  `El proveedor se encuentra en la etapa "${etapaVendedor}". 
-                El importe por envío tiene un costo de $`+respuesta.matrix[posv][posc]; 
-                
+                El importe por envío tiene un costo de $`+respuesta.matrix[posv][posc];                
         
 
+        })
+        .catch(error=> {
+            
+            console.log("Error al cargar la matriz de adyacencia")   
         });
+        
 
     }
 
@@ -177,8 +178,8 @@ function ProductComponent() {
     const aumentar = () => {
         if(cantidad<producto_selec.stock){
             setCantidad(cantidad+1);
-            
-        }
+        }     
+        
        
     };
 
@@ -196,7 +197,6 @@ function ProductComponent() {
 
         return (
             <>
-            {console.log(etapaVendedor, etapaCliente, "sd")}
         <NavbarComponent />
         <Container className='cont_detail'>   
     
@@ -286,7 +286,7 @@ function ProductComponent() {
                                 <p>Precio</p>
                             </div>
                             <div className="col-6 text-center">
-                                <p>$ {producto_selec.precio}</p>
+                                <p id="preciolbl">$ {producto_selec.precio}</p>
                             </div>
 
 
@@ -295,15 +295,15 @@ function ProductComponent() {
                                 <p>Cantidad</p>
                             </div>
                             <div className="col-6 text-center cantProductoBox">
-                                <Button  onClick={aumentar} color="primary">+</Button>
-                                <p> {cantidad} </p>
-                                <Button  onClick={disminuir} color="primary">-</Button>
+                                <Button id="aumentar_prod_button" onClick={aumentar} color="primary">+</Button>
+                                <p id="cantidad_producto"> {cantidad} </p>
+                                <Button  id="disminuir_prod_button" onClick={disminuir} color="primary">-</Button>
                             </div>
                             <div className="col-6" id="totlabel">
                                 <p>Total</p>
                             </div>
                             <div className="col-6 text-center" id = "valtotlabel">
-                                <p>$ {producto_selec.precio  * cantidad}</p> 
+                                <p id="totalabel">$ {producto_selec.precio  * cantidad}</p> 
                             </div>
                             
                             <div className="col-12 text-center">
@@ -314,11 +314,11 @@ function ProductComponent() {
                     </div>
                     <div id="info_Importe_cont">
                         <div className="col-1 text-center">
-                                <i className="fas fa-info-circle"  onClick={printImporte}></i>
-                            </div>
-                        <div id="info_Importe" className="text-justify">
-                            
+                                <i className="fas fa-info-circle" id="btn_info" onClick={printImporte}></i>
                         </div>
+                    <div id="info_Importe" className="text-justify">
+                        
+                    </div>
                         
                     </div>
                 </div>  
