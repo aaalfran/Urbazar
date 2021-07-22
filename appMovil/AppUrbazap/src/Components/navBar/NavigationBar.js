@@ -6,7 +6,7 @@ import { View } from 'react-native'
 function Main(props) {
     return (
 
-      <View style={{ flex: 2, backgroundColor:"red" }}>
+      <View style={{ flex: 2}}>
         <NativeBaseProvider>
           <StatusBar backgroundColor="#506048" barStyle="light-content" />
 

@@ -6,7 +6,7 @@ import {View, Text} from 'react-native'
 
 function CategoriesBar() {
     return (
-        <View style={{flex:1, backgroundColor:"black" }} >
+        <View style={{flex:1}} >
             <HStack bg='#e6e6e6' justifyContent='center' alignItems='center'>
                 <HStack space={3}>
                     <IconButton icon={<Icon name="home" color="#506048"  size={20}/> } />
