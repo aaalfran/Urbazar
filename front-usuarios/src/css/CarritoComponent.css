@@ -64,6 +64,7 @@ tr { line-height: 32px; }
     .valor{
         display: none;
     }
+
   }
 #lista_pedidos ol li:last-child{
     list-style: none;
@@ -184,4 +185,10 @@ nav a h3{
         border-top: 1px solid #b8b8b8;
         position: static !important;
     }
+ }
+ @media only screen and (max-width: 700px) {
+    .MuiButton-root {
+        min-width: 10px !important;
+    }
+
  }

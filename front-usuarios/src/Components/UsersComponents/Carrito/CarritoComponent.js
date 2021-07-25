@@ -36,7 +36,7 @@ const Resumen = () => {
     let precioTotal = 0
     for (let i = 0; i < productLista.length; i++) {
       const nombre = productLista[i].nombre
-      const precio = parseFloat(productLista[i].precio) * productLista[i].cantidad
+      const precio = parseFloat(productLista[i].precio) 
       precioTotal = precioTotal + precio
       listaLi.push(<tr>
                 <td>{nombre}</td>

@@ -11,8 +11,9 @@ import Button from '@material-ui/core/Button'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import axios from 'axios'
 
-function ProductComponent () {
+function ProductComponent() {
   const [calificaciones, setCalificaciones] = useState('')
   const [load, setLoad] = useState(false)
   const [cantidad, setCantidad] = React.useState(1)
@@ -79,7 +80,8 @@ function ProductComponent () {
       }
     }
     const p = producto
-    p.cantidad = 1
+    p.cantidad = cantidad
+    p.precio = (p.precio* cantidad) + parseFloat(importe)
     // obtener idCarrito
     axios.get('/carrito', { where: { idUsuario: localStorage.getItem('userId') } })
       .then(respuesta => respuesta.data)
@@ -128,8 +130,8 @@ function ProductComponent () {
         div.innerHTML = `El proveedor se encuentra en la etapa "${etapaVendedor}". 
                 El importe por envío tiene un costo de $` + respuesta.matrix[posv][posc]
       })
-      .catch(error=>{
-          console.log(error, "Error al cargar la matriz de adyacencia");
+      .catch(error => {
+        console.log(error, "Error al cargar la matriz de adyacencia");
       })
   }
 
@@ -150,130 +152,125 @@ function ProductComponent () {
 
   if (auth && (role == '0' || role == '1')) {
     return (
-            <>
-                
-                <NavbarComponent />
-                <Container className='cont_detail'>
+      <>
 
-                    <div className="row justify-content-center">
-                        <div className="col-sm-6 col-12" id="imgContainer">
-                            <div className="card mb-3" id="imgCard">
-                                <div className="card-body">
-                                    <h5 className="card-title name_product">{producto_selec.nombre}</h5>
-                                </div>
-                                <div id="card-body-img">
+        <NavbarComponent />
+        <Container className='cont_detail'>
 
-                                    <Slider {...settings} className="Slide_img">
-                                        {
-                                            sources.map(fuentes => (
-                                                <img key="imagen" src={fuentes.source} className="card-img-bottom image" />
-                                            ))
+          <div className="row justify-content-center">
+            <div className="col-sm-6 col-12" id="imgContainer">
+              <div className="card mb-3" id="imgCard">
+                <div className="card-body">
+                  <h5 className="card-title name_product">{producto_selec.nombre}</h5>
+                </div>
+                <div id="card-body-img">
 
-                                        }
-                                    </Slider>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-sm-6 col-12" id="productoVendedor">
-                            <div className="container" id="productoUpRight">
-                                <div className="row justify-content">
-                                    <div className="col-12">
-                                        <h5>Vendedor</h5>
-                                    </div>
-                                    <div className="col-6">
-                                        <p>Andrea Rodriguez</p>
-                                    </div>
-                                    <div className="col-6 text-right">
-                                        <div>
-                                            Calificación:
-                                            <div id='estrellas_val'>
+                  <Slider {...settings} className="Slide_img">
+                    {
+                      sources.map(fuentes => (
+                        <img key="imagen" src={fuentes.source} className="card-img-bottom image" />
+                      ))
 
-                                                <LoadStars estrellas={producto_selec.promedioPuntuacion} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12" id="productoDescripcion">
-                                        <p>{producto_selec.descripcion}</p>
-                                    </div>
+                    }
+                  </Slider>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-6 col-12" id="productoVendedor">
+              <div className="container" id="productoUpRight">
+                <div className="row justify-content">
+                  <div className="col-12">
+                    <h5>Vendedor</h5>
+                  </div>
+                  <div className="col-6">
+                    <p>Andrea Rodriguez</p>
+                  </div>
+                  <div className="col-6 text-right">
+                    <div>
+                      Calificación:
+                      <div id='estrellas_val'>
 
-                                    <div className="col-6">
-                                        <h6>Distancia</h6>
-                                    </div>
-                                    <div className="col-6">
-                                        <p>{producto_selec.id} Etapas</p>
-                                    </div>
-                                    <div className="col-12" id="cont_comentarios">
-                                        <h5>Comentarios</h5>
-                                        <div data-list="[producto_selec.comentarios]" id="comentarios">
-                                        </div>
-
-                                        {console.log(comentarios)}
-                                        {comentarios.map(comenta => (
-                                            <div key="box" style={{ padding: 14 }} className="commentsBox">
-
-                                                <Grid style={{ margin: '10px' }} item>
-                                                    <Avatar alt="Remy Sharp" src={'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'} />
-                                                </Grid>
-                                                <Grid justifyContent="left" item xs zeroMinWidth>
-                                                    <h6 style={{ margin: 0, textAlign: 'left' }}>Michel Michel</h6>
-                                                    <p style={{ textAlign: 'left' }}>
-                                                        {comenta.comentario}
-                                                    </p>
-                                                </Grid>
-
-                                            </div>
-                                        ))}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-12" id="productoPreFactura">
-                            <div className="container" id="productoTwoLeft">
-                                <div className="row justify-content">
-                                    <div className="col-6">
-                                        <p>Precio</p>
-                                    </div>
-                                    <div className="col-6 text-center">
-                                        <p>$ {producto_selec.precio}</p>
-                                    </div>
-
-                                    <div className="col-6">
-                                        <p>Cantidad</p>
-                                    </div>
-                                    <div className="col-6 text-center cantProductoBox">
-                                        <Button onClick={aumentar} color="primary">+</Button>
-                                        <p> {cantidad} </p>
-                                        <Button onClick={disminuir} color="primary">-</Button>
-                                    </div>
-                                    <div className="col-6" id="totlabel">
-                                        <p>Total</p>
-                                    </div>
-                                    <div className="col-6 text-center" id="valtotlabel">
-                                        <p>$ {producto_selec.precio * cantidad}</p>
-                                    </div>
-
-                                    <div className="col-12 text-center">
-                                        <button type="button" id="btnAgregarCarrito" className="btn btn-primary"
-                                            onClick={() => { seleccionarProducto(id_producto); printImporte() }}><i className='fas fa-shopping-cart fa-lg'></i>{' '}Agregar a carrito</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="info_Importe_cont">
-                                <div className="col-1 text-center">
-                                    <i className="fas fa-info-circle" onClick={printImporte}></i>
-                                </div>
-                                <div id="info_Importe" className="text-justify">
-
-                                </div>
-
-                            </div>
-                        </div>
-
+                        <LoadStars estrellas={producto_selec.promedioPuntuacion} />
+                      </div>
                     </div>
-                </Container>
-            </>
+                  </div>
+                  <div className="col-12" id="productoDescripcion">
+                    <p>{producto_selec.descripcion}</p>
+                  </div>
+
+                  <div className="col-12" id="cont_comentarios">
+                    <h5>Comentarios</h5>
+                    <div data-list="[producto_selec.comentarios]" id="comentarios">
+                    </div>
+
+                    {console.log(comentarios)}
+                    {comentarios.map(comenta => (
+                      <div key="box" style={{ padding: 14 }} className="commentsBox">
+
+                        <Grid style={{ margin: '10px' }} item>
+                          <Avatar alt="Remy Sharp" src={'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'} />
+                        </Grid>
+                        <Grid justifyContent="left" item xs zeroMinWidth>
+                          <h6 style={{ margin: 0, textAlign: 'left' }}>Michel Michel</h6>
+                          <p style={{ textAlign: 'left' }}>
+                            {comenta.comentario}
+                          </p>
+                        </Grid>
+
+                      </div>
+                    ))}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-6 col-12" id="productoPreFactura">
+              <div className="container" id="productoTwoLeft">
+                <div className="row justify-content">
+                  <div className="col-6">
+                    <p>Precio</p>
+                  </div>
+                  <div className="col-6 text-center">
+                    <p>$ {producto_selec.precio}</p>
+                  </div>
+
+                  <div className="col-6">
+                    <p>Cantidad</p>
+                  </div>
+                  <div className="col-6 text-center cantProductoBox">
+                    <Button className="btnCant" onClick={aumentar} color="primary">+</Button>
+                    <p> {cantidad} </p>
+                    <Button className="btnCant" onClick={disminuir} color="primary">-</Button>
+                  </div>
+                  <div className="col-6" id="totlabel">
+                    <p>Total</p>
+                  </div>
+                  <div className="col-6 text-center" id="valtotlabel">
+                    <p>$ {producto_selec.precio * cantidad}</p>
+                  </div>
+
+
+                </div>
+              </div>
+              <div id="info_Importe_cont">
+                <div className="col-1 text-center">
+                  <i className="fas fa-info-circle" onClick={printImporte}></i>
+                </div>
+                <div id="info_Importe" className="text-justify">
+
+                </div>
+
+              </div>
+            </div>
+            <div className="col-12 text-center">
+              <button type="button" id="btnAgregarCarrito" className="btn btn-primary"
+                onClick={() => { printImporte(); seleccionarProducto(id_producto); }}><i className='fas fa-shopping-cart fa-lg'></i>{' '}Agregar a carrito</button>
+            </div>
+
+          </div>
+        </Container>
+      </>
 
     )
   } else if (auth && (role == '2' || role == '3')) {

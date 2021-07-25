@@ -33,8 +33,8 @@ function Paginate () {
   return (
     <div className="App">
       <ReactPaginate
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
+        previousLabel={'Anterior'}
+        nextLabel={'Siguiente'}
         pageCount={pageCount}
         onPageChange={changePage}
         containerClassName={'paginationBttns'}

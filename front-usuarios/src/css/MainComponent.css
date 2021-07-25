@@ -142,6 +142,9 @@
   .nav_categorias .nav-link p, #nombre_user {
     display: none;
   }
+  .nav_categorias .nav-link {
+    padding: .5rem .6rem
+  }
 
   .list_productos {
     height: 100%;
