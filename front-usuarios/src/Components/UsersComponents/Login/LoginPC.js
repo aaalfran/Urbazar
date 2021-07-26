@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import LoginPV from "./LoginPV";
 import {connect} from 'react-redux';
 import AuthA from '../../../store/actions/AuthA';
-
+import Register from "./Register";
 
 class LoginPC extends Component{
 
@@ -22,7 +22,7 @@ class LoginPC extends Component{
 
     
     render(){
-        return( <LoginPV 
+        return( <Register 
             login={this.login}
             auth= {this.props.auth} /> );
     }

@@ -19,15 +19,17 @@ body, #root, .container_login{
     width: 60%;
 }
 #info{
-    width: 60%;
-    margin: auto;
+    width: 100%;
 }
-
+#password{
+    width:100%;
+}
 .input_pass{
     margin-bottom: 0px;
 }
 .Login-title{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 #tarjeta_login{
@@ -46,7 +48,20 @@ body, #root, .container_login{
     
 }
 
+.btn_eye{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px .25rem .25rem 0;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+    
+}
 
+.MuiSvgIcon-root {
+    fill: #9c9c9c !important;
+}
 
 #registrate{
     margin-top: 30px;
@@ -58,11 +73,16 @@ body, #root, .container_login{
     border:none;
 }
 
+.input-group{
+    display: grid;
+    grid-template-columns: 85% 15%;
+}
+
 #cont_button{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 3%;
+    margin-top: 6%;
 }
 
 #registrate a{

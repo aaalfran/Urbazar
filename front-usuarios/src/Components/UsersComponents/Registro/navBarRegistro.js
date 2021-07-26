@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand } from 'reactstrap'
 import '../../../css/MainComponent.css'
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 
-const NavbarComponent = () => {
+const NavbarComponent = ({isLogin}) => {
   return (
      <>
         <Navbar color='faded' dark className='navBarRegister'>
@@ -11,7 +11,7 @@ const NavbarComponent = () => {
         <NavbarBrand className='logo_reg'> UrbazApp</NavbarBrand>
 
         <div id="link_login">
-          <a href={'/login'}>Iniciar sesión</a>
+          {isLogin? <p></p>  : <a href={'/login'}>Iniciar sesión</a>}
         </div>
 
       </Navbar>

@@ -28,7 +28,7 @@ function Register (props) {
             <div id="cont_general">
 
                 <div className="cabecera">
-                    <NavbarComponent/>
+                    <NavbarComponent isLogin={0}/>
                 </div>
 
                 <div id="cont_secForm">
