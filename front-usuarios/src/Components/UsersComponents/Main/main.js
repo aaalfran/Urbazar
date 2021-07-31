@@ -1,9 +1,9 @@
-
+import data from '../../../enviroment';
 function handleClick (e) {
   e.preventDefault()
   console.log('The link was clicked.')
-  if (window.location.href !== 'http://134.209.215.193:3000/buscador') {
-    window.location.href = 'http://134.209.215.193:3000/buscador'
+  if (window.location.href !== `http://${data.number}/buscador`) {
+    window.location.href = `http://${data.number}/buscador`
   }
 }
 

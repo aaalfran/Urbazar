@@ -12,7 +12,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import axios from 'axios'
-
+import data from '../../../enviroment';
 function ProductComponent() {
   const [calificaciones, setCalificaciones] = useState('')
   const [load, setLoad] = useState(false)
@@ -21,7 +21,7 @@ function ProductComponent() {
   const [etapaCliente, setEtapaCliente] = useState('')
   const [importe, setImporte] = useState(0)
 
-  const lista_productos = ListaProductos('http://134.209.215.193:3000/productos')
+  const lista_productos = ListaProductos(`http://${data.number}/productos`)
 
   const url2 = window.location.href
   const temp = url2.split('/')
@@ -29,13 +29,13 @@ function ProductComponent() {
   const id_vendedor = temp[5].toString()
 
   useEffect(() => {
-    axios.get('http://134.209.215.193:3000/personas/' + id_vendedor)
+    axios.get(`http://${data.number}/personas/` + id_vendedor)
       .then((response) => {
         return response.data.id_etapa
       })
 
       .then((idetapa) => {
-        axios.get('http://134.209.215.193:3000/etapas/' + idetapa)
+        axios.get(`http://${data.number}/etapas/` + idetapa)
           .then((response) => {
             setEtapaVendedor(response.data.nombre)
           })
@@ -43,7 +43,7 @@ function ProductComponent() {
   }, [])
 
   useEffect(() => {
-    axios.get('http://134.209.215.193:3000/etapas/' + localStorage.getItem('etapa'))
+    axios.get(`http://${data.number}/etapas/` + localStorage.getItem('etapa'))
       .then((response) => {
         setEtapaCliente(response.data.nombre)
       })
@@ -57,8 +57,8 @@ function ProductComponent() {
     }
   })
 
-  const comentarios = ListaProductos('http://134.209.215.193:3000/calificaciones?filter[where][idProducto]=' + id_producto)
-  const sources = ListaProductos('http://134.209.215.193:3000/sourcesproductos?filter[where][id_producto]=' + id_producto)
+  const comentarios = ListaProductos(`http://${data.number}/calificaciones?filter[where][idProducto]=` + id_producto)
+  const sources = ListaProductos(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + id_producto)
 
   const settings = {
     arrows: true,
@@ -120,7 +120,7 @@ function ProductComponent() {
   }
 
   const printImporte = () => {
-    axios.get('http://134.209.215.193:3000/matriz/1')
+    axios.get(`http://${data.number}/matriz/1`)
       .then((response) => {
         const respuesta = JSON.parse(response.data.data)
         const posc = respuesta.vertexes.indexOf(etapaCliente)

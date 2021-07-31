@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-
+import data from '../../../enviroment';
 export default function UseCategories () {
   const [categorias, setCategorias] = useState([])
 
   useEffect(() => {
-    fetch('http://134.209.215.193:3000/categorias')
+    fetch(`http://${data.number}/categorias`)
       .then(response => response.json())
       .then(data => {
         setCategorias(data)

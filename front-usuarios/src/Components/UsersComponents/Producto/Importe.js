@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import data from '../../../enviroment';
 const useImporte = (etapaCliente, etapaVendedor) => {
   const [importe, setImporte] = useState(0)
 
   useEffect(() => {
-    axios.get('http://134.209.215.193:3000/matriz/1')
+    axios.get(`http://${data.number}/matriz/1`)
       .then((response) => {
         const respuesta = JSON.parse(response.data.data)
         const posc = respuesta.vertexes.indexOf(etapaCliente)

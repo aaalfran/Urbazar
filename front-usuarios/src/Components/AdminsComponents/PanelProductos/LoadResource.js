@@ -12,7 +12,7 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core'
-
+import data from '../../../enviroment';
 const useStyles = makeStyles((theme) => ({
   root: {},
   avatar: {
@@ -28,7 +28,7 @@ function useLoadResource () {
   const [page, setPage] = useState(0)
 
   useEffect(() => {
-    fetch('http://134.209.215.193:3000/productos')
+    fetch(`http://${data.number}/productos`)
       .then(response => response.json())
       .then(data => {
         setProductos(data)

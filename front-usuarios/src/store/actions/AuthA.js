@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import data from '../../enviroment';
 const AuthA = (dispatch) => {
   return {
 
@@ -7,7 +7,7 @@ const AuthA = (dispatch) => {
       const feed = document.getElementById('FeedbackLogin')
 
       console.log(data)
-      axios.post('http://134.209.215.193:3000/login', data)
+      axios.post(`http://${data.number}/login`, data)
         .then(response => {
           if (response.status == 200) {
             return response.data

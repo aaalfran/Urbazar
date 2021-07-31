@@ -3,7 +3,7 @@ import Register from './Register'
 import ModalComponent from './ModalComponent'
 import axios from 'axios'
 import EncryptPassword from '../Login/EncryptPassword'
-
+import data from '../../../enviroment';
 class RegisterPC extends Component {
   constructor (props) {
     super(props)
@@ -166,7 +166,7 @@ class RegisterPC extends Component {
   }
 
   cargarUsernames () {
-    axios.get('http://134.209.215.193:3000/personas?filter[fields][username]=true')
+    axios.get(`http://${data.number}/personas?filter[fields][username]=true`)
       .then(response => response.data)
       .then(res => {
         this.setState({ usernames: res })
@@ -200,7 +200,7 @@ class RegisterPC extends Component {
 
     console.log(data)
 
-    axios.post('http://134.209.215.193:3000/personas', data)
+    axios.post(`http://${data.number}/personas`, data)
       .then(response => response.data)
       .then(res => console.log(res))
 

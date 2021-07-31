@@ -15,7 +15,7 @@ import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import VendedorCompra from './VendedorCompra'
-
+import data from '../../../enviroment';
 const useStyles = makeStyles((theme) => ({
   modal: {
     position: 'absolute',
@@ -45,8 +45,8 @@ function PerfilComponent (props) {
   }
 
 
-        const info = LoadDatos("http://134.209.215.193:3000/personas/"+ localStorage.getItem("userId"));
-        const categorias = LoadDatos("http://134.209.215.193:3000/categorias");
+        const info = LoadDatos(`http://${data.number}/personas/`+ localStorage.getItem("userId"));
+        const categorias = LoadDatos(`http://${data.number}/categorias`);
         
       
   const auth = parseInt(localStorage.getItem('auth'), 10)

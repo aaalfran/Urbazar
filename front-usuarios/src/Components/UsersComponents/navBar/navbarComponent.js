@@ -6,14 +6,14 @@ import '../../../css/MainComponent.css'
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 export let idCarritoDef
 export let cantidadProd = 0
-
+import data from '../../../enviroment';
 const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [cantProductos, setCantProductos] = useState(0)
   const [idCarrito, setIdCarrito] = useState(0)
   const toggle = () => setIsOpen(true)
 
-  axios.get('http://134.209.215.193:3000/carrito')
+  axios.get(`http://${data.number}/carrito`)
     .then(response => response.data)
     .then((res) => {
       for (let i = 0; i < res.length; i++) {
@@ -26,7 +26,7 @@ const NavbarComponent = (props) => {
   idCarritoDef = idCarrito
   let cantidad = 0
 
-  axios.get(`http://134.209.215.193:3000/detalle-carrito/${idCarritoDef}`)
+  axios.get(`http://${data.number}/detalle-carrito/${idCarritoDef}`)
     .then(response => response.data)
     .then((res2) => {
       for (let i = 0; i < res2.length; i++) {

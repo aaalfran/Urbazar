@@ -4,7 +4,7 @@ import { Card, CardTitle, CardBody, Modal } from 'reactstrap'
 import '../../../css/ContactanosComponent.css'
 import 'react-datetime/css/react-datetime.css'
 import { Redirect } from 'react-router-dom'
-
+import data from '../../../enviroment';
 function ContactanosComponent () {
   const [liveDemo, setLiveDemo] = React.useState(false)
   const auth = parseInt(localStorage.getItem('auth'), 10)
@@ -21,7 +21,7 @@ function ContactanosComponent () {
                     <Card id="contact_form">
                         <CardTitle id="titulo">Contáctanos</CardTitle>
                         <CardBody>
-                        <form action="http://134.209.215.193:3000/api/contactanos" method="post" >
+                        <form action={`http://${data.number}/api/contactanos`} method="post" >
                             <div className="col-md-12 form-double">
                                 <div className="col-md-4 nombre">
                                     <label htmlFor="nombres">Nombre</label>

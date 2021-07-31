@@ -7,7 +7,7 @@ import '../../../css/buscador.css'
 import CategoriaComponent from '../navBar/CategoriaComponent'
 import Paginate from '../Pagination/Paginate'
 import Box from '@material-ui/core/Box'
-
+import data from '../../../enviroment';
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 345
@@ -27,14 +27,14 @@ const useLoadResource = ({ categoria }) => {
   useEffect(() => {
     if (!load) {
       if (urlParams.get('search') !== null) {
-        fetch(`http://134.209.215.193:3000/productos/nombre/${urlParams.get('search')}`)
+        fetch(`http://${data.number}/productos/nombre/${urlParams.get('search')}`)
           .then(response => response.json())
           .then(data => {
             setProductos(data)
           })
           .catch(error => console.log('Hubo un error ' + error))
       } else {
-        fetch(`${categoria ? `http://134.209.215.193:3000/productos/categoria/${categoria}` : 'http://134.209.215.193:3000/productos'}`)
+        fetch(`${categoria ? `http://${data.number}/productos/categoria/${categoria}` : `http://${data.number}/productos`}`)
           .then(response => response.json())
           .then(data => {
             setProductos(data)
