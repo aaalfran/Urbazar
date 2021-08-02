@@ -64,7 +64,7 @@ export class ProductoController {
   async searchName(
     @param.path.string('nombre') nombre: String,
   ) :Promise<Producto[]>{
-    return this.productoRepository.find({where: {nombre: {regexp: `/${nombre}?[A-z]+/`}}});
+    return this.productoRepository.find({where: {nombre: {regexp: new RegExp(`${nombre}?.*`,"i")}}});
   }
 
   @post('/productos', {
