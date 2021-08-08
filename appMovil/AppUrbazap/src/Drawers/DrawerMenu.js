@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Image, ScrollView, Text} from 'react-native';
 import s from './styles'
 import {IconButton, NativeBaseProvider, } from 'native-base'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { useUsuario } from '../Context/usuarioContext';
 
 
 
@@ -20,7 +21,13 @@ function DrawerMenu(props) {
   )
 }
 
-function Menu(props) {
+Menu= (props) => {
+  const { usuario, logOut } = useUsuario();
+
+  salir = () =>{
+    logOut()
+  }
+
   return (
     <NativeBaseProvider>
       <View style={{flex:0.09, flexDirection:'row', justifyContent:'flex-end', backgroundColor:"#506048"}}>
@@ -35,8 +42,8 @@ function Menu(props) {
             
           </View>
           <View style={s.userNombre}>
-            <Text style={s.userTitulo}> Pedro Mayorga</Text>
-            <Text style={s.userSubTitulo}> Comprador </Text>
+            <Text style={s.userTitulo}> {usuario.username}</Text>
+            <Text style={s.userSubTitulo}> {usuario.role==1? "Comprador": "Vendedor"} </Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -49,7 +56,7 @@ function Menu(props) {
 
       <DrawerMenu iconName='home' titleName='Inicio' navigation={() => props.navigation.navigate('Home')} />
       <DrawerMenu iconName='suitcase' titleName='Ropa' navigation={() => props.navigation.navigate('Perfil')} />
-      <DrawerMenu iconName='desktop' titleName='Tecnología' navigation={() => props.navigation.navigate('Perfil')} />
+      <DrawerMenu iconName='desktop' titleName='Tecnología' navigation={() => props.navigation.navigate('Login')} />
       <DrawerMenu iconName='cutlery' titleName='Comida' navigation={() => props.navigation.navigate('Perfil')} />
       <DrawerMenu iconName='bath' titleName='Hogar' navigation={() => props.navigation.navigate('Perfil')} />
       <DrawerMenu iconName='eyedropper' titleName='Maquillaje' navigation={() => props.navigation.navigate('Perfil')} />
@@ -72,7 +79,7 @@ function Menu(props) {
       <DrawerMenu iconName='comments' titleName='Contactanos' navigation={() => props.navigation.navigate('Perfil')} />
       <DrawerMenu iconName='question' titleName='¿Qué hacemos?' navigation={() => props.navigation.navigate('Perfil')} />
 
-      <TouchableOpacity >
+      <TouchableOpacity onPress={salir}>
         <View style={s.btnSignOut}>
             <Icon name="sign-out" color="white"  size={20}/>
             <View >

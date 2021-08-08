@@ -2,7 +2,6 @@
 import React from 'react'
 import '../../../css/register.css';
 import NavbarComponent from "./navBarRegistro";
-import PaymentInputs from "../Carrito/PaymentComponent";
 import StepComponent from "./StepComponent";
 import {Redirect} from 'react-router-dom';
 import { Card, CardTitle,
@@ -12,10 +11,6 @@ import logo2 from "../../../imagenes/banner_reg_ofi.png";
 function Register (props) {
   const [checkTarjeta, setCheckTarjeta] = React.useState(false)
 
-  const handleChecked = (event) => {
-    setCheckTarjeta({ checkTarjeta: event.target.checked })
-    // addPaymentComponent();
-  }
   const auth = parseInt(localStorage.getItem('auth'), 10)
   const role = localStorage.getItem('role')
 

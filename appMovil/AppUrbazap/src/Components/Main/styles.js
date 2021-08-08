@@ -1,4 +1,3 @@
-import { backgroundColor } from "styled-system";
 
 export default {
     container:{
@@ -27,6 +26,15 @@ export default {
         marginLeft: 5,
         marginRight: 5, 
         borderWidth: 0.5,
+        shadowOffset:{
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        borderLeftWidth: 5,
+        borderLeftStyle: "solid",
         borderColor: "#e6e6e6"
+
     }
 }

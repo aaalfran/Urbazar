@@ -12,9 +12,9 @@ function _renderItem({item,index}){
               height: 150,}}
             />
             <View style={{marginTop:1, borderWidth:0.5, borderColor:"#e6e6e6"}}/>
-            <View >
+            <View style={{marginLeft: 10}}>
                 <Text style={{fontSize: 20}}>{item.nombre}</Text>
-                <Text>{item.precio}</Text>
+                <Text> ${item.precio}</Text>
           </View>
         </View>
 
@@ -41,8 +41,8 @@ function CardProduct (props){
                             <Carousel
                             layout={"default"}
                             data={carouselItems}
-                            sliderWidth={300}
-                            itemWidth={300}
+                            sliderWidth={200}
+                            itemWidth={200}
                             renderItem={_renderItem}
                             onSnapToItem = { index => setActiveIndex(index) } />
                     </View>

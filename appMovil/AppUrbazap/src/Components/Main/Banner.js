@@ -1,5 +1,5 @@
 import React from "react"
-import { View, ScrollView,SafeAreaView, Text, Dimensions, Image } from "react-native"
+import { View, ScrollView, Dimensions, Image } from "react-native"
 import Carousel from 'react-native-snap-carousel';
 import Banner1 from '../../images/ban1.png';
 import Banner2 from '../../images/ban7.png';
