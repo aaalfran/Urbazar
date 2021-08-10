@@ -854,6 +854,9 @@ ALTER TABLE `venta`
   ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`ID_Metodo_Pago`) REFERENCES `metodo_de_pago` (`ID`),
   ADD CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`ID_Usuario`) REFERENCES `cliente` (`ID`),
   ADD CONSTRAINT `venta_ibfk_3` FOREIGN KEY (`ID_vendedor`) REFERENCES `vendedor` (`ID_Usuario`);
+
+ALTER TABLE `persona`
+  ADD vendedorTipo INTEGER;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

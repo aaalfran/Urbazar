@@ -106,6 +106,14 @@ export class Persona extends Entity {
   })
   activo: number;
 
+  @property({
+    type: 'number',
+    required: true,
+    precision: 10,
+    scale: 0,
+    mysql: {columnName: 'vendedorTipo', dataType: 'int', dataLength: null, dataPrecision: 10, dataScale: 0, nullable: true},
+  })
+  vendedorTipo: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

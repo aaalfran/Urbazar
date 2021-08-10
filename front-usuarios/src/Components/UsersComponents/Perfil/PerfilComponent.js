@@ -48,7 +48,6 @@ function PerfilComponent (props) {
         const info = LoadDatos(`http://${data.number}/personas/`+ localStorage.getItem("userId"));
         const categorias = LoadDatos(`http://${data.number}/categorias`);
         
-      
   const auth = parseInt(localStorage.getItem('auth'), 10)
   const role = localStorage.getItem('role')
 
@@ -77,7 +76,7 @@ function PerfilComponent (props) {
                             <div className={classes.paper + ' rounded w-75 mx-auto my-3 modalResponsive'}>
                                 <h2 id="transition-modal-title">Modo Vendedor</h2>
                                 <p id="transition-modal-description">¿Quieres activar las funcionalidades de un vendedor?</p>
-                                <VendedorCompra setVendedor={setVendedor} setOpen={setOpen}></VendedorCompra>
+                                <VendedorCompra setVendedor={setVendedor} setOpen={setOpen} info={info}></VendedorCompra>
                             </div>
                         </Fade>
                     </Modal>
@@ -99,16 +98,19 @@ function PerfilComponent (props) {
                                         ¡Bienvenido {info.nombre}!
                                     </h3>
                                     <h6>
-                                        <FormControlLabel control={<Switch name="modo_vendedor" checked={switchV} />} label="Modo vendedor"
+                                        {info.vendedorTipo !== null ?                                         <FormControlLabel control={<Switch name="modo_vendedor" checked={switchV} />} label="Modo vendedor"
                                             onClick={(e) => {
-                                              if (!vendedor) {
-                                                setOpen(!open)
-                                              } else {
                                                 setSwitchV(!switchV)
-                                              }
-                                            }} />
+                                            }} /> : ""}
                                     </h6>
-
+                                    <div>
+                                            <div className="btn my-2" onClick={(e) => {
+                                              if (!vendedor) {
+                                                setVendedor(false);
+                                                setOpen(true)
+                                              }                                           
+                                            }}>{info.vendedorTipo !== null ? "Cambiar Plan": "Comprar un Plan"}</div>
+                                        </div>    
                                 </div>
 
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
