@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
 import axios from 'axios'
 import ToggleMenu from './ToggleMenuPC'
@@ -13,15 +13,20 @@ const NavbarComponent = (props) => {
   const [idCarrito, setIdCarrito] = useState(0)
   const toggle = () => setIsOpen(true)
 
-  axios.get(`http://${data.number}/carrito`)
+  useEffect(() => {
+    axios.get(`http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`)
     .then(response => response.data)
     .then((res) => {
-      for (let i = 0; i < res.length; i++) {
-        if (res[i].idUsuario === localStorage.getItem('userId')) {
-          setIdCarrito(res[i].id)
-        }
-      }
+      axios.get(`http://${data.number}/carrito/cliente/${res[0].id}`).then(response => {
+        let res = response.data
+        axios.get(`http://${data.number}/detalle-carrito/carrito/${res[0].id}`).then(response => {
+          setCantProductos(response.data.length)
+        })
+      }).catch(err => {
+        console.log(err)
+      }) 
     })
+  },[])
 
   idCarritoDef = idCarrito
   let cantidad = 0

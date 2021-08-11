@@ -8,7 +8,7 @@ import PaymentInputs from './PaymentComponent'
 import data from '../../../enviroment';
 import axios from 'axios';
 
-const ProductoBack = () => {
+const ProductoBack = ({setResumen}) => {
     let [listaComponent,setListaComponent] = useState([])
     useEffect(() => {
         axios.get(`http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`).then(res => {
@@ -26,8 +26,9 @@ const ProductoBack = () => {
                                 const imagen = producto.source
                                 const desc = producto.descripcion
                                 const cant = item.cantidad
-                                setListaComponent(current => current.concat(<CarritoDetalle key={item.id} nombre ={nombre} precio ={precio} src={imagen}
-                                    descripcion={desc} cantidad={cant} />))
+                                setResumen(current => current.concat({nombre,precio : precio*cant}))
+                                setListaComponent(current => current.concat(<CarritoDetalle key={item.id} nombre ={nombre} precio ={precio*cant} src={imagen}
+                                    descripcion={desc} cantidad={cant} idDetalle={item.idDetalle} />))
                                 console.log(producto);
                             })
                         }
@@ -45,23 +46,20 @@ const ProductoBack = () => {
 }
 
 
-const Resumen = () => {
-  const listaLi = []
+const Resumen = ({resumen}) => {
 
-  if (localStorage.getItem('carrito')) {
-    const jsonCarro = JSON.parse(localStorage.getItem('carrito'))
-    const productLista = jsonCarro.carrito
+  let listaLi = [];
+  if (resumen.length > 0) {
     let precioTotal = 0
-    for (let i = 0; i < productLista.length; i++) {
-      const nombre = productLista[i].nombre
-      const precio = parseFloat(productLista[i].precio) 
+    for (let i = 0; i < resumen.length; i++) {
+      const nombre = resumen[i].nombre
+      const precio = parseFloat(resumen[i].precio) 
       precioTotal = precioTotal + precio
       listaLi.push(<tr>
                 <td>{nombre}</td>
                 <td>${precio}</td>
             </tr>)
     }
-    localStorage.setItem('precio', precioTotal)
     return (
 
         <table className="w-100">
@@ -82,6 +80,7 @@ const Resumen = () => {
 
 const CarritoComponent = (props) => {
     const [liveDemo, setLiveDemo] = React.useState(false);
+    const [resumen,setResumen] = useState([]);
     const auth = parseInt(localStorage.getItem("auth"), 10)
     const role= localStorage.getItem("role");
     
@@ -94,7 +93,7 @@ const CarritoComponent = (props) => {
 
                 <div id="main">
                     <section id="productos_detail" className="col-md-8">
-                        <ProductoBack></ProductoBack>
+                        <ProductoBack setResumen={setResumen}></ProductoBack>
                     </section>
                     <section id="info_detail" className="col-md-4">
                         <div id="contenedor_info">
@@ -102,7 +101,7 @@ const CarritoComponent = (props) => {
                                <h3> Resumen </h3>
                             </div>
                             <div>
-                                <Resumen />
+                                <Resumen resumen={resumen}/>
                             </div>
                             <div id="Pago">
                                  Método de pago
