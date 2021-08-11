@@ -6,10 +6,10 @@ import {Entity, model, property} from '@loopback/repository';
 export class DetalleCarrito extends Entity {
   @property({
     type: 'number',
-    required: true,
     precision: 10,
     scale: 0,
     id: 1,
+    generated: true,
     mysql: {columnName: 'ID_detalle', dataType: 'int', dataLength: null, dataPrecision: 10, dataScale: 0, nullable: 'N'},
   })
   idDetalle: number;

@@ -18,7 +18,8 @@ function Main(props) {
             </HStack>
             <HStack space={2}>
               <IconButton icon={<Icon as={<MaterialIcons name='search' />} color="white" size='sm' />} />
-              <IconButton icon={<Icon as={<MaterialIcons name='shopping-cart' />} size='sm' color="white" />} />
+              <IconButton icon={<Icon as={<MaterialIcons name='shopping-cart' />} size='sm' color="white" />} onPress = {() => {props.navigation.navigate('Carrito')
+              }}/>
             </HStack>
           </HStack>
         </NativeBaseProvider>

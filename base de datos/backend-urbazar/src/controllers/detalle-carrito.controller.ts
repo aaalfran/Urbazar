@@ -106,6 +106,20 @@ export class DetalleCarritoController {
     return this.detalleCarritoRepository.updateAll(detalleCarrito, where);
   }
 
+  @get('/detalle-carrito/carrito/{id}', {
+    responses: {
+      '200' : {
+        description: 'Success',
+        content: {'application/json': {schema: getModelSchemaRef(DetalleCarrito)}},
+      },
+    },
+  })
+  async findByIdPersona(
+    @param.path.number('id') id: number,
+  ): Promise<DetalleCarrito[]> {
+    return this.detalleCarritoRepository.find({where : {idCarrito :id}});
+  }
+
   @get('/detalle-carrito/{id}', {
     responses: {
       '200': {

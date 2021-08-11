@@ -12,3 +12,4 @@ export * from './etapas.controller';
 export * from './administrador-etapa.controller';
 export * from './matriz.controller';
 export * from './sources.controller';
+export * from './cliente.controller';

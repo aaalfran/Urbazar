@@ -125,6 +125,21 @@ export class CarritoController {
     return this.carritoRepository.findById(id, filter);
   }
 
+
+  @get('/carrito/cliente/{id}', {
+    responses: {
+      '200' : {
+        description: 'Success',
+        content: {'application/json': {schema: getModelSchemaRef(Carrito)}},
+      },
+    },
+  })
+  async findByIdPersona(
+    @param.path.number('id') id: number,
+  ): Promise<Carrito[]> {
+    return this.carritoRepository.find({where : {idUsuario :id}});
+  }
+  
   @patch('/carrito/{id}', {
     responses: {
       '204': {

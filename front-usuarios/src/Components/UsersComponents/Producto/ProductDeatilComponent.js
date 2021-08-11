@@ -13,6 +13,75 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import axios from 'axios'
 import data from '../../../enviroment';
+
+
+let agregarCarrito = (id_producto,cantidad) => {
+  axios.get(`http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`).then(res => {
+    let dato = res.data[0];
+    axios.post(`http://${data.number}/carrito`,{
+      "id": dato.idPersona,
+      "idUsuario": dato.id,
+  }).then(() => {
+    console.log("Carrito Creado Exitosamente")
+  }).catch(err => {
+    console.log(err)
+  }).finally(() => {
+    axios.get(`http://${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
+      let dato = res.data[0];
+      axios.get(`http://${data.number}/detalle-carrito/carrito/${dato.id}`).then(res => {
+        let respuesta = res.data;
+        console.log(respuesta)
+        let isRespuesta = true;
+        if(respuesta.length > 0) {
+          for(let detalle of respuesta){
+            console.log(detalle)
+            if(detalle.idProducto === parseInt(id_producto)){
+              isRespuesta = false;
+              let pload = detalle;
+              pload.cantidad = cantidad;
+              axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
+                console.log("success update")
+              }).catch(err=> {
+                console.log("Error update")
+              })
+              break ;
+            }
+          }
+          if(isRespuesta){
+            let payload = {
+              "idProducto": parseInt(id_producto),
+              "cantidad": cantidad,
+              "idCarrito": dato.id
+            }
+            axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
+
+            }).catch(err => {
+              console.log("error xd")
+            })
+          }
+        }
+        else{
+          let payload = {
+            "idProducto": parseInt(id_producto),
+            "cantidad": cantidad,
+            "idCarrito": dato.id
+          }
+          console.log(payload)
+          axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
+
+          }).catch(err => {
+            console.log("error xd")
+          })
+        }
+
+      })
+    })
+  })
+  })
+
+
+}
+
 function ProductComponent() {
   const [calificaciones, setCalificaciones] = useState('')
   const [load, setLoad] = useState(false)
@@ -265,7 +334,9 @@ function ProductComponent() {
             </div>
             <div className="col-12 text-center">
               <button type="button" id="btnAgregarCarrito" className="btn btn-primary"
-                onClick={() => { printImporte(); seleccionarProducto(id_producto); }}><i className='fas fa-shopping-cart fa-lg'></i>{' '}Agregar a carrito</button>
+                onClick={() => { printImporte(); seleccionarProducto(id_producto);
+                  agregarCarrito(id_producto,cantidad);
+                }}><i className='fas fa-shopping-cart fa-lg'></i>{' '}Agregar a carrito</button>
             </div>
 
           </div>

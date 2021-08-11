@@ -9,7 +9,7 @@ import DetailProduct from "./src/Components/Producto/DetailProduct";
 import LoginComponent from "./src/Components/Login/Login";
 import { UsuarioProvider, useUsuario } from './src/Context/usuarioContext';
 import RegistroComponent from "./src/Components/Registro.js/Registro";
-
+import Carrito from "./src/Components/Carrito/Carrito";
 
 export default () => <UsuarioProvider>
   <App></App>
@@ -31,7 +31,8 @@ function App() {
             <Drawer.Navigator drawerContent={(props) => <Menu {...props} />}>
               <Drawer.Screen name="Home" component={Main} />
               <Drawer.Screen name="Perfil" component={DetailProduct} />
-            </Drawer.Navigator>
+              <Drawer.Screen name="Carrito" component={Carrito} />
+            </Drawer.Navigator> 
           </NavigationContainer>
           :
           <NavigationContainer>

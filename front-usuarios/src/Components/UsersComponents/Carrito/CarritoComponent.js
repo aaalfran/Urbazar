@@ -1,31 +1,49 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Redirect } from 'react-router-dom'
 import '../../../css/CarritoComponent.css'
 import NavbarComponent from '../navBar/navbarComponent'
 import { Label, Input, Button, Modal, FormGroup } from 'reactstrap'
 import CarritoDetalle from './CarritoDetalle'
 import PaymentInputs from './PaymentComponent'
+import data from '../../../enviroment';
+import axios from 'axios';
 
-const Productos = () => {
-  if (localStorage.getItem('carrito')) {
-    const jsonCarro = JSON.parse(localStorage.getItem('carrito'))
-    const productLista = jsonCarro.carrito
-    const listaComponent = []
+const ProductoBack = () => {
+    let [listaComponent,setListaComponent] = useState([])
+    useEffect(() => {
+        axios.get(`http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`).then(res => {
+            let resultado = res.data[0];
+            axios.get(`http://${data.number}/carrito/cliente/${resultado.id}`).then(res => {
+                let resultado = res.data[0];
+                axios.get(`http://${data.number}/detalle-carrito/carrito/${resultado.id}`).then(res => {
+                    let lista = res.data;
+                    if(lista.length > 0) {
+                        for(let item of lista){
+                            axios.get(`http://${data.number}/productos/${item.idProducto}`).then(res => {
+                                let producto = res.data;
+                                const nombre = producto.nombre
+                                const precio = producto.precio
+                                const imagen = producto.source
+                                const desc = producto.descripcion
+                                const cant = item.cantidad
+                                setListaComponent(current => current.concat(<CarritoDetalle key={item.id} nombre ={nombre} precio ={precio} src={imagen}
+                                    descripcion={desc} cantidad={cant} />))
+                                console.log(producto);
+                            })
+                        }
+                    }
+                    else{
+                        return <div>Carrito Vacio</div>
+                    }
+    
+                })
+            })
+        })
+    },[])
 
-    for (let i = 0; i < productLista.length; i++) {
-      const nombre = productLista[i].nombre
-      const precio = productLista[i].precio
-      const imagen = productLista[i].source
-      const desc = productLista[i].descripcion
-      const cant = productLista[i].cantidad
-      listaComponent.push(<CarritoDetalle nombre ={nombre} precio ={precio} src={imagen}
-                descripcion={desc} cantidad={cant} />)
-    }
-    return (<div>{listaComponent}</div>)
-  } else {
-    return (<h1 className="vacioCarrito">Carrito Vacío</h1>)
-  }
+    return <div>{listaComponent}</div>;
 }
+
 
 const Resumen = () => {
   const listaLi = []
@@ -71,12 +89,12 @@ const CarritoComponent = (props) => {
     if( auth && (role==="0" || role==="1")){         
         return ( 
         <>
+
                 <NavbarComponent/>
 
                 <div id="main">
                     <section id="productos_detail" className="col-md-8">
-                        <Productos />
-
+                        <ProductoBack></ProductoBack>
                     </section>
                     <section id="info_detail" className="col-md-4">
                         <div id="contenedor_info">

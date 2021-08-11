@@ -21,7 +21,7 @@ function DrawerMenu(props) {
   )
 }
 
-Menu= (props) => {
+let Menu= (props) => {
   const { usuario, logOut } = useUsuario();
 
   salir = () =>{
