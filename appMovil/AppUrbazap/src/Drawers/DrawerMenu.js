@@ -42,8 +42,8 @@ let Menu= (props) => {
             
           </View>
           <View style={s.userNombre}>
-            <Text style={s.userTitulo}> {usuario.username}</Text>
-            <Text style={s.userSubTitulo}> {usuario.role==1? "Comprador": "Vendedor"} </Text>
+            <Text style={s.userTitulo}> ds {/*usuario.username*/}</Text>
+            <Text style={s.userSubTitulo}> sd {/*usuario.role==1? "Comprador": "Vendedor"*/} </Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -56,7 +56,7 @@ let Menu= (props) => {
 
       <DrawerMenu iconName='home' titleName='Inicio' navigation={() => props.navigation.navigate('Home')} />
       <DrawerMenu iconName='suitcase' titleName='Ropa' navigation={() => props.navigation.navigate('Perfil')} />
-      <DrawerMenu iconName='desktop' titleName='Tecnología' navigation={() => props.navigation.navigate('Login')} />
+      <DrawerMenu iconName='desktop' titleName='Tecnología' navigation={() => props.navigation.navigate('Filtro')} />
       <DrawerMenu iconName='cutlery' titleName='Comida' navigation={() => props.navigation.navigate('Perfil')} />
       <DrawerMenu iconName='bath' titleName='Hogar' navigation={() => props.navigation.navigate('Perfil')} />
       <DrawerMenu iconName='eyedropper' titleName='Maquillaje' navigation={() => props.navigation.navigate('Perfil')} />

@@ -3,7 +3,7 @@ import axios from 'axios';
 import data from '../../enviroment';
 const UsuarioContext = React.createContext();
 
-export function UsuarioProvider(props){
+export function CategoriaProvider(props){
     const [usuario, setUsuario] = useState(null);
     let url = data.prod;
     async function login(data){
