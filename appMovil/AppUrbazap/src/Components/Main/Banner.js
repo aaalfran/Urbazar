@@ -5,7 +5,7 @@ import Banner1 from '../../images/ban1.png';
 import Banner2 from '../../images/ban7.png';
 import Banner3 from '../../images/ban9.png';
 import CardsProducts from './CardsProducts';
-
+import data from '../../../enviroment';
 class Banner extends React.Component{
 
     constructor(props){
@@ -56,13 +56,13 @@ class Banner extends React.Component{
                     </View>
 
                     {/**Secciones */}
-                    <CardsProducts nameSection="Reciente" ruta="http://134.209.215.193:3000/productos"/>
+                    <CardsProducts nameSection="Reciente" ruta={`http://${data.number}/productos`}/>
 
                     
-                    <CardsProducts nameSection="Promociones" ruta="http://134.209.215.193:3000/productos"/>
+                    <CardsProducts nameSection="Promociones" ruta={`http://${data.number}/productos`}/>
 
                     
-                    <CardsProducts nameSection="Cerca de ti" ruta="http://134.209.215.193:3000/productos"/>
+                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.number}/productos`}/>
 
                 </ScrollView>
 

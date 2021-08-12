@@ -9,7 +9,7 @@ function _renderItem({item,index}){
         <View style={styles.boxProduct}>
 
             <Image source= {{uri: item.source }} style={{              
-              height: 150,}}
+              height: 150, width: 150}}
             />
             <View style={{marginTop:1, borderWidth:0.5, borderColor:"#e6e6e6"}}/>
             <View style={{marginLeft: 10}}>

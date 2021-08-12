@@ -15,7 +15,6 @@ function Login( {navigation} ){
 
     const { login } = useUsuario();
 
-
     const ingresar = () =>{
         data = { username, password}
         login(data)
