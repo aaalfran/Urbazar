@@ -8,7 +8,17 @@ import PaymentInputs from './PaymentComponent'
 import data from '../../../enviroment';
 import axios from 'axios';
 
-const ProductoBack = ({setResumen}) => {
+const deleteProducts = async (lista) => {
+    for (let idDetalle of lista){
+        await axios.delete(`http://${data.number}/detalle-carrito/${idDetalle}`).then(res => {
+
+        }).catch(err => {
+
+        })
+    }
+    window.location.reload();
+}
+const ProductoBack = ({setResumen,setDetalleId}) => {
     let [listaComponent,setListaComponent] = useState([])
     useEffect(() => {
         axios.get(`http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`).then(res => {
@@ -26,6 +36,7 @@ const ProductoBack = ({setResumen}) => {
                                 const imagen = producto.source
                                 const desc = producto.descripcion
                                 const cant = item.cantidad
+                                setDetalleId(current => current.concat(item.idDetalle))
                                 setResumen(current => current.concat({nombre,precio : precio*cant}))
                                 setListaComponent(current => current.concat(<CarritoDetalle key={item.id} nombre ={nombre} precio ={precio*cant} src={imagen}
                                     descripcion={desc} cantidad={cant} idDetalle={item.idDetalle} />))
@@ -33,20 +44,17 @@ const ProductoBack = ({setResumen}) => {
                             })
                         }
                     }
-                    else{
-                        return <div>Carrito Vacio</div>
-                    }
     
                 })
             })
         })
     },[])
 
-    return <div>{listaComponent}</div>;
+    return <React.Fragment>{listaComponent.length > 0 ? listaComponent: <div className="h-100"><span className="vacioCarrito">Carrito Vacío</span></div> }</React.Fragment>;
 }
 
 
-const Resumen = ({resumen}) => {
+const Resumen = ({resumen,setPrecio}) => {
 
   let listaLi = [];
   if (resumen.length > 0) {
@@ -55,6 +63,7 @@ const Resumen = ({resumen}) => {
       const nombre = resumen[i].nombre
       const precio = parseFloat(resumen[i].precio) 
       precioTotal = precioTotal + precio
+      setPrecio(precioTotal)
       listaLi.push(<tr>
                 <td>{nombre}</td>
                 <td>${precio}</td>
@@ -81,6 +90,8 @@ const Resumen = ({resumen}) => {
 const CarritoComponent = (props) => {
     const [liveDemo, setLiveDemo] = React.useState(false);
     const [resumen,setResumen] = useState([]);
+    const [precio,setPrecio] = useState(0);
+    const [idDetalle,setDetalleId] = useState([]);
     const auth = parseInt(localStorage.getItem("auth"), 10)
     const role= localStorage.getItem("role");
     
@@ -91,9 +102,9 @@ const CarritoComponent = (props) => {
 
                 <NavbarComponent/>
 
-                <div id="main">
-                    <section id="productos_detail" className="col-md-8">
-                        <ProductoBack setResumen={setResumen}></ProductoBack>
+                <div id="main" className="h-100">
+                    <section id="productos_detail" className="col-md-8 h-100">
+                        <ProductoBack setResumen={setResumen} setDetalleId={setDetalleId}></ProductoBack>
                     </section>
                     <section id="info_detail" className="col-md-4">
                         <div id="contenedor_info">
@@ -101,7 +112,7 @@ const CarritoComponent = (props) => {
                                <h3> Resumen </h3>
                             </div>
                             <div>
-                                <Resumen resumen={resumen}/>
+                                <Resumen resumen={resumen} setPrecio={setPrecio}/>
                             </div>
                             <div id="Pago">
                                  Método de pago
@@ -140,7 +151,7 @@ const CarritoComponent = (props) => {
                                     </button>
                                     </div>
                                     <div className="modal-body">
-                                    <p>Se descontará de su cuenta el saldo de ${localStorage.getItem('precio')}<br/>
+                                    <p>Se descontará de su cuenta el saldo de ${precio}<br/>
                                         ¿Está seguro que desea realizar esta compra?
                                     </p>
                                     </div>
@@ -164,9 +175,7 @@ const CarritoComponent = (props) => {
                                         id="btn_confModal"
                                         onClick={() => {
                                           setLiveDemo(false)
-                                          localStorage.setItem('carrito', '')
-                                          localStorage.setItem('precio', 0)
-                                          localStorage.setItem('contador_items', 0)
+                                          deleteProducts(idDetalle)
                                         }
 
                                         }

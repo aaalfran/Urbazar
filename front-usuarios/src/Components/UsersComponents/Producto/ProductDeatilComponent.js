@@ -13,9 +13,10 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import axios from 'axios'
 import data from '../../../enviroment';
+import Swal from 'sweetalert2';
 
-
-let agregarCarrito = (id_producto,cantidad) => {
+let agregarCarrito = (id_producto,cantidad,setLoad) => {
+  setLoad(false)
   axios.get(`http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`).then(res => {
     let dato = res.data[0];
     axios.post(`http://${data.number}/carrito`,{
@@ -41,6 +42,12 @@ let agregarCarrito = (id_producto,cantidad) => {
               pload.cantidad = cantidad;
               axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
                 console.log("success update")
+                setLoad(true);
+                Swal.fire(
+                  'Producto agregado al carrito exitosamente',
+                  '',
+                  'success'
+                )
               }).catch(err=> {
                 console.log("Error update")
               })
@@ -54,7 +61,11 @@ let agregarCarrito = (id_producto,cantidad) => {
               "idCarrito": dato.id
             }
             axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-
+              setLoad(true);
+              Swal.fire(
+                'Producto agregado al carrito exitosamente',
+                'success'
+              )
             }).catch(err => {
               console.log("error xd")
             })
@@ -68,7 +79,11 @@ let agregarCarrito = (id_producto,cantidad) => {
           }
           console.log(payload)
           axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-
+            setLoad(true);
+            Swal.fire(
+              'Producto agregado al carrito exitosamente',
+              'success'
+            )
           }).catch(err => {
             console.log("error xd")
           })
@@ -84,7 +99,7 @@ let agregarCarrito = (id_producto,cantidad) => {
 
 function ProductComponent() {
   const [calificaciones, setCalificaciones] = useState('')
-  const [load, setLoad] = useState(false)
+  const [load, setLoad] = useState(true)
   const [cantidad, setCantidad] = React.useState(1)
   const [etapaVendedor, setEtapaVendedor] = useState('')
   const [etapaCliente, setEtapaCliente] = useState('')
@@ -335,10 +350,13 @@ function ProductComponent() {
             <div className="col-12 text-center">
               <button type="button" id="btnAgregarCarrito" className="btn btn-primary"
                 onClick={() => { printImporte(); seleccionarProducto(id_producto);
-                  agregarCarrito(id_producto,cantidad);
+                  agregarCarrito(id_producto,cantidad,setLoad);
                 }}><i className='fas fa-shopping-cart fa-lg'></i>{' '}Agregar a carrito</button>
-            </div>
 
+            </div>
+            {load ?  <></>:             <div className="spinner-border my-3" role="status">
+                  <span className="sr-only">Loading...</span>
+            </div> }
           </div>
         </Container>
       </>
