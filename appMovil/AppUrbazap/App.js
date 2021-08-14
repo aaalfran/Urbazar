@@ -12,6 +12,7 @@ import RegistroComponent from "./src/Components/Registro/Registro";
 import Carrito from "./src/Components/Carrito/Carrito";
 import VentanaFiltro from "./src/Components/Filtro/Ventanafiltro";
 import SearchBar from "./src/Components/Busqueda/SearchBar";
+import AddProduct from "./src/Components/Perfil/AddProduct";
 
 
 export default () => <UsuarioProvider>
@@ -33,7 +34,7 @@ function App() {
           <NavigationContainer>
             <Drawer.Navigator drawerContent={(props) => <Menu {...props} />}>
               <Drawer.Screen name="Home" component={Main} />
-              <Drawer.Screen name="Perfil" component={DetailProduct} />
+              <Drawer.Screen name="Perfil" component={AddProduct} />
               <Drawer.Screen name="Carrito" component={Carrito} />
               <Drawer.Screen name="Filtro" component={VentanaFiltro} />
               <Drawer.Screen name="SearchBar" component={SearchBar} />

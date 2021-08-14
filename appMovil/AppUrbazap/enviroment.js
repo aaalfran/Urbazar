@@ -4,7 +4,7 @@ const urlprod = "http://134.209.215.193:3000/"
 const data = {
     url: urldev,
     categoriesFilter: urlprod+"productos?filter[where][ID_Categoria]=",
-    number: "4cb6a05fc34f.ngrok.io",
+    number: "134.209.215.193:3000",
     prod: "4cb6a05fc34f.ngrok.io",
 }
 

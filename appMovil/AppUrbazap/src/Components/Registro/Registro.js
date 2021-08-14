@@ -53,10 +53,10 @@ const Register= ( props) => {
         <NativeBaseProvider>
             <View >
                 <StatusBar backgroundColor="#506048" barStyle="light-content" />
-                <View style={styles.header} >
+                <View style={[styles.header, {backgroundColor:"#506048"}]} >
                     <HStack space={0} alignItems="center">
                         <IconButton
-                            icon={<Icon name="chevron-left" color="#506048" size={25} style={{ marginRight: 0 }} />} 
+                            icon={<Icon name="chevron-left" color="white" size={25} style={{ marginRight: 0 }} />} 
                             style={{ marginRight: 0 }}
                             onPress={()=>props.navigation.navigate("Login")}
                         />
@@ -66,8 +66,6 @@ const Register= ( props) => {
                         </View>
                     </HStack>
                     
-                    <View className="Decoradores" style={styles.decorator} />
-                    <View className="Decoradores" style={styles.decorator2} />
                 </View>
 
                 <ScrollView stickyHeaderIndices={[1]} >

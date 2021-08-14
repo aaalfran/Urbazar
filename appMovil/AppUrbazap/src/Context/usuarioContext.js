@@ -5,7 +5,7 @@ const UsuarioContext = React.createContext();
 
 export function UsuarioProvider(props){
     const [usuario, setUsuario] = useState(null);
-    let url = data.prod;
+    let url = data.number;
     async function login(data){
         axios.post(`http://${url}/login`, data)
         .then(response => {
@@ -19,9 +19,6 @@ export function UsuarioProvider(props){
         })
 
         .catch((err) => {
-         // feed.innerHTML = 'Usuario o clave incorrectos'
-
-         // feed.style.color = 'red'
           console.log(err)
         })
     }

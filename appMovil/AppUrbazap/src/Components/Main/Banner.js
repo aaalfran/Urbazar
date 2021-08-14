@@ -56,13 +56,13 @@ class Banner extends React.Component{
                     </View>
 
                     {/**Secciones */}
-                    <CardsProducts nameSection="Reciente" ruta={`http://${data.prod}/productos`}/>
+                    <CardsProducts nameSection="Reciente" ruta={`http://${data.number}/productos`}/>
 
                     
-                    <CardsProducts nameSection="Promociones" ruta={`http://${data.prod}/productos`}/>
+                    <CardsProducts nameSection="Promociones" ruta={`http://${data.number}/productos`}/>
  
                     
-                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.prod}/productos`}/>
+                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.number}/productos`}/>
 
                 </ScrollView>
 

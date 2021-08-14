@@ -6,12 +6,12 @@ export default {
     },
     title:{
         fontSize: 50,
-        color: "#506048",
+        color: "white",
         marginBottom: 0
     },
     subtitle:{
         fontSize: 10,
-        color: "#506048",
+        color: "white",
         marginBottom: 0, 
         marginLeft: "5%"
     },

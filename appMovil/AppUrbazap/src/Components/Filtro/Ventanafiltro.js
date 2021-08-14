@@ -11,7 +11,6 @@ import styles from "./styles";
 import {getCategoria} from '../../Context/categoriaContext';
 import Request from '../../ApiRequest/Request';
 import data from '../../../enviroment';
-import { backgroundColor } from 'styled-system';
 
 
 
