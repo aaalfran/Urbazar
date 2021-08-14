@@ -17,7 +17,7 @@ function Main(props) {
     setSubmittedText(outputText);
     setOutputText('');
 
-    props.navigation.navigate('SearchBar', { data1: submittedText });
+    props.navigation.navigate('SearchBar', { data1: outputText });
     //this.forceUpdate();
     /* return (
   

@@ -12,7 +12,7 @@ import filtroVista from '../Filtro/Ventanafiltro';
 import styles from "../Main/styles";
 import Carousel from 'react-native-snap-carousel';
 import { ScreenStackHeaderSearchBarView } from 'react-native-screens';
-
+import Request from '../../ApiRequest/Request';
 
 
 
@@ -40,45 +40,47 @@ const SearchBar = (props) => {
 
 
     const [filtro, setFiltro] = useState([]);
+    // filtro = Request(`http://${data.prod}/productos/nombre/${data1}`);
     const [master, setMaster] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const { data1 } = props.route.params;
 
-    //const [data1, settext1] = useState('zapat')
+    const [data2, settext1] = useState('');
 
     useEffect(() => {
         fetchPosts();
-        //searchfilter(data1);
+
 
 
     }, [])
 
 
-
-    const searchfilter = (text) => {
-        if (text) {
-            const newData = master.filter((item) => {
-                const itemData = item.nombre ?
-                    item.nombre.toUpperCase()
-                    : ''.toUpperCase();
-
-                const textData = text.toUpperCase();
-                return itemData.indexOf(textData) > -1;
-            });
-            setFiltro(newData);
-            //  setSearch(text);
-
-        } else {
-            setFiltro(master);
-            // setSearch(text);
-
-        }
-
-    }
+    /*
+        const searchfilter = (text) => {
+            if (text) {
+                const newData = master.filter((item) => {
+                    const itemData = item.nombre ?
+                        item.nombre.toUpperCase()
+                        : ''.toUpperCase();
+    
+                    const textData = text.toUpperCase();
+                    return itemData.indexOf(textData) > -1;
+                });
+                setFiltro(newData);
+                //  setSearch(text);
+    
+            } else {
+                setFiltro(master);
+                // setSearch(text);
+    
+            }
+            return filtro;
+        }*/
 
     const fetchPosts = () => {
         //const data1 = 'iph';
-        const apiURL = `http://${data.prod}/productos`;
+        settext1(data1);
+        const apiURL = `http://${data.prod}/productos/nombre/${data1}`;
 
 
         fetch(apiURL)
@@ -105,7 +107,7 @@ const SearchBar = (props) => {
 
                 }*/
 
-            }).then(() => searchfilter(data1)).catch((error) => {
+            }).catch((error) => {
                 console.error(error);
             })
 
@@ -113,39 +115,41 @@ const SearchBar = (props) => {
     }
 
     return (
-        <NativeBaseProvider>
+        <>
+            <NativeBaseProvider>
+                <Text>  hey {data1}</Text>
+
+                <NavBar navigation={props.navigation} />
+                <CategoriesBar />
+                <View style={{ flex: 19 }}>
+
+                    {/*Banner principal */}
+
+                    <View>
 
 
-            <NavBar navigation={props.navigation} />
-            <CategoriesBar />
-            <View style={{ flex: 19 }}>
-
-                {/*Banner principal */}
-
-                <View>
 
 
-                    { /*<Button onPress={() => searchfilter(data1)}> </Button>*/}
+                        <FlatList
+                            data={filtro}
+                            keyExtractor={(item, index) => index.toString()}
+                            renderItem={_renderItem}
 
-                    <FlatList
-                        data={filtro}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={_renderItem}
+                        />
 
-                    />
+                    </View>
+
+
+
+
+
 
                 </View>
 
 
 
-
-
-
-            </View>
-
-
-
-        </NativeBaseProvider>
+            </NativeBaseProvider>
+        </>
     );
 }
 
