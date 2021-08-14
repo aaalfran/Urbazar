@@ -6,7 +6,7 @@ import Request from '../../ApiRequest/Request';
 
 function _renderItem({item,index}){
     return (
-        <View style={styles.boxProduct}>
+        <View style={styles.boxProduct} >
 
             <Image source= {{uri: item.source }} style={{              
               height: 150, width: 150}}

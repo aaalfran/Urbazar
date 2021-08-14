@@ -12,6 +12,7 @@ import RegistroComponent from "./src/Components/Registro/Registro";
 import Carrito from "./src/Components/Carrito/Carrito";
 import VentanaFiltro from "./src/Components/Filtro/Ventanafiltro";
 
+
 export default () => <UsuarioProvider>
   <App></App>
 </UsuarioProvider>

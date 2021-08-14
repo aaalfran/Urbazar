@@ -1,10 +1,9 @@
 export default {
     contenedor_productos: { 
-        display: "flex", 
+        flexDirection: "row",
         flexWrap: "wrap", 
-        alignContent: "center", 
-        paddingTop: 20, 
-        paddingLeft: 10, 
-        paddingRight: 10 
+        justifyContent: "center",
+        width:"100%",
+        
     }
 }

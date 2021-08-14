@@ -45,10 +45,6 @@ const Register= ( props) => {
             ...form, [e.target.name]: e.target.value
           
         })
-        console.log(e.target.name)
-        console.log(e.target.value)
-
-        console.log("si")
         
       }
     const edades = getEdades()

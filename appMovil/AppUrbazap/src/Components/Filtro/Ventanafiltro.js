@@ -1,43 +1,77 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
-    NativeBaseProvider, Box, VStack, Avatar, Image, AspectRatio, Heading,
-    StatusBar, Input,
-    Button, Select,
-    CheckIcon, Stack,
-    HStack, Center,
-    IconButton
+    NativeBaseProvider, Box, 
+    VStack, Image, 
+    Heading, Stack,
 } from 'native-base'
 import { View, Text } from 'react-native'
 import CategoriesBar from '../navBar/CategoriesBar';
 import NavBar from '../navBar/NavigationBar';
 import styles from "./styles";
+import {getCategoria} from '../../Context/categoriaContext';
+import Request from '../../ApiRequest/Request';
+import data from '../../../enviroment';
+import { backgroundColor } from 'styled-system';
 
-let DrawBox = () => {
+
+
+
+let DrawContent = ({categorie}) =>{
+    console.log("OKi")
+    if (categorie.length>0){
+        let url =  `${data.categoriesFilter}`
+        let urlComposed = url + `${categorie}`
+        let productsFromCategories= Request(urlComposed)
+ 
+    return(
+        <View style={styles.contenedor_productos}>
+        {
+            productsFromCategories.map(product=>(
+                <DrawBox key={product.id} source={product.source} nombre={product.nombre} precio={product.precio}/>
+            ))
+    }
+    </View>
+    )
+
+    }
+    return <></>
+    
+}
+
+let DrawBox = ({source, nombre, precio}) => {
     return(
         <Box
         bg="white"
         rounded="lg"
-        maxWidth="30%"
+        minWidth="40%"
         style={{margin: 10}}
         shadow={4}
     >
-        <Image source={{ uri: "https://i.pinimg.com/474x/60/5b/06/605b06ee28475d4cbf47b287ebeb42a5.jpg" }} alt="image base" resizeMode="cover" height={150} roundedTop="md" />
+        <Image source={{ uri: `${source}` }} alt="image base" resizeMode="cover" height={150} roundedTop="md" />
        
-        <Stack space={4} p={[4, 4, 8]}>
+        <Stack space={2} p={[4, 4, 8]}>
             <Heading size="sm" noOfLines={2}>
-                Zapatos Nikyy
+            {nombre}
             </Heading>
-            <Text color="gray.400"> $4</Text>
+            <Text color="gray.400">$ {precio}</Text>
         </Stack>
-    </Box>
+    </Box> 
 
     )
 }
 
 let filtroVista = (props) => {
+    const [categorie, setCategorie] = useState("")
 
-    
-
+       
+    useEffect(()=>{
+            getCategoria()
+            .then((cat)=> {
+                setCategorie(cat)
+            }
+                
+            )
+    })
 
 
     return (
@@ -46,12 +80,8 @@ let filtroVista = (props) => {
             <CategoriesBar />
             <View style={{ flex: 19 }}>
 
-                <VStack style={styles.contenedor_productos}>
-                    <DrawBox/>
-                    <DrawBox/>
-                    <DrawBox/>
-                    <DrawBox/>
-                    <DrawBox/>
+                <VStack >
+                    <DrawContent categorie={categorie}/>
                     
 
                     
