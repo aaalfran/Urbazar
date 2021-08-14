@@ -13,3 +13,5 @@ export * from './administrador-etapa.controller';
 export * from './matriz.controller';
 export * from './sources.controller';
 export * from './cliente.controller';
+export * from './file-upload.controller';
+export * from './vendedor.controller';

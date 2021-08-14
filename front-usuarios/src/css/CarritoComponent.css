@@ -53,14 +53,15 @@ tr { line-height: 32px; }
     color: rgba(0,0,0,0.15);
     text-align: center;
     z-index: 999;
-    margin-top: 30%;
-    
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    font-weight: bold;
 }
 @media screen and (max-width: 992px) {
-    .vacioCarrito {
-        position:initial;
-        margin: 20% 0;
-    }
+
     .valor{
         display: none;
     }

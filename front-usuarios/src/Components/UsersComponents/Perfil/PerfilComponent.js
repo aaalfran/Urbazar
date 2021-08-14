@@ -16,6 +16,7 @@ import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import VendedorCompra from './VendedorCompra'
 import data from '../../../enviroment';
+import VentaForm from './VentaForm';
 const useStyles = makeStyles((theme) => ({
   modal: {
     position: 'absolute',
@@ -217,6 +218,10 @@ function PerfilComponent (props) {
                         </div>
 
                     </form>
+
+                    {switchV === true? 
+                    <VentaForm></VentaForm>
+                    : <React.Fragment></React.Fragment>}
                     <div className="container_actividad">
                         <div id="title_cont">
                             <h6>Actividad reciente</h6>

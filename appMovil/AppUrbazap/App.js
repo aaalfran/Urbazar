@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import React from 'react'
-import { StyleSheet, View} from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Menu from './src/Drawers/DrawerMenu'
@@ -11,6 +11,7 @@ import { UsuarioProvider, useUsuario } from './src/Context/usuarioContext';
 import RegistroComponent from "./src/Components/Registro/Registro";
 import Carrito from "./src/Components/Carrito/Carrito";
 import VentanaFiltro from "./src/Components/Filtro/Ventanafiltro";
+import SearchBar from "./src/Components/Busqueda/SearchBar";
 
 
 export default () => <UsuarioProvider>
@@ -19,23 +20,24 @@ export default () => <UsuarioProvider>
 
 
 function App() {
-  const { usuario} = useUsuario();
+  const { usuario } = useUsuario();
   const Drawer = createDrawerNavigator()
 
-  
+
 
 
   return (
     <>
       {
         usuario ?
-       <NavigationContainer>
+          <NavigationContainer>
             <Drawer.Navigator drawerContent={(props) => <Menu {...props} />}>
               <Drawer.Screen name="Home" component={Main} />
               <Drawer.Screen name="Perfil" component={DetailProduct} />
               <Drawer.Screen name="Carrito" component={Carrito} />
               <Drawer.Screen name="Filtro" component={VentanaFiltro} />
-            </Drawer.Navigator> 
+              <Drawer.Screen name="SearchBar" component={SearchBar} />
+            </Drawer.Navigator>
           </NavigationContainer>
           :
           <NavigationContainer>
@@ -45,7 +47,7 @@ function App() {
             </Drawer.Navigator>
           </NavigationContainer>
       }
-      
+
     </>
   )
 }
