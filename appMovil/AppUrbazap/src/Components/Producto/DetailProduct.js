@@ -7,12 +7,100 @@ import CategoriesBar from '../navBar/CategoriesBar';
 import styles from "../Main/styles";
 import axios from 'axios';
 import { LoadStars } from './LoadResourcesProducts';
+import Swal from 'react-native-sweet-alert';
+
+let agregarCarrito = (id_producto,cantidad) => {
+    axios.get(`http://${data.number}/clientes/persona/${6}`).then(res => {
+      let dato = res.data[0];
+      axios.post(`http://${data.number}/carrito`,{
+        "id": dato.idPersona,
+        "idUsuario": dato.id,
+    }).then(() => {
+      console.log("Carrito Creado Exitosamente")
+    }).catch(err => {
+      console.log(err)
+    }).finally(() => {
+      axios.get(`http://${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
+        let dato = res.data[0];
+        axios.get(`http://${data.number}/detalle-carrito/carrito/${dato.id}`).then(res => {
+          let respuesta = res.data;
+          console.log(respuesta)
+          let isRespuesta = true;
+          if(respuesta.length > 0) {
+            for(let detalle of respuesta){
+              console.log(detalle)
+              if(detalle.idProducto === parseInt(id_producto)){
+                isRespuesta = false;
+                let pload = detalle;
+                pload.cantidad = cantidad;
+                axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
+                  console.log("success update")
+                  setLoad(true);
+                  Swal.fire(
+                    'Producto agregado al carrito exitosamente',
+                    `cantidad: ${cantidad}`,
+                    'success'
+                  )
+                }).then(() => {
+                  window.location.reload()
+                }).catch(err=> {
+                  console.log("Error update")
+                })
+                break ;
+              }
+            }
+            if(isRespuesta){
+              let payload = {
+                "idProducto": parseInt(id_producto),
+                "cantidad": cantidad,
+                "idCarrito": dato.id
+              }
+              axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
+                setLoad(true);
+                Swal.fire(
+                  'Producto agregado al carrito exitosamente',
+                  `cantidad: ${cantidad}`,
+                  'success'
+                ).then(() => {
+                  window.location.reload()
+                })
+              }).catch(err => {
+                console.log("error xd")
+              })
+            }
+          }
+          else{
+            let payload = {
+              "idProducto": parseInt(id_producto),
+              "cantidad": cantidad,
+              "idCarrito": dato.id
+            }
+            console.log(payload)
+            axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
+              setLoad(true);
+              Swal.fire(
+                'Producto agregado al carrito exitosamente',
+                'success'
+              )
+            }).catch(err => {
+              console.log("error xd")
+            })
+          }
+  
+        })
+      })
+    })
+    })
+  }
 
 const Detail = (props) => {
     let producto = props.route.params.item
     const [cantidad, setCantidad] = useState(1)
     const [total, setTotal] = useState(producto.precio)
     const [activeIndex, setActiveIndex] = useState(0)
+    const [etapaVendedor, setEtapaVendedor] = useState('')
+    const [etapaCliente, setEtapaCliente] = useState('')
+    const [load, setLoad] = useState(true)
     const [carouselItems, setCarouselItems] = useState([{
         "id": 0,
         "id_producto": 0, 
@@ -25,13 +113,38 @@ const Detail = (props) => {
             setCantidad(1)
             setActiveIndex(0)
             setTotal(producto.precio)
-            axios.get("http://134.209.215.193:3000/sourcesproductos?filter[where][id_producto]=" + producto.id)
+            axios.get(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
                 .then(response => setCarouselItems(response.data))
                 .catch(error => console.log('Hubo un error ' + error))
             
      })
         return cargaProductos
     }, [])
+    console.log(producto.idVendedor)
+    
+/*     useEffect(() => {
+        axios.get(`http://${data.number}/personas/` + producto.idVendedor)
+          .then((response) => {
+            return response.data.id_etapa
+          })
+          .then((idetapa) => {
+            axios.get(`http://${data.number}/etapas/` + idetapa)
+              .then((response) => {
+                setEtapaVendedor(response.data.nombre)
+                console.log("Hola")
+                console.log(etapaVendedor)
+              })
+              .catch(error => console.log('Hubo un error ' + error))
+          })
+    }, []) */
+
+/*     useEffect(() => {
+        axios.get(`http://${data.number}/etapas/` + localStorage.getItem('etapa'))
+          .then((response) => {
+            setEtapaCliente(response.data.nombre)
+          })
+          .catch(error => console.log('Hubo un error ' + error))
+    }, []) */
 
     const aumentarCantidad = () => { 
         if (cantidad < producto.stock) {
@@ -46,6 +159,23 @@ const Detail = (props) => {
             setCantidad(cantidad - 1)
         }
     }
+
+/*     const printImporte = () => {
+        axios.get(`http://134.209.215.193:3000/matriz/1`)
+          .then((response) => {
+            const respuesta = JSON.parse(response.data.data)
+            const posc = respuesta.vertexes.indexOf(etapaCliente)
+            const posv = respuesta.vertexes.indexOf(etapaVendedor)
+            setImporte(respuesta.matrix[posv][posc])
+            const div = document.getElementById('info_Importe')
+            div.innerHTML = `El proveedor se encuentra en la etapa "${etapaVendedor}". 
+                    El importe por envío tiene un costo de $` + respuesta.matrix[posv][posc]
+          })
+          .catch(error=>{
+              console.log(error, "Error al cargar la matriz de adyacencia");
+          })
+      } */
+    
 
     return(
         <NativeBaseProvider>
@@ -147,7 +277,10 @@ const Detail = (props) => {
                                     {/* Boton agregar al carrito */}
                                     <View style={{marginTop: 20, width: "70%", alignSelf: "center"}}>
                                         <Button 
-                                            onPress={() => console.log("agregando a carrito")}
+                                            onPress={() => {
+                                                console.log("agregando a carrito")
+                                                agregarCarrito(producto.id, cantidad)
+                                            }}
                                             title="Agregar a carrito"
                                             color="#506048"
                                         />

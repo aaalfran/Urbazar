@@ -38,6 +38,7 @@ class Banner extends React.Component{
         )
     }
 
+    listaCarrito = []
 
     render(){
         return(
