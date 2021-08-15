@@ -18,19 +18,7 @@ function Main(props) {
     setOutputText('');
 
     props.navigation.navigate('SearchBar', { data1: outputText });
-    //this.forceUpdate();
-    /* return (
-  
-  
-        <Stack.Navigator>
-          <Stack.screen name="SearchBar" component={SearchBar} />
-  
-        </Stack.Navigator>
-        /* <View style={{ flex: 1 }}>
-           <Text>holaaaaaaaaaaa estupidoooooooooooooooooooooooooo</Text>
-   
-           <SearchBar nameSection="Cerca de ti" ruta="http://134.209.215.193:3000/productos" />
-         </View>*/
+    
 
   }
 

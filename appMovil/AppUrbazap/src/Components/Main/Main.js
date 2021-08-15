@@ -9,7 +9,7 @@ function HomeScreen({navigation}) {
     return (
         <NativeBaseProvider>
         <NavBar navigation={navigation}/>
-        <CategoriesBar />
+        <CategoriesBar navigation={navigation}/>
         <Banner />
         </NativeBaseProvider>
     );

@@ -72,6 +72,8 @@ const Register= ( props) => {
         if (datosValidos){
             postToBackend()
 
+        }else{
+            alert("Corrija los datos ingresados")
         }
       
 
@@ -153,7 +155,7 @@ const Register= ( props) => {
         <NativeBaseProvider>
             <View >
                 <StatusBar backgroundColor="#506048" barStyle="light-content" />
-                <View style={[styles.header, {backgroundColor:"#506048"}]} >
+                <View style={styles.header} >
                     <HStack space={0} alignItems="center">
                         <IconButton
                             icon={<Icon name="chevron-left" color="white" size={25} style={{ marginRight: 0 }} />} 
@@ -165,6 +167,9 @@ const Register= ( props) => {
                             <Text style={styles.subtitle}> ¡Todo lo que buscas más cerca que nunca! </Text>
                         </View>
                     </HStack>
+                    
+                <View className="Decoradores" style={styles.decorator}/>
+            <View className="Decoradores" style={styles.decorator2}/>
                     
                 </View>
 

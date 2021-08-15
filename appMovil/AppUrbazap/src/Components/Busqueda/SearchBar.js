@@ -80,7 +80,7 @@ const SearchBar = (props) => {
     const fetchPosts = () => {
         //const data1 = 'iph';
         settext1(data1);
-        const apiURL = `http://${data.prod}/productos/nombre/${data1}`;
+        const apiURL = `http://${data.number}/productos/nombre/${data1}`;
 
 
         fetch(apiURL)
@@ -117,10 +117,9 @@ const SearchBar = (props) => {
     return (
         <>
             <NativeBaseProvider>
-                <Text>  hey {data1}</Text>
 
                 <NavBar navigation={props.navigation} />
-                <CategoriesBar />
+                <CategoriesBar navigation={props.navigation}/>
                 <View style={{ flex: 19 }}>
 
                     {/*Banner principal */}

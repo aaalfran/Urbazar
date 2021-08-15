@@ -75,7 +75,7 @@ const Carrito = (props) => {
     return (
         <NativeBaseProvider>
             <NavBar navigation={props.navigation}/>
-            <CategoriesBar/>
+            <CategoriesBar navigation={props.navigation}/>
             <View style={{flex:19}}> 
             {!load ? <Spinner color="blue.500" style={{marginTop: 10}}/>: <React.Fragment></React.Fragment>}
             {listaItems.length === 0 ? <Text style={{textAlign: 'center',marginTop: '50%',fontSize: 40,opacity: 0.3}}>Carrito Vacio</Text>: <React.Fragment></React.Fragment>}

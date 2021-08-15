@@ -11,29 +11,24 @@ import styles from "./styles";
 import {getCategoria} from '../../Context/categoriaContext';
 import Request from '../../ApiRequest/Request';
 import data from '../../../enviroment';
+import axios from 'axios';
 
 
 
 
-let DrawContent = ({categorie}) =>{
-    console.log("OKi")
-    if (categorie.length>0){
-        let url =  `${data.categoriesFilter}`
-        let urlComposed = url + `${categorie}`
-        let productsFromCategories= Request(urlComposed)
+let DrawContent = ({products}) =>{
  
     return(
         <View style={styles.contenedor_productos}>
         {
-            productsFromCategories.map(product=>(
+            products.map(product=>(
                 <DrawBox key={product.id} source={product.source} nombre={product.nombre} precio={product.precio}/>
             ))
     }
     </View>
     )
 
-    }
-    return <></>
+    
     
 }
 
@@ -61,26 +56,45 @@ let DrawBox = ({source, nombre, precio}) => {
 
 let filtroVista = (props) => {
     const [categorie, setCategorie] = useState("")
-
+    const [products, setProducts] = useState([])
        
-    useEffect(()=>{
+    useEffect( () => {
+        const unsuscribe = props.navigation.addListener('focus',() => {
             getCategoria()
             .then((cat)=> {
                 setCategorie(cat)
-            }
+                console.log(cat)
+                let url =  `${data.categoriesFilter}`
+                let urlComposed = url + `${cat}`
+
+                axios.get(urlComposed)
+                .then(response => {
+                    setProducts(response.data)
+
+                })
                 
-            )
-    })
+
+            })
+            .catch(e=> console.log(e))
+                
+            
+            
+                
+            
+        })
+        
+        return unsuscribe;
+    }, [])
 
 
     return (
         <NativeBaseProvider>
             <NavBar navigation={props.navigation} />
-            <CategoriesBar />
+            <CategoriesBar navigation={props.navigation}/>
             <View style={{ flex: 19 }}>
 
                 <VStack >
-                    <DrawContent categorie={categorie}/>
+                    <DrawContent categorie={categorie} products={products}/>
                     
 
                     

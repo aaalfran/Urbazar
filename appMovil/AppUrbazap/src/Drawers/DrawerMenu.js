@@ -4,7 +4,7 @@ import s from './styles'
 import {IconButton, NativeBaseProvider, } from 'native-base'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { useUsuario } from '../Context/usuarioContext';
-import {storeCategoria, getCategoria} from "../Context/categoriaContext";
+import {storeCategoria} from "../Context/categoriaContext";
 
 
 
@@ -50,8 +50,8 @@ let Menu= (props) => {
             
           </View>
           <View style={s.userNombre}>
-            <Text style={s.userTitulo}> ds {/*usuario.username*/}</Text>
-            <Text style={s.userSubTitulo}> sd {/*usuario.role==1? "Comprador": "Vendedor"*/} </Text>
+            <Text style={s.userTitulo}> {usuario.username}</Text>
+            <Text style={s.userSubTitulo}> {usuario.role==1? "Comprador": "Vendedor"} </Text>
           </View>
         </TouchableOpacity>
       </View>
