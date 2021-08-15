@@ -14,7 +14,6 @@ import VentanaFiltro from "./src/Components/Filtro/Ventanafiltro";
 import SearchBar from "./src/Components/Busqueda/SearchBar";
 import AddProduct from "./src/Components/Perfil/AddProduct";
 
-
 export default () => <UsuarioProvider>
   <App></App>
 </UsuarioProvider>
@@ -38,6 +37,7 @@ function App() {
               <Drawer.Screen name="Carrito" component={Carrito} />
               <Drawer.Screen name="Filtro" component={VentanaFiltro} />
               <Drawer.Screen name="SearchBar" component={SearchBar} />
+              <Drawer.Screen name="DetailProduct" component={DetailProduct} />
             </Drawer.Navigator>
           </NavigationContainer>
           :

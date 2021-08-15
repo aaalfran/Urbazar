@@ -36,5 +36,49 @@ export default {
         borderLeftStyle: "solid",
         borderColor: "#e6e6e6"
 
-    }
+    },
+    line:{
+        height: 1,
+        backgroundColor: 'rgba(0, 0, 0 ,0.1)',
+        alignSelf: 'stretch'
+    },
+    producto_titulo:{
+        fontSize: 30,
+        fontWeight: "bold"
+    },
+    producto_vendedor_titulo: {
+        fontSize: 22,
+        fontWeight: "bold",
+        marginTop: 10
+    },
+    producto_compra: {
+        flexDirection: "row",
+    },
+    producto_compra_etiqueta:{
+        width: "50%",
+    },
+    producto_compra_valores:{
+        width: "50%",
+    },
+    producto_dist:{
+        flexDirection: "row",
+    },
+    producto_texto:{
+        fontSize: 19,
+    },
+    producto_etapa: {
+        fontSize: 19,
+        marginTop: 12,
+        width: "50%",
+    },
+    producto_texto_dist:{
+        fontSize: 22,
+        fontWeight: "bold",
+        marginTop: 10,
+        width: "50%",
+    },
+    boton_compra:{
+        fontSize: 19,
+        marginTop: 5,
+    },
 }
