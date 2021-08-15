@@ -37,16 +37,36 @@ const ToggleMenu = (props) => {
                 <br/>
                 <p className='p_seccionToggler'>Configuración</p>
                 <hr className="my-2" />
-                <a href='/perfil'><i className="fas fa-user-alt"></i>Perfil</a>
-                <a href='/'><i className="fas fa-cog"></i>Configuración</a>
-                <a href='/'><i className="fas fa-exclamation-circle"></i>Reportar</a>
+                <a href='/perfil' className="colora"><i className="fas fa-user-alt colora"></i>
+                <span className="colora">
+                Perfil
+                </span>
+
+                </a>
+                <a href='/' className="colora"><i className="fas fa-cog colora"></i>
+                <span className="colora">
+                Configuración
+                </span></a>
+                <a href='/' className="colora"><i className="fas fa-exclamation-circle colora"></i>
+                <span className="colora">
+                Reportar
+                </span></a>
 
                 <br/>
                 <p className='p_seccionToggler'>Más</p>
                 <hr className="my-2" />
-                <a href='/devs'><i className="fas fa-user-alt"></i>Equipo de desarrollo</a>
-                <a href='/contactanos'><i className="fas fa-cog"></i>Contactanos</a>
-                <a href='/aboutus'><i className="fas fa-exclamation-circle"></i>¿Qué hacemos?</a>
+                <a href='/devs' className="colora"><i className="fas fa-user-alt colora"></i>
+                <span className="colora">
+                Equipo de desarrollo
+                </span></a>
+                <a href='/contactanos' className="colora"><i className="fas fa-cog colora"></i>
+                <span className="colora">
+                Contactanos
+                </span></a>
+                <a href='/aboutus' className="colora"><i className="fas fa-exclamation-circle colora"></i>
+                <span className="colora">
+                ¿Qué hacemos?
+                </span></a>
                 <br/>
 
             <div className='toggleCerrarSesion'>

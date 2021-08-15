@@ -3,7 +3,7 @@ import LoginPV from "./LoginPV";
 import {connect} from 'react-redux';
 import AuthA from '../../../store/actions/AuthA';
 import Register from "./Register";
-
+import data from '../../../enviroment';
 class LoginPC extends Component{
 
 
@@ -12,12 +12,13 @@ class LoginPC extends Component{
     login = async() =>{
                
         
-        let data = {
+        let payload = {
             'username': document.getElementById('username').value,
             'password': document.getElementById('password').value,
+            number : data.number,
         }
 
-        this.props.authFn.login(data);
+        this.props.authFn.login(payload);
     }
 
     

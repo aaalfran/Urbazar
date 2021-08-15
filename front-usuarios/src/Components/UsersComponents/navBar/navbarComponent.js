@@ -56,7 +56,7 @@ const NavbarComponent = (props) => {
           setIsOpen={setIsOpen}
         />
 
-        <NavbarBrand data-intro="¡Bienvenido a UrbazApp! Demos un tour" href='/' className='logo'>UrbazApp</NavbarBrand>
+        <NavbarBrand data-intro="¡Bienvenido a UrbazApp! Demos un tour" href='/' className='logo'><span className="Urbaz-part">Urbaz</span><span className="app-part">App</span></NavbarBrand>
         <NavbarBrand href='/' className='logo2'>UApp</NavbarBrand>
 
         <form className='mr-auto search_form' action={`http://${window.location.host}/buscador`}>
