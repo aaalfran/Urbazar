@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { View, ScrollView, Text } from "react-native"
 import {
     NativeBaseProvider,
@@ -11,7 +11,13 @@ import {
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import PaymentComponent from "../Payment/PaymentComponent";
-import {validarCodigo} from "./RegistroPC";
+import {
+    validarCedula, validarTelefono, 
+    validarCorreo, validarContrasenia, 
+    validarSimilitudContrasenias
+    } from "./RegistroPC";
+import data from '../../../enviroment';
+import axios from 'axios';
 
 function getEdades() {
     let ages = []
@@ -20,6 +26,7 @@ function getEdades() {
     }
     return ages
 }
+
 
 const Register= ( props) => {
     const [form, setForm] = useState({
@@ -38,14 +45,107 @@ const Register= ( props) => {
         codigoF: ""
       })
 
+    const [checkCodigo, setCheckCodigo] = useState(false)
+    const [userNames, setUserNames] = useState([])
 
+    const signUp = async() =>{
+        const checkCedula = validarCedula(form.identificacion)
+        const checkTelefono = validarTelefono(form.telefono)
+        const checkCorreo = validarCorreo(form.correo)
+        const checkUsername = validarUsername()
+        const checkPassword = validarContrasenia(form.password)
+        let checksimilitud=  false
+        
+        
+        const contrasenaValida = checkPassword=== "Contraseña válida"
+        if ( contrasenaValida ){
+            checksimilitud = validarSimilitudContrasenias(form.password, form.password2)
 
-    const handleChangeForm = (e) =>{
-        setForm({
-            ...form, [e.target.name]: e.target.value
+        }else{
+            console.log("No son iguales")
+        }
+
+        const datosValidos = checkCedula && checkTelefono && checkCorreo && checkUsername 
+        && contrasenaValida && checksimilitud && checkCodigo
+        console.log(form.identificacion, checkCedula, checkTelefono, checkCorreo, checkUsername, checkPassword,checksimilitud )
+        
+        if (datosValidos){
+            postToBackend()
+
+        }
+      
+
+    }
+    const postToBackend = () =>{
+        const data = {
+            nombre: form.nombre,
+            identificacion: form.identificacion,
+            edad: parseInt(form.edad, 10),
+            telefono: form.telefono,
+            correo: form.correo,
+            username: form.username,
+            genero: form.genero,
+            contrasena: "$2a$10$spFVpvU..pU41zpJxRJnIum93qDM9kjhoIKctFMZsFTsRtJuruKk2",
+            vendedorTipo: 0,
+            role: 0,
+            id_etapa: 1
+          }
+        axios.post(`http://134.209.215.193:3000/personas`, data)
+        .then(response => {
+            response.data
+            console.log("LLego aquí")
+        })
+        .then(res => console.log(res))
+        .catch(e=> console.log("dkaj", e))
+        alert('Usuario Registrado')
+
+    }
+
+    const validarCodigo = () =>{
+        let url = `http://${data.number}/familias?filter[where][clave]=` + form.codigoF;
+    
+        axios.get(url)
+        .then(response => {
+          return response.data})
+        .then( res=> {
+          if(res.length>0 ){
+            setCheckCodigo(true)
+          }
           
+        }) 
+        .catch(e=> {
+          console.log(e, "Hubo un error");
         })
         
+      }
+
+    const validarUsername = ()=> {
+        let check = true
+        userNames.map( (u)=>{
+            if (u.username == form.username){
+                check=  false;
+            }
+        } )
+        return check;
+      }
+
+    useEffect( ()=>{
+        axios.get(`http://${data.number}/personas?filter[fields][username]=true`)
+        .then(response => response.data)
+        .then(res => {
+          setUserNames(res)
+        })
+        .catch(e => {
+          console.log(e)
+        })
+
+    }, [])
+
+    const handleChangeForm = (name, valor) =>{
+        setForm({
+            ...form, [name]: valor
+          
+        })
       }
     const edades = getEdades()
 
@@ -78,8 +178,8 @@ const Register= ( props) => {
                                 InputLeftElement={
                                     <Icon name="user" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
                                 }
-                                name="nombre"                                
-                                onChange={handleChangeForm }
+                                name="nombre" 
+                                onChangeText={text => handleChangeForm("nombre", text)}
                             />
                         </Center>
 
@@ -97,7 +197,7 @@ const Register= ( props) => {
                                     }}
                                     
                                 name="genero"
-                                onChange={handleChangeForm} 
+                                onValueChange={value => handleChangeForm("genero", value)}
                                     >
 
                                     <Select.Item label="Masculino" value="Masculino" />
@@ -119,7 +219,7 @@ const Register= ( props) => {
                                     }}
                                     
                                 name="edad"
-                                onChange={handleChangeForm} 
+                                onValueChange={value => handleChangeForm("edad", value)}
                                 >
 
                                     {edades.map(edad => (
@@ -143,7 +243,7 @@ const Register= ( props) => {
                                     <Icon name="id-card-o" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
                                 }
                                 name="identificacion"
-                                onChange={handleChangeForm} 
+                                onChangeText={text => handleChangeForm("identificacion", text)}
                             />
                         </Center>
 
@@ -156,7 +256,7 @@ const Register= ( props) => {
                                     <Icon name="phone" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
                                 }
                                 name="telefono"
-                                onChange={handleChangeForm} 
+                                onChangeText={text => handleChangeForm("telefono", text)}
                             />
                         </Center>
 
@@ -169,7 +269,7 @@ const Register= ( props) => {
                                     <Icon name="envelope" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
                                 }
                                 name="correo"
-                                onChange={handleChangeForm} 
+                                onChangeText={text => handleChangeForm("correo", text)}
                             />
                         </Center>
 
@@ -184,7 +284,7 @@ const Register= ( props) => {
                                 }
                                 
                                 name="username"
-                                onChange={handleChangeForm} 
+                                onChangeText={text => handleChangeForm("username", text)}
                             />
                         </Center>
 
@@ -198,7 +298,7 @@ const Register= ( props) => {
                                         <Icon name="key" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
                                     }
                                     name="password"
-                                    onChange={handleChangeForm} 
+                                    onChangeText={text => handleChangeForm("password", text)}
                                 />
                             </Center>
                             {/*Password*/}
@@ -210,7 +310,7 @@ const Register= ( props) => {
                                         <Icon name="key" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
                                     }
                                     name="password2"
-                                    onChange={handleChangeForm} 
+                                    onChangeText={text => handleChangeForm("password2", text)}
                                 />
                             </Center>
                         </HStack>
@@ -231,14 +331,15 @@ const Register= ( props) => {
                                     <Icon name="users" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
                                 }
                                 name="codigoF"
-                                onChange={handleChangeForm} 
-                                onBlur={()=>{validarCodigo(form)}}
+                                onChangeText={text => handleChangeForm("codigoF", text)}
+                                onBlur={validarCodigo}
+                                
                             />
                             <Text style={styles.message}>*Tu administrador de etapa debe proporcionarte este código</Text>
                         </Center>
                         <Center style={{ width: "90%" }}>
 
-                            <Button backgroundColor="#506048" width="80%" style={{ marginTop: 10 }} >Registrarme</Button>
+                            <Button backgroundColor="#506048" width="80%" style={{ marginTop: 10 }} onPress={signUp} >Registrarme</Button>
                         </Center>
 
 
