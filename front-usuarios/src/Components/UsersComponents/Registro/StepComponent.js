@@ -200,7 +200,7 @@ class HorizontalNonLinearStepper extends Component{
                   value={this.state.form.codigoF}
                   placeholder="Código familiar" />
 
-                <FormText>Tu administrador de etapa debe proporcionarte este código</FormText>
+                <FormText><span className="text-white">Tu administrador de etapa debe proporcionarte este código</span></FormText>
                 <div id="FormFeedbackCodigo" className="feedback"></div>
               </FormGroup>
               

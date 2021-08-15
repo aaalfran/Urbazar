@@ -38,6 +38,7 @@ class Banner extends React.Component{
         )
     }
 
+    listaCarrito = []
 
     render(){
         return(
@@ -56,13 +57,9 @@ class Banner extends React.Component{
                     </View>
 
                     {/**Secciones */}
-                    <CardsProducts nameSection="Reciente" ruta={`http://${data.number}/productos`}/>
-
-                    
-                    <CardsProducts nameSection="Promociones" ruta={`http://${data.number}/productos`}/>
- 
-                    
-                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.number}/productos`}/>
+                    <CardsProducts nameSection="Reciente" ruta={`http://${data.number}/productos` } navigation={this.props}/>
+                    <CardsProducts nameSection="Promociones" ruta={`http://${data.number}/productos`} navigation={this.props}/>
+                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.number}/productos`} navigation={this.props}/>
 
                 </ScrollView>
 

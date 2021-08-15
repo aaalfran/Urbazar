@@ -1,30 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from "./styles";
 import Carousel from 'react-native-snap-carousel';
 import Request from '../../ApiRequest/Request';
 
-function _renderItem({ item, index }) {
-    return (
-        <View style={styles.boxProduct} >
-
-            <Image source={{ uri: item.source }} style={{
-                height: 150, width: 150
-            }}
-            />
-            <View style={{ marginTop: 1, borderWidth: 0.5, borderColor: "#e6e6e6" }} />
-            <View style={{ marginLeft: 10 }}>
-                <Text style={{ fontSize: 20 }}>{item.nombre}</Text>
-                <Text> ${item.precio}</Text>
-            </View>
-        </View>
-
-    )
-}
-
 function CardProduct(props) {
     const [activeIndex, setActiveIndex] = useState(0)
-
+    const navigation = props.navigation.navigation
 
     carouselItems = Request(props.ruta)
     return (
@@ -44,8 +26,21 @@ function CardProduct(props) {
                         data={carouselItems}
                         sliderWidth={200}
                         itemWidth={200}
-                        renderItem={_renderItem}
-                        onSnapToItem={index => setActiveIndex(index)} />
+                        renderItem={({item, index}) => (
+                            <TouchableOpacity
+                                key={item.id} 
+                                onPress={() => navigation.navigate('DetailProduct', {key: item.id, item: item})} 
+                                style={styles.boxProduct}
+                            > 
+                                <Image source= {{uri: item.source }} style={{height: 150, width: 150}}/>
+                                <View style={{marginTop:1, borderWidth:0.5, borderColor:"#e6e6e6"}}/>
+                                <View style={{ marginLeft: 10 }}>
+                                    <Text style={{fontSize: 20}}>{item.nombre}</Text>
+                                    <Text>${item.precio}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        )}
+                        onSnapToItem = {index => setActiveIndex(index)}  />
                 </View>
 
             </View>

@@ -8,7 +8,7 @@ const NavbarComponent = ({isLogin}) => {
      <>
         <Navbar color='faded' dark className='navBarRegister'>
 
-        <NavbarBrand className='logo_reg'> UrbazApp</NavbarBrand>
+        <NavbarBrand className='logo_reg'> <span className="Urbaz-part">Urbaz</span><span className="app-part">App</span></NavbarBrand>
 
         <div id="link_login">
           {isLogin? <p></p>  : <a href={'/login'}>Iniciar sesión</a>}

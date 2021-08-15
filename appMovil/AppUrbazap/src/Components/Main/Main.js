@@ -5,12 +5,18 @@ import NavBar from "../navBar/NavigationBar";
 import { SafeAreaView } from 'react-navigation';
 import CategoriesBar from "../navBar/CategoriesBar";
 import Banner from "./Banner"
+import { useUsuario } from '../../Context/usuarioContext';
 function HomeScreen({navigation}) {
+
+  
+
     return (
         <NativeBaseProvider>
         <NavBar navigation={navigation}/>
+
+
         <CategoriesBar navigation={navigation}/>
-        <Banner />
+        <Banner navigation={navigation}/>
         </NativeBaseProvider>
     );
   }

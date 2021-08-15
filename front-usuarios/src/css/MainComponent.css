@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 .Main {
   text-align: center;
 }
@@ -68,7 +69,7 @@
 }
 
 .navbar {
-  background-color: #506048;
+  background-color: #02023d;
   position: sticky;
   padding-left: 5px;
   padding-right: 5px;
@@ -128,13 +129,18 @@
 .nav_categorias .nav-link p {
   margin: 0;
 }
-
+.colora{
+  color: #02023d;
+}
+.colorb{
+  color: #f4733e;
+}
 .icon_cat {
   margin-right: 5px;
-  color: #738868;
+  color: #02023d;
 }
 .icon_cat + p{
-  color: #738868;
+  color: #02023d;
 }
 
 
@@ -270,7 +276,7 @@ footer > p {
 .togglePerfil {
   top: 0;
   left: 0;
-  background-color: #506048;
+  background-color: #02023d;
   height: 15%;
   display: flex;
   align-items: center;
@@ -318,14 +324,18 @@ footer > p {
 
 .menu_cat_toggle .nav-item {
   width: 100%;
+  color: #02023d;
 }
 
 .menu_cat_toggle .nav-item > a {
   display: flex;
   align-items: center;
   transition: transform .2s;
-  color: #506048;
+  color: #02023d;
   margin-bottom: 5px;
+}
+.menu_cat_toggle li{
+  color: #02023d;
 }
 
 .menu_cat_toggle .nav-item > a:hover {
@@ -335,6 +345,7 @@ footer > p {
 
 .menu_cat_toggle .nav-item > a > p {
   margin: 0;
+  color: #02023d;
 }
 
 .p_seccionToggler {
@@ -360,7 +371,7 @@ footer > p {
 }
 
 .p_toggleMenu {
-  background-color:  #506048;
+  background-color:  #02023d;
   margin: 0;
   color: white;
   font-size: 23px;
@@ -401,7 +412,7 @@ footer > p {
 .toggleCerrarSesion {
   bottom: 0;
   height: 60px;
-  background-color: #506048;
+  background-color: #02023d;
   align-items: center;
   display: flex;
 }
@@ -427,4 +438,17 @@ footer > p {
 #btn_cerrarSesion:hover {
   background-color:  #b4b4b4d2;
   text-decoration: none;
+}
+.Urbaz-part{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.app-part{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: -webkit-repeating-linear-gradient(#f4733e,#ed4258);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+footer{
+  background-color: #02023d;
 }

@@ -1,10 +1,11 @@
 import axios from 'axios'
+
 const AuthA = (dispatch) => {
   return {
 
     login: (data) => {
       const feed = document.getElementById('FeedbackLogin')
-
+      console.log(data)
       console.log(data)
       axios.post(`http://${data.number}/login`, data)
         .then(response => {

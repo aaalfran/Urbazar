@@ -7,7 +7,7 @@ body{
 }
 
 #btn_confModal{
-    background: green;
+    background: #f4733e;
     color:white;
     font-style: bold;
 }
@@ -150,7 +150,7 @@ nav a h3{
     display: flex;
     justify-content: center;
     align-items: center;
- 
+
 }
 
 #time_send{
@@ -160,7 +160,7 @@ nav a h3{
 }
 
 #btn_continue Button{
-    background: #56853d;
+    background-color:#f4733e;
 }
 
 #title_detail{

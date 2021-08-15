@@ -12,11 +12,11 @@
 
 [id$=totlabel]>p {
     border-top: solid 2px;
-    border-color: #506048;
+    border-color: #f4733e;
 }
 
 #btnAgregarCarrito{
-    background-color: #506048;
+    background-color: #f4733e;
 }
 .justify-content-center{
     background-color: white;
@@ -60,7 +60,7 @@
 }
 #cont_cantidad Button{
     border-radius: 0px;
-    background-color: #506048;
+    background-color: #f4733e;
     padding: 0px;
     width: 20px;
     text-align: center;
