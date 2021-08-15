@@ -7,58 +7,78 @@ import { useUsuario } from '../../Context/usuarioContext';
 import axios from 'axios';
 import data from '../../../enviroment';
 import CarritoItem from './CarritoItem';
+const deleteProducts = async (lista,setLista,setVacio,setPrecioTotal) => {
+    for (let idDetalle of lista){
+        await axios.delete(`http://${data.number}/detalle-carrito/${idDetalle}`).then(res => {
+
+        }).catch(err => {
+
+        })
+        
+    }
+    setLista([])
+    setVacio(true)
+    setPrecioTotal(0)
+    
+}
 const Carrito = (props) => {
     const { usuario, logOut } = useUsuario();
     const [listaItems,setListaItems] = useState([]);
     const [load,setLoad] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [precioTotal,setPrecioTotal] = useState(0);
-    const [vacio,setVacio] = useState(false);
+    const [vacio,setVacio] = useState(true);
+    const [idDetalle,setIdDetalle] = useState([]);
+
     useEffect(() => {
-        setListaItems([])
-        axios.get(`http://${data.number}/clientes/persona/${usuario.id}`).then(response => {
-            axios.get(`http://${data.number}/carrito/cliente/${response.data[0].id}`).then(response => {
-                let resultado = response.data[0]
-                axios.get(`http://${data.number}/detalle-carrito/carrito/${resultado.id}`).then(response => {
-                    let lista = response.data;
-                    if(lista.length > 0) {
-                        for(let item of lista) {
-                            axios.get(`http://${data.number}/productos/${item.idProducto}`).then(res => {
-                                let producto = res.data;
-                                const nombre = producto.nombre
-                                const precio = producto.precio
-                                const imagen = producto.source
-                                const desc = producto.descripcion
-                                const cant = item.cantidad
-                                setListaItems(current => current.concat(<CarritoItem key={item.idDetalle}src={imagen} nombre={nombre} precio={cant*precio} cantidad = {cant} idDetalle ={item.idDetalle} navigation={props.navigation} ></CarritoItem>))
-                                setPrecioTotal(current => current + cant*precio)
-                                
-
-                            })
+        const unsuscribe = props.navigation.addListener('focus',() => {
+            setListaItems([])
+            setLoad(false);
+            axios.get(`http://${data.number}/clientes/persona/${usuario.id}`).then(response => {
+                axios.get(`http://${data.number}/carrito/cliente/${response.data[0].id}`).then(response => {
+                    let resultado = response.data[0]
+                    axios.get(`http://${data.number}/detalle-carrito/carrito/${resultado.id}`).then(response => {
+                        let lista = response.data;
+                        if(lista.length > 0) {
+                            for(let item of lista) {
+                                axios.get(`http://${data.number}/productos/${item.idProducto}`).then(res => {
+                                    let producto = res.data;
+                                    const nombre = producto.nombre
+                                    const precio = producto.precio
+                                    const imagen = producto.source
+                                    const desc = producto.descripcion
+                                    const cant = item.cantidad
+                                    setListaItems(current => current.concat(<CarritoItem key={item.idDetalle}src={imagen} nombre={nombre} precio={cant*precio} cantidad = {cant} idDetalle ={item.idDetalle} navigation={props.navigation} ></CarritoItem>))
+                                    setIdDetalle(current => current.concat(item.idDetalle))
+                                    setPrecioTotal(current => current + cant*precio)
+                                    
+    
+                                })
+                            }
+                            setLoad(true);
+                            setVacio(false);
+                        }else{
+                            setLoad(true);
                         }
-                        setLoad(true);
-                    }else{
-                        setLoad(true);
-                        setVacio(true);
-                    }
-                }).catch(err => {
-
+                    }).catch(err => {
+    
+                    })
+                }).catch(err =>{
+    
                 })
-            }).catch(err =>{
-
+            }).catch(err => {
+    
             })
-        }).catch(err => {
-
-        })
+        });
+        return unsuscribe;
     },[])
-    console.log(usuario)
     return (
         <NativeBaseProvider>
             <NavBar navigation={props.navigation}/>
             <CategoriesBar/>
             <View style={{flex:19}}> 
             {!load ? <Spinner color="blue.500" style={{marginTop: 10}}/>: <React.Fragment></React.Fragment>}
-            {vacio ? <Text style={{textAlign: 'center',marginTop: '50%',fontSize: 40,opacity: 0.3}}>Carrito Vacio</Text>: <React.Fragment></React.Fragment>}
+            {listaItems.length === 0 ? <Text style={{textAlign: 'center',marginTop: '50%',fontSize: 40,opacity: 0.3}}>Carrito Vacio</Text>: <React.Fragment></React.Fragment>}
             <ScrollView>
                 {listaItems}
             </ScrollView>
@@ -84,6 +104,7 @@ const Carrito = (props) => {
                         <Button
                             onPress={() => {
                             setShowModal(false)
+                            deleteProducts(idDetalle,setListaItems,setVacio,setPrecioTotal)
                             }}
                         >
                             Aceptar

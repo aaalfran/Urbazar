@@ -45,9 +45,11 @@ let agregarCarrito = (id_producto,cantidad,setLoad) => {
                 setLoad(true);
                 Swal.fire(
                   'Producto agregado al carrito exitosamente',
-                  '',
+                  `cantidad: ${cantidad}`,
                   'success'
                 )
+              }).then(() => {
+                window.location.reload()
               }).catch(err=> {
                 console.log("Error update")
               })
@@ -64,8 +66,11 @@ let agregarCarrito = (id_producto,cantidad,setLoad) => {
               setLoad(true);
               Swal.fire(
                 'Producto agregado al carrito exitosamente',
+                `cantidad: ${cantidad}`,
                 'success'
-              )
+              ).then(() => {
+                window.location.reload()
+              })
             }).catch(err => {
               console.log("error xd")
             })

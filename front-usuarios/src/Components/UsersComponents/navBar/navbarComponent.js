@@ -30,8 +30,8 @@ const NavbarComponent = (props) => {
 
   idCarritoDef = idCarrito
   let cantidad = 0
-
-  axios.get(`http://${data.number}/detalle-carrito/${idCarritoDef}`)
+/** 
+ *   axios.get(`http://${data.number}/detalle-carrito/${idCarritoDef}`)
     .then(response => response.data)
     .then((res2) => {
       for (let i = 0; i < res2.length; i++) {
@@ -43,6 +43,8 @@ const NavbarComponent = (props) => {
       cantidadProd = cantProductos
     }
     )
+*/
+
 
   return (
     <>
