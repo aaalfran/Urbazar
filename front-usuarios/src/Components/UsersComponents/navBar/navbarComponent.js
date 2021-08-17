@@ -14,7 +14,9 @@ const NavbarComponent = (props) => {
   const toggle = () => setIsOpen(true)
 
   useEffect(() => {
+    console.log(localStorage.getItem('userId'))
     axios.get(`http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`)
+    
     .then(response => response.data)
     .then((res) => {
       axios.get(`http://${data.number}/carrito/cliente/${res[0].id}`).then(response => {

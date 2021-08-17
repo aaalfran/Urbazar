@@ -16,6 +16,9 @@ class HorizontalNonLinearStepper extends Component{
       password_check: false,
       password2_check: false,
       codigo_check: false,
+      familia_id:0,
+      idPersona:0,
+      etapa_id:0,
       form:{
         nombres: "",
         apellidos: "",
@@ -357,6 +360,9 @@ class HorizontalNonLinearStepper extends Component{
       return response.data})
     .then( res=> {
       if(res.length>0 ){
+        this.setState({familia_id: res[0].id});
+        this.setState({etapa_id: res[0].idEtapa});
+
         feed.innerHTML = "";
         feed.style.color="green";
         divcodigo.style.border="1px solid green"
@@ -391,7 +397,6 @@ class HorizontalNonLinearStepper extends Component{
 
     let data = { 
         nombre: this.state.form.nombres +" " +this.state.form.apellidos,
-        
         identificacion: this.state.form.identificacion,
         edad: parseInt(this.state.form.edad, 10),
         telefono: this.state.form.telefono,
@@ -401,15 +406,43 @@ class HorizontalNonLinearStepper extends Component{
         genero: this.state.form.genero,
         role: 0,
         vendedorTipo: 0,
-        id_etapa: 1       
+        activo:1,
+        id_etapa: this.state.etapa_id       
     }
     
     console.log(data);
+    
     if(this.props.validarVacios() && this.state.user_check && this.state.password_check && this.state.password2_check && this.state.codigo_check){
-      axios.post(`http://${data.number}/personas`, data)
+      axios.post(`http://134.209.215.193:3000/personas`, data)
           .then(response => response.data)
           .then( res=> console.log(res))
+          .then(()=>{
+            axios.get(`http://134.209.215.193:3000/personas`)
+            .then(response=> {
+              let rspta = response.data
+              let id_cliente = rspta[rspta.length-4].id; //Este es un parche provisional, debe obtenerse correctamente el id de la persona que se está registrando
+              this.setState({idPersona: id_cliente})
+
+            })
+            .then(()=>{
+
+              let data_cliente={         
+                idPersona: this.state.idPersona,
+                idFamilia: this.state.familia_id,
+                subscripcion: 0  
+              }
+
+
+              axios.post(`http://134.209.215.193:3000/clientes`, data_cliente)
+              .catch(e=> console.log("TERCERO", e))
+            })
+          .catch(e=> console.log(" SEGUNDO Hubo un error", e))
+
+
+          })
+          .catch(e=> console.log(" PRIMERO Hubo un error", e))
       this.props.handleModal()
+    
     }else{
       divVacios.innerHTML = ("Rectifique los campos indicados");
       divVacios.style.backgroundColor="#FFC4CC";

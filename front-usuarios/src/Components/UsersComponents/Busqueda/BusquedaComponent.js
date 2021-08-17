@@ -59,7 +59,7 @@ const useLoadResource = ({ categoria }) => {
         >
 
           {Array.isArray(productos)
-            ? productos.map((producto, id) => (<a key={id} className="tarjeta" href={`http://${window.location.host}/productdetail/${producto.id}`}>
+            ? productos.map((producto, id) => (<a key={id} className="tarjeta" href={`http://${window.location.host}/productdetail/${producto.id}/${producto.idVendedor}`}>
             <Grid
               item
               xs={3}
