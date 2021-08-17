@@ -399,7 +399,9 @@ class HorizontalNonLinearStepper extends Component{
         username: this.state.form.username,
         contrasena: pass_encrypt,
         genero: this.state.form.genero,
-        role: 0        
+        role: 0,
+        vendedorTipo: 0,
+        id_etapa: 1       
     }
     
     console.log(data);
