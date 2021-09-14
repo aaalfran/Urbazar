@@ -5,9 +5,14 @@ export default {
         marginBottom: 20
     },
     title:{
-        fontSize: 50,
-        color: "#506048",
-        marginBottom: 0
+        fontSize: 40,
+        color: "#02023d",
+        marginLeft: "3%",
+        marginRight: "3%",
+        paddingBottom: 10,
+        borderBottomWidth: 1.5, 
+        borderBottomColor: "#e6e6e6", 
+        borderStyle:"solid",  
     },
     subtitle:{
         fontSize: 10,
@@ -16,22 +21,22 @@ export default {
         marginLeft: "5%"
     },
     decorator:{
-        width: 130,
-        height: 130,
+        width: 150,
+        height: 150,
         borderRadius: 100,
-        backgroundColor: "#506048ad",
+        backgroundColor: "#f4733e",
         position: "absolute",
         top: -40,
         right: -30
     },
     decorator2:{
-        width: 90,
-        height: 90,
+        width: 100,
+        height: 100,
         borderRadius: 100,
-        backgroundColor: "#b05f58c2",
+        backgroundColor: "#ed4258db",
         position: "absolute",
-        top: 25,
-        right: 25
+        top: 35,
+        right: 35
     },
     divider:{
         marginTop: 10, 
@@ -42,7 +47,13 @@ export default {
         width:"90%"
     },
     message:{
-        fontSize: 11,
-        color: "#949494"
-    }
+        fontSize: 14,
+        color: "#949494",
+        marginTop: 3,
+    },
+    logo:{
+        width: 100,
+        height: 50,
+        marginLeft: 10,
+    },
 }

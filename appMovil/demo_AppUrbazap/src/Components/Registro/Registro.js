@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { View, ScrollView, Text } from "react-native"
+import { View, ScrollView, Text, Image } from "react-native"
 import {
     NativeBaseProvider,
     StatusBar, Input,
@@ -30,19 +30,19 @@ function getEdades() {
 
 const Register= ( props) => {
     const [form, setForm] = useState({
-        nombre: "",
-        genero:"",
-        edad:0,
+        nombre:         "",
+        genero:         "",
+        edad:           0,
         identificacion: "",
-        telefono: "",
-        correo: "",
-        username: "",
-        password: "",
-        password2: "",
-        nro_tarjeta: "",
-        fecha_tarjeta: "",
-        cvc_tarjeta: "",
-        codigoF: ""
+        telefono:       "",
+        correo:         "",
+        username:       "",
+        password:       "",
+        password2:      "",
+        nro_tarjeta:    "",
+        fecha_tarjeta:  "",
+        cvc_tarjeta:    "",
+        codigoF:        ""
       })
 
     const [checkCodigo, setCheckCodigo] = useState(false)
@@ -153,35 +153,33 @@ const Register= ( props) => {
 
     return (
         <NativeBaseProvider>
-            <View >
-                <StatusBar backgroundColor="#506048" barStyle="light-content" />
+            <View style={{height:"100%", backgroundColor: '#ffffff'}}>
+                <StatusBar backgroundColor="#02023d" barStyle="light-content" />
                 <View style={styles.header} >
                     <HStack space={0} alignItems="center">
                         <IconButton
-                            icon={<Icon name="chevron-left" color="white" size={25} style={{ marginRight: 0 }} />} 
-                            style={{ marginRight: 0 }}
+                            icon={<Icon name="chevron-left" color="#02023d" size={25} style={{ marginRight: 0 }} />} 
+                            style={{ marginRight: 0, marginLeft: 5 }}
                             onPress={()=>props.navigation.navigate("Login")}
                         />
                         <View>
-                            <Text style={styles.title}> UrbazApp </Text>
-                            <Text style={styles.subtitle}> ¡Todo lo que buscas más cerca que nunca! </Text>
+                            <Image style={styles.logo} source={require('../../images/logo_title_v2.png')}/>
                         </View>
                     </HStack>
-                    
-                <View className="Decoradores" style={styles.decorator}/>
-            <View className="Decoradores" style={styles.decorator2}/>
-                    
+                    <View className="Decoradores" style={styles.decorator}/>
+                    <View className="Decoradores" style={styles.decorator2}/>
                 </View>
 
+                <Text style={styles.title}> Crea tu cuenta </Text>
                 <ScrollView stickyHeaderIndices={[1]} >
-                    <Stack space={3} alignItems="center" style={{ marginBottom: "50%" }}>
+                    <Stack space={3} alignItems="center" style={{ marginBottom: "10%" }}>
                         {/* Nombre Completo*/}
-                        <Center style={{ width: "90%" }}  >
+                        <Center style={{ width: "90%", marginTop: "3%"}}  >
                             <Input 
                                 placeholder="Nombre Completo"
                                 style={{ width: "100%" }}
                                 InputLeftElement={
-                                    <Icon name="user" color="#DADADA" size={25} style={{ marginLeft: "3%" }} />
+                                    <Icon name="user" color="#DADADA" size={25} style={{ marginLeft: "3%"}} />
                                 }
                                 name="nombre" 
                                 onChangeText={text => handleChangeForm("nombre", text)}
@@ -344,22 +342,9 @@ const Register= ( props) => {
                         </Center>
                         <Center style={{ width: "90%" }}>
 
-                            <Button backgroundColor="#506048" width="80%" style={{ marginTop: 10 }} onPress={signUp} >Registrarme</Button>
+                            <Button backgroundColor="#f4733e" width="80%" style={{ marginTop: 10 }} onPress={signUp} >Registrarme</Button>
                         </Center>
-
-
-
-
-
-
-
-
-
-
-
                     </Stack>
-
-
                 </ScrollView>
 
             </View>

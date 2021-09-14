@@ -23,9 +23,6 @@ function App() {
   const { usuario } = useUsuario();
   const Drawer = createDrawerNavigator()
 
-
-
-
   return (
     <>
       {
@@ -55,6 +52,6 @@ function App() {
 
 StyleSheet.create({
   container: {
-    backgroundColor: '#E8E8F0'
+    backgroundColor: '#ffffff'
   }
 })

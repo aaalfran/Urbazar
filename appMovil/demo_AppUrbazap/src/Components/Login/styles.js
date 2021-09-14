@@ -12,13 +12,13 @@ export default {
     },
     title:{
         fontSize: 50,
-        color: "#506048",
+        color: "#02023d",
         marginBottom: 0
     },
     subtitle:{
-        fontSize: 10,
-        color: "#506048",
-        marginBottom: 0
+        fontSize: 15,
+        color: "#02023d",
+        marginBottom: 0,
     },
     logo:{
         alignText: "center"
@@ -37,13 +37,12 @@ export default {
     },
     info_box:{
         marginTop: 30,
-        marginBottom: 20,
-        
-
+        marginBottom: 30,
     },
     footer:{
         position: "absolute",
-        bottom: 20,
+        padding: 8,
+        bottom: 8,
         width: "100%",
         height: 30,
         borderTopWidth: 1,
@@ -51,11 +50,11 @@ export default {
         borderTopColor: "#E5E7E9",
         flexWrap: 'wrap',
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     letraFooter:{
-        fontSize: 12,
-        color: "#506048",
+        fontSize: 15,
+        color: "#02023d",
         textAlign: "center"
 
     },
@@ -63,7 +62,7 @@ export default {
         width: 150,
         height: 150,
         borderRadius: 100,
-        backgroundColor: "#506048ad",
+        backgroundColor: "#f4733e",
         position: "absolute",
         top: -40,
         right: -30
@@ -72,10 +71,18 @@ export default {
         width: 100,
         height: 100,
         borderRadius: 100,
-        backgroundColor: "#b05f58c2",
+        backgroundColor: "#ed4258db",
         position: "absolute",
         top: 35,
         right: 35
-    }
+    },
+    logo:{
+        width: 300,
+        height: 300,
+    },
+    signup:{
+        color:"#ed4258",
+        fontSize: 15,
+    },
 
 }
