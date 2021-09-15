@@ -11,23 +11,24 @@ function CategoriesBar({navigation}) {
     const handlePress= (categoria, page)=>{
         storeCategoria(categoria)
         .then(()=>{
-            navigation.navigate( page);
+            navigation.navigate(page);
         
           })
     }
+    const color_icon = "#02023d";
 
     return (
         <NativeBaseProvider>
         <View style={{flex:1}} > 
-            <HStack bg='#e6e6e6' justifyContent='center' alignItems='center'>
+            <HStack bg='#E8E8F0' justifyContent='center' alignItems='center'>
                 <HStack space={3}>
-                    <IconButton icon={<Icon name="home" color="#506048"  size={20}/> } onPress={()=> handlePress("0", "Home")} />
-                    <IconButton icon={<Icon name="suitcase" color="#506048"  size={20}/> } onPress={()=> {handlePress("1", "Filtro")} }/>
-                    <IconButton icon={<Icon name="desktop" color="#506048" size={20}/> } onPress={()=> handlePress("2", "Filtro")} />
-                    <IconButton icon={<Icon name="cutlery" color="#506048" size={20}/> } onPress={()=> handlePress("3", "Filtro")} />
-                    <IconButton icon={<Icon name="bath" color="#506048" size={20}/> } onPress={()=> handlePress("4", "Filtro")}/>
-                    <IconButton icon={<Icon name="eyedropper" color="#506048" size={20}/>} onPress={()=> handlePress("5", "Filtro")} />
-                    <IconButton icon={<Icon name="rocket" color="#506048" size={20}/> } onPress={()=> handlePress("1", "Filtro")}/>
+                    <IconButton icon={<Icon name="home" color={color_icon}  size={20}/> } onPress={()=> handlePress("0", "Home")} />
+                    <IconButton icon={<Icon name="suitcase" color={color_icon}  size={20}/> } onPress={()=> {handlePress("1", "Filtro")} }/>
+                    <IconButton icon={<Icon name="desktop" color={color_icon} size={20}/> } onPress={()=> handlePress("2", "Filtro")} />
+                    <IconButton icon={<Icon name="cutlery" color={color_icon} size={20}/> } onPress={()=> handlePress("3", "Filtro")} />
+                    <IconButton icon={<Icon name="bath" color={color_icon} size={20}/> } onPress={()=> handlePress("4", "Filtro")}/>
+                    <IconButton icon={<Icon name="eyedropper" color={color_icon} size={20}/>} onPress={()=> handlePress("5", "Filtro")} />
+                    <IconButton icon={<Icon name="rocket" color={color_icon} size={20}/> } onPress={()=> handlePress("1", "Filtro")}/>
                 </HStack>
             </HStack>
         </View>

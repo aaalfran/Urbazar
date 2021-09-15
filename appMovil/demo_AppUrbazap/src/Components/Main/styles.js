@@ -11,28 +11,28 @@ export default {
 
     },
     headers:{
-        fontSize: 15,
+        fontSize: 20,
         color: "gray",
         marginBottom: 10
     },
     cont_Carrusel:{
         marginTop: 5,
         backgroundColor: 'white',
-        padding: 5
+        padding: 1
     },
     boxProduct:{        
         borderRadius: 5,
-        height: 250,
+        height: 200,
         marginLeft: 5,
         marginRight: 5, 
-        borderWidth: 0.5,
+        borderWidth: 0.8,
         shadowOffset:{
             width: 0,
-            height: 2,
+            height: 1,
         },
         shadowOpacity: 0.1,
-        shadowRadius: 2,
-        borderLeftWidth: 5,
+        shadowRadius: 1,
+        borderRightWidth: 3,
         borderLeftStyle: "solid",
         borderColor: "#e6e6e6"
 

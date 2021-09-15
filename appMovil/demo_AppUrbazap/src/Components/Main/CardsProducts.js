@@ -32,11 +32,11 @@ function CardProduct(props) {
                                 onPress={() => navigation.navigate('DetailProduct', {key: item.id, item: item})} 
                                 style={styles.boxProduct}
                             > 
-                                <Image source= {{uri: item.source }} style={{height: 150, width: 150}}/>
-                                <View style={{marginTop:1, borderWidth:0.5, borderColor:"#e6e6e6"}}/>
+                                <Image source= {{uri: item.source }} style={{width: 150, height: 150}}/>
+                                <View style={{marginTop:1, borderWidth:0.5, borderColor:"#e6e6e6",borderRadius: 10}}/>
                                 <View style={{ marginLeft: 10 }}>
-                                    <Text style={{fontSize: 20}}>{item.nombre}</Text>
-                                    <Text>${item.precio}</Text>
+                                    <Text style={{fontSize: 20, color: "#02023d", fontWeight: "bold"}}>{item.nombre}</Text>
+                                    <Text style={{fontSize: 20, color: "#f4733e"}}>${item.precio}</Text>
                                 </View>
                             </TouchableOpacity>
                         )}

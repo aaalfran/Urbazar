@@ -53,14 +53,11 @@ const AddProduct = () => {
         <NativeBaseProvider>
             <View>
                 <View style={{ marginTop: 50, marginLeft: 10 }}>
-                    <Text>Subir producto</Text>
-
+                    <Text style={{ fontSize: 35, color: "#02023d", marginLeft: 10}}>Subir producto</Text>
                     <View style={styles.divider} />
                 </View>
 
                 <VStack space={4} alignItems="center">
-
-
                     <View style={{ width: "90%" }}>
                         <Text>Nombre</Text>
                         <Input variant="outline"
@@ -132,10 +129,10 @@ const AddProduct = () => {
 
                 <HStack space={3} style={{ marginTop: "10%", marginBottom: "10%", justifyContent: "center" }}>
                     <IconButton
-                        style={{ height: 100, width: 100, borderColor: "#7a7a7a" }}
+                        style={{ height: 100, width: 100, borderColor: "#f4733e" }}
                         onPress={PickImage}
                         variant="outline"
-                        icon={<Icon name="picture-o" color="#7a7a7a" size={50} />} />
+                        icon={<Icon name="picture-o" color="#f4733e" size={50} />} />
 
                     {image && <Image source={{ uri: image }} style={{ width: 100, height: 100 }} />}
                 </HStack>
@@ -143,7 +140,7 @@ const AddProduct = () => {
 
 
                 <View alignItems="center">
-                    <Button backgroundColor="#506048" onPress={() => SaveImage(image,usuario.id, categoria,nombre,precio,descripcion,stock)} style={{ paddingLeft: "10%", paddingRight: "10%", width: "70%" }}>
+                    <Button backgroundColor="#02023d" onPress={() => SaveImage(image,usuario.id, categoria,nombre,precio,descripcion,stock)} style={{ paddingLeft: "10%", paddingRight: "10%", width: "70%" }}>
                         Subir producto
                     </Button>
                 </View>

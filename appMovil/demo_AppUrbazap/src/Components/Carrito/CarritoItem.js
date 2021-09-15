@@ -27,7 +27,7 @@ const CarritoItem = (props) => {
                 <Text style={styles.texto}>Precio: ${props.precio}</Text>
                 <Text style={styles.texto}>Cantidad: {props.cantidad}</Text>
             </View>
-            <IconButton onPress={() => borrarElemento(props,setHide) } icon={<Icon name="trash" color="#506048"  size={20}/> } />
+            <IconButton onPress={() => borrarElemento(props,setHide) } icon={<Icon name="trash" color="#ed4258" size={20}/> } />
         </View>
     );
 }

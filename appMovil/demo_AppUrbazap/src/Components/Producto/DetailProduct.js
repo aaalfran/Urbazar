@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../navBar/NavigationBar';
-import { View, Text, Button, Image, ScrollView, Dimensions } from 'react-native';
+import { View, Text, Button, Image, ScrollView, Dimensions, Alert } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { NativeBaseProvider } from "native-base";
-import CategoriesBar from '../navBar/CategoriesBar';
 import styles from "../Main/styles";
 import axios from 'axios';
 import { LoadStars } from './LoadResourcesProducts';
-import Swal from 'react-native-sweet-alert';
+import data from '../../../enviroment';
+
+const mostrarAlerta = () => {
+  Alert.alert(
+    "Añadir al carrito",
+    "Producto añadido exitosamente",
+    [
+      { text: "OK", onPress: () => console.log("producto anadido") }
+    ]
+  );
+}
 
 let agregarCarrito = (id_producto,cantidad) => {
     axios.get(`http://${data.number}/clientes/persona/${6}`).then(res => {
       let dato = res.data[0];
+      console.log(dato)
       axios.post(`http://${data.number}/carrito`,{
-        "id": dato.idPersona,
-        "idUsuario": dato.id,
+        "id": 6,
+        "idUsuario": 2,
     }).then(() => {
       console.log("Carrito Creado Exitosamente")
     }).catch(err => {
-      console.log(err)
+      console.log("Carrito ya creado")
     }).finally(() => {
       axios.get(`http://${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
         let dato = res.data[0];
@@ -35,14 +45,7 @@ let agregarCarrito = (id_producto,cantidad) => {
                 pload.cantidad = cantidad;
                 axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
                   console.log("success update")
-                  setLoad(true);
-                  Swal.fire(
-                    'Producto agregado al carrito exitosamente',
-                    `cantidad: ${cantidad}`,
-                    'success'
-                  )
-                }).then(() => {
-                  window.location.reload()
+                  mostrarAlerta();
                 }).catch(err=> {
                   console.log("Error update")
                 })
@@ -56,14 +59,7 @@ let agregarCarrito = (id_producto,cantidad) => {
                 "idCarrito": dato.id
               }
               axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-                setLoad(true);
-                Swal.fire(
-                  'Producto agregado al carrito exitosamente',
-                  `cantidad: ${cantidad}`,
-                  'success'
-                ).then(() => {
-                  window.location.reload()
-                })
+                mostrarAlerta();
               }).catch(err => {
                 console.log("error xd")
               })
@@ -77,11 +73,7 @@ let agregarCarrito = (id_producto,cantidad) => {
             }
             console.log(payload)
             axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-              setLoad(true);
-              Swal.fire(
-                'Producto agregado al carrito exitosamente',
-                'success'
-              )
+              mostrarAlerta();
             }).catch(err => {
               console.log("error xd")
             })
@@ -94,33 +86,33 @@ let agregarCarrito = (id_producto,cantidad) => {
   }
 
 const Detail = (props) => {
-    let producto = props.route.params.item
+    const [producto, setProducto] = useState(props.route.params.item);
     const [cantidad, setCantidad] = useState(1)
     const [total, setTotal] = useState(producto.precio)
     const [activeIndex, setActiveIndex] = useState(0)
     const [etapaVendedor, setEtapaVendedor] = useState('')
     const [etapaCliente, setEtapaCliente] = useState('')
-    const [load, setLoad] = useState(true)
     const [carouselItems, setCarouselItems] = useState([{
         "id": 0,
         "id_producto": 0, 
         "source": "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg"
     }])
+
+    const cargaProductos = props.navigation.addListener('focus', () => {
+      setProducto(props.route.params.item)
+      setActiveIndex(0)         
+    })
     
     useEffect(() => {
-        const cargaProductos = props.navigation.addListener('focus', () => {
-            producto = props.route.params.item
-            setCantidad(1)
-            setActiveIndex(0)
-            setTotal(producto.precio)
-            axios.get(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
-                .then(response => setCarouselItems(response.data))
-                .catch(error => console.log('Hubo un error ' + error))
-            
-     })
-        return cargaProductos
-    }, [])
-    console.log(producto.idVendedor)
+      axios.get(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
+      .then(response => setCarouselItems(response.data))
+      .catch(error => console.log('Hubo un error ' + error))
+      
+      setCantidad(1)
+      setTotal(producto.precio)
+      
+    }, [producto])
+
     
 /*     useEffect(() => {
         axios.get(`http://${data.number}/personas/` + producto.idVendedor)
@@ -180,8 +172,7 @@ const Detail = (props) => {
     return(
         <NativeBaseProvider>
             <NavBar navigation={props.navigation}/>
-            <CategoriesBar/>
-            <View style={{flex:21}}>
+            <View style={{flex:21, backgroundColor: "#ffffff"}}>
                 <ScrollView>
                     <View style={styles.contenido}>
                         <View>  
@@ -225,7 +216,7 @@ const Detail = (props) => {
                                 <Text style={styles.producto_etapa}>{producto.id} {producto.id == 1 ? "Etapa" : "Etapas"}</Text>
                             </View>
                             <View style={styles.line}></View>
-                            <View>
+                            <View style={{marginTop: 10}}>
                                 <Text style={styles.producto_vendedor_titulo}>Comentarios</Text>
                                 {/* Comentarios */}
                                 <View style={{flexDirection: "row", width:"85%", alignSelf:"center", marginTop: 10, marginBottom: 10}}>
@@ -248,7 +239,7 @@ const Detail = (props) => {
                                         {/* Parte izquierda (etiquetas) */}
                                         <View style={styles.producto_compra_etiqueta}>
                                             <Text style={{fontSize: 19, fontWeight: "bold"}}>Precio</Text>
-                                            <Text style={{fontSize: 19, fontWeight: "bold", marginTop: 10, marginBottom: 5}}>Cantidad</Text>
+                                            <Text style={{fontSize: 19, fontWeight: "bold", marginTop: 15, marginBottom: 5}}>Cantidad</Text>
                                             <View style={styles.line}></View>
                                             <Text style={{fontSize: 19, fontWeight: "bold", marginTop: 7}}>Total</Text>
                                         </View>
@@ -256,18 +247,18 @@ const Detail = (props) => {
                                         <View style={styles.producto_compra_valores}>
                                             <Text style={styles.producto_texto}>$ {producto.precio}</Text>
                                             {/* Seleccionar cantidad */}
-                                            <View style={{flexDirection: "row", marginBottom: 4}}> 
+                                            <View style={{flexDirection: "row", marginBottom: 4, marginTop: 6}}> 
                                                 <Button 
                                                     onPress={() => aumentarCantidad()}
                                                     title="  +   "
-                                                    color="#98A0A0"
+                                                    color="#02023d"
                                                 />
 
                                                 <Text style={styles.boton_compra}>  {cantidad}  </Text>
                                                 <Button 
                                                     onPress={() => disminuirCantidad()}
                                                     title="   -   "
-                                                    color="#98A0A0"
+                                                    color="#02023d"
                                                 />
                                             </View>
                                             <View style={styles.line}></View>
@@ -275,14 +266,14 @@ const Detail = (props) => {
                                         </View>
                                     </View>
                                     {/* Boton agregar al carrito */}
-                                    <View style={{marginTop: 20, width: "70%", alignSelf: "center"}}>
+                                    <View style={{marginTop: 20, width: "70%", alignSelf: "center", marginTop: 50}}>
                                         <Button 
                                             onPress={() => {
                                                 console.log("agregando a carrito")
                                                 agregarCarrito(producto.id, cantidad)
                                             }}
                                             title="Agregar a carrito"
-                                            color="#506048"
+                                            color="#f4733e"
                                         />
                                     </View>
                                 </View>

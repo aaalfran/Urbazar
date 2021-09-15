@@ -1,3 +1,4 @@
+import { fontSize } from "styled-system";
 
 export default {
 
@@ -14,7 +15,8 @@ export default {
     userContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 30
+        marginTop: 30,
+        
     },
 
     userImagen: {
@@ -23,22 +25,20 @@ export default {
         borderRadius: 35
     },
 
-    
-
     userNombre: {
-        marginVertical: 10,
+        marginVertical:5,
     },
 
     userTitulo: {
         textAlign: 'center',
         fontWeight:'bold',
-        fontSize: 16
+        fontSize: 25
     },
 
     userSubTitulo: {
         textAlign: 'center',
-        fontSize: 11,
-        color: '#B06058',
+        fontSize: 20,
+        color: '#ed4258',
         paddingVertical: 5,
     },
     menuContainer: {
@@ -60,7 +60,7 @@ export default {
     },
 
     tituloTxt: {
-        fontSize: 13,
+        fontSize: 16,
         color: "#506048"
     },
     difuminado:{
@@ -79,14 +79,14 @@ export default {
         flexDirection:'row',
         justifyContent: 'center',
         paddingLeft: 9,
-        backgroundColor: "#506048",
+        backgroundColor: "#02023d",
         paddingTop: 8,
-        paddingBottom: 8
+        paddingBottom: 8,
     },
     tituloOut: {
-        fontSize: 13,
+        fontSize: 14,
         color: "white",
-        paddingLeft: 5
+        paddingLeft: 5,
     },
     sepCategorias: {
         flex: 8.5,
@@ -100,6 +100,7 @@ export default {
         borderTopColor: "#e6e6e6",
     },
     Textsep:{
-        color: "#6e6e6e"
+        color: "#6e6e6e",
+        fontSize: 16,
     }
 }

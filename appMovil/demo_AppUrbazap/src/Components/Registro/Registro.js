@@ -57,7 +57,7 @@ const Register= ( props) => {
         let checksimilitud=  false
         
         
-        const contrasenaValida = checkPassword=== "Contraseña válida"
+        const contrasenaValida = checkPassword === "Contraseña válida" ? true : false;
         if ( contrasenaValida ){
             checksimilitud = validarSimilitudContrasenias(form.password, form.password2)
 
@@ -67,7 +67,8 @@ const Register= ( props) => {
 
         const datosValidos = checkCedula && checkTelefono && checkCorreo && checkUsername 
         && contrasenaValida && checksimilitud && checkCodigo
-        console.log(form.identificacion, checkCedula, checkTelefono, checkCorreo, checkUsername, checkPassword,checksimilitud )
+        console.log(checkCedula, checkTelefono, checkCorreo, checkUsername, contrasenaValida,checksimilitud, checkCodigo);
+        console.log(datosValidos)
         
         if (datosValidos){
             postToBackend()
@@ -104,20 +105,12 @@ const Register= ( props) => {
     }
 
     const validarCodigo = () =>{
-        let url = `http://${data.number}/familias?filter[where][clave]=` + form.codigoF;
-    
-        axios.get(url)
-        .then(response => {
-          return response.data})
-        .then( res=> {
-          if(res.length>0 ){
-            setCheckCodigo(true)
-          }
-          
-        }) 
-        .catch(e=> {
-          console.log(e, "Hubo un error");
-        })
+
+        if (form.codigoF.length > 3) {
+            setCheckCodigo(true);
+        } else {
+            console.log("Codigo debe ser mayor a 3 caracteres");
+        }
         
       }
 
@@ -342,7 +335,7 @@ const Register= ( props) => {
                         </Center>
                         <Center style={{ width: "90%" }}>
 
-                            <Button backgroundColor="#f4733e" width="80%" style={{ marginTop: 10 }} onPress={signUp} >Registrarme</Button>
+                            <Button backgroundColor="#02023d" width="80%" style={{ marginTop: 10 }} onPress={signUp} >Registrarme</Button>
                         </Center>
                     </Stack>
                 </ScrollView>

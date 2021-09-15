@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
 import { HStack, IconButton, Icon, NativeBaseProvider, Text, Box, StatusBar } from "native-base";
 import { MaterialIcons } from '@expo/vector-icons';
-import { View, TextInput } from 'react-native'
+import { View, TextInput, Image } from 'react-native'
 
 function Main(props) {
 
@@ -18,25 +17,20 @@ function Main(props) {
     setOutputText('');
 
     props.navigation.navigate('SearchBar', { data1: outputText });
-    
-
+  
   }
-
   return (
-
-    <View style={{ flex: 2 }}>
+    <View style={{ flex: 1.87 }}>
       <NativeBaseProvider>
-        <StatusBar backgroundColor="#506048" barStyle="light-content" />
-
-        <Box safeAreaTop backgroundColor="#506048" />
-        <HStack bg='#506048' px={1} py={4} justifyContent='space-between' alignItems='center'>
+        <StatusBar backgroundColor="#02023d" barStyle="light-content" />
+        <Box safeAreaTop backgroundColor="#ed4258" />
+        <HStack bg='#02023d' px={1} py={4} justifyContent='space-between' alignItems='center'>
           <HStack space={4} alignItems='center'>
             <IconButton icon={<Icon size="sm" as={<MaterialIcons name='menu' />} color="white" />} onPress={() => props.navigation.openDrawer()} />
-            <Text color="white" fontSize={20} fontWeight='bold'>UrbazApp</Text>
+            <Image source={require('../../images/logo_title2_v2.png')} style={{width:75, height: 40}}/>
           </HStack>
           <HStack space={2}>
-
-            <TextInput placeholder=' Buscar...' backgroundColor='white' borderRadius={20} width={125} onChangeText={itemInputHandler} value={outputText} />
+            <TextInput placeholder='Buscar...' paddingLeft={8} backgroundColor='white' borderRadius={5} width={170} fontSize={17} onChangeText={itemInputHandler} value={outputText} />
             <IconButton icon={<Icon as={<MaterialIcons name='search' />} color="white" size='sm' />} onPress={itemHandler} />
             <IconButton icon={<Icon as={<MaterialIcons name='shopping-cart' />} size='sm' color="white" />} onPress={() => {
               props.navigation.navigate('Carrito')

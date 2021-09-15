@@ -12,7 +12,7 @@ function DrawerMenu(props) {
   return (
     <TouchableOpacity onPress={()=> ChangeCategorieAndNavigate(props)}>
       <View style={s.menuContainer}>
-          <Icon name={props.iconName} color="#506048"  size={20}/>
+          <Icon name={props.iconName} color="#02023d"  size={20}/>
         <View style={s.tituloContainer}>
           <Text style={s.tituloTxt}>{props.titleName}</Text>
         </View>
@@ -38,19 +38,19 @@ let Menu= (props) => {
 
   return (
     <NativeBaseProvider>
-      <View style={{flex:0.09, flexDirection:'row', justifyContent:'flex-end', backgroundColor:"#506048"}}>
-      <IconButton icon={<Icon name='close' color="white" size={25}/>}  onPress={()=> props.navigation.closeDrawer()}/>
+      <View style={{flex:0.09, flexDirection:'row', justifyContent:'space-between', backgroundColor:"#02023d", alignItems:"center"}}>
+        <Text style={{color:"white", fontSize:25, marginLeft:15}}>Menu</Text>
+        <IconButton icon={<Icon name='close' color="white" size={25}/>}  onPress={()=> props.navigation.closeDrawer()}/>
       </View>      
     <View style={s.container}>
-      <View style={s.bgContainer}>
-
-        <TouchableOpacity>
+      <View>
+        <TouchableOpacity style={s.bgContainer}>
           <View style={s.userContainer}>
             <Image style={s.userImagen} source={require('../images/ban1.png')} />
             
           </View>
           <View style={s.userNombre}>
-            <Text style={s.userTitulo}> {usuario.username}</Text>
+            <Text style={s.userTitulo}> {"UserTest"}</Text>
             <Text style={s.userSubTitulo}> {usuario.role==1? "Comprador": "Vendedor"} </Text>
           </View>
         </TouchableOpacity>
@@ -87,18 +87,18 @@ let Menu= (props) => {
       <DrawerMenu iconName='comments' titleName='Contactanos' navigation= {props.navigation} categorieNro="0" page="Perfil" />
       <DrawerMenu iconName='question' titleName='¿Qué hacemos?' navigation= {props.navigation} categorieNro="0" page="Perfil" />
 
-      <TouchableOpacity onPress={salir}>
-        <View style={s.btnSignOut}>
-            <Icon name="sign-out" color="white"  size={20}/>
-            <View >
-              <Text style={s.tituloOut}>Cerrar Sesión</Text>
-            </View>
-        </View>
-    </TouchableOpacity>
+        <TouchableOpacity onPress={salir}>
+          <View style={s.btnSignOut}>
+              <Icon name="sign-out" color="white"  size={20}/>
+              <View >
+                <Text style={s.tituloOut}>Cerrar Sesión</Text>
+              </View>
+          </View>
+        </TouchableOpacity>
     
-    </ScrollView>
+      </ScrollView>
     </View>
-        </NativeBaseProvider>
+    </NativeBaseProvider>
   )
 }
 

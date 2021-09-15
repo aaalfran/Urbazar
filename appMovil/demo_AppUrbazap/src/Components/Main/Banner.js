@@ -28,11 +28,12 @@ class Banner extends React.Component{
     }
 
     _renderItem({item,index}){
-        const widthh= Dimensions.get('window').width
+        const widthh= Dimensions.get('window').width - 20;
         return (
             <Image source= {item.image} style={{
               width: widthh,
-              height: 200,}}
+              height: 200,
+              borderRadius: 10,}}
             />
 
         )
@@ -42,10 +43,10 @@ class Banner extends React.Component{
 
     render(){
         return(
-            <View style={{flex:19}}>
+            <View style={{flex:20.5, padding: 10, backgroundColor: '#ffffff'}}>
                 <ScrollView>
                     {/*Banner principal */}
-                    <View style={{ marginTop:5, flexDirection:'row', justifyContent: 'center', }}>
+                    <View style={{flexDirection:'row', justifyContent: 'center', borderRadius: 10 }}>
                         <Carousel
                         layout={"default"}
                         ref={ref => this.carousel = ref}

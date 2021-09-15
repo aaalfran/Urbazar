@@ -85,7 +85,7 @@ const Carrito = (props) => {
             </View> 
 
             <View style={{justifyContent: 'center',alignItems: 'center',flex:1,marginBottom:20}}>
-            <Button backgroundColor="#506048" onPress={() => setShowModal(true)}>Confirmar Compra</Button>
+            <Button backgroundColor="#02023d" onPress={() => setShowModal(true)}>Confirmar Compra</Button>
             </View>
             <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
                 <Modal.Content maxWidth="400px">

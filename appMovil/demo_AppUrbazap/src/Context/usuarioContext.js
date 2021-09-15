@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useMemo} from 'react';
-import axios from 'axios';
 import data from '../../enviroment';
 const UsuarioContext = React.createContext();
 
@@ -9,20 +8,11 @@ export function UsuarioProvider(props){
 
 
     async function login(data){
-        axios.post(`http://${url}/login`, data)
-        .then(response => {
-          if (response.status == 200) {
-            return response.data
-          }
-        })
-        .then(res => {
-            setUsuario(res.data)
-          
-        })
-
-        .catch((err) => {
-          alert("Usuario o clave incorrecta")
-        })
+        if(data.usuario !== 'utest' && data.password !== 'utest123') {
+            alert("Usuario o clave incorrecta");
+        } else {
+            setUsuario({usuario: 'utest', password: 'utest123', id: 6});
+        }        
     }
 
     function logOut(){

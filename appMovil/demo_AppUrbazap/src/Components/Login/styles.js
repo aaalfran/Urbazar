@@ -62,7 +62,7 @@ export default {
         width: 150,
         height: 150,
         borderRadius: 100,
-        backgroundColor: "#f4733e",
+        backgroundColor: "#02023d",
         position: "absolute",
         top: -40,
         right: -30
@@ -71,7 +71,7 @@ export default {
         width: 100,
         height: 100,
         borderRadius: 100,
-        backgroundColor: "#ed4258db",
+        backgroundColor: "#f4733edb",
         position: "absolute",
         top: 35,
         right: 35

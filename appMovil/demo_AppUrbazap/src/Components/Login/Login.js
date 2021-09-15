@@ -13,7 +13,7 @@ function Login( {navigation} ){
     const { login } = useUsuario();
 
     const ingresar = () =>{
-        data = { username, password}
+        data = {username, password}
         login(data)
     }
 
@@ -59,7 +59,7 @@ function Login( {navigation} ){
                     </View>
 
                     <View>
-                        <Button backgroundColor="#ed4258"  onPress={ingresar}>Iniciar sesión</Button>
+                        <Button backgroundColor="#02023d"  onPress={ingresar}>Iniciar sesión</Button>
                     </View>
                     
                 
