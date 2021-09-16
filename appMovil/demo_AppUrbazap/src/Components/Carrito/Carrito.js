@@ -3,26 +3,21 @@ import NavBar from '../navBar/NavigationBar';
 import {View, Text,ScrollView} from 'react-native';
 import { NativeBaseProvider ,Button,Spinner,Modal} from "native-base";
 import CategoriesBar from '../navBar/CategoriesBar';
-import { useUsuario } from '../../Context/usuarioContext';
-import axios from 'axios';
-import data from '../../../enviroment';
 import CarritoItem from './CarritoItem';
-const deleteProducts = async (lista,setLista,setVacio,setPrecioTotal) => {
-    for (let idDetalle of lista){
-        await axios.delete(`http://${data.number}/detalle-carrito/${idDetalle}`).then(res => {
+import { useUsuario } from '../../Context/usuarioContext';
 
-        }).catch(err => {
 
-        })
-        
-    }
+const deleteProducts = async (lista,setLista,setVacio,setPrecioTotal,borrarCarrito) => {
+
+    borrarCarrito();
+
     setLista([])
     setVacio(true)
     setPrecioTotal(0)
     
 }
 const Carrito = (props) => {
-    const { usuario, logOut } = useUsuario();
+    const { usuario, logOut, carrito, borrarCarrito } = useUsuario();
     const [listaItems,setListaItems] = useState([]);
     const [load,setLoad] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -34,41 +29,26 @@ const Carrito = (props) => {
         const unsuscribe = props.navigation.addListener('focus',() => {
             setListaItems([])
             setLoad(false);
-            axios.get(`http://${data.number}/clientes/persona/${usuario.id}`).then(response => {
-                axios.get(`http://${data.number}/carrito/cliente/${response.data[0].id}`).then(response => {
-                    let resultado = response.data[0]
-                    axios.get(`http://${data.number}/detalle-carrito/carrito/${resultado.id}`).then(response => {
-                        let lista = response.data;
-                        if(lista.length > 0) {
-                            for(let item of lista) {
-                                axios.get(`http://${data.number}/productos/${item.idProducto}`).then(res => {
-                                    let producto = res.data;
-                                    const nombre = producto.nombre
-                                    const precio = producto.precio
-                                    const imagen = producto.source
-                                    const desc = producto.descripcion
-                                    const cant = item.cantidad
-                                    setListaItems(current => current.concat(<CarritoItem key={item.idDetalle}src={imagen} nombre={nombre} precio={cant*precio} cantidad = {cant} idDetalle ={item.idDetalle} navigation={props.navigation} ></CarritoItem>))
-                                    setIdDetalle(current => current.concat(item.idDetalle))
-                                    setPrecioTotal(current => current + cant*precio)
-                                    
-    
-                                })
-                            }
-                            setLoad(true);
-                            setVacio(false);
-                        }else{
-                            setLoad(true);
-                        }
-                    }).catch(err => {
-    
-                    })
-                }).catch(err =>{
-    
-                })
-            }).catch(err => {
-    
-            })
+            console.log("HOasdd")
+            console.log(carrito.length)
+
+            if(carrito.length > 0) {
+                for(let item of carrito) {
+                    let producto = item.producto;
+                    const nombre = producto.nombre
+                    const precio = producto.precio
+                    const imagen = producto.source
+                    const desc = producto.descripcion
+                    const cant = item.cantidad
+                    setListaItems(current => current.concat(<CarritoItem key={item.key}src={imagen} nombre={nombre} precio={cant*precio} cantidad = {cant} id ={producto.id} navigation={props.navigation} ></CarritoItem>))
+                    setIdDetalle(current => current.concat(item.idDetalle))
+                    setPrecioTotal(current => current + item.total)
+                }
+                setLoad(true);
+                setVacio(false);
+            }else{
+                setLoad(true);
+            }
         });
         return unsuscribe;
     },[])
@@ -104,7 +84,7 @@ const Carrito = (props) => {
                         <Button
                             onPress={() => {
                             setShowModal(false)
-                            deleteProducts(idDetalle,setListaItems,setVacio,setPrecioTotal)
+                            deleteProducts(idDetalle,setListaItems,setVacio,setPrecioTotal,borrarCarrito)
                             }}
                         >
                             Aceptar

@@ -4,9 +4,8 @@ import { View, Text, Button, Image, ScrollView, Dimensions, Alert } from 'react-
 import Carousel from 'react-native-snap-carousel';
 import { NativeBaseProvider } from "native-base";
 import styles from "../Main/styles";
-import axios from 'axios';
 import { LoadStars } from './LoadResourcesProducts';
-import data from '../../../enviroment';
+import { useUsuario } from '../../Context/usuarioContext';
 
 const mostrarAlerta = () => {
   Alert.alert(
@@ -18,80 +17,13 @@ const mostrarAlerta = () => {
   );
 }
 
-let agregarCarrito = (id_producto,cantidad) => {
-    axios.get(`http://${data.number}/clientes/persona/${6}`).then(res => {
-      let dato = res.data[0];
-      console.log(dato)
-      axios.post(`http://${data.number}/carrito`,{
-        "id": 6,
-        "idUsuario": 2,
-    }).then(() => {
-      console.log("Carrito Creado Exitosamente")
-    }).catch(err => {
-      console.log("Carrito ya creado")
-    }).finally(() => {
-      axios.get(`http://${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
-        let dato = res.data[0];
-        axios.get(`http://${data.number}/detalle-carrito/carrito/${dato.id}`).then(res => {
-          let respuesta = res.data;
-          console.log(respuesta)
-          let isRespuesta = true;
-          if(respuesta.length > 0) {
-            for(let detalle of respuesta){
-              console.log(detalle)
-              if(detalle.idProducto === parseInt(id_producto)){
-                isRespuesta = false;
-                let pload = detalle;
-                pload.cantidad = cantidad;
-                axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
-                  console.log("success update")
-                  mostrarAlerta();
-                }).catch(err=> {
-                  console.log("Error update")
-                })
-                break ;
-              }
-            }
-            if(isRespuesta){
-              let payload = {
-                "idProducto": parseInt(id_producto),
-                "cantidad": cantidad,
-                "idCarrito": dato.id
-              }
-              axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-                mostrarAlerta();
-              }).catch(err => {
-                console.log("error xd")
-              })
-            }
-          }
-          else{
-            let payload = {
-              "idProducto": parseInt(id_producto),
-              "cantidad": cantidad,
-              "idCarrito": dato.id
-            }
-            console.log(payload)
-            axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-              mostrarAlerta();
-            }).catch(err => {
-              console.log("error xd")
-            })
-          }
-  
-        })
-      })
-    })
-    })
-  }
-
 const Detail = (props) => {
+
+    const {carrito, agregarProducto} = useUsuario();
     const [producto, setProducto] = useState(props.route.params.item);
     const [cantidad, setCantidad] = useState(1)
     const [total, setTotal] = useState(producto.precio)
     const [activeIndex, setActiveIndex] = useState(0)
-    const [etapaVendedor, setEtapaVendedor] = useState('')
-    const [etapaCliente, setEtapaCliente] = useState('')
     const [carouselItems, setCarouselItems] = useState([{
         "id": 0,
         "id_producto": 0, 
@@ -102,42 +34,105 @@ const Detail = (props) => {
       setProducto(props.route.params.item)
       setActiveIndex(0)         
     })
+
+    const agregarCarrito = () => {
+
+      const p = {"key": Math.floor(Math.random() * 1000), "producto" : producto, "cantidad" : cantidad, "total" : total};
+      
+      agregarProducto(p);
+      
+      if (carrito.length > 0 ) {
+        mostrarAlerta();
+      }
+      console.log("Agregando...");
+
+      console.log(carrito);
+    }
     
     useEffect(() => {
-      axios.get(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
-      .then(response => setCarouselItems(response.data))
-      .catch(error => console.log('Hubo un error ' + error))
-      
+
+      const productosSources = [
+        {
+            "id": 1,
+            "id_producto": 1,
+            "source": "https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000"
+        },
+        {
+            "id": 2,
+            "id_producto": 1,
+            "source": "https://http2.mlstatic.com/D_NQ_NP_697199-MEC44983042563_022021-W.jpg"
+        },
+        {
+            "id": 3,
+            "id_producto": 1,
+            "source": "https://i.pinimg.com/originals/19/f5/2c/19f52c5e499016adbffe02b729b5309e.jpg"
+        },
+        {
+            "id": 4,
+            "id_producto": 2,
+            "source": "https://bassil.com.ec/4653/camisa-amarilla-manga-corta-barcelona-sporting-club.jpg"
+        },
+        {
+            "id": 5,
+            "id_producto": 2,
+            "source": "https://todosobrecamisetas.com/wp-content/uploads/camiseta-barcelona-sc-200-anios-guayaquil-2.jpg"
+        },
+        {
+            "id": 6,
+            "id_producto": 2,
+            "source": "https://bassil.com.ec/3168/camisa-amarilla-manga-corta-barcelona-sporting-club.jpg"
+        },
+        {
+            "id": 7,
+            "id_producto": 3,
+            "source": "https://www.idcmayoristas.com/wp-content/uploads/2020/04/002589.jpg"
+        },
+        {
+            "id": 8,
+            "id_producto": 3,
+            "source": "https://images-na.ssl-images-amazon.com/images/I/61gn5whRfNL._SL1000_.jpg"
+        },
+        {
+            "id": 9,
+            "id_producto": 3,
+            "source": "https://1700digital.com/wp-content/uploads/lenovo-s340gamer2.jpg"
+        },
+        {
+            "id": 10,
+            "id_producto": 4,
+            "source": "https://images-na.ssl-images-amazon.com/images/I/61ceSVoz1nL._AC_SX385_.jpg"
+        },
+        {
+            "id": 11,
+            "id_producto": 4,
+            "source": "https://i1.wp.com/hipertextual.com/wp-content/uploads/2019/09/hipertextual-iphone-11-2019772090.jpeg?fit=1200%2C788&ssl=1"
+        },
+        {
+            "id": 12,
+            "id_producto": 4,
+            "source": "https://www.muycomputer.com/wp-content/uploads/2020/10/iPhone-12.jpg"
+        },
+        {
+            "id": 13,
+            "id_producto": 5,
+            "source": "https://gontec.com.ec/wp-content/uploads/2020/05/alcohol_anti.png"
+        },
+        {
+            "id": 14,
+            "id_producto": 5,
+            "source": "https://http2.mlstatic.com/D_NQ_NP_608422-MEC43308746534_082020-O.jpg"
+        }
+    ];
+    
+      const resp = productosSources.filter( p => p.id_producto === producto.id);
+
+      setCarouselItems(resp);
       setCantidad(1)
       setTotal(producto.precio)
       
     }, [producto])
 
-    
-/*     useEffect(() => {
-        axios.get(`http://${data.number}/personas/` + producto.idVendedor)
-          .then((response) => {
-            return response.data.id_etapa
-          })
-          .then((idetapa) => {
-            axios.get(`http://${data.number}/etapas/` + idetapa)
-              .then((response) => {
-                setEtapaVendedor(response.data.nombre)
-                console.log("Hola")
-                console.log(etapaVendedor)
-              })
-              .catch(error => console.log('Hubo un error ' + error))
-          })
-    }, []) */
-
-/*     useEffect(() => {
-        axios.get(`http://${data.number}/etapas/` + localStorage.getItem('etapa'))
-          .then((response) => {
-            setEtapaCliente(response.data.nombre)
-          })
-          .catch(error => console.log('Hubo un error ' + error))
-    }, []) */
-
+  
     const aumentarCantidad = () => { 
         if (cantidad < producto.stock) {
             setTotal(producto.precio * (cantidad + 1))
@@ -151,23 +146,6 @@ const Detail = (props) => {
             setCantidad(cantidad - 1)
         }
     }
-
-/*     const printImporte = () => {
-        axios.get(`http://134.209.215.193:3000/matriz/1`)
-          .then((response) => {
-            const respuesta = JSON.parse(response.data.data)
-            const posc = respuesta.vertexes.indexOf(etapaCliente)
-            const posv = respuesta.vertexes.indexOf(etapaVendedor)
-            setImporte(respuesta.matrix[posv][posc])
-            const div = document.getElementById('info_Importe')
-            div.innerHTML = `El proveedor se encuentra en la etapa "${etapaVendedor}". 
-                    El importe por envío tiene un costo de $` + respuesta.matrix[posv][posc]
-          })
-          .catch(error=>{
-              console.log(error, "Error al cargar la matriz de adyacencia");
-          })
-      } */
-    
 
     return(
         <NativeBaseProvider>
@@ -269,8 +247,7 @@ const Detail = (props) => {
                                     <View style={{marginTop: 20, width: "70%", alignSelf: "center", marginTop: 50}}>
                                         <Button 
                                             onPress={() => {
-                                                console.log("agregando a carrito")
-                                                agregarCarrito(producto.id, cantidad)
+                                                agregarCarrito()
                                             }}
                                             title="Agregar a carrito"
                                             color="#f4733e"

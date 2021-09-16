@@ -63,12 +63,12 @@ let Menu= (props) => {
 
 
       <DrawerMenu iconName='home' titleName='Inicio' navigation= {props.navigation} categorieNro="0" page="Home"/>
-      <DrawerMenu iconName='suitcase' titleName='Ropa' navigation= {props.navigation} categorieNro="1" page="Filtro"/>
-      <DrawerMenu iconName='desktop' titleName='Tecnología' navigation= {props.navigation} categorieNro="2" page="Filtro" />
-      <DrawerMenu iconName='cutlery' titleName='Comida' navigation= {props.navigation} categorieNro="3" page="Filtro"/>
-      <DrawerMenu iconName='bath' titleName='Hogar' navigation= {props.navigation} categorieNro="4" page="Filtro"/>
-      <DrawerMenu iconName='eyedropper' titleName='Maquillaje' navigation= {props.navigation} categorieNro="5" page="Filtro" />
-      <DrawerMenu iconName='rocket' titleName='Otros' navigation= {props.navigation} categorieNro="1" page="Filtro"/>
+      <DrawerMenu iconName='suitcase' titleName='Ropa' navigation= {props.navigation} categorieNro="1" page="Filtro/1"/>
+      <DrawerMenu iconName='desktop' titleName='Tecnología' navigation= {props.navigation} categorieNro="2" page="Filtro/2" />
+      <DrawerMenu iconName='cutlery' titleName='Comida' navigation= {props.navigation} categorieNro="3" page="Filtro/3"/>
+      <DrawerMenu iconName='bath' titleName='Hogar' navigation= {props.navigation} categorieNro="4" page="Filtro/4"/>
+      <DrawerMenu iconName='eyedropper' titleName='Maquillaje' navigation= {props.navigation} categorieNro="5" page="Filtro/5" />
+      <DrawerMenu iconName='rocket' titleName='Otros' navigation= {props.navigation} categorieNro="1" page="Filtro/1"/>
       
       <View style={s.sepCategorias}>
         <Text style={s.Textsep}>Configuración</Text>

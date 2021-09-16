@@ -8,19 +8,42 @@ import {
     HStack, IconButton
 } from 'native-base'
 import styles from "./styles";
-import Request from "../../ApiRequest/Request"
-import data from "../../../enviroment"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import * as ImagePicker from 'expo-image-picker';
 import SaveImage from "./SaveImage";
 import { useUsuario } from '../../Context/usuarioContext';
 
 const AddProduct = () => {
-    const categorias = Request(`http://${data.number}/categorias`)
+    const categorias = [
+        {
+            "id": 1,
+            "nombre": "Ropa"
+        },
+        {
+            "id": 2,
+            "nombre": "Tecnología"
+        },
+        {
+            "id": 3,
+            "nombre": "Comida"
+        },
+        {
+            "id": 4,
+            "nombre": "Hogar"
+        },
+        {
+            "id": 4,
+            "nombre": "Otros"
+        },
+        {
+            "id": 5,
+            "nombre": "Maquillaje"
+        }
+    ]
+
     const { usuario } = useUsuario();
 
     const [image, setImage] = useState(null);
-    const [selectedFile, setSelectedFile] = useState();
     const [nombre, setNombre] = useState("");
     const [precio, setPrecio] = useState("");
     const [stock, setStock] = useState("");
@@ -93,13 +116,10 @@ const AddProduct = () => {
                         <Select
                             minWidth="100%"
                             _selectedItem={{
-                                bg: "cyan.600",
-                                endIcon: <CheckIcon size={4} style={{ color: "#DADADA" }} />,
+                                bg: "#f4733e",
+                                endIcon: <CheckIcon size={4} style={{ color: "white" }} />,
                             }}
                             onValueChange={value => setCategoria(value)}
-
-
-
                             name="categoria"
                         >
                             {
@@ -137,15 +157,11 @@ const AddProduct = () => {
                     {image && <Image source={{ uri: image }} style={{ width: 100, height: 100 }} />}
                 </HStack>
 
-
-
                 <View alignItems="center">
                     <Button backgroundColor="#02023d" onPress={() => SaveImage(image,usuario.id, categoria,nombre,precio,descripcion,stock)} style={{ paddingLeft: "10%", paddingRight: "10%", width: "70%" }}>
                         Subir producto
                     </Button>
                 </View>
-
-
 
             </View>
         </NativeBaseProvider>

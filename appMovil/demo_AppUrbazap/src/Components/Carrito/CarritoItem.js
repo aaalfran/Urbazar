@@ -6,14 +6,30 @@ import { style } from 'styled-system';
 import data from '../../../enviroment';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import axios from 'axios';
-const borrarElemento = (props,setHide) => {
-    axios.delete(`http://${data.number}/detalle-carrito/${props.idDetalle}`).then(res => {
+import { useUsuario } from '../../Context/usuarioContext';
+
+
+const borrarElemento = (props,setHide,carrito,borrarProducto) => {
+
+    for (let item of carrito) {
+        if (item.producto.id === props.id) {
+            borrarProducto(item);
+            setHide(true);
+        }
+    }
+
+/*     axios.delete(`http://${data.number}/detalle-carrito/${props.idDetalle}`).then(res => {
         setHide(true)
-    })
+    }) */
 
   }
 const CarritoItem = (props) => {
+
+    console.log(props);
     const [hide,setHide] = useState(false);
+    const { carrito, borrarProducto } = useUsuario();
+
+
     console.log(props)
     return (
         <View style={hide ? styles.oculto : styles.carta}> 
@@ -27,7 +43,7 @@ const CarritoItem = (props) => {
                 <Text style={styles.texto}>Precio: ${props.precio}</Text>
                 <Text style={styles.texto}>Cantidad: {props.cantidad}</Text>
             </View>
-            <IconButton onPress={() => borrarElemento(props,setHide) } icon={<Icon name="trash" color="#ed4258" size={20}/> } />
+            <IconButton onPress={() => borrarElemento(props,setHide, carrito, borrarProducto) } icon={<Icon name="trash" color="#ed4258" size={20}/> } />
         </View>
     );
 }

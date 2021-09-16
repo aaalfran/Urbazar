@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Menu from './src/Drawers/DrawerMenu'
@@ -32,7 +32,11 @@ function App() {
               <Drawer.Screen name="Home" component={Main} />
               <Drawer.Screen name="Perfil" component={AddProduct} />
               <Drawer.Screen name="Carrito" component={Carrito} />
-              <Drawer.Screen name="Filtro" component={VentanaFiltro} />
+              <Drawer.Screen name="Filtro/1" component={VentanaFiltro} />
+              <Drawer.Screen name="Filtro/2" component={VentanaFiltro} />
+              <Drawer.Screen name="Filtro/3" component={VentanaFiltro} />
+              <Drawer.Screen name="Filtro/4" component={VentanaFiltro} />
+              <Drawer.Screen name="Filtro/5" component={VentanaFiltro} />
               <Drawer.Screen name="SearchBar" component={SearchBar} />
               <Drawer.Screen name="DetailProduct" component={DetailProduct} />
             </Drawer.Navigator>

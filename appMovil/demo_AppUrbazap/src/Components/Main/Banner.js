@@ -5,7 +5,7 @@ import Banner1 from '../../images/ban1.png';
 import Banner2 from '../../images/ban7.png';
 import Banner3 from '../../images/ban9.png';
 import CardsProducts from './CardsProducts';
-import data from '../../../enviroment';
+
 class Banner extends React.Component{
 
     constructor(props){
@@ -58,9 +58,9 @@ class Banner extends React.Component{
                     </View>
 
                     {/**Secciones */}
-                    <CardsProducts nameSection="Reciente" ruta={`http://${data.number}/productos` } navigation={this.props}/>
-                    <CardsProducts nameSection="Promociones" ruta={`http://${data.number}/productos`} navigation={this.props}/>
-                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.number}/productos`} navigation={this.props}/>
+                    <CardsProducts nameSection="Reciente" navigation={this.props}/>
+                    <CardsProducts nameSection="Promociones" navigation={this.props}/>
+                    <CardsProducts nameSection="Cerca de ti" navigation={this.props}/>
 
                 </ScrollView>
 

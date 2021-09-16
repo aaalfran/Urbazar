@@ -4,8 +4,6 @@ import data from '../../../enviroment'
 
 
 const SaveImage = (selectedFile,clientId, categoria,nombre,precio,descripcion,stock) => {
-    
-
 
     var bodyFormData = new FormData();
     bodyFormData.append('file',selectedFile)

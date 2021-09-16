@@ -1,25 +1,42 @@
-import axios from 'axios';
-import data from '../../../enviroment';
 //import BcryptReactNative from 'bcrypt-react-native'
 
 
 export function validarCodigo(codigoF){
-    let url = `http://${data.number}/familias?filter[where][clave]=` + codigoF;
 
-    axios.get(url)
-    .then(response => {
-      return response.data})
-    .then( res=> {
-      if(res.length>0 ){
-        console.log(res)
-        setRetorno(true)
+  const familias = [
+      {
+          "id": 1,
+          "idEtapa": 1,
+          "apellido": "alvarez",
+          "clave": "1234"
+      },
+      {
+          "id": 2,
+          "idEtapa": 1,
+          "apellido": "mayorga",
+          "clave": "1234"
+      },
+      {
+          "id": 3,
+          "idEtapa": 2,
+          "apellido": "martinez",
+          "clave": "1234"
+      },
+      {
+          "id": 4,
+          "idEtapa": 2,
+          "apellido": "sanchez",
+          "clave": "1234"
       }
-      
-    }) 
-    .catch(e=> {
-      console.log("Familia no registrada");
-    })
+    ] 
 
+    const resp = familias.filter( familia => familia.clave === codigoF);
+
+    if (resp.length > 0 ) {
+      setRetorno(true);
+    } else {
+      console.log("Familia no registrada");
+    }
 
 
   }
