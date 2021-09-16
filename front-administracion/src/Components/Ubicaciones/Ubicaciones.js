@@ -61,9 +61,9 @@ const Ubicaciones = () => {
   if (auth && role === '3') {
     return (
 
-            <Container className="mt-5 mb-5 mx-5">
+            <Container className="mt-5 mb-5">
                 {load
-                  ? <>   <h1 className="mb-3">Etapas de la urbanización: Villa Bonita</h1>
+                  ? <>   <p className="mb-3 tituloEtapa">Etapas de la urbanización: Villa Bonita</p>
                 <Table bordered className="bg-white text-center table-bordered">
                     <thead>
                         <th key="field">Etapas</th>
@@ -80,9 +80,9 @@ const Ubicaciones = () => {
                 }}>Refresh</button>
                 </div>
                 <div className="mt-3 card card-body">
-                    <h1>
+                    <p className="aggDatostitle">
                         Agregar Datos
-                    </h1>
+                    </p>
                         <FormGroup>
                             <Label for="source">Nombre Etapa Fuente</Label>
                             <Input name="source" id="source" type="text"
@@ -117,9 +117,9 @@ const Ubicaciones = () => {
 
                 </div>
                 <div className="mt-3 card card-body">
-                    <h1>
+                    <p className="updateMatriztitle">
                         Actualizar Matriz
-                    </h1>
+                    </p>
                         <FormGroup>
                             <Label for="source">Nombre Etapa Fuente</Label>
                             <Input name="source" id="source" type="text"

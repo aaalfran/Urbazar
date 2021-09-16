@@ -1,0 +1,64 @@
+.adminLeftMenu{
+    background-color: #fff;
+    position: fixed;
+    min-width: 25%;
+}
+
+.contenedorToggle, .colToggle, .fondo{
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.fondo{
+    padding-right: 0px !important;
+}
+.colToggle, .contenedorToggle, .adminLeftMenu{
+    height: 100%;
+}
+
+.colToggle{
+    padding-right: 0px !important;
+}
+
+.bodycontainer{
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+.optionsNavigation > a{
+    height: 50px;
+    text-decoration: none;
+    align-items: center;
+    transition: transform .2s;
+    color: #02023d ;
+    padding: 10% 0px 10% 15px;
+    display: flex;
+    border-bottom: 1px solid rgba(177, 177, 177, 0.466);
+}
+
+.active{
+    color: #02023d  ;
+    border-right: 3px solid #f4733e;
+}
+
+.optionsNavigation > a:hover {
+    background-color: #e6e6e6;
+    color: rgb(58, 58, 58);
+    text-decoration: none;
+  }
+
+.icon-toggle{
+    color: #02023d ;
+    margin-right: 10px;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .optionsNavigation > a{
+        font-size: x-small;
+    }
+    .adminLeftMenu{
+        max-width: 25%;
+    }
+}
