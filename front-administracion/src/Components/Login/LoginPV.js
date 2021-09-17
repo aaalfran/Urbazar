@@ -23,7 +23,7 @@ function LoginComponent (props) {
             <div>
 
               <div className= "Login-title">
-                <h3> UrbazApp <span style={{color:"#f4733e "}}> Administradores </span></h3>
+                <h3> UrbazApp -<span style={{color:"#f4733e "}}> Administradores </span></h3>
                 
 
               </div>

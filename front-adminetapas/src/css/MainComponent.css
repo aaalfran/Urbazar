@@ -6,22 +6,7 @@ html,.fondo{
   color: white
 }
 
-.navbar {
-  background-color: white;
-  color: black;
-  position: sticky !important;
-  padding: 1% 5px 1%;
-  height: 80px;
-  margin-left: 3%;
-  top: 0;
-  z-index: 999;
-  display: flex;
-  justify-content: flex-end !important;
-  border-bottom: 1px solid gray;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.41);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.41);
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.41);
-}
+
 
 .informacion_account{
   font-size: small;
@@ -54,57 +39,25 @@ html,.fondo{
   margin-right: 2%;
 }
 
-.button_nav {
-  border-style: none;
-  background-color: transparent;
-  margin-right: 1.5%;
+
+
+.updateMatriztitle, .aggDatostitle{
+  font-size: 24px;
+  font-weight: bold;
+
 }
-
-
-.custom-toggler.navbar-toggler {
-  border-color: #506048;
-} 
-
 
 @media only screen and (max-width: 700px) {
-  .nav_categorias .nav-link p, #nombre_user {
-    display: none;
-  }
-
-  .list_productos {
-    height: 100%;
-    width: auto;
-  }
-
-  .productos {
-    width: 100%;
-  }
-
-  .slide_product {
-    height: auto;
-    width: 200px;
-  }
-
-  .toggleMenu {
-    width: 60%;
-  }
+  .tituloEtapa, .aggDatostitle, .updateMatriztitle{
+    font-size: 20px !important;
+    font-weight: bold !important;
+  } 
+ 
 
 }
 
-@media only screen and (min-width: 701px) {
-  .productos {
-    width: 20%;
-  }
 
-  .slide_product {
-    height: auto;
-    width: 20%;
-  }
 
-  .toggleMenu {
-    width: 20%;
-  }
-}
 
 .banner_container {
   padding: 5px !important;
@@ -134,129 +87,25 @@ html,.fondo{
   white-space: nowrap;
   overflow: auto;
 }
-/*.productos::-webkit-scrollbar{
-  width: 0;
-}*/
 
-
-
-
-
-/* TOGGLE MENU */
-
-.toggleMenu {
-  left: 0;
-  top: 0 !important;
-  border: none;
-  background-color: #506048;
-  position: fixed;
-  z-index: 99;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden; 
+.btn-success {
+  color: green !important;
+  border-color: #28a745 !important;
+  background-color: #fff !important;
 }
 
-
-.toggleMenu::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 5px;
-  width: 2px;
+.btn-dark {
+  color: #343a40 !important;
+  border-color: #343a40 !important;
+  background-color: #fff !important;
 }
 
-
-.togglePerfil {
-  top: 0;
-  left: 0;
-  background-color: #506048;
-  height: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.btn-danger {
+  color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  background-color: #fff !important;
 }
 
-#perfilTags > p {
-  margin: 0;
-  color: white;
-
-}
-
-.toggleContenido {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-} 
-
-.toggleContenido > a {
-  height: 50px;
-  text-decoration: none;
-  align-items: center;
-  transition: transform .2s;
-  color: white;
-  margin-bottom: 5%;
-  padding-left: 15px;
-  display: flex;
-  align-items: center;
-} 
-
-
-.toggleContenido > a:hover {
-  background-color: #f0f0f0;
-  color: rgb(58, 58, 58);
-  text-decoration: none;
-  transform: scale(1.08) translate(10px);
-}
-
-
-.menu_cat_toggle {
-  flex-direction: column;
-  
-}
-
-.menu_cat_toggle .nav-item {
-  width: 100%;
-}
-
-.menu_cat_toggle .nav-item > a {
-  display: flex;
-  align-items: center;
-  transition: transform .2s;
-  color: #506048;
-  margin-bottom: 5px;
-}
-
-.p_seccionToggler {
-  margin-left: 15px;
-  font-size: 18px;
-}
-
-.toggleTitulo {
-  position: relative;
-}
-
-.btn-cerrar-toggle {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  background-color: rgba(255, 255, 255, 0.61);
-  border: none;
-}
-
-.toggleTitulo {
-  align-items: center;
-  justify-content: center;
-}
-
-.p_toggleMenu {
-  background-color:  #506048;
-  margin: 0;
-  color: white;
-  font-size: 23px;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  
-}
 
 #toggleNombre {
   font-size: 20px;
@@ -277,6 +126,7 @@ html,.fondo{
   display: flex;
   flex-wrap: wrap;
   color: white;
+  justify-content: center;
   align-items: center;
   height: 80px;
 
@@ -336,7 +186,7 @@ iframe{
 }
 
 .btnUapp{
-  background-color: #506048;
+  background-color: #02023d ;
   border-radius: 10px;
   width: 200px;
   height: 50px;
@@ -357,3 +207,9 @@ iframe{
   display: flex;
   justify-content: space-between;
 }
+
+.tituloEtapa{
+  font-size: 40px;
+  font-weight: bold;
+}
+

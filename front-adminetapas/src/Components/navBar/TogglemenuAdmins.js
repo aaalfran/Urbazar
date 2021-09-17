@@ -1,25 +1,44 @@
-import React from 'react'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartArea, faUsers, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import '../../css/toggleMenu.css';
 
 const ToggleMenuAdmin = () => {
+  const active = parseInt(localStorage.getItem('activeIndex'), 10)
+
   return (
 
     <>
 
-        <div className='toggleMenu toggle_admin'>
+      <div className="adminLeftMenu">
 
-            <div id="logo_box">
-                <img className="rounded-lg p-3" src={process.env.PUBLIC_URL + '/Uapp.svg'} alt="uapp"/>
-                <p className="m-0 titulo">UrbazApp </p>
-            </div>
-
-            <div className='toggleContenido'>
-                <a href='/report'> <i className="fas fa-tasks"></i> Reportes</a>
-                <a href='/familias'><i className="fas fa-street-view"> </i>Familias</a>
-                <a href='/admin/dashboard/productos'> <i className="fas fa-users"></i> Productos </a>
-
-            </div>
+        <div className='optionsNavigation'>
+          <a href='/report' 
+              onClick={()=>localStorage.setItem("activeIndex", 0)} 
+              className={`${active === 0 ? 'active' : ''}`}
+          >
+            <FontAwesomeIcon icon={faChartArea} className="icon-toggle" />
+            Reportes
+          </a>
+          <a href='/familias' 
+              onClick={()=>localStorage.setItem("activeIndex", 1)} 
+              className={`${active === 1 ? 'active' : ''}`}
+          > 
+              <FontAwesomeIcon icon={faUsers} className="icon-toggle" /> 
+              Familias
+          </a>
+         
+          <a href='/admin/dashboard/productos' 
+              onClick={()=> localStorage.setItem("activeIndex", 2)} 
+              className={`${active === 2? 'active': ''}`}
+          > 
+                <FontAwesomeIcon icon={faShoppingBag} className="icon-toggle" /> 
+                Productos
+          </a>
 
         </div>
+
+      </div>
 
     </>
 
