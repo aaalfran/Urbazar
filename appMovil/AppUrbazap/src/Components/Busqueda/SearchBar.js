@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../navBar/NavigationBar';
-import { View, Text, ScrollView, FlatList, Image, TextInput } from 'react-native';
-import { NativeBaseProvider, Button, Spinner, Modal } from "native-base";
+import { View, Text, FlatList, Image } from 'react-native';
+import { NativeBaseProvider } from "native-base";
 import CategoriesBar from '../navBar/CategoriesBar';
-import { useUsuario } from '../../Context/usuarioContext';
-import axios from 'axios';
 import data from '../../../enviroment';
-import CarritoItem from '../Carrito/CarritoItem';
-import Banner from "../Main/Banner";
-import filtroVista from '../Filtro/Ventanafiltro';
 import styles from "../Main/styles";
-import Carousel from 'react-native-snap-carousel';
-import { ScreenStackHeaderSearchBarView } from 'react-native-screens';
-import Request from '../../ApiRequest/Request';
 
 
 

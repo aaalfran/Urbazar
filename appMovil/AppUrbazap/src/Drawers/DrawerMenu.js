@@ -12,7 +12,7 @@ function DrawerMenu(props) {
   return (
     <TouchableOpacity onPress={()=> ChangeCategorieAndNavigate(props)}>
       <View style={s.menuContainer}>
-          <Icon name={props.iconName} color="#506048"  size={20}/>
+          <Icon name={props.iconName} color="#02023d"  size={20}/>
         <View style={s.tituloContainer}>
           <Text style={s.tituloTxt}>{props.titleName}</Text>
         </View>
@@ -38,7 +38,7 @@ let Menu= (props) => {
 
   return (
     <NativeBaseProvider>
-      <View style={{flex:0.09, flexDirection:'row', justifyContent:'flex-end', backgroundColor:"#506048"}}>
+      <View style={{flex:0.09, flexDirection:'row', justifyContent:'flex-end', backgroundColor:"#02023d"}}>
       <IconButton icon={<Icon name='close' color="white" size={25}/>}  onPress={()=> props.navigation.closeDrawer()}/>
       </View>      
     <View style={s.container}>
@@ -75,9 +75,9 @@ let Menu= (props) => {
       </View>
 
       
-      <DrawerMenu iconName='user' titleName='Perfil' navigation= {props.navigation} categorieNro="0" page="Perfil" />
-      <DrawerMenu iconName='cog' titleName='Configuración' navigation= {props.navigation} categorieNro="0" page="Perfil"  />
-      <DrawerMenu iconName='exclamation-circle' titleName='Reportar' navigation= {props.navigation} categorieNro="0" page="Perfil" />
+      <DrawerMenu iconName='user' titleName='Perfil' navigation= {props.navigation} categorieNro="0" page="" />
+      <DrawerMenu iconName='cog' titleName='Configuración' navigation= {props.navigation} categorieNro="0" page=""  />
+      <DrawerMenu iconName='exclamation-circle' titleName='Reportar' navigation= {props.navigation} categorieNro="0" page="" />
       
       <View style={s.sepCategorias}>
         <Text style={s.Textsep}>Más</Text>

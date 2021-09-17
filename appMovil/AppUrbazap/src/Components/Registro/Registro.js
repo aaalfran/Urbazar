@@ -154,11 +154,11 @@ const Register= ( props) => {
     return (
         <NativeBaseProvider>
             <View >
-                <StatusBar backgroundColor="#506048" barStyle="light-content" />
+                <StatusBar backgroundColor="#02023d" barStyle="light-content" />
                 <View style={styles.header} >
                     <HStack space={0} alignItems="center">
                         <IconButton
-                            icon={<Icon name="chevron-left" color="white" size={25} style={{ marginRight: 0 }} />} 
+                            icon={<Icon name="chevron-left" color="#02023d" size={25} style={{ marginRight: 0 }} />} 
                             style={{ marginRight: 0 }}
                             onPress={()=>props.navigation.navigate("Login")}
                         />
@@ -168,8 +168,6 @@ const Register= ( props) => {
                         </View>
                     </HStack>
                     
-                <View className="Decoradores" style={styles.decorator}/>
-            <View className="Decoradores" style={styles.decorator2}/>
                     
                 </View>
 
@@ -344,7 +342,7 @@ const Register= ( props) => {
                         </Center>
                         <Center style={{ width: "90%" }}>
 
-                            <Button backgroundColor="#506048" width="80%" style={{ marginTop: 10 }} onPress={signUp} >Registrarme</Button>
+                            <Button backgroundColor="#f4733e" width="80%" style={{ marginTop: 10 }} onPress={signUp} >Registrarme</Button>
                         </Center>
 
 

@@ -282,14 +282,11 @@ const Detail = (props) => {
                                                 agregarCarrito(producto.id, cantidad)
                                             }}
                                             title="Agregar a carrito"
-                                            color="#506048"
+                                            color="#f4733e"
                                         />
                                     </View>
                                 </View>
-                                {/* información importe */}
-{/*                                 <View>
-                                    <Text>Información importe</Text>
-                                </View> */}
+                                
                             </View>
                         </View>
                     </View>

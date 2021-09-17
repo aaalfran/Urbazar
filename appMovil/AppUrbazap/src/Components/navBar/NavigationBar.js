@@ -26,10 +26,10 @@ function Main(props) {
 
     <View style={{ flex: 2 }}>
       <NativeBaseProvider>
-        <StatusBar backgroundColor="#506048" barStyle="light-content" />
+        <StatusBar backgroundColor="#02023d" barStyle="light-content" />
 
         <Box safeAreaTop backgroundColor="#506048" />
-        <HStack bg='#506048' px={1} py={4} justifyContent='space-between' alignItems='center'>
+        <HStack bg='#02023d' px={1} py={4} justifyContent='space-between' alignItems='center'>
           <HStack space={4} alignItems='center'>
             <IconButton icon={<Icon size="sm" as={<MaterialIcons name='menu' />} color="white" />} onPress={() => props.navigation.openDrawer()} />
             <Text color="white" fontSize={20} fontWeight='bold'>UrbazApp</Text>
