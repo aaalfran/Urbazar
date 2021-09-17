@@ -8,7 +8,6 @@ function CardHeader (props){
             textAlign: 'center',
             background: props.color,
             marginTop: "10px",
-            marginLeft: "5px",
             position: "relative"
         },
         texto:{

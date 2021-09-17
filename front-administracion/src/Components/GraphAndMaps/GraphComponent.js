@@ -26,8 +26,8 @@ class GraphComponent extends React.Component {
 
     if (auth && role === "3") {
       return (
-        <>
-          <Grid container spacing={3}>
+        <div style={{paddingLeft:"5px"}}>
+          <Grid container spacing={3} className="contenedor_reportes">
             <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
               <CardHeader
                 icono={<FontAwesomeIcon icon={faGlobe} />}
@@ -58,9 +58,12 @@ class GraphComponent extends React.Component {
 
             </Grid>
             <Grid container spacing={2} className="chartsGraphsContainer">
-              <Grid item xs={12} sm={12} md={12} lg={6} xl={6} className="chartmd-6">
-                <Card>
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className="chartmd-6">
+                <Card style={{textAlign:"center"}}>
                   <CardContent>
+                    <Typography style={{fontWeight: 'bold', fontSize: 22, marginBottom:"45px"}}>
+                        Ganancias mensuales
+                    </Typography>
                     <ChartistGraph
                       className="ct-chart"
                       data={emailsSubscriptionChart.data}
@@ -74,9 +77,12 @@ class GraphComponent extends React.Component {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={6} xl={6}  className="chartmd-6">
-                <Card >
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6}  className="chartmd-6">
+                <Card style={{textAlign:"center"}}>
                   <CardContent>
+                  <Typography style={{fontWeight: 'bold', fontSize: 22, marginBottom:"45px"}}>
+                        Ganancias por categorías
+                    </Typography>
                     <ChartistGraph
                       className="ct-chart"
                       data={pieChart.data}
@@ -92,22 +98,21 @@ class GraphComponent extends React.Component {
 
             <Grid container spacing={3} className="chartmd12">
               <Grid item  lg={12} xl={12} >
-              <Card>
+              <Card style={{textAlign: "center"}}>
                 <CardContent>
-                  <FontAwesomeIcon icon={faShoppingBag} />
-                    <Typography >
-                        ghgh
+                    <Typography style={{fontSize: 28,}}>
+                        15
                     </Typography>
 
-                    <Typography >
-                        fhgj
+                    <Typography style={{ fontWeight: 'bold',fontSize: 22,}}>
+                        Transacciones intraUrbanización
                     </Typography>
                 </CardContent>
             </Card>
               </Grid>
             </Grid>
           
-        </>
+        </div>
       );
     } else {
       return <Redirect to="/" />;
