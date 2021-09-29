@@ -20,9 +20,9 @@ export default {
         backgroundColor: 'white',
         padding: 1
     },
-    boxProduct:{        
+    boxProduct:{    
         borderRadius: 5,
-        height: 200,
+        height: 210,
         marginLeft: 5,
         marginRight: 5, 
         borderWidth: 0.8,
@@ -34,7 +34,8 @@ export default {
         shadowRadius: 1,
         borderRightWidth: 3,
         borderLeftStyle: "solid",
-        borderColor: "#e6e6e6"
+        borderColor: "#e6e6e6",
+
 
     },
     line:{

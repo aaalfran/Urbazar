@@ -3,7 +3,7 @@ import { HStack, IconButton, NativeBaseProvider } from "native-base";
 import Icon from 'react-native-vector-icons/FontAwesome'
 import {View, Text} from 'react-native'
 import {storeCategoria} from "../../Context/categoriaContext";
-
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 
 function CategoriesBar({navigation}) {
@@ -17,8 +17,8 @@ function CategoriesBar({navigation}) {
     const color_icon = "#02023d";
 
     return (
-        <NativeBaseProvider>
-        <View style={{flex:1}} > 
+        <KeyboardAwareScrollView keyboardShouldPersistTaps= 'always'>
+        <View style={{flex:0}} > 
             <HStack bg='#E8E8F0' justifyContent='center' alignItems='center'>
                 <HStack space={3}>
                     <IconButton icon={<Icon name="home" color={color_icon}  size={20}/> } onPress={()=> handlePress("0", "Home")} />
@@ -31,7 +31,7 @@ function CategoriesBar({navigation}) {
                 </HStack>
             </HStack>
         </View>
-        </NativeBaseProvider>
+        </KeyboardAwareScrollView>
     )
 }
 

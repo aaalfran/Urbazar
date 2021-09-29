@@ -43,7 +43,7 @@ class Banner extends React.Component{
 
     render(){
         return(
-            <View style={{flex:20.5, padding: 10, backgroundColor: '#ffffff'}}>
+            <View style={{flex:1000, padding: 10, backgroundColor: '#ffffff'}}>
                 <ScrollView>
                     {/*Banner principal */}
                     <View style={{flexDirection:'row', justifyContent: 'center', borderRadius: 10 }}>

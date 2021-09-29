@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Menu from './src/Drawers/DrawerMenu'
@@ -13,22 +13,28 @@ import Carrito from "./src/Components/Carrito/Carrito";
 import VentanaFiltro from "./src/Components/Filtro/Ventanafiltro";
 import SearchBar from "./src/Components/Busqueda/SearchBar";
 import AddProduct from "./src/Components/Perfil/AddProduct";
+import { backgroundColor, opacity } from 'styled-system';
 
 export default () => <UsuarioProvider>
   <App></App>
 </UsuarioProvider>
 
-
 function App() {
   const { usuario } = useUsuario();
   const Drawer = createDrawerNavigator()
+
 
   return (
     <>
       {
         usuario ?
           <NavigationContainer>
-            <Drawer.Navigator drawerContent={(props) => <Menu {...props} />}>
+            <Drawer.Navigator
+            mode="modal" 
+              sceneAnimationEnabled={false} 
+              drawerContent={(props) => <Menu {...props} />}
+              screenOptions={{cardStyle: {backgroundColor: 'transparent'}}}
+              >
               <Drawer.Screen name="Home" component={Main} />
               <Drawer.Screen name="Perfil" component={AddProduct} />
               <Drawer.Screen name="Carrito" component={Carrito} />
@@ -49,12 +55,10 @@ function App() {
             </Drawer.Navigator>
           </NavigationContainer>
       }
-
     </>
   )
 }
-
-StyleSheet.create({
+ StyleSheet.create({
   container: {
     backgroundColor: '#ffffff'
   }

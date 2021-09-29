@@ -12,6 +12,7 @@ import { useUsuario } from '../../Context/usuarioContext';
 const borrarElemento = (props,setHide,carrito,borrarProducto) => {
 
     for (let item of carrito) {
+        console.log(item.producto.id === props.id)
         if (item.producto.id === props.id) {
             borrarProducto(item);
             setHide(true);
@@ -25,16 +26,13 @@ const borrarElemento = (props,setHide,carrito,borrarProducto) => {
   }
 const CarritoItem = (props) => {
 
-    console.log(props);
     const [hide,setHide] = useState(false);
     const { carrito, borrarProducto } = useUsuario();
 
-
-    console.log(props)
     return (
         <View style={hide ? styles.oculto : styles.carta}> 
         <View>
-        <Image source= {{uri: props.src }} style={{              
+        <Image source= {{uri: props.src }} style={ hide ? styles.oculto : {              
               height: 150,width: 150,resizeMode:'contain'}}
         />     
         </View>

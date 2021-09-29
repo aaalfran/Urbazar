@@ -1,6 +1,7 @@
 export default {
     oculto : {
-        height: 0
+        height: 0,
+        width: 0,
     },
     sombra : {
         shadowOpacity : 0.1,
@@ -12,7 +13,7 @@ export default {
     },
     carta : {
         marginTop: 10,
-        marginBottom: 10,
+        marginBottom: 0,
         marginLeft: 5,
         marginRight: 5,
         shadowColor: "#000",

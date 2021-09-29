@@ -12,7 +12,8 @@ const mostrarAlerta = () => {
     "Añadir al carrito",
     "Producto añadido exitosamente",
     [
-      { text: "OK", onPress: () => console.log("producto anadido") }
+      { text: "OK", onPress: () => 
+      console.log("producto anadido") }
     ]
   );
 }
@@ -32,21 +33,15 @@ const Detail = (props) => {
 
     const cargaProductos = props.navigation.addListener('focus', () => {
       setProducto(props.route.params.item)
-      setActiveIndex(0)         
+      setActiveIndex(0)       
     })
 
     const agregarCarrito = () => {
 
       const p = {"key": Math.floor(Math.random() * 1000), "producto" : producto, "cantidad" : cantidad, "total" : total};
-      
       agregarProducto(p);
-      
-      if (carrito.length > 0 ) {
-        mostrarAlerta();
-      }
+      mostrarAlerta();
       console.log("Agregando...");
-
-      console.log(carrito);
     }
     
     useEffect(() => {
@@ -150,7 +145,7 @@ const Detail = (props) => {
     return(
         <NativeBaseProvider>
             <NavBar navigation={props.navigation}/>
-            <View style={{flex:21, backgroundColor: "#ffffff"}}>
+            <View style={{flex:1000, backgroundColor: "#ffffff"}}>
                 <ScrollView>
                     <View style={styles.contenido}>
                         <View>  

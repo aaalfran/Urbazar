@@ -74,7 +74,7 @@ let filtroVista = (props) => {
         <NativeBaseProvider>
             <NavBar navigation={props.navigation} />
             <CategoriesBar navigation={props.navigation}/>
-            <View style={{ flex: 19 }}>
+            <View style={{ flex: 1000 }}>
                 <VStack >
                     <DrawContent categorie={categorie} products={products}/>
                 </VStack>
