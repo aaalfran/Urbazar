@@ -1,4 +1,3 @@
-
 export default {
     container:{
         flex: 1,
@@ -43,6 +42,14 @@ export default {
         backgroundColor: 'rgba(0, 0, 0 ,0.1)',
         alignSelf: 'stretch'
     },
+    line_2:{
+        height: 1,
+        backgroundColor: 'rgba(0, 0, 0 ,0.1)',
+        alignSelf: 'stretch',
+        width: "90%",
+        marginLeft: "5%",
+        marginTop: 10
+    },
     producto_titulo:{
         fontSize: 30,
         fontWeight: "bold"
@@ -57,15 +64,19 @@ export default {
     },
     producto_compra_etiqueta:{
         width: "50%",
+        marginTop: 5,
+        alignItems: "center",
     },
     producto_compra_valores:{
         width: "50%",
+        alignItems: "center",
     },
     producto_dist:{
         flexDirection: "row",
     },
     producto_texto:{
         fontSize: 19,
+        marginBottom: 10
     },
     producto_etapa: {
         fontSize: 19,

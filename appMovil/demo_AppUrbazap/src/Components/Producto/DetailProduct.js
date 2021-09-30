@@ -188,11 +188,11 @@ const Detail = (props) => {
                                 <Text style={styles.producto_texto_dist}>Distancia</Text>
                                 <Text style={styles.producto_etapa}>{producto.id} {producto.id == 1 ? "Etapa" : "Etapas"}</Text>
                             </View>
-                            <View style={styles.line}></View>
+                            
                             <View style={{marginTop: 10}}>
                                 <Text style={styles.producto_vendedor_titulo}>Comentarios</Text>
                                 {/* Comentarios */}
-                                <View style={{flexDirection: "row", width:"85%", alignSelf:"center", marginTop: 10, marginBottom: 10}}>
+                                <View style={{flexDirection: "row", width:"95%", alignSelf:"center", marginTop: 15, marginBottom: 10}}>
                                     <Image source= {{uri: "https://cdn.iconscout.com/icon/free/png-512/batman-1417681-1197293.png"}} style={{height: 50, width:50}}/>
                                     <View style={{marginLeft: 10}}>
                                         <Text style={{
@@ -212,8 +212,8 @@ const Detail = (props) => {
                                         {/* Parte izquierda (etiquetas) */}
                                         <View style={styles.producto_compra_etiqueta}>
                                             <Text style={{fontSize: 19, fontWeight: "bold"}}>Precio</Text>
-                                            <Text style={{fontSize: 19, fontWeight: "bold", marginTop: 15, marginBottom: 5}}>Cantidad</Text>
-                                            <View style={styles.line}></View>
+                                            <Text style={{fontSize: 19, fontWeight: "bold", marginTop: 18, marginBottom: 6.3}}>Cantidad</Text>
+                                            <View style={styles.line_2}></View>
                                             <Text style={{fontSize: 19, fontWeight: "bold", marginTop: 7}}>Total</Text>
                                         </View>
                                         {/* Parte derecha (valores) */}
@@ -234,12 +234,12 @@ const Detail = (props) => {
                                                     color="#02023d"
                                                 />
                                             </View>
-                                            <View style={styles.line}></View>
+                                            <View style={styles.line_2}></View>
                                             <Text style={{fontSize: 19, fontWeight: "bold", marginTop: 8}}>$ {total}</Text>
                                         </View>
                                     </View>
                                     {/* Boton agregar al carrito */}
-                                    <View style={{marginTop: 20, width: "70%", alignSelf: "center", marginTop: 50}}>
+                                    <View style={{marginTop: 20, width: "70%", alignSelf: "center", marginTop: 50, marginBottom: 20}}>
                                         <Button 
                                             onPress={() => {
                                                 agregarCarrito()

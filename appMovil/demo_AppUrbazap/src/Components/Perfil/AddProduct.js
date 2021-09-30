@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Platform, Image } from 'react-native';
+import { View, Text, Platform, Image,  ScrollView
+ } from 'react-native';
 import {
     NativeBaseProvider,
      Select, Input,
@@ -74,95 +75,98 @@ const AddProduct = () => {
 
     return (
         <NativeBaseProvider>
-            <View>
+            <View style={{flex: 1}}>
                 <View style={{ marginTop: 50, marginLeft: 10 }}>
                     <Text style={{ fontSize: 35, color: "#02023d", marginLeft: 10}}>Subir producto</Text>
                     <View style={styles.divider} />
                 </View>
 
-                <VStack space={4} alignItems="center">
-                    <View style={{ width: "90%" }}>
-                        <Text>Nombre</Text>
-                        <Input variant="outline"
-                            style={{ width: "100%" }}
-                            name="nombreProducto"
+                <ScrollView stickyHeaderIndices={[2]} > 
+                    <VStack space={4} alignItems="center">
+                        <View style={{ width: "90%" }}>
+                            <Text>Nombre</Text>
+                            <Input variant="outline"
+                                style={{ width: "100%" }}
+                                name="nombreProducto"
+                                
+                            onChangeText={text => setNombre(text)}
+                            />
+                        </View>
+
+                        <View style={{ width: "90%" }}>
+                            <Text>Stock</Text>
+                            <Input variant="outline"
+                                style={{ width: "100%" }}
+                                name="Stock"
+                                
+                            onChangeText={text => setStock(text)}
+                            />
+                        </View>
+
+                        <View style={{ width: "90%" }}>
+                            <Text>Precio</Text>
+                            <Input variant="outline"
+                                style={{ width: "100%" }}
+                                name="precio"
+                                
+                            onChangeText={text => setPrecio(text)}
+                            />
+                        </View>
+
+                        <View style={{ width: "90%" }}>
+                            <Text>Categoria</Text>
+                            <Select
+                                minWidth="100%"
+                                _selectedItem={{
+                                    bg: "#f4733e",
+                                    endIcon: <CheckIcon size={4} style={{ color: "white" }} />,
+                                }}
+                                onValueChange={value => setCategoria(value)}
+                                name="categoria"
+                            >
+                                {
+                                    categorias.map(categoria => (
+
+                                        <Select.Item
+                                            key={categoria.nombre}
+                                            label={categoria.nombre}
+                                            value={categoria.id} />
+
+                                    ))
+
+                                }
+
+                            </Select>
+                        </View>
+
+                        <View style={{ width: "90%" }}>
+                            <Text>Descripción</Text>
+                            <TextArea h={20} 
+                            onChangeText={text => setDescripcion(text)}
                             
-                        onChangeText={text => setNombre(text)}
                         />
-                    </View>
+                        </View>
 
-                    <View style={{ width: "90%" }}>
-                        <Text>Stock</Text>
-                        <Input variant="outline"
-                            style={{ width: "100%" }}
-                            name="Stock"
-                            
-                        onChangeText={text => setStock(text)}
-                        />
-                    </View>
+                    </VStack>
 
-                    <View style={{ width: "90%" }}>
-                        <Text>Precio</Text>
-                        <Input variant="outline"
-                            style={{ width: "100%" }}
-                            name="precio"
-                            
-                        onChangeText={text => setPrecio(text)}
-                        />
-                    </View>
+                    <HStack space={3} style={{ marginTop: "10%", marginBottom: "10%", justifyContent: "center", width: "100%" }}>
+                        <IconButton
+                            style={{ height: 100, width: 100, borderColor: "#f4733e" }}
+                            onPress={PickImage}
+                            variant="outline"
+                            icon={<Icon name="picture-o" color="#f4733e" size={50} />} />
 
-                    <View style={{ width: "90%" }}>
-                        <Text>Categoria</Text>
-                        <Select
-                            minWidth="100%"
-                            _selectedItem={{
-                                bg: "#f4733e",
-                                endIcon: <CheckIcon size={4} style={{ color: "white" }} />,
-                            }}
-                            onValueChange={value => setCategoria(value)}
-                            name="categoria"
-                        >
-                            {
-                                categorias.map(categoria => (
-
-                                    <Select.Item
-                                        key={categoria.nombre}
-                                        label={categoria.nombre}
-                                        value={categoria.id} />
-
-                                ))
-
-                            }
-
-                        </Select>
-                    </View>
-
-                    <View style={{ width: "90%" }}>
-                        <Text>Descripción</Text>
-                        <TextArea h={20} 
-                        onChangeText={text => setDescripcion(text)}
                         
-                     />
+
+                        {image && <Image source={{ uri: image }} style={{ width: 100, height: 100 }} />}
+                    </HStack>
+
+                    <View alignItems="center">
+                        <Button backgroundColor="#02023d" onPress={() => SaveImage(image,usuario.id, categoria,nombre,precio,descripcion,stock)} style={{ paddingLeft: "10%", paddingRight: "10%", width: "70%", marginBottom: 30 }}>
+                            Subir producto
+                        </Button>
                     </View>
-
-                </VStack>
-
-                <HStack space={3} style={{ marginTop: "10%", marginBottom: "10%", justifyContent: "center" }}>
-                    <IconButton
-                        style={{ height: 100, width: 100, borderColor: "#f4733e" }}
-                        onPress={PickImage}
-                        variant="outline"
-                        icon={<Icon name="picture-o" color="#f4733e" size={50} />} />
-
-                    {image && <Image source={{ uri: image }} style={{ width: 100, height: 100 }} />}
-                </HStack>
-
-                <View alignItems="center">
-                    <Button backgroundColor="#02023d" onPress={() => SaveImage(image,usuario.id, categoria,nombre,precio,descripcion,stock)} style={{ paddingLeft: "10%", paddingRight: "10%", width: "70%" }}>
-                        Subir producto
-                    </Button>
-                </View>
-
+                </ScrollView>
             </View>
         </NativeBaseProvider>
     )

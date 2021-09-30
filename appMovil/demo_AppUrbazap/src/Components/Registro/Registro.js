@@ -164,7 +164,7 @@ const Register= ( props) => {
                 </View>
 
                 <Text style={styles.title}> Crea tu cuenta </Text>
-                <ScrollView stickyHeaderIndices={[1]} >
+                <ScrollView stickyHeaderIndices={[1]} > 
                     <Stack space={3} alignItems="center" style={{ marginBottom: "10%" }}>
                         {/* Nombre Completo*/}
                         <Center style={{ width: "90%", marginTop: "3%"}}  >
