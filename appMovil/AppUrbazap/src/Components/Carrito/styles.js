@@ -1,6 +1,7 @@
 export default {
     oculto : {
-        height: 0
+        height: 0,
+        width: 0
     },
     sombra : {
         shadowOpacity : 0.1,
