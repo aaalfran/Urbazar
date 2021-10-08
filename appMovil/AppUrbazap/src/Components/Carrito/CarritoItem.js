@@ -18,7 +18,7 @@ const CarritoItem = (props) => {
     return (
         <View style={hide ? styles.oculto : styles.carta}> 
         <View>
-        <Image source= {{uri: props.src }} style={{              
+        <Image source= {{uri: props.src }} style={ hide ? styles.oculto : {              
               height: 150,width: 150,resizeMode:'contain'}}
         />     
         </View>
