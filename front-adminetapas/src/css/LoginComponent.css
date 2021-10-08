@@ -14,7 +14,7 @@ body, #root, .container_login, .fondo{
 }
 
 #root{
-    background: linear-gradient(#02023d, white );
+    background:  #F2F3F4 ;
 }
 .container_login{
     display: flex;
@@ -97,6 +97,7 @@ body, #root, .container_login, .fondo{
         width: 100%;
     }
 }
+
 
 @media only screen and (max-width: 701px) {
     #tarjeta_login{
