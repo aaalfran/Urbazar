@@ -12,12 +12,12 @@ export default {
     },
     title:{
         fontSize: 50,
-        color: "#506048",
+        color: "#02023d",
         marginBottom: 0
     },
     subtitle:{
         fontSize: 10,
-        color: "#506048",
+        color: "#02023d",
         marginBottom: 0
     },
     logo:{
@@ -55,7 +55,7 @@ export default {
     },
     letraFooter:{
         fontSize: 12,
-        color: "#506048",
+        color: "#02023d",
         textAlign: "center"
 
     },
@@ -63,7 +63,7 @@ export default {
         width: 150,
         height: 150,
         borderRadius: 100,
-        backgroundColor: "#506048ad",
+        backgroundColor: "#11114981",
         position: "absolute",
         top: -40,
         right: -30
@@ -72,7 +72,7 @@ export default {
         width: 100,
         height: 100,
         borderRadius: 100,
-        backgroundColor: "#b05f58c2",
+        backgroundColor: "#ffbea4c0",
         position: "absolute",
         top: 35,
         right: 35

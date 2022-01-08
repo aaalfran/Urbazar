@@ -1,73 +1,51 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import LoginPV from "./LoginPV";
-import axios from 'axios';
+import axios from "axios";
 
+class LoginPC extends Component {
+  login = async () => {
+    let data = {
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+    };
 
-class LoginPC extends Component{
+    let feed = document.getElementById("FeedbackLogin");
 
-
-
-
-    login = async() =>{
-               
-        
-        let data = {
-            'username': document.getElementById('username').value,
-            'password': document.getElementById('password').value,
+    console.log(data);
+    axios
+      .post(`http://134.209.215.193:3000/login`, data)
+      .then((response) => {
+        if (response.status == 200) {
+          return response.data;
         }
+      })
+      .then((res) => {
+        if (res.data.role != 3) {
+          feed.innerHTML = "No tienes permisos de acceso";
+          feed.style.color = "red";
+        } else {
+          console.log(res);
+          localStorage.setItem("user", res.data.username);
+          localStorage.setItem("nombre_usuario", res.data.nombre);
+          localStorage.setItem("userId", res.data.id);
+          localStorage.setItem("auth", 1);
+          localStorage.setItem("token", res.token);
+          localStorage.setItem("role", res.data.role);
+          document.location.href = "/report";
+        }
+      })
 
-        let feed = document.getElementById("FeedbackLogin");
-    
-                console.log(data)
-                axios.post(`http://134.209.215.193:3000/login`, data)
-                    .then(response => {
-                        if (response.status == 200) {                            
-                            return response.data
-                        }
-                    })
-                    .then(res => {
-                        if (res.data.role!=3){
-                            feed.innerHTML = "No tienes permisos de acceso";
-                            feed.style.color="red";
+      .catch((err) => {
+        feed.innerHTML = "Usuario o clave incorrectos";
 
-                        }
-                        else{
-                            console.log(res)
-                            localStorage.setItem('user', res.data.username);
-                            localStorage.setItem('nombre_usuario', res.data.nombre);
-                            localStorage.setItem('userId', res.data.id);
-                            localStorage.setItem('auth', 1);
-                            localStorage.setItem('token', res.token);
-                            localStorage.setItem('role', res.data.role);
-                            document.location.href="/report"
-                        
-                       
-                        }
-                       
-                        
-                    
-                    })
-    
-                    .catch ( (err) => {
-                        feed.innerHTML = "Usuario o clave incorrectos";
-                        
-                        feed.style.color="red";
-                        console.log(err);
-            } )
-    }
+        feed.style.color = "red";
+        console.log(err);
+      });
+  };
 
-    
-
-    
-    render(){
-        return( <LoginPV 
-            login={this.login}
-            auth= {this.props.auth} /> );
-    }
-
-
+  render() {
+    return <LoginPV login={this.login} auth={this.props.auth} />;
+  }
 }
 
-
-  
 export default LoginPC;

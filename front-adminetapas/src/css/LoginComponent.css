@@ -7,21 +7,20 @@
 html, body{
     height: 100%;
 }
-.Login-logo{  
-    width: 80%;
-}
+
 
 body, #root, .container_login, .fondo{
     height: 100%;
 }
 
 #root{
-    background-color: #f0f0f0;
+    background:  #F2F3F4 ;
 }
 .container_login{
     display: flex;
     justify-content: center;
-    width: 60% !important;
+    align-items: center;
+    width: 40% !important;
 }
 #info{
     width: 60%;
@@ -37,19 +36,21 @@ body, #root, .container_login, .fondo{
     justify-content: center;
     align-items: center;
     margin-bottom: 5%;
+    color: #02023d ;
 }
 
 .Login-title img{
-    width: 5%;
+    width: 35%;
 
 }
 
 #tarjeta_login{
-    width: 60% !important;
+    width: 40% !important;
+    height: 80%;
     margin: auto;
-    background-color: #ffffff;
-    border: 1px solid #b8b8b8;
-    border-top: 5px solid  #506048 ;
+    background-color: #fff;
+    border: 1px solid #e6e6e6 ;
+    border-top: 5px solid  #f4733e ;
 }
 
 #img_login{
@@ -66,7 +67,7 @@ body, #root, .container_login, .fondo{
     font-size: 11px;
 }
 #btn-round{
-    background: #506048;
+    background: #f4733e ;
     border:none;
 }
 
@@ -75,6 +76,7 @@ body, #root, .container_login, .fondo{
     align-items: center;
     justify-content: center;
     margin-top: 3%;
+    width: 100%;
 }
 
 #registrate a{
@@ -95,6 +97,7 @@ body, #root, .container_login, .fondo{
         width: 100%;
     }
 }
+
 
 @media only screen and (max-width: 701px) {
     #tarjeta_login{

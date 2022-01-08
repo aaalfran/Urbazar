@@ -38,7 +38,7 @@ export default {
     userSubTitulo: {
         textAlign: 'center',
         fontSize: 11,
-        color: '#B06058',
+        color: '#f4733e',
         paddingVertical: 5,
     },
     menuContainer: {
@@ -61,7 +61,7 @@ export default {
 
     tituloTxt: {
         fontSize: 13,
-        color: "#506048"
+        color: "#02023d"
     },
     difuminado:{
         flex:1,
@@ -79,7 +79,7 @@ export default {
         flexDirection:'row',
         justifyContent: 'center',
         paddingLeft: 9,
-        backgroundColor: "#506048",
+        backgroundColor: "#f4733e",
         paddingTop: 8,
         paddingBottom: 8
     },

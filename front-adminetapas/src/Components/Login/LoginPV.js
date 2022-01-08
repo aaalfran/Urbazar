@@ -1,7 +1,4 @@
-
-import conf from '../../imagenes/customer-support.png'
 import React from 'react'
-
 import {
   Card, Button,
   Form, FormGroup, Input,
@@ -9,6 +6,7 @@ import {
 } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 import '../../css/LoginComponent.css'
+import logoAzul from '../../imagenes/logoAzul.png'
 
 function LoginComponent (props) {
   const auth = parseInt(localStorage.getItem('auth'), 10)
@@ -25,9 +23,12 @@ function LoginComponent (props) {
             <div>
 
               <div className= "Login-title">
-                <h3> UrbazApp </h3>
-                <img src={conf} className="Login-logo" alt="configuracion" />
+                <h3> UrbazApp - <span style={{color: "#f4733e"}}> Administración </span></h3>
 
+              </div>
+              <div className= "Login-title">
+                
+                <img src={logoAzul} className="Login-logo" alt="configuracion" />
               </div>
 
               <div className= "Login-content">

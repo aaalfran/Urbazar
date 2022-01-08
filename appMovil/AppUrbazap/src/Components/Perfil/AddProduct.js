@@ -143,7 +143,7 @@ const AddProduct = () => {
 
 
                 <View alignItems="center">
-                    <Button backgroundColor="#506048" onPress={() => SaveImage(image,usuario.id, categoria,nombre,precio,descripcion,stock)} style={{ paddingLeft: "10%", paddingRight: "10%", width: "70%" }}>
+                    <Button backgroundColor="#f4733e" onPress={() => SaveImage(image,usuario.id, categoria,nombre,precio,descripcion,stock)} style={{ paddingLeft: "10%", paddingRight: "10%", width: "70%" }}>
                         Subir producto
                     </Button>
                 </View>

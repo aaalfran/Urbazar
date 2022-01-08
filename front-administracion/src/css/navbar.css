@@ -1,0 +1,66 @@
+.navbar-admin {
+    background-color: #02023d ;
+    color: #f4733e ;
+    position: sticky !important;
+    padding: 1% 5% 1%;
+    height: 80px;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between !important;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.41);
+}
+
+.button_nav {
+    background-color: transparent;
+    margin-right: 1.5%;
+    border-radius: 100%;
+    border: 1px solid white;
+    background-color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+
+@media only screen and (max-width: 700px) {
+
+   .logobox{
+       width: 60% !important;
+
+   }
+}
+
+.section-options {
+    display: flex;
+    justify-content: flex-end !important;
+}
+
+.section-logo .nombreUrbazapp{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.section-logo{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    margin-left: 3%;
+}
+
+.logo-png{
+    max-width: 25%;
+    margin-right: 4%;
+}
+.logobox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.icon-navbar{
+    color: #f4733e;
+    max-width: 100%;
+}

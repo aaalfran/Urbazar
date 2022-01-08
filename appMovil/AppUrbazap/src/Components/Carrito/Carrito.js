@@ -34,7 +34,7 @@ const Carrito = (props) => {
         const unsuscribe = props.navigation.addListener('focus',() => {
             setListaItems([])
             setLoad(false);
-            axios.get(`http://${data.number}/clientes/persona/${usuario.id}`).then(response => {
+            axios.get(`http://${data.number}/clientes/persona/${6}`).then(response => {
                 axios.get(`http://${data.number}/carrito/cliente/${response.data[0].id}`).then(response => {
                     let resultado = response.data[0]
                     axios.get(`http://${data.number}/detalle-carrito/carrito/${resultado.id}`).then(response => {
@@ -51,7 +51,8 @@ const Carrito = (props) => {
                                     setListaItems(current => current.concat(<CarritoItem key={item.idDetalle}src={imagen} nombre={nombre} precio={cant*precio} cantidad = {cant} idDetalle ={item.idDetalle} navigation={props.navigation} ></CarritoItem>))
                                     setIdDetalle(current => current.concat(item.idDetalle))
                                     setPrecioTotal(current => current + cant*precio)
-                                    
+                                    console.log('listaitems')
+                                    console.log(listaItems)
     
                                 })
                             }
@@ -72,6 +73,7 @@ const Carrito = (props) => {
         });
         return unsuscribe;
     },[])
+
     return (
         <NativeBaseProvider>
             <NavBar navigation={props.navigation}/>
@@ -85,7 +87,7 @@ const Carrito = (props) => {
             </View> 
 
             <View style={{justifyContent: 'center',alignItems: 'center',flex:1,marginBottom:20}}>
-            <Button backgroundColor="#506048" onPress={() => setShowModal(true)}>Confirmar Compra</Button>
+            <Button backgroundColor="#f4733e" onPress={() => setShowModal(true)}>Confirmar Compra</Button>
             </View>
             <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
                 <Modal.Content maxWidth="400px">

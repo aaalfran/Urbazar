@@ -1,98 +1,95 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import NavBar from '../navBar/NavigationBar';
-import { View, Text, Button, Image, ScrollView, Dimensions } from 'react-native';
+import { View, Text, Button, Image, ScrollView, Dimensions, Alert } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { NativeBaseProvider } from "native-base";
 import CategoriesBar from '../navBar/CategoriesBar';
 import styles from "../Main/styles";
+import data from '../../../enviroment';
 import axios from 'axios';
 import { LoadStars } from './LoadResourcesProducts';
-import Swal from 'react-native-sweet-alert';
+import { useUsuario } from '../../Context/usuarioContext';
 
-let agregarCarrito = (id_producto,cantidad) => {
+const mostrarAlerta = (cantidad) => {
+  Alert.alert(
+    "Añadir al carrito",
+    `Producto añadido exitosamente, cantidad: ${cantidad}`,
+    [
+      { text: "OK", onPress: () => console.log("producto anadido") }
+    ]
+  );
+}
+
+let agregarCarrito = (id_producto,cantidad, user) => {
     axios.get(`http://${data.number}/clientes/persona/${6}`).then(res => {
       let dato = res.data[0];
       axios.post(`http://${data.number}/carrito`,{
         "id": dato.idPersona,
         "idUsuario": dato.id,
-    }).then(() => {
-      console.log("Carrito Creado Exitosamente")
-    }).catch(err => {
-      console.log(err)
-    }).finally(() => {
-      axios.get(`http://${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
-        let dato = res.data[0];
-        axios.get(`http://${data.number}/detalle-carrito/carrito/${dato.id}`).then(res => {
-          let respuesta = res.data;
-          console.log(respuesta)
-          let isRespuesta = true;
-          if(respuesta.length > 0) {
-            for(let detalle of respuesta){
-              console.log(detalle)
-              if(detalle.idProducto === parseInt(id_producto)){
-                isRespuesta = false;
-                let pload = detalle;
-                pload.cantidad = cantidad;
-                axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
-                  console.log("success update")
-                  setLoad(true);
-                  Swal.fire(
-                    'Producto agregado al carrito exitosamente',
-                    `cantidad: ${cantidad}`,
-                    'success'
-                  )
-                }).then(() => {
-                  window.location.reload()
-                }).catch(err=> {
-                  console.log("Error update")
+      }).then(() => {
+        console.log("Carrito Creado Exitosamente")
+      }).catch(err => {
+        console.log(err)
+      }).finally(() => {
+        axios.get(`http://${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
+          let dato = res.data[0];
+            axios.get(`http://${data.number}/detalle-carrito/carrito/${dato.id}`).then(res => {
+              let respuesta = res.data;
+              let isRespuesta = true;
+              if(respuesta.length > 0) {
+                for(let detalle of respuesta){
+                  if(detalle.idProducto === parseInt(id_producto)){
+                    isRespuesta = false;
+                    let pload = detalle;
+                    pload.cantidad = cantidad;
+                      axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
+                        console.log("success update")
+                        //setLoad(true);
+                        mostrarAlerta(cantidad);
+                      }).then(() => {
+                        window.location.reload()
+                      }).catch(err=> {
+                        console.log("Error update")
+                      })
+                    break ;
+                  } 
+                }
+                if(isRespuesta){
+                  let payload = {
+                    "idProducto": parseInt(id_producto),
+                    "cantidad": cantidad,
+                    "idCarrito": dato.id
+                  }
+                  axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
+                    mostrarAlerta(cantidad);
+                  }).then(() => {
+                    window.location.reload()
+                  }).catch(err => {
+                    console.log("error xd")
+                  })
+                }
+              } 
+              else{
+                let payload = {
+                  "idProducto": parseInt(id_producto),
+                  "cantidad": cantidad,
+                  "idCarrito": dato.id
+                }
+                console.log(payload)
+                axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
+                  mostrarAlerta(cantidad);
+                }).catch(err => {
+                  console.log("error xd")
                 })
-                break ;
               }
-            }
-            if(isRespuesta){
-              let payload = {
-                "idProducto": parseInt(id_producto),
-                "cantidad": cantidad,
-                "idCarrito": dato.id
-              }
-              axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-                setLoad(true);
-                Swal.fire(
-                  'Producto agregado al carrito exitosamente',
-                  `cantidad: ${cantidad}`,
-                  'success'
-                ).then(() => {
-                  window.location.reload()
-                })
-              }).catch(err => {
-                console.log("error xd")
-              })
-            }
-          }
-          else{
-            let payload = {
-              "idProducto": parseInt(id_producto),
-              "cantidad": cantidad,
-              "idCarrito": dato.id
-            }
-            console.log(payload)
-            axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
-              setLoad(true);
-              Swal.fire(
-                'Producto agregado al carrito exitosamente',
-                'success'
-              )
-            }).catch(err => {
-              console.log("error xd")
-            })
-          }
-  
-        })
+          }).catch(err => {console.err(err)})
+        }).catch(err => {console.err(err)})
       })
-    })
-    })
+    }).catch(err => {console.err(err)})
   }
 
+
+  
 const Detail = (props) => {
     let producto = props.route.params.item
     const [cantidad, setCantidad] = useState(1)
@@ -106,45 +103,26 @@ const Detail = (props) => {
         "id_producto": 0, 
         "source": "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg"
     }])
+
+    const user = useUsuario().usuario.id;
     
-    useEffect(() => {
-        const cargaProductos = props.navigation.addListener('focus', () => {
-            producto = props.route.params.item
-            setCantidad(1)
-            setActiveIndex(0)
-            setTotal(producto.precio)
-            axios.get(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
-                .then(response => setCarouselItems(response.data))
-                .catch(error => console.log('Hubo un error ' + error))
+    const cargaProductos = props.navigation.addListener('focus', () => {
+      producto = props.route.params.item
+      setCantidad(1)
+      setActiveIndex(0)
+      setTotal(producto.precio)
             
      })
-        return cargaProductos
-    }, [])
-    console.log(producto.idVendedor)
-    
-/*     useEffect(() => {
-        axios.get(`http://${data.number}/personas/` + producto.idVendedor)
-          .then((response) => {
-            return response.data.id_etapa
-          })
-          .then((idetapa) => {
-            axios.get(`http://${data.number}/etapas/` + idetapa)
-              .then((response) => {
-                setEtapaVendedor(response.data.nombre)
-                console.log("Hola")
-                console.log(etapaVendedor)
-              })
-              .catch(error => console.log('Hubo un error ' + error))
-          })
-    }, []) */
 
-/*     useEffect(() => {
-        axios.get(`http://${data.number}/etapas/` + localStorage.getItem('etapa'))
-          .then((response) => {
-            setEtapaCliente(response.data.nombre)
-          })
-          .catch(error => console.log('Hubo un error ' + error))
-    }, []) */
+    useEffect(() => {
+      axios.get(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
+      .then(response => setCarouselItems(response.data))
+      .catch(error => console.log('Hubo un error ' + error))
+      
+      setCantidad(1)
+      setTotal(producto.precio)
+      
+    }, [producto])
 
     const aumentarCantidad = () => { 
         if (cantidad < producto.stock) {
@@ -158,24 +136,7 @@ const Detail = (props) => {
             setTotal(producto.precio * (cantidad - 1))
             setCantidad(cantidad - 1)
         }
-    }
-
-/*     const printImporte = () => {
-        axios.get(`http://134.209.215.193:3000/matriz/1`)
-          .then((response) => {
-            const respuesta = JSON.parse(response.data.data)
-            const posc = respuesta.vertexes.indexOf(etapaCliente)
-            const posv = respuesta.vertexes.indexOf(etapaVendedor)
-            setImporte(respuesta.matrix[posv][posc])
-            const div = document.getElementById('info_Importe')
-            div.innerHTML = `El proveedor se encuentra en la etapa "${etapaVendedor}". 
-                    El importe por envío tiene un costo de $` + respuesta.matrix[posv][posc]
-          })
-          .catch(error=>{
-              console.log(error, "Error al cargar la matriz de adyacencia");
-          })
-      } */
-    
+    }   
 
     return(
         <NativeBaseProvider>
@@ -279,17 +240,14 @@ const Detail = (props) => {
                                         <Button 
                                             onPress={() => {
                                                 console.log("agregando a carrito")
-                                                agregarCarrito(producto.id, cantidad)
+                                                agregarCarrito(producto.id, cantidad, user)
                                             }}
                                             title="Agregar a carrito"
-                                            color="#506048"
+                                            color="#f4733e"
                                         />
                                     </View>
                                 </View>
-                                {/* información importe */}
-{/*                                 <View>
-                                    <Text>Información importe</Text>
-                                </View> */}
+                                
                             </View>
                         </View>
                     </View>

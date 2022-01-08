@@ -16,7 +16,7 @@ function Login( {navigation} ){
     const { login } = useUsuario();
 
     const ingresar = () =>{
-        data = { username, password}
+        let data = { username, password}
         login(data)
     }
 
@@ -27,7 +27,7 @@ function Login( {navigation} ){
     return(
         <NativeBaseProvider>
         <View style={{height:"100%"}}>
-            <StatusBar backgroundColor="#506048" barStyle="light-content" />
+            <StatusBar backgroundColor="#02023d" barStyle="light-content" />
             <View className="header_login" style={styles.header} >
             </View>
 
@@ -56,7 +56,7 @@ function Login( {navigation} ){
                     </View>
 
                     <View>
-                        <Button backgroundColor="#506048"  onPress={ingresar}>Iniciar sesión</Button>
+                        <Button backgroundColor="#f4733e"  onPress={ingresar}>Iniciar sesión</Button>
                     </View>
                     
                 
@@ -70,8 +70,6 @@ function Login( {navigation} ){
                 
                 </TouchableOpacity>
             
-                <View className="Decoradores" style={styles.decorator}/>
-            <View className="Decoradores" style={styles.decorator2}/>
            
         </View>
         </NativeBaseProvider>

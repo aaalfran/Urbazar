@@ -10,10 +10,10 @@ import PanelEtapasPC from './Components/Admin_Etapas/PanelEtapasPC'
 import { Col } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Perfil from './Components/Perfil/Perfil'
-import Cliente from './Components/Clientes/Cliente'
 import Ubicaciones from './Components/Ubicaciones/Ubicaciones'
+import "./css/MainComponent.css";
 
-function App () {
+function App() {
   React.useEffect(() => {
     if (!localStorage.getItem('auth')) {
       localStorage.setItem('auth', 0)
@@ -30,6 +30,10 @@ function App () {
     if (!localStorage.getItem('token')) {
       localStorage.setItem('token', '')
     }
+    if (!localStorage.getItem('activeIndex')) {
+      localStorage.setItem('activeIndex', 0)
+    }
+
   })
 
   return (
@@ -37,42 +41,42 @@ function App () {
       {!parseInt(localStorage.getItem('auth'), 10)
         ? (
           <React.StrictMode>
-              <Router>
-                <Switch>
-                <Route path="/" exact component={LoginComponent}/>
+            <Router>
+              <Switch>
+                <Route path="/" exact component={LoginComponent} />
 
-                </Switch>
-              </Router>
+              </Switch>
+            </Router>
           </React.StrictMode>
 
-          )
+        )
         : (
-            <React.StrictMode>
+          <React.StrictMode>
             <div className="container-fluid fondo">
-            <div className="row">
-          <Col sm="2">
-          <ToggleBar/>
-          </Col>
-          <Col sm="10" className="pr-0">
-          <NavBar/>
-          <Router>
-          <Switch>
-            <Route path="/" exact component={LoginComponent}/>
-            <Route path="/report" exact component={GraphComponent}/>
-            <Route path="/etapas" exact component={PanelEtapasPC}/>
-            <Route path="/admin/dashboard/account" exact component={Perfil}/>
-            <Route path="/admin/dashboard/customer" exact component={Cliente}/>
-            <Route path="/admin/dashboard/map" exact component={Ubicaciones}/>
-          </Switch>
-      </Router>
+              <NavBar />
+              <div className="row contenedorToggle">
+                <Col xs={3} sm={3} className="colToggle">
+                  <ToggleBar />
+                </Col>
+                <Col xs={9} sm={9} className="pr-3 bodycontainer">
+                  
+                  <Router>
+                    <Switch>
+                      <Route path="/" exact component={LoginComponent} />
+                      <Route path="/report" exact component={GraphComponent} />
+                      <Route path="/etapas" exact component={PanelEtapasPC} />
+                      <Route path="/admin/dashboard/account" exact component={Perfil} />
+                      <Route path="/admin/dashboard/map" exact component={Ubicaciones} />
+                    </Switch>
+                  </Router>
 
-          </Col>
-        </div>
-      </div>
-      </React.StrictMode>
+                </Col>
+              </div>
+            </div>
+          </React.StrictMode>
 
-          )}
-          </>
+        )}
+    </>
 
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Navbar } from 'reactstrap'
-import '../../css/MainComponent.css'
+import '../../css/navbar.css'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import MeetingRoom from '@material-ui/icons/MeetingRoom'
 import PersonIcon from '@material-ui/icons/Person'
+import logoNaranja from '../../imagenes/logoNaranja.png'
 
 const NavbarAdmins = (props) => {
   const logout = () => {
@@ -18,20 +19,40 @@ const NavbarAdmins = (props) => {
      <>
       <Navbar color='faded' dark className='navbar-admin'>
         {/* menu toggler */}
-
-        <div className="notificaciones">
-          <a ><button type='button' className='button_nav d-flex' >Notificaciones<NotificationsIcon/> </button></a>
-
+        <div className="section-logo">
+            <div className="logobox">
+              <img src={logoNaranja} className="logo-png" />
+            <p className="nombreUrbazapp"> UrbazApp </p>
+            </div>
         </div>
+        
+        <div className="section-options"> 
+          <div className="notificaciones">
+            <a >
+              <button type='button' className='button_nav d-flex' >
+                <NotificationsIcon className="icon-navbar"/> 
+              </button>
+            </a>
+        
+          </div>
 
-        <div className="notificaciones">
-          <a href="/admin/dashboard/account"><button type='button' className='button_nav d-flex' >Perfil<PersonIcon/> </button></a>
+          <div className="notificaciones">
+            <a href="/admin/dashboard/account">
+              <button type='button' className='button_nav d-flex' >
+                <PersonIcon className="icon-navbar"/> 
+              </button>
+            </a>
 
-        </div>
+          </div>
 
-        <div className="notificaciones">
-          <a href="/" ><button type='button' className='button_nav d-flex' onClick={logout} >Salir<MeetingRoom/> </button></a>
+          <div className="notificaciones">
+            <a href="/" >
+              <button type='button' className='button_nav d-flex' onClick={logout} >
+                <MeetingRoom className="icon-navbar"/> 
+              </button>
+            </a>
 
+          </div>
         </div>
 
       </Navbar>
