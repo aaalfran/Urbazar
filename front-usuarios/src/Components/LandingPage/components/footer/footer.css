@@ -1,0 +1,31 @@
+#landing-page-footer {
+  background-color: #13132c;
+  color: #fff;
+  min-height: 159px;
+  position: relative;
+}
+
+#landing-page-footer span {
+  float: right;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.icon-footer-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #757575;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.col-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}

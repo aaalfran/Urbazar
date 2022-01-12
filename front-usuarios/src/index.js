@@ -21,6 +21,7 @@ import ClientesComponent from './Components/AdminsComponents/PanelClientes/Clien
 import MapComponent from './Components/AdminsComponents/GraphAndMaps/MapComponent'
 import CatalogoComponent from './Components/UsersComponents/Busqueda/CatalogoComponent'
 import PerfilComponent from './Components/UsersComponents/Perfil/PerfilPC'
+import { LandingPage } from './Components/LandingPage/LandingPage'
 import { applyMiddleware, createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -61,6 +62,7 @@ const Index = () => {
     <React.StrictMode>
       <Router>
         <Switch>
+          <Route path="/landing-page" exact component={LandingPage}></Route>
           <Route path="/login" exact component={LoginComponent} />
           <Route path="/registro" exact component={Register} />
           <Route path="/" exact component={MainComponent} />
