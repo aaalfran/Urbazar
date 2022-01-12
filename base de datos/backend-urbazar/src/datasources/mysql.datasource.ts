@@ -2,13 +2,13 @@ import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
 const config = {
-  name: 'mysql',
+  name: 'misitio',
   connector: 'mysql',
   url: '',
   host: '127.0.0.1',
   port: 3306,
   user: 'root',
-  password: 'root',
+  password: 'Franco8641',
   database: 'urbazar'
 };
 
