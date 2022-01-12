@@ -21,7 +21,7 @@ import ClientesComponent from './Components/AdminsComponents/PanelClientes/Clien
 import MapComponent from './Components/AdminsComponents/GraphAndMaps/MapComponent'
 import CatalogoComponent from './Components/UsersComponents/Busqueda/CatalogoComponent'
 import PerfilComponent from './Components/UsersComponents/Perfil/PerfilPC'
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import RootR from './store/reducers/RootR'
@@ -60,39 +60,61 @@ const Index = () => {
   return (
     <React.StrictMode>
       <Router>
-          <Switch>
-            <Route path="/login" exact component={LoginComponent}/>
-            <Route path="/registro" exact component={Register}/>
-            <Route path="/" exact component={MainComponent}/>
-            <Route path="/carrito/:idCarrito" exact component={CarritoComponent}/>
-            <Route path="/productdetail/:id/:idvendedor" exact component={ProductComponent}/>
-            <Route path="/categoria" exact component={CategoriaComponent}/>
-            <Route path="/contactanos" exact component={ContactanosComponent}/>
-            <Route path="/devs" exact component={DesarrolladoresComponent}/>
-            <Route path="/aboutus" exact component={AboutUsComponent}/>
-            <Route path="/test" exact component={testJSON}/>
-            <Route path="/admin/dashboard" exact component={MainAdmins}/>
-            <Route path="/admin/dashboard/report" exact component={GraphComponent}/>
-            <Route path="/admin/dashboard/panel" exact component={PanelProducts}/>
-            <Route path="/admin/dashboard/account" exact component={AccountComponent}/>
-            <Route path="/admin/dashboard/customer" exact component={ClientesComponent}/>
-            <Route path="/admin/dashboard/map" exact component={MapComponent}/>
-            <Route path="/buscador" exact component={CatalogoComponent}/>
-            <Route path="/buscador/:id" exact>
-              <CatalogoComponent></CatalogoComponent>
-            </Route>
-            <Route path="/perfil" exact component={PerfilComponent}/>
-            </Switch>
+        <Switch>
+          <Route path="/login" exact component={LoginComponent} />
+          <Route path="/registro" exact component={Register} />
+          <Route path="/" exact component={MainComponent} />
+          <Route
+            path="/carrito/:idCarrito"
+            exact
+            component={CarritoComponent}
+          />
+          <Route
+            path="/productdetail/:id/:idvendedor"
+            exact
+            component={ProductComponent}
+          />
+          <Route path="/categoria" exact component={CategoriaComponent} />
+          <Route path="/contactanos" exact component={ContactanosComponent} />
+          <Route path="/devs" exact component={DesarrolladoresComponent} />
+          <Route path="/aboutus" exact component={AboutUsComponent} />
+          <Route path="/test" exact component={testJSON} />
+          <Route path="/admin/dashboard" exact component={MainAdmins} />
+          <Route
+            path="/admin/dashboard/report"
+            exact
+            component={GraphComponent}
+          />
+          <Route
+            path="/admin/dashboard/panel"
+            exact
+            component={PanelProducts}
+          />
+          <Route
+            path="/admin/dashboard/account"
+            exact
+            component={AccountComponent}
+          />
+          <Route
+            path="/admin/dashboard/customer"
+            exact
+            component={ClientesComponent}
+          />
+          <Route path="/admin/dashboard/map" exact component={MapComponent} />
+          <Route path="/buscador" exact component={CatalogoComponent} />
+          <Route path="/buscador/:id" exact>
+            <CatalogoComponent></CatalogoComponent>
+          </Route>
+          <Route path="/perfil" exact component={PerfilComponent} />
+        </Switch>
       </Router>
     </React.StrictMode>
   )
 }
 
-const store = createStore(
-  RootR,
-  applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(RootR, composeEnhancer(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
