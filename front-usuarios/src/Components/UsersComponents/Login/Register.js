@@ -94,7 +94,7 @@ function Register(props) {
                                         </div>
 
                                         <div id="registrate">
-                                            <p><a href="/registro">He olvidado mi contraseña</a></p>
+                                            <p><a href="/recovery">He olvidado mi contraseña</a></p>
                                         </div>
                                     </div>
                                 </Card>
