@@ -8,10 +8,28 @@
   padding: 0 50px;
   display: flex;
   text-align: left;
+  min-height: 426.35px;
+  margin-bottom: 20px;
 }
 
-#benefit-card-large-text h2 {
+.benefit-card-large .benefit-card-img {
+  transform: rotate(10deg);
+}
+
+.benefit-card-large-text h2 {
   text-align: left;
+  font-weight: bold;
+  margin-top: 3em;
+  color: #02023d;
+}
+
+.benefit-card-large-text p {
+  margin-bottom: 3em;
+  margin-right: 5em;
+}
+
+.badges-container {
+  margin: 2em 0;
 }
 
 .benefit-card {
@@ -22,21 +40,23 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 20px 50px;
   margin-bottom: 20px;
+  padding: 20px 10px;
 }
 
 .benefit-card h2 {
   font-weight: bold;
+  color: #02023d;
 }
 
-#benefit-card-img {
+.benefit-card-img {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 250px;
 }
 
-#benefit-card-text {
+.benefit-card-text {
   display: flex;
   justify-content: flex-end;
   align-items: center;

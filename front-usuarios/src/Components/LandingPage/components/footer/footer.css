@@ -1,8 +1,9 @@
 #landing-page-footer {
   background-color: #13132c;
   color: #fff;
-  min-height: 159px;
   position: relative;
+  height: 100%;
+  padding: 2rem;
 }
 
 #landing-page-footer span {
@@ -20,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 
 .col-footer {

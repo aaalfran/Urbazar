@@ -8,3 +8,12 @@
 #landing-page h2 {
   color: #02023d;
 }
+
+::-moz-selection {
+  color: #fff;
+  background: rgb(105, 105, 105);
+}
+::selection {
+  color: #fff;
+  background: rgb(105, 105, 105);
+}
