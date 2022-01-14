@@ -42,6 +42,18 @@ body, #root, .container_login{
     border-top: 5px solid  #f4733e ;
 }
 
+#username{
+    background-color: #02023D;
+}
+#password{
+    color: #FFFFFF;
+    background-color: #02023D;
+    border: #02023D;
+}
+.input-group{
+    color: #FFFFFF;
+}
+
 #img_login{
     display: flex;
     justify-content: center;
@@ -53,10 +65,10 @@ body, #root, .container_login{
     justify-content: center;
     align-items: center;
     border-radius: 0px .25rem .25rem 0;
-    border-top: 1px solid #ced4da;
-    border-bottom: 1px solid #ced4da;
-    border-right: 1px solid #ced4da;
-    background-color: #ffffff;
+    border-top: 1px solid #02023D;
+    border-bottom: 1px solid #02023D;
+    border-right: 1px solid #02023D;
+    background-color: #02023D;
     
 }
 
@@ -87,10 +99,24 @@ body, #root, .container_login{
 }
 
 #registrate a{
-    color: #B06058;
+    color: #02023D;
 }
 
+.cajaLogoR{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Urbaz-partR{
+    font-size: 80px;
+    color: #fff;
+}
+.app-partR{
+    font-size: 80px;
+    color: #F4733E;
 
+}
+ 
 /*Responsive*/
 @media only screen and (max-width: 800px) {
     #tarjeta_login{

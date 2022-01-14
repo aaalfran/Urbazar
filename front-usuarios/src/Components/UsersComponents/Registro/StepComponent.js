@@ -187,12 +187,12 @@ class HorizontalNonLinearStepper extends Component{
                   value={this.state.form.password2} />
                   <div id="FormFeedbackPassword2" className="feedback"></div>
                 </div>
-
+            
               </FormGroup>
               <FormGroup className="metodo" check>              
-                <PaymentComponent/>
-              </FormGroup>
-                    
+               </FormGroup>
+             
+
               <FormGroup>
                 <Input 
                   className="col-md-12" 

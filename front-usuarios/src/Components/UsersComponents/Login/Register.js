@@ -9,7 +9,7 @@ import {
   Container
 } from 'reactstrap'
 import '../../../css/LoginComponent.css'
-import logo2 from '../../../imagenes/banner_reg_ofi.png'
+import logo2 from '../../../imagenes/logoUrbazapp.PNG'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 
@@ -30,17 +30,17 @@ function Register(props) {
     } else {
         return (
             <div id="cont_general">
-
-                <div className="cabecera">
-                    <NavbarComponent isLogin={1} />
-                </div>
-
                 <div id="cont_secForm">
                     <div id="seccionForm">
-                        <div className="img_urbi col-md-5">
-                            <img src={logo2} />
+                        <div className="img_urbi col-md-6">
+                        <div className='fotoLogoL img-fluid'>
+                             <img src={logo2} />
                         </div>
-                        <div className="panelDatos col-md-7">
+                        <div className='cajaLogo'>
+                            <span className="Urbaz-partL">Urbaz</span><span className="app-partL">App</span>
+                        </div>
+                        </div>
+                        <div className="panelDatos col-md-6">
                             <Container className="container_reg">
                                 <Card body id="tarjeta" className="trj">
                                     <div id="logo_resp">
@@ -50,7 +50,7 @@ function Register(props) {
                                     <div>
 
                                         <div className="Login-title">
-                                                <h3> ¡Bienvenido a UrbazApp! </h3>
+                                                <h3> Iniciar Sesión </h3>
                                         </div>
 
                                         <div className="Login-content">
@@ -94,7 +94,7 @@ function Register(props) {
                                         </div>
 
                                         <div id="registrate">
-                                            <p>¿No tienes una cuenta? <a href="/registro">Regístrate</a></p>
+                                            <p><a href="/registro">He olvidado mi contraseña</a></p>
                                         </div>
                                     </div>
                                 </Card>

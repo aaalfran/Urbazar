@@ -22,24 +22,22 @@ function Register (props) {
     return (
             <div id="cont_general">
 
-                <div className="cabecera">
-                    <NavbarComponent isLogin={0}/>
-                </div>
-
                 <div id="cont_secForm">
                     <div id="seccionForm">
-                        <div className="img_urbi col-md-5">
-                            <img src={logo2} />
+                        <div className="img_urbi col-md-6">
+                        <div className='cajaLogoR'>
+                            <span className="Urbaz-partR">Urbaz</span><span className="app-partR">App</span>
                         </div>
-                        <div className="panelDatos col-md-7">
+                        </div>
+                        <div className="panelDatos col-md-6">
                             <Container className="container_reg">
                                 <Card body id="tarjeta" className="trj">
                                     <div id="logo_resp">
                                         <img src={logo2} />
                                     </div>
                                     <CardTitle>
-                                    <h4> ¡Registrate en UrbazApp!</h4>
-                                      <p>  Todo lo que buscas más cerca que nunca </p>
+                                    <h4> Registrar</h4>
+                                      <p id="mensaje"> Ingrese su información </p>
                                       <div id="feedbackvacios"></div>
                                     </CardTitle>
                                     <div id="contenido_registro">
