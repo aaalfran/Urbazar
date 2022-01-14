@@ -43,7 +43,7 @@ function RecoveryCorreoEnviado(){
                     <h6>Ingresar nueva contraseña</h6>
                 </div>
                 <FormGroup id="input-password">
-                    <div className="input-group">
+                    <div className="input-group-pass">
                         {
                             viewPassword? 
                             <Input id="password" type="text" name="contrasena" placeholder="Contraseña" />

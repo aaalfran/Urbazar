@@ -28,7 +28,7 @@ h3{
     background-color: #02023D;
     
 }
-.input-group{
+.input-group-pass{
     display: grid;
     grid-template-columns: 55% 5%;
 }
