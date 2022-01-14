@@ -1,6 +1,30 @@
 #recuadro{
-    padding: 100px;
-    border-color: black;
-    border-width: 5px;
-}
+    padding-top: 10%;
+    padding-left: 20%;
 
+    justify-content: center;
+    width: 100%;
+   
+}
+#btn-recuperar{
+    background: #f4733e;
+    border: 4px;
+}
+#email{
+    background-color: #02023D;
+    border: none;
+    width: 50%;
+    color: whitesmoke;
+}
+#titulo-recovery{
+    padding-bottom: 10px;
+}
+h3{
+    color: #02023D;
+    font-size: 25px;
+    font-weight: bold;
+}
+#titulo-desc{
+    padding-bottom: 10px;
+    color: #b8b8b8;
+}

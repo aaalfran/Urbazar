@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals'
 import LoginComponent from './Components/UsersComponents/Login/LoginPC'
 import Register from './Components/UsersComponents/Registro/RegisterPC'
 import RecoveryComponent from './Components/UsersComponents/Recovery/RecoveryComponent'
+import RecoveryActualizar from './Components/UsersComponents/Recovery/RecoveryActualizar'
 import CarritoComponent from './Components/UsersComponents/Carrito/CarritoPC'
 import ProductComponent from './Components/UsersComponents/Producto/ProductDeatilComponent'
 import MainComponent from './Components/UsersComponents/Main/MainPC'
@@ -67,6 +68,7 @@ const Index = () => {
           <Route path="/login" exact component={LoginComponent} />
           <Route path="/registro" exact component={Register} />
           <Route path="/recovery" exact component={RecoveryComponent}></Route>
+          <Route path="/recovery-update-password" exact component={RecoveryActualizar}></Route>
           <Route path="/" exact component={MainComponent} />
           <Route
             path="/carrito/:idCarrito"

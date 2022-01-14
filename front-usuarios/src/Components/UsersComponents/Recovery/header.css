@@ -2,12 +2,15 @@
   background: #02023d;
   color: #fff;
   height: 100vh;
-  padding-top: 20px;
+  padding-top: auto;
+  width: auto;
 }
 
 #landing-page-bar {
   background-color: #02023d;
   color: #fff;
+  width: 101.15%;
+  display: flex;
 }
 
 #landing-page-bar h1 {
@@ -20,7 +23,7 @@
 
 #landing-page-bar button {
   width: 208px;
-  height: 56px;
+  height: 15%;
   font-size: 16px;
   font-weight: bold;
   color: #fff;

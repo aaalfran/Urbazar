@@ -1,0 +1,42 @@
+#recuadro{
+    padding-top: 10%;
+    padding-left: 20%;
+
+    justify-content: center;
+    width: 100%;
+   
+}#titulo-recovery{
+    padding-bottom: 10px;
+}
+h3{
+    color: #02023D;
+    font-size: 25px;
+    font-weight: bold;
+}
+#titulo-desc{
+    padding-bottom: 10px;
+    color: #b8b8b8;
+}
+.btn_eye{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px .25rem .25rem 0;
+    border-top: 1px solid #02023D;
+    border-bottom: 1px solid #02023D;
+    border-right: 1px solid #02023D;
+    background-color: #02023D;
+    
+}
+.input-group{
+    display: grid;
+    grid-template-columns: 55% 5%;
+}
+#password{
+    color: #FFFFFF;
+    background-color: #02023D;
+    border: #02023D;
+}
+.input-group{
+    color: #FFFFFF;
+}
