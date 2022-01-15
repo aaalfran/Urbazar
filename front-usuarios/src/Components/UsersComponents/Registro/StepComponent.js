@@ -80,37 +80,44 @@ class HorizontalNonLinearStepper extends Component{
         return (
             <div className="cont_formulario">
               <FormGroup className="groupLabels">
-                  <Input 
-                    className="first_child" 
-                    id="nombres" name="nombres" 
-                    onChange={this.handleChangeForm} 
-                    placeholder="Nombres"
-                    value={this.state.form.nombres}/>
-
-                  <Input 
-                    className="second_child" 
-                    id="apellidos" 
-                    name="apellidos" 
-                    onChange={this.handleChangeForm} 
-                    placeholder="Apellidos" 
-                    value={this.state.form.apellidos}/>
-
+                  <FormGroup>
+                    <Input 
+                      className="first_child" 
+                      id="nombres" name="nombres" 
+                      onChange={this.handleChangeForm} 
+                      placeholder="Nombres"
+                      value={this.state.form.nombres}/>
+                  </FormGroup>
+                  <FormGroup>
+                    <Input 
+                      className="second_child" 
+                      id="apellidos" 
+                      name="apellidos" 
+                      onChange={this.handleChangeForm} 
+                      placeholder="Apellidos" 
+                      value={this.state.form.apellidos}/>
+                  </FormGroup>
+                
               </FormGroup>
               <FormGroup className="groupLabels">
-                  <Input className="first_child" type="select" name="genero" onChange={this.handleChangeForm} value={this.state.form.genero}>
+                  <FormGroup> 
+                    <Input className="first_child" type="select" name="genero" onChange={this.handleChangeForm} value={this.state.form.genero}>
                     <option value="" hidden>Género</option>
                     <option value="Femenino">Femenino</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Otro">Otro</option>
                   </Input>
-                    
+                  </FormGroup>
+                 
+                  <FormGroup>
+                    <Input className="second_child" type="select" name="edad" onChange={this.handleChangeForm} value={this.state.form.edad}>
+                    <option value="" hidden>Edad</option>
+                      {edades.map(edad=>(
+                        <option key={edad}> {edad} </option>
+                      ))}
+                    </Input>
+                  </FormGroup>
               
-              <Input className="second_child" type="select" name="edad" onChange={this.handleChangeForm} value={this.state.form.edad}>
-                  <option value="" hidden>Edad</option>
-                    {edades.map(edad=>(
-                      <option key={edad}> {edad} </option>
-                    ))}
-                  </Input>
               </FormGroup>
               
               <FormGroup>
@@ -164,19 +171,21 @@ class HorizontalNonLinearStepper extends Component{
                   
               </FormGroup>
               <FormGroup className="groupLabels">
+                
                 <div className="first_child" >
-                  <Input 
-                  id="password" 
-                  type="password"
-                  name="password" 
-                  onChange={this.handleChangeForm} 
-                  onBlur={this.handlePassword}
-                  placeholder="Contraseña"
-                  value={this.state.form.password}/>
-                  <div id="FormFeedbackPassword" className="feedback"></div>
-                </div>
-
-                <div className="second_child"  >
+                  <FormGroup>
+                    <Input 
+                    id="password" 
+                    type="password"
+                    name="password" 
+                    onChange={this.handleChangeForm} 
+                    onBlur={this.handlePassword}
+                    placeholder="Contraseña"
+                    value={this.state.form.password}/>
+                    <div id="FormFeedbackPassword" className="feedback"></div>
+                  </FormGroup>
+                  
+                  <FormGroup>
                   <Input 
                   id="password2" 
                   type="password"
@@ -186,10 +195,13 @@ class HorizontalNonLinearStepper extends Component{
                   onBlur={this.handlePasswordCheck}
                   value={this.state.form.password2} />
                   <div id="FormFeedbackPassword2" className="feedback"></div>
+                  </FormGroup>
+                 
                 </div>
-            
               </FormGroup>
-              <FormGroup className="metodo" check>              
+              
+              <FormGroup className="metodo" check>  
+                         
                </FormGroup>
              
 

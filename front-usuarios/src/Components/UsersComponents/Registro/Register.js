@@ -6,7 +6,7 @@ import StepComponent from "./StepComponent";
 import {Redirect} from 'react-router-dom';
 import { Card, CardTitle,
         Container} from 'reactstrap';
-import logo2 from "../../../imagenes/banner_reg_ofi.png";
+import logo2 from "../../../imagenes/logoUrbazapp.PNG";
 
 function Register (props) {
   const [checkTarjeta, setCheckTarjeta] = React.useState(false)
@@ -25,6 +25,9 @@ function Register (props) {
                 <div id="cont_secForm">
                     <div id="seccionForm">
                         <div className="img_urbi col-md-6">
+                        <div className='fotoLogoR img-fluid'>
+                             <img src={logo2} />
+                        </div>
                         <div className='cajaLogoR'>
                             <span className="Urbaz-partR">Urbaz</span><span className="app-partR">App</span>
                         </div>

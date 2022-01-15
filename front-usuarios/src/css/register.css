@@ -52,18 +52,43 @@ html, body {
 
 /*Campos en grupo*/
 .groupLabels{
-    display: grid;
-    grid-template-columns: 48% 48%;
+ 
 }
 
-.first_child{
-    margin-right: 6%;
+#nombres{
+    background-color: #02023D;
+    color: #fff;
 }
 
-.second_child{
-    margin-left: 6%;
+#apellidos{
+    background-color: #02023D;
+    color: #fff;
+}
+.first_child {
+    color: #fff;
 }
 
+.second_child {
+    background-color: #02023D;
+    color: #fff;
+}
+
+
+ #identificacion{
+    background-color: #02023D;
+    color: #fff;
+ }
+#telefono{
+    background-color: #02023D;
+    color: #fff;
+}
+#correo{
+    background-color: #02023D;
+    color: #fff;   
+}
+.groupLabels{
+    
+}
 .container_reg{
     display: flex;
     justify-content: center;
@@ -187,7 +212,14 @@ html, body {
 #logo_resp{
     display: none;
 }
-
+#password2{
+    color:#fff;
+    background-color: #02023D;
+}
+#codigoF{
+    color:#fff;
+    background-color: #02023D;
+}
 
 /*Media queries*/
 @media only screen and (max-width: 800px) {

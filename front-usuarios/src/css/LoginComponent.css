@@ -44,6 +44,7 @@ body, #root, .container_login{
 
 #username{
     background-color: #02023D;
+    color: #fff;
 }
 #password{
     color: #FFFFFF;
@@ -57,7 +58,6 @@ body, #root, .container_login{
 #img_login{
     display: flex;
     justify-content: center;
-    
 }
 
 .btn_eye{
