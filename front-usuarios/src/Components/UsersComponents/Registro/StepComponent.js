@@ -6,6 +6,7 @@ import PaymentComponent from "../Carrito/PaymentComponent";
 import axios from 'axios';
 import ModalComponent from "./ModalComponent";
 import data from '../../../enviroment';
+import {Link} from "react-router-dom"
 
 class HorizontalNonLinearStepper extends Component{
   constructor(props){
@@ -52,7 +53,7 @@ class HorizontalNonLinearStepper extends Component{
     
   }
   
-  steps = this.getSteps();
+  steps= this.getSteps();
   
   
 
@@ -262,8 +263,7 @@ class HorizontalNonLinearStepper extends Component{
   };
 
   handleBack(){
-    let newstate = this.state.activeStep - 1
-    this.setState({activeStep: newstate});
+    window.location.reload(true);
   };
 
   handleStep(step){

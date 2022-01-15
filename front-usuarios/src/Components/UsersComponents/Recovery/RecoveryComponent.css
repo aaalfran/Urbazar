@@ -28,3 +28,9 @@ h3{
     padding-bottom: 10px;
     color: #b8b8b8;
 }
+#nav-bar{
+    background-color: #02023D;
+    align-items: center;
+    color: #02023D;
+    height: 100px;
+}

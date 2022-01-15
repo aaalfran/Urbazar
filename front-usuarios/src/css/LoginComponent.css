@@ -42,15 +42,22 @@ body, #root, .container_login{
     border-top: 5px solid  #f4733e ;
 }
 
+#username::placeholder { color: #C8D2DB; }
 #username{
     background-color: #02023D;
     color: #fff;
 }
+
+#password::placeholder { color: #C8D2DB; }
 #password{
     color: #FFFFFF;
     background-color: #02023D;
     border: #02023D;
 }
+#password2::placeholder { color: #C8D2DB; }
+
+#codigoF::placeholder { color: #C8D2DB; }
+
 .input-group{
     color: #FFFFFF;
 }

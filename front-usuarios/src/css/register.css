@@ -55,39 +55,50 @@ html, body {
  
 }
 
-#nombres{
+#nombres::placeholder { color: #C8D2DB; }
+
+#nombres {
     background-color: #02023D;
     color: #fff;
 }
 
+#apellidos::placeholder { color: #C8D2DB; }
 #apellidos{
     background-color: #02023D;
     color: #fff;
 }
+
+.first_child::placeholder { color: #C8D2DB; }
 .first_child {
-    color: #fff;
+    color: #C8D2DB;
+    background-color:#02023D;;
 }
 
+.second_child::placeholder { color: #C8D2DB; }
 .second_child {
     background-color: #02023D;
-    color: #fff;
+    color: #C8D2DB;
 }
 
-
+#identificacion::placeholder { color: #C8D2DB; }
  #identificacion{
     background-color: #02023D;
     color: #fff;
  }
+
+#telefono::placeholder { color: #C8D2DB; }
 #telefono{
     background-color: #02023D;
     color: #fff;
 }
+
+#correo::placeholder { color: #C8D2DB; }
 #correo{
     background-color: #02023D;
     color: #fff;   
 }
-.groupLabels{
-    
+.groupLabels > .first_child{
+    background-color:#fff;   
 }
 .container_reg{
     display: flex;

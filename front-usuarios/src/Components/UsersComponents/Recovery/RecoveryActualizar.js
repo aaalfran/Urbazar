@@ -7,7 +7,10 @@ import {
     Form, FormGroup, Input,
     Container
   } from 'reactstrap'
-import './header.css'
+import { NavBarLanding } from "../../LandingPage/components/navBarLanding/NavBarLanding";
+import { useState } from "react";
+import {Link} from 'react-router-dom'
+import validator from 'validator'
 import './RecoveryActualizar.css'
 
 
@@ -20,19 +23,33 @@ function RecoveryCorreoEnviado(){
         setViewPassword(!viewPassword)
     }
 
+    const [errorMessage, setErrorMessage] = useState('')
+  
+    const validate = (value) => {
+    
+        if (validator.isStrongPassword(value, {
+        minLength: 8, minLowercase: 1,
+        minUppercase: 1, minNumbers: 1, minSymbols: 1
+        })) {
+        setErrorMessage('Proteccion: Fuerte')
+        } else {
+        setErrorMessage('Proteccion: Debil')
+        }
+    }
+
+    function ayudaPassword(){
+        alert("Una clave fuerte tiene al menos 8 caracteres, 1 mayuscula, 1 numero y 1 alfanumerico");
+    }
+
+    function actualizado(){
+        alert("Su clave fue actualizada exitosamente");
+    }
+
     return (
         <div id="general">
-            <div id="landing-page-bar" className="row">
-                <div className="col-6 d-flex no-wrap align-items-center">
-                    <img src={logoUrbazapp} width="70px"></img>
-                    <h1>
-                        Urbaz<span>App</span>
-                    </h1>
-                </div>
-                <div className="col-6 d-flex align-items-center justify-content-end">
-                    <button>Iniciar Sesión</button>
-                    <button>Registrarme</button>
-                </div>
+
+            <div id="nav-bar">
+                <NavBarLanding></NavBarLanding>
             </div>
         
             <div id="recuadro">
@@ -46,10 +63,10 @@ function RecoveryCorreoEnviado(){
                     <div className="input-group-pass">
                         {
                             viewPassword? 
-                            <Input id="password" type="text" name="contrasena" placeholder="Contraseña" />
+                            <Input onChange={(e) => validate(e.target.value)} id="password" type="text" name="contrasena" placeholder="Contraseña" />
                             :    
                                                                                                                 
-                            <Input id="password" type="password" name="contrasena" placeholder="Contraseña" />
+                            <Input onChange={(e) => validate(e.target.value)} id="password" type="password" name="contrasena" placeholder="Contraseña" />
                             }
                             <div className="btn_eye" onClick={changeView}>
                                 {viewPassword?
@@ -58,10 +75,23 @@ function RecoveryCorreoEnviado(){
                                 <VisibilityOffIcon/>
                                 }
                             </div>
+                            
                     </div>
+                   <div id='mensaje'>
+                        <span style={{
+                            fontWeight: 'bold',
+                            color: 'red',
+                            }}>{errorMessage}
+                        </span>
+                        <Button onClick={ayudaPassword} id="btn-ayuda">?</Button>
+                   </div>
+                            
                 </FormGroup>
                 <div id="btn-contenedor">
-                    <Button id="btn-recuperar">Actualizar</Button>
+                    <Link to={'/login'}>
+                        <Button onClick={actualizado} id="btn-recuperar">Actualizar</Button>
+                    </Link>
+                    
                 </div>
             
             </div>

@@ -30,7 +30,7 @@ h3{
 }
 .input-group-pass{
     display: grid;
-    grid-template-columns: 55% 5%;
+    grid-template-columns: 60% 10%;
 }
 #password{
     color: #FFFFFF;
@@ -38,5 +38,23 @@ h3{
     border: #02023D;
 }
 .input-group{
-    color: #FFFFFF;
+    color:#02023D;
+}
+#nav-bar{
+    background-color: #02023D;
+    align-items: center;
+    color: #02023D;
+    height: 100px;
+}
+#btn-ayuda{
+    background: #f4733e;
+    border: 4px;
+    border-radius: 100%;
+    width: min-content;
+    height: min-content;
+    margin-left: 20px;
+    justify-content: end;
+}
+#mensaje{
+    margin-top: 10px;
 }
