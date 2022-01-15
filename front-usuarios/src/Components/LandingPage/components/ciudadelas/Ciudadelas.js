@@ -64,7 +64,7 @@ export const Ciudadelas = () => {
         </div>
         <div className="sl-animation-loader sl-animation-loader__community-lottie ">
           <div className="ciudadelas-mapa">
-            <img src={mapa}></img>
+            <img src={mapa} className="img-fluid"></img>
           </div>
         </div>
         <div className="sl-home-bubbles">

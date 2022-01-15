@@ -181,7 +181,35 @@
   display: flex;
 }
 
+@media (max-width: 1200px) {
+  .ciudadelas-texto {
+    text-align: center;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .ciudadelas-mapa {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .ciudadelas-texto h1 {
+    font-size: 2em;
+  }
+  .ciudadelas-texto span {
+    font-size: 3em;
+  }
+  .ciudadelas-mapa {
+    padding: 0;
+  }
+}
+
 @media (max-width: 599px) {
+  .sl-home-bubbles--left,
+  .sl-home-bubbles--right {
+    display: none;
+  }
   .sl-home-bubbles--mobile {
     display: block;
   }
