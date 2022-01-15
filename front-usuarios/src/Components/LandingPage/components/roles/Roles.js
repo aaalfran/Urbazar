@@ -14,7 +14,7 @@ export const Roles = () => {
               <img src={comprador} className="img-fluid"></img>
             </div>
             <div>
-              <h3>Compradores</h3>
+              <h2>Compradores</h2>
               <p>
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas
                 y archivos de texto. Lorem Ipsum
@@ -26,7 +26,7 @@ export const Roles = () => {
               <img src={vendedor} className="img-fluid"></img>
             </div>
             <div>
-              <h3>Vendedores</h3>
+              <h2>Vendedores</h2>
               <p>
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas
                 y archivos de texto. Lorem Ipsum

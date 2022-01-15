@@ -15,7 +15,7 @@ export const Benefits = () => {
     <div id="landing-page-benefits">
       <div className="container">
         <div className="row d-flex flex-wrap">
-          <div className="col-sm-12 col-md-6 col-lg-4">
+          <div className="card1 col-sm-12 col-md-6 col-lg-4">
             <div className="benefit-card">
               <div className="benefit-card-img">
                 <img src={lock} className="img-fluid"></img>
@@ -29,7 +29,7 @@ export const Benefits = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-4">
+          <div className="card2 col-sm-12 col-md-6 col-lg-4">
             <div className="benefit-card">
               <div className="benefit-card-img">
                 <img src={chair} className="img-fluid"></img>
@@ -43,7 +43,7 @@ export const Benefits = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-4">
+          <div className="card3 col-sm-12 col-md-6 col-lg-4">
             <div className="benefit-card">
               <div className="benefit-card-img">
                 <img src={piggy} className="img-fluid"></img>
@@ -57,7 +57,7 @@ export const Benefits = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-12 col-lg-8">
+          <div className="card4 col-sm-12 col-md-12 col-lg-8">
             <div className="benefit-card-large">
               <div className="benefit-card-large-text">
                 <h2>Compra donde sea</h2>
@@ -66,8 +66,8 @@ export const Benefits = () => {
                   imprentas y archivos de texto. Lorem Ipsum
                 </p>
                 <div className="badges-container row">
-                  <img src={btn_ios} className="col-6"></img>
-                  <img src={btn_android} className="col-6"></img>
+                  <img src={btn_ios} className="col-12 col-md-6"></img>
+                  <img src={btn_android} className="col-12 col-md-6"></img>
                 </div>
               </div>
               <div className="benefit-card-img">
@@ -75,7 +75,7 @@ export const Benefits = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-4">
+          <div className="card5 col-sm-12 col-md-6 col-lg-4">
             <div className="benefit-card">
               <div className="benefit-card-img">
                 <img src={speed} className="img-fluid"></img>

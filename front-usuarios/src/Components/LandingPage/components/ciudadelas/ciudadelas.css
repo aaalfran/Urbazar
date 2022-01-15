@@ -180,3 +180,39 @@
   display: -ms-flexbox;
   display: flex;
 }
+
+@media (max-width: 599px) {
+  .sl-home-bubbles--mobile {
+    display: block;
+  }
+  .sl-home-bubbles--mobile > div:first-child {
+    height: 88px;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .sl-home-bubbles--mobile > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .sl-home-bubbles--mobile > div:nth-child(2) {
+    height: 88px;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .sl-home-bubbles--mobile > div:last-child {
+    height: 88px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .sl-home-bubbles--mobile > div:first-child > div:nth-child(2) {
+    margin-top: 50px;
+  }
+  .sl-home-bubbles--mobile > div:first-child > div:nth-child(3) {
+    margin-left: -64px;
+  }
+  .sl-home-bubbles--mobile > div:first-child > div:last-child {
+    margin-top: 24px;
+  }
+}
