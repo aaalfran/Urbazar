@@ -15,7 +15,7 @@ export const Header = () => {
           Tienda diseñada para la compra de productos dentro de tu ciudad.
           <br></br> Unete a nuestra comunidad. Es gratis.
         </span>
-        <button>Empezar!</button>
+        <button>Empezar!!!</button>
       </div>
     </header>
   )
