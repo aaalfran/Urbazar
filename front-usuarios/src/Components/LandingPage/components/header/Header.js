@@ -9,7 +9,7 @@ export const Header = () => {
       <NavBarLanding></NavBarLanding>
       <div id="landing-page-banner">
         <span>
-          El mejor lugar para <br></br>comprar y vender
+          El mejor lugar para <br></br>comprar y vendeeeeeer
         </span>
         <span>
           Tienda diseñada para la compra de productos dentro de tu ciudad.
