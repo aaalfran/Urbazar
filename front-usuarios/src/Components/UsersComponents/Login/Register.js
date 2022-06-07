@@ -1,8 +1,8 @@
 
 import React from 'react'
-import '../../../css/register.css';
-import NavbarComponent from "../Registro/navBarRegistro";
-import { Redirect } from 'react-router-dom';
+import '../../../css/register.css'
+import NavbarComponent from "../Registro/navBarRegistro"
+import { Redirect } from 'react-router-dom'
 import {
   Card, Button, CardTitle,
   Form, FormGroup, Input,
@@ -30,9 +30,9 @@ function Register(props) {
     } else {
         return (
             <div id="cont_general">
-                <div id="cont_secForm">
+              
                     <div id="seccionForm">
-                        <div className="img_urbi col-md-6">
+                        <div className="img_urbi">
                         <div className='fotoLogoL img-fluid'>
                              <img src={logo2} />
                         </div>
@@ -40,7 +40,7 @@ function Register(props) {
                             <span className="Urbaz-partL">Urbaz</span><span className="app-partL">App</span>
                         </div>
                         </div>
-                        <div className="panelDatos col-md-6">
+                        <div className="panelDatos">
                             <Container className="container_reg">
                                 <Card body id="tarjeta" className="trj">
                                     <div id="logo_resp">
@@ -58,19 +58,18 @@ function Register(props) {
                                                 <Form>
                                                     <FormGroup className="has-success">
                                                         <Input id="username" name="usuario" placeholder="Usuario" />
-
                                                     </FormGroup>
 
                                                     <FormGroup className="has-success input_pass">
                                                         <div className="input-group">
                                                             {
                                                             viewPassword? 
-                                                            <Input id="password" type="text" name="contrasena" placeholder="Contraseña" />
+                                                            <Input id="passwordLog" type="text" name="contrasena" placeholder="Contraseña" />
                                                             :    
                                                                                                                 
-                                                            <Input id="password" type="password" name="contrasena" placeholder="Contraseña" />
+                                                            <Input id="passwordLogin" type="password" name="contrasena" placeholder="Contraseña" />
                                                             }
-                                                                <div className="btn_eye" onClick={changeView}>
+                                                                <div className="btn_eyeLogin" onClick={changeView}>
                                                                     {viewPassword?
                                                                         <VisibilityIcon style={{color:"red"}}/>
                                                                     :
@@ -85,7 +84,7 @@ function Register(props) {
                                                     <div id="FeedbackLogin" className="feedback"></div>
                                                     <div id="cont_button">
                                                         <Button onClick={props.login} id="btn-round">
-                                                            Ingresar
+                                                            Iniciar Sesióncd 
                                                         </Button>
                                                     </div>
                                                 </Form>
@@ -95,6 +94,7 @@ function Register(props) {
 
                                         <div id="registrate">
                                             <p><a href="/recovery">He olvidado mi contraseña</a></p>
+                                            <p>¿No tiene una cuenta? <span className="regis"><a href="">Regístrese</a></span></p>
                                         </div>
                                     </div>
                                 </Card>
@@ -102,7 +102,7 @@ function Register(props) {
 
                         </div>
                     </div>
-                </div>
+                 
             </div>
 
 
@@ -114,6 +114,5 @@ function Register(props) {
 
 
 }
-
 
 export default Register
