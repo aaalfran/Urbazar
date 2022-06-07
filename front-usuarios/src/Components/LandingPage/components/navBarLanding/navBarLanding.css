@@ -2,10 +2,6 @@
   color: #fff;
 }
 
-.landing-page-bar-container {
-  background-color: #02023d;
-}
-
 #landing-page-bar div:last-of-type {
   display: flex;
   justify-content: flex-end;
