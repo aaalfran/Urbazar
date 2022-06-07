@@ -9,13 +9,13 @@ export const Header = () => {
       <NavBarLanding></NavBarLanding>
       <div id="landing-page-banner">
         <span>
-          El mejor lugar para <br></br>comprar y vendeeeeeer
+          El mejor lugar para <br></br>comprar y vender
         </span>
         <span>
           Tienda diseñada para la compra de productos dentro de tu ciudad.
           <br></br> Unete a nuestra comunidad. Es gratis.
         </span>
-        <button>Empezar!!!</button>
+        <button>Empezar</button>
       </div>
     </header>
   )
