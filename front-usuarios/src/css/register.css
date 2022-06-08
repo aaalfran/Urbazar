@@ -8,6 +8,7 @@ html, body {
     height:100% !important;
     background-color: white;
 }
+
  
 
 .btn_eyeLogin{
@@ -75,22 +76,28 @@ html, body {
  
 }
 
-#nombres::placeholder { color: #000; }
-
+#nombres::placeholder {color: #02023D;}
 #nombres {
     color: #000;
     background-color:#fff;
-    border: 1px solid #02023D;
+    border: 2px solid #02023D;
 }
 
-#apellidos::placeholder { color: #000; }
+#apellidos::placeholder { color: #02023D; }
 #apellidos{
     color: #000;
     background-color:#fff;
-    border: 1px solid #02023D;
+    border: 2px solid #02023D;
 }
 
-.first_child::placeholder { color: #000; }
+#apellgeneroidos::placeholder { color: #02023D; }
+#genero{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
+}
+
+.first_child::placeholder { color: #02023D; }
 .first_child {
     color: #000;
     background-color:#fff;
@@ -98,32 +105,32 @@ html, body {
    
 }
 
-.second_child::placeholder { color: #000; }
+.second_child::placeholder { color: #02023D; }
 .second_child {
     color: #000;
     background-color:#fff;
-    border: 1px solid #02023D;
+    border: 2px solid #02023D;
 }
 
-#identificacion::placeholder { color: #000; }
+#identificacion::placeholder { color: #02023D; }
  #identificacion{
     color: #000;
     background-color:#fff;
-    border: 1px solid #02023D;
+    border: 2px solid #02023D;
  }
 
-#telefono::placeholder { color: #000; }
+#telefono::placeholder { color: #02023D; }
 #telefono{
     color: #000;
     background-color:#fff;
-    border: 1px solid #02023D;
+    border: 2px solid #02023D;
 }
 
-#correo::placeholder { color: #000; }
+#correo::placeholder { color: #02023D; }
 #correo{
     color: #000;
     background-color:#fff;
-    border: 1px solid #02023D; 
+    border: 2px solid #02023D; 
 }
 .groupLabels > .first_child{
     background-color:#fff;   

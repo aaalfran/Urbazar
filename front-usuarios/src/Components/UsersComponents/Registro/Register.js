@@ -24,15 +24,15 @@ function Register (props) {
 
                 <div id="cont_secForm">
                     <div id="seccionForm">
-                        <div className="img_urbi col-md-6">
-                        <div className='fotoLogoR img-fluid'>
+                        <div className="img_urbi">
+                        <div className='fotoLogoL img-fluid'>
                              <img src={logo2} />
                         </div>
                         <div className='cajaLogoR'>
                             <span className="Urbaz-partR">Urbaz</span><span className="app-partR">App</span>
                         </div>
                         </div>
-                        <div className="panelDatos col-md-6">
+                        <div className="panelDatos">
                             <Container className="container_reg">
                                 <Card body id="tarjeta" className="trj">
                                     <div id="logo_resp">

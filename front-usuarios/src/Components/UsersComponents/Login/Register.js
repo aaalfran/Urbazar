@@ -84,7 +84,7 @@ function Register(props) {
                                                     <div id="FeedbackLogin" className="feedback"></div>
                                                     <div id="cont_button">
                                                         <Button onClick={props.login} id="btn-round">
-                                                            Iniciar Sesióncd 
+                                                            Iniciar Sesión
                                                         </Button>
                                                     </div>
                                                 </Form>

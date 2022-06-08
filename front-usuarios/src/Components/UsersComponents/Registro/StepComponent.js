@@ -102,7 +102,7 @@ class HorizontalNonLinearStepper extends Component{
               </FormGroup>
               <FormGroup className="groupLabels">
                   <FormGroup> 
-                    <Input className="first_child" type="select" name="genero" onChange={this.handleChangeForm} value={this.state.form.genero}>
+                    <Input id="genero" className="first_child" type="select" name="genero" onChange={this.handleChangeForm} value={this.state.form.genero}>
                     <option value="" hidden>Género</option>
                     <option value="Femenino">Femenino</option>
                     <option value="Masculino">Masculino</option>
