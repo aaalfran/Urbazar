@@ -23,7 +23,7 @@ import ClientesComponent from './Components/AdminsComponents/PanelClientes/Clien
 import MapComponent from './Components/AdminsComponents/GraphAndMaps/MapComponent'
 import CatalogoComponent from './Components/UsersComponents/Busqueda/CatalogoComponent'
 import PerfilComponent from './Components/UsersComponents/Perfil/PerfilPC'
-import { LandingPage } from './Components/LandingPage/LandingPage'
+import LandingPage from './Components/LandingPage/LandingPage'
 import { applyMiddleware, createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -68,7 +68,11 @@ const Index = () => {
           <Route path="/login" exact component={LoginComponent} />
           <Route path="/registro" exact component={Register} />
           <Route path="/recovery" exact component={RecoveryComponent}></Route>
-          <Route path="/recovery-update-password" exact component={RecoveryActualizar}></Route>
+          <Route
+            path="/recovery-update-password"
+            exact
+            component={RecoveryActualizar}
+          ></Route>
           <Route path="/" exact component={MainComponent} />
           <Route
             path="/carrito/:idCarrito"

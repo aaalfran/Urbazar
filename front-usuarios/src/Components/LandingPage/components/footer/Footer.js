@@ -3,41 +3,76 @@ import fb from '../../images/fb.png'
 import insta from '../../images/insta.png'
 import linked from '../../images/linked.png'
 import twitter from '../../images/twitter.png'
+import styled from 'styled-components'
 
-import './footer.css'
+const Container = styled.footer`
+  font-family: ${(props) => props.theme.fontFamily};
+  background-color: #13132c;
+  color: ${(props) => props.theme.colors.white};
+  position: relative;
+  height: auto;
+  padding: 2rem;
+`
 
-export const Footer = () => {
+const Column = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+`
+
+const IconContainer = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.darkGray};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em auto;
+`
+
+const CopyRight = styled.span`
+  float: right;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+`
+
+function Footer() {
   return (
-    <footer id="landing-page-footer">
+    <Container>
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-3 col-footer">
-            <div className="icon-footer-container">
+          <Column className="col-12 col-md-3">
+            <IconContainer className="icon-footer-container">
               <img src={fb} width="34px"></img>
-            </div>
+            </IconContainer>
             <p>Chequea nuestro Facebook</p>
-          </div>
-          <div className="col-12 col-md-3 col-footer">
-            <div className="icon-footer-container">
+          </Column>
+          <Column className="col-12 col-md-3">
+            <IconContainer>
               <img src={linked} width="34px"></img>
-            </div>
+            </IconContainer>
             <p>Siguenos en LinkedIn</p>
-          </div>
-          <div className="col-12 col-md-3 col-footer">
-            <div className="icon-footer-container">
+          </Column>
+          <Column className="col-12 col-md-3 ">
+            <IconContainer>
               <img src={insta} width="34px"></img>
-            </div>
+            </IconContainer>
             <p>Unete a nuestro Instagram</p>
-          </div>
-          <div className="col-12 col-md-3 col-footer">
-            <div className="icon-footer-container">
+          </Column>
+          <Column className="col-12 col-md-3">
+            <IconContainer>
               <img src={twitter} width="34px"></img>
-            </div>
+            </IconContainer>
             <p>Mira acerca de lo que tweeteamos</p>
-          </div>
+          </Column>
         </div>
       </div>
-      <span>Urbazapp©</span>
-    </footer>
+      <CopyRight>Urbazapp©</CopyRight>
+    </Container>
   )
 }
+
+export default Footer
