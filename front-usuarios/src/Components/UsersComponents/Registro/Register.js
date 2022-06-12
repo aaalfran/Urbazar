@@ -55,7 +55,9 @@ function Register (props) {
                                             handleModal={props.handleModal}/>
                                         </form>
                                     </div>
+                                    <p>¿Ya tienes una cuenta?<span class="inic"><a href=""> Iniciar Sesión</a></span></p>
                                 </Card>
+                              
                             </Container>
 
                         </div>

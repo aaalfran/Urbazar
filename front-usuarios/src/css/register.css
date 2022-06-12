@@ -132,6 +132,19 @@ html, body {
     background-color:#fff;
     border: 2px solid #02023D; 
 }
+#usernameRegister::placeholder { color: #02023D; }
+#usernameRegister{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D; 
+}
+#passwordLogin::placeholder { color: #02023D; }
+#passwordLogin{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D; 
+}
+
 .groupLabels > .first_child{
     background-color:#fff;   
 }
@@ -140,6 +153,17 @@ html, body {
     justify-content: center;
     width: 60%;
     height: 100%;
+}
+
+#tarjeta > p{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    color: #000;
+    font-size: 11px;
+}
+.inic > a{
+    color:#02023D
 }
 
 /*Navbar*/
@@ -260,17 +284,17 @@ html, body {
     display: none;
 }
 
-#password2::placeholder { color: #000; }
+#password2::placeholder { color: #02023D; }
 #password2{
     color: #000;
     background-color:#fff;
-    border: 1px solid #02023D;
+    border: 2px solid #02023D;
 }
-#codigoF::placeholder { color: #000; }
-#codigoF{
-    color: #000;
-    background-color:#fff;
-    border: 1px solid #02023D;
+#codigoF::placeholder { color: #02023D; }
+.form-group > #codigoF{
+    color: #000 !important; 
+    background-color:#fff !important;
+    border: 2px solid #02023D !important;
 }
 .regis{
     color: #02023D;

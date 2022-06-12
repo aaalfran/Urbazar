@@ -69,7 +69,7 @@ class HorizontalNonLinearStepper extends Component{
   }
 
   getSteps() {
-    return ['Datos personales', 'Información de usuario'];
+    return ['Datos personales', 'Información de usuario','Tarjeta de Crédito'];
   }
   
   GetStepContent(step) {
@@ -162,7 +162,7 @@ class HorizontalNonLinearStepper extends Component{
           <div className="cont_formulario">
               <FormGroup>
                   <Input 
-                  id="username" 
+                  id="usernameRegister" 
                   name="username" 
                   onChange={this.handleChangeForm} 
                   onBlur={this.validarUSername}
@@ -176,7 +176,7 @@ class HorizontalNonLinearStepper extends Component{
                 <div className="first_child" >
                   <FormGroup>
                     <Input 
-                    id="password" 
+                    id="passwordLogin" 
                     type="password"
                     name="password" 
                     onChange={this.handleChangeForm} 
@@ -208,7 +208,7 @@ class HorizontalNonLinearStepper extends Component{
 
               <FormGroup>
                 <Input 
-                  className="col-md-12" 
+                   
                   id="codigoF" 
                   name="codigoF" 
                   onChange={this.handleChangeForm} 
@@ -223,7 +223,8 @@ class HorizontalNonLinearStepper extends Component{
             </div>
   
         );
-      
+      case 2:
+
       default:
         return 'Unknown step';
     }
@@ -511,7 +512,10 @@ class HorizontalNonLinearStepper extends Component{
                 
                   Siguiente
                 </Button>
+
+               
               </div>
+         
           )}
       </div>
     );
