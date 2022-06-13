@@ -7,6 +7,13 @@ import {Redirect} from 'react-router-dom';
 import { Card, CardTitle,
         Container} from 'reactstrap';
 import logo2 from "../../../imagenes/logoUrbazapp.PNG";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+const Enlace=styled(Link)`
+    color:#02023D;
+    padding-left:5px;
+`
 
 function Register (props) {
   const [checkTarjeta, setCheckTarjeta] = React.useState(false)
@@ -55,7 +62,7 @@ function Register (props) {
                                             handleModal={props.handleModal}/>
                                         </form>
                                     </div>
-                                    <p>¿Ya tienes una cuenta?<span class="inic"><a href=""> Iniciar Sesión</a></span></p>
+                                    <p>¿Ya tienes una cuenta?<Enlace to="/login"> Iniciar Sesión</Enlace></p>
                                 </Card>
                               
                             </Container>

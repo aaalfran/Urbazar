@@ -42,7 +42,8 @@ class HorizontalNonLinearStepper extends Component{
     
     
 
-    this.handleNext = this.handleNext.bind(this);
+    this.handleNextOne = this.handleNextOne.bind(this);
+    this.handleNextTwo = this.handleNextTwo.bind(this);
     this.signUp = this.signUp.bind(this);
     this.validarUSername = this.validarUSername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
@@ -224,6 +225,9 @@ class HorizontalNonLinearStepper extends Component{
   
         );
       case 2:
+        return(<div>
+          XD
+        </div>);
 
       default:
         return 'Unknown step';
@@ -253,7 +257,7 @@ class HorizontalNonLinearStepper extends Component{
   }
 
 
-  handleNext(){
+  handleNextOne(){
     
    if( this.props.validarVacios() && (this.props.validarCedula() && this.props.validarTelefono() && this.props.validarCorreo())){
       const newActiveStep = this.state.activeStep + 1;
@@ -262,6 +266,16 @@ class HorizontalNonLinearStepper extends Component{
     }
 
   };
+  handleNextTwo(){
+       
+   if( this.props.validarVacios() ){
+    const newActiveStep = this.state.activeStep + 1;
+    this.setState({activeStep: newActiveStep});
+
+  }
+  }
+
+
 
   handleBack(){
     window.location.reload(true);
@@ -277,7 +291,7 @@ class HorizontalNonLinearStepper extends Component{
     let user =  e.target.value;
     let usernames = this.props.usernames;
     let feed = document.getElementById("FormFeedbackUser");
-    let user_id = document.getElementById("username");
+    let user_id = document.getElementById("usernameRegister");
     let disp=true;
     
     
@@ -311,7 +325,7 @@ class HorizontalNonLinearStepper extends Component{
 
   handlePassword(e){
     let pass = e.target.value;
-    let input_pass = document.getElementById("password");
+    let input_pass = document.getElementById("passwordLogin");
     let feed = document.getElementById("FormFeedbackPassword");
     let message="";
     let color="red";
@@ -507,7 +521,8 @@ class HorizontalNonLinearStepper extends Component{
                 <Button
                   id="next"
                   variant="contained"
-                  onClick={this.handleNext}>
+                  
+                  onClick={this.state.activeStep===0?this.handleNextOne:this.handleNextTwo}>
                   
                 
                   Siguiente
