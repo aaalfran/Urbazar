@@ -24,10 +24,15 @@ import MapComponent from './Components/AdminsComponents/GraphAndMaps/MapComponen
 import CatalogoComponent from './Components/UsersComponents/Busqueda/CatalogoComponent'
 import PerfilComponent from './Components/UsersComponents/Perfil/PerfilPC'
 import LandingPage from './Components/LandingPage/LandingPage'
+import ShoppingHistory from './pages/ShoppingHistory/ShoppingHistory'
+
 import { applyMiddleware, createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import RootR from './store/reducers/RootR'
+
+import { ThemeProvider } from 'styled-components'
+import lightTheme from './themes/lightTheme'
 
 const Index = () => {
   React.useEffect(() => {
@@ -65,6 +70,11 @@ const Index = () => {
       <Router>
         <Switch>
           <Route path="/landing-page" exact component={LandingPage}></Route>
+          <Route
+            path="/historial-de-compras"
+            exact
+            component={ShoppingHistory}
+          ></Route>
           <Route path="/login" exact component={LoginComponent} />
           <Route path="/registro" exact component={Register} />
           <Route path="/recovery" exact component={RecoveryComponent}></Route>
@@ -127,9 +137,11 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(RootR, composeEnhancer(applyMiddleware(thunk)))
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Index />
-  </Provider>,
+  <ThemeProvider theme={lightTheme}>
+    <Provider store={store}>
+      <Index />
+    </Provider>
+  </ThemeProvider>,
   document.getElementById('root')
 )
 

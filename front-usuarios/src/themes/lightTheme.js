@@ -1,5 +1,6 @@
 const lightTheme = {
   fontFamily: 'Fira Sans, sans-serif',
+  borderRadius: '4px',
   colors: {
     darkBlue: '#02023D',
     lightOrange: '#F4733E',
@@ -7,7 +8,9 @@ const lightTheme = {
     darkGray: '#878787',
     lightGray: '#C7C7C7',
     white: '#FFFFFF',
-    disableButton: '#C7C7C7'
+    black: '#000000',
+    disableButton: '#C7C7C7',
+    border: 'rgba(135,135,135,0.25)'
   },
   breakPoints: {
     mobile: '767px'
