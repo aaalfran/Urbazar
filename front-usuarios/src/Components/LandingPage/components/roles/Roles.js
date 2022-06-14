@@ -1,20 +1,62 @@
-import './roles.css'
-
+import React from 'react'
 import comprador from '../../images/comprador.jpg'
 import vendedor from '../../images/vendor.jpg'
+import styled from 'styled-components'
 
-export const Roles = () => {
+const Container = styled.section`
+  font-family: ${(props) => props.theme.fontFamily};
+  background-color: #fff;
+  padding: 10rem;
+  text-align: center;
+
+  @media (max-width: 912px) {
+    padding: 10rem 0;
+  }
+
+  @media (max-width: 599px) {
+    padding: 2rem 0;
+  }
+`
+
+const Wrapper = styled.div`
+  @media (max-width: 599px) {
+    flex-direction: column;
+  }
+`
+
+const Title = styled.h1`
+  font-weight: bold;
+  color: #02023d;
+  font-size: 3em;
+  margin-bottom: 1em;
+  @media (max-width: 540px) {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+`
+
+const Subtitle = styled.h2`
+  font-size: 2rem;
+  color: #02023d;
+  font-weight: bold;
+
+  @media (max-width: 599px) {
+    font-size: 1.5rem;
+  }
+`
+
+function Roles() {
   return (
-    <section id="landing-page-roles">
-      <div className="container">
-        <h1>La plataforma perfecta para comprar y vender</h1>
+    <Container id="landing-page-roles">
+      <Wrapper className="container">
+        <Title>La plataforma perfecta para comprar y vender</Title>
         <div className="row">
           <div className="col-md-6">
             <div>
               <img src={comprador} className="img-fluid"></img>
             </div>
             <div>
-              <h2>Compradores</h2>
+              <Subtitle>Compradores</Subtitle>
               <p>
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas
                 y archivos de texto. Lorem Ipsum
@@ -26,7 +68,7 @@ export const Roles = () => {
               <img src={vendedor} className="img-fluid"></img>
             </div>
             <div>
-              <h2>Vendedores</h2>
+              <Subtitle>Vendedores</Subtitle>
               <p>
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas
                 y archivos de texto. Lorem Ipsum
@@ -34,7 +76,9 @@ export const Roles = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Wrapper>
+    </Container>
   )
 }
+
+export default Roles
