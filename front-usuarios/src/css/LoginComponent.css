@@ -9,8 +9,23 @@
     width: 80%;
 }
 
+#passwordLogin{
+    color: #000;
+    width: 100%;
+    border:2px solid #02023D;
+    background-color: #fff;
+}
+
+#passwordLog{
+    color: #000;
+    width: 100%;
+    border:2px solid #02023D;
+    background-color: #fff;
+}
+
 body, #root, .container_login{
     height: 100%;
+    width: 100%;
 }
 
 .container_login{
@@ -18,12 +33,17 @@ body, #root, .container_login{
     justify-content: center;
     width: 60%;
 }
+
+.panelDatos{
+    width: 50%;
+    height: 100%;
+
+
+}
 #info{
     width: 100%;
 }
-#password{
-    width:100%;
-}
+
 .input_pass{
     margin-bottom: 0px;
 }
@@ -42,21 +62,30 @@ body, #root, .container_login{
     border-top: 5px solid  #f4733e ;
 }
 
-#username::placeholder { color: #C8D2DB; }
+#username::placeholder { color: #02023D; }
 #username{
-    background-color: #02023D;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #02023D;
 }
 
-#password::placeholder { color: #C8D2DB; }
+
+#passwordLogin::placeholder { color: #02023D; }
+#passwordLog::placeholder { color: #02023D; }
+/*
 #password{
     color: #FFFFFF;
     background-color: #02023D;
     border: #02023D;
 }
-#password2::placeholder { color: #C8D2DB; }
+*/
+#password2::placeholder { color: #000; }
 
-#codigoF::placeholder { color: #C8D2DB; }
+#codigoF::placeholder { color: #000; }
+
+.Login-title > h3{
+    font-size: 50px;
+}
 
 .input-group{
     color: #FFFFFF;
@@ -79,6 +108,7 @@ body, #root, .container_login{
     
 }
 
+
 .MuiSvgIcon-root {
     fill: #9c9c9c !important;
 }
@@ -90,6 +120,11 @@ body, #root, .container_login{
 }
 #btn-round{
     background: #f4733e;
+    border:none;
+}
+
+#btn-round:hover{
+    background: #E86E3C;
     border:none;
 }
 
