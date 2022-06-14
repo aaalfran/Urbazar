@@ -7,6 +7,13 @@ import {Redirect} from 'react-router-dom';
 import { Card, CardTitle,
         Container} from 'reactstrap';
 import logo2 from "../../../imagenes/logoUrbazapp.PNG";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+const Enlace=styled(Link)`
+    color:#02023D;
+    padding-left:5px;
+`
 
 function Register (props) {
   const [checkTarjeta, setCheckTarjeta] = React.useState(false)
@@ -24,15 +31,15 @@ function Register (props) {
 
                 <div id="cont_secForm">
                     <div id="seccionForm">
-                        <div className="img_urbi col-md-6">
-                        <div className='fotoLogoR img-fluid'>
+                        <div className="img_urbi">
+                        <div className='fotoLogoL img-fluid'>
                              <img src={logo2} />
                         </div>
                         <div className='cajaLogoR'>
                             <span className="Urbaz-partR">Urbaz</span><span className="app-partR">App</span>
                         </div>
                         </div>
-                        <div className="panelDatos col-md-6">
+                        <div className="panelDatos">
                             <Container className="container_reg">
                                 <Card body id="tarjeta" className="trj">
                                     <div id="logo_resp">
@@ -55,7 +62,9 @@ function Register (props) {
                                             handleModal={props.handleModal}/>
                                         </form>
                                     </div>
+                                    <p>¿Ya tienes una cuenta?<Enlace to="/login"> Iniciar Sesión</Enlace></p>
                                 </Card>
+                              
                             </Container>
 
                         </div>
