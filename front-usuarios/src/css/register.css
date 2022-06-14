@@ -1,4 +1,4 @@
-/*Ajustar al 100 html. body y contenedor general */
+/*Ajustar al 100 html. body y contnenedor general */
 
 html, body {
     height:100% !important;
@@ -6,16 +6,29 @@ html, body {
 
 #cont_general{
     height:100% !important;
+    background-color: white;
 }
 
-/*Ajustar al 90% de la pantalla del cliente el formulario*/
+ 
+
+.btn_eyeLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0.25rem 0.25rem 0;
+    border-top: 2px solid #02023D;
+    border-bottom: 2px solid #02023D;
+    border-right: 2px solid #02023D;
+    background-color: #fff;
+}
+
+/*Ajustar al 100% de la pantalla del cliente el formulario*/
 #seccionForm{
     display: flex;
     justify-content: space-between;
     height: 100%;
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 90%;
+    width: 100%;  
+    margin: 0;
 }
 
 #cont_secForm{
@@ -25,10 +38,17 @@ html, body {
 
 }
 
+#tarjeta{
+    padding-right: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
 
 /*Ajustar imagen de la izquierda*/
 .img_urbi img{
-    width: 100%
+    width: 50%
 }
 
 .img_urbi{
@@ -38,6 +58,7 @@ html, body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 40%;
     
 }
 
@@ -55,48 +76,75 @@ html, body {
  
 }
 
-#nombres::placeholder { color: #C8D2DB; }
-
+#nombres::placeholder {color: #02023D;}
 #nombres {
-    background-color: #02023D;
-    color: #fff;
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
 }
 
-#apellidos::placeholder { color: #C8D2DB; }
+#apellidos::placeholder { color: #02023D; }
 #apellidos{
-    background-color: #02023D;
-    color: #fff;
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
 }
 
-.first_child::placeholder { color: #C8D2DB; }
+#apellgeneroidos::placeholder { color: #02023D; }
+#genero{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
+}
+
+.first_child::placeholder { color: #02023D; }
 .first_child {
-    color: #C8D2DB;
-    background-color:#02023D;;
+    color: #000;
+    background-color:#fff;
+
+   
 }
 
-.second_child::placeholder { color: #C8D2DB; }
+.second_child::placeholder { color: #02023D; }
 .second_child {
-    background-color: #02023D;
-    color: #C8D2DB;
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
 }
 
-#identificacion::placeholder { color: #C8D2DB; }
+#identificacion::placeholder { color: #02023D; }
  #identificacion{
-    background-color: #02023D;
-    color: #fff;
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
  }
 
-#telefono::placeholder { color: #C8D2DB; }
+#telefono::placeholder { color: #02023D; }
 #telefono{
-    background-color: #02023D;
-    color: #fff;
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
 }
 
-#correo::placeholder { color: #C8D2DB; }
+#correo::placeholder { color: #02023D; }
 #correo{
-    background-color: #02023D;
-    color: #fff;   
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D; 
 }
+#usernameRegister::placeholder { color: #02023D; }
+#usernameRegister{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D; 
+}
+#passwordLogin::placeholder { color: #02023D; }
+#passwordLogin{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D; 
+}
+
 .groupLabels > .first_child{
     background-color:#fff;   
 }
@@ -105,6 +153,17 @@ html, body {
     justify-content: center;
     width: 60%;
     height: 100%;
+}
+
+#tarjeta > p{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    color: #000;
+    font-size: 11px;
+}
+.inic > a{
+    color:#02023D
 }
 
 /*Navbar*/
@@ -123,7 +182,7 @@ html, body {
     margin: auto;
 }
 .trj h3,.trj h4{
-    text-align: left;
+    text-align: center;
     font-weight: bolder;
     color:#02023D;;
 }
@@ -161,6 +220,7 @@ html, body {
     background-color: white;
     padding-left: 0px;
     height: 100%  !important;
+    width: 60%;
 }
 
 .datos1{
@@ -223,13 +283,25 @@ html, body {
 #logo_resp{
     display: none;
 }
+
+#password2::placeholder { color: #02023D; }
 #password2{
-    color:#fff;
-    background-color: #02023D;
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D;
 }
-#codigoF{
-    color:#fff;
-    background-color: #02023D;
+#codigoF::placeholder { color: #02023D; }
+.form-group > #codigoF{
+    color: #000 !important; 
+    background-color:#fff !important;
+    border: 2px solid #02023D !important;
+}
+.regis{
+    color: #02023D;
+}
+
+#registrate>p{
+    color: #000;
 }
 
 /*Media queries*/
