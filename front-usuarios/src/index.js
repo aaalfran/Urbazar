@@ -42,9 +42,6 @@ import OrderDetails from './pages/orderDetails/OrderDetails'
 import { ThemeProvider } from 'styled-components'
 import lightTheme from './themes/lightTheme'
 
-import { ThemeProvider } from 'styled-components'
-import lightTheme from './themes/lightTheme'
-
 const Index = () => {
   React.useEffect(() => {
     if (!localStorage.getItem('carrito')) {
