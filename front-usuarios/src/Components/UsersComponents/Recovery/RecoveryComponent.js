@@ -1,15 +1,13 @@
-import NavbarComponent from '../navBar/navbarComponent'
-import logoUrbazapp from '../../LandingPage/images/logoUrbazapp.png'
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import NavBarLanding from '../../LandingPage/components/navBarLanding/NavBarLanding'
 import './RecoveryComponent.css'
-import { useState } from 'react'
+
 import validator from 'validator'
 import { Button, FormGroup } from 'reactstrap'
 
 function Recovery() {
-  var parametros = {
+  const parametros = {
     correo: ''
   }
 
@@ -17,7 +15,7 @@ function Recovery() {
 
   const [emailError, setEmailError] = useState('')
   const validateEmail = (e) => {
-    var email = e.target.value
+    const email = e.target.value
 
     if (validator.isEmail(email)) {
       setEmailError('')
@@ -64,7 +62,7 @@ function Recovery() {
           <h6>Ingrese su correo electrónico para recuperar su contraseña</h6>
         </div>
         <FormGroup id="input-correo">
-          <label for="email"></label>
+          <label htmlFor="email"></label>
           <input
             value={input}
             onInput={(e) => setInput(e.target.value)}

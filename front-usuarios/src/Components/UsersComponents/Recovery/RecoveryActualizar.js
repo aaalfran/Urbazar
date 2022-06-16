@@ -1,18 +1,12 @@
-import logoUrbazapp from '../../LandingPage/images/logoUrbazapp.png'
-import React from 'react'
+import React, { useState } from 'react'
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 import {
-  Card,
   Button,
-  CardTitle,
-  Form,
   FormGroup,
-  Input,
-  Container
+  Input
 } from 'reactstrap'
 import NavBarLanding from '../../LandingPage/components/navBarLanding/NavBarLanding'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import validator from 'validator'
 import './RecoveryActualizar.css'
@@ -67,7 +61,8 @@ function RecoveryCorreoEnviado() {
         </div>
         <FormGroup id="input-password">
           <div className="input-group-pass">
-            {viewPassword ? (
+            {viewPassword
+              ? (
               <Input
                 onChange={(e) => validate(e.target.value)}
                 id="password"
@@ -75,7 +70,8 @@ function RecoveryCorreoEnviado() {
                 name="contrasena"
                 placeholder="Contraseña"
               />
-            ) : (
+                )
+              : (
               <Input
                 onChange={(e) => validate(e.target.value)}
                 id="password"
@@ -83,13 +79,15 @@ function RecoveryCorreoEnviado() {
                 name="contrasena"
                 placeholder="Contraseña"
               />
-            )}
+                )}
             <div className="btn_eye" onClick={changeView}>
-              {viewPassword ? (
+              {viewPassword
+                ? (
                 <VisibilityIcon style={{ color: 'red' }} />
-              ) : (
+                  )
+                : (
                 <VisibilityOffIcon />
-              )}
+                  )}
             </div>
           </div>
           <div id="mensaje">
