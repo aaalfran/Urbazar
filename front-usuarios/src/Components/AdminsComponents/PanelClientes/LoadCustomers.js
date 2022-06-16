@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from 'react'
 
 import {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function LoadCustomers () {
+function LoadCustomers() {
   const classes = useStyles()
 
   const [customers, setCustomers] = useState([])
