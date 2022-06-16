@@ -1,12 +1,11 @@
-import React, { useState,useEffect } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react'
 import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
-import axios from 'axios'
 import ToggleMenu from './ToggleMenuPC'
 import '../../../css/MainComponent.css'
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 export let idCarritoDef
-export let cantidadProd = 0
-import data from '../../../enviroment';
+export const cantidadProd = 0
 const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [cantProductos, setCantProductos] = useState(0)
@@ -15,11 +14,11 @@ const NavbarComponent = (props) => {
 
   useEffect(() => {
     console.log(localStorage.getItem('userId'))
-  },[])
+  }, [])
 
   idCarritoDef = idCarrito
-  let cantidad = 0
-/** 
+  const cantidad = 0
+  /**
  *   axios.get(`http://${data.number}/detalle-carrito/${idCarritoDef}`)
     .then(response => response.data)
     .then((res2) => {
@@ -33,7 +32,6 @@ const NavbarComponent = (props) => {
     }
     )
 */
-
 
   return (
     <>

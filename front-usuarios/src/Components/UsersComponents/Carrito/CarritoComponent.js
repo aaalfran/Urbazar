@@ -1,3 +1,5 @@
+/* eslint-disable brace-style */
+/* eslint-disable node/handle-callback-err */
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import '../../../css/CarritoComponent.css'
@@ -8,8 +10,8 @@ import PaymentInputs from './PaymentComponent'
 import data from '../../../enviroment'
 import axios from 'axios'
 
-const deleteProducts = async (lista) => {
-  for (let idDetalle of lista) {
+const deleteProducts = async(lista) => {
+  for (const idDetalle of lista) {
     await axios
       .delete(`http://${data.number}/detalle-carrito/${idDetalle}`)
       .then((res) => {})
@@ -18,7 +20,7 @@ const deleteProducts = async (lista) => {
   window.location.reload()
 }
 const ProductoBack = ({ setResumen, setDetalleId }) => {
-  let [listaComponent, setListaComponent] = useState([])
+  const [listaComponent, setListaComponent] = useState([])
   useEffect(() => {
     axios
       .get(
@@ -27,23 +29,23 @@ const ProductoBack = ({ setResumen, setDetalleId }) => {
         )}`
       )
       .then((res) => {
-        let resultado = res.data[0]
+        const resultado = res.data[0]
         axios
           .get(`http://${data.number}/carrito/cliente/${resultado.id}`)
           .then((res) => {
-            let resultado = res.data[0]
+            const resultado = res.data[0]
             axios
               .get(
                 `http://${data.number}/detalle-carrito/carrito/${resultado.id}`
               )
               .then((res) => {
-                let lista = res.data
+                const lista = res.data
                 if (lista.length > 0) {
-                  for (let item of lista) {
+                  for (const item of lista) {
                     axios
                       .get(`http://${data.number}/productos/${item.idProducto}`)
                       .then((res) => {
-                        let producto = res.data
+                        const producto = res.data
                         const nombre = producto.nombre
                         const precio = producto.precio
                         const imagen = producto.source
@@ -79,19 +81,21 @@ const ProductoBack = ({ setResumen, setDetalleId }) => {
 
   return (
     <React.Fragment>
-      {listaComponent.length > 0 ? (
-        listaComponent
-      ) : (
+      {listaComponent.length > 0
+        ? (
+            listaComponent
+          )
+        : (
         <div className="h-100">
           <span className="vacioCarrito">Carrito Vacío</span>
         </div>
-      )}
+          )}
     </React.Fragment>
   )
 }
 
 const Resumen = ({ resumen, setPrecio }) => {
-  let listaLi = []
+  const listaLi = []
   if (resumen.length > 0) {
     let precioTotal = 0
     for (let i = 0; i < resumen.length; i++) {
@@ -231,8 +235,8 @@ const CarritoComponent = (props) => {
       </>
     )
   }
-  //Por ahora estas validaciones quedan de esta forma, cuando se desarrollen bien los dashboards de admins se dividirá esto
-  else if (auth && (role == '2' || role == '3')) {
+  // Por ahora estas validaciones quedan de esta forma, cuando se desarrollen bien los dashboards de admins se dividirá esto
+  else if (auth && (role === '2' || role === '3')) {
     return <Redirect to="/admin/dashboard/report" />
   } else return <Redirect to="/login" />
 }

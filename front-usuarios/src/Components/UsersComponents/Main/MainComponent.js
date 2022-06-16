@@ -6,7 +6,6 @@ import '../../../css/MainComponent.css'
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 import { Redirect } from 'react-router-dom'
 import LoadProducts from './LoadProducts'
-import GoogleAds from '../Adicionales/GoogleAds'
 import '../../../css/slider.scss'
 import banner1 from '../../../imagenes/ban1.png'
 import banner7 from '../../../imagenes/ban7.png'
@@ -15,11 +14,11 @@ import data from '../../../enviroment'
 import Tabla from '../Filtros/Tabla/Tabla'
 
 import '../Main/Main.css'
-;<link
+<link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-  crossorigin="anonymous"
+  crossOrigin="anonymous"
 ></link>
 function Main() {
   // introJs().start();
@@ -68,18 +67,18 @@ function Main() {
             <UncontrolledCarousel items={items} className="banner" />
           </Col>
         </section>
-        {/* En esta seccion se incluyen los ads de Google*/}
+        {/* En esta seccion se incluyen los ads de Google */}
         {/* <div>addd</div>
           <div className="ad-class">
             <GoogleAds slot="4186053521" />
           </div>
           <div>addd</div> */}
 
-        <div class="row no-gutters">
-          <div class="col-sm-2">
+        <div className="row no-gutters">
+          <div className="col-sm-2">
             <Tabla />
           </div>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <div className="list_productos">
               <h6
                 data-intro="En esta sección puedes encontrar
@@ -127,18 +126,18 @@ function Main() {
             <UncontrolledCarousel items={items} className="banner" />
           </Col>
         </section>
-        {/* En esta seccion se incluyen los ads de Google*/}
+        {/* En esta seccion se incluyen los ads de Google */}
         {/* <div>addd</div>
           <div className="ad-class">
             <GoogleAds slot="4186053521" />
           </div>
           <div>addd</div> */}
 
-        <div class="row no-gutters">
-          <div class="col-sm-2">
+        <div className="row no-gutters">
+          <div className="col-sm-2">
             <Tabla />
           </div>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <div className="list_productos">
               <h6
                 data-intro="En esta sección puedes encontrar

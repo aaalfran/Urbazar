@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-unused-vars */
+/* eslint-disable node/handle-callback-err */
 import { Redirect } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { Container } from 'reactstrap'
@@ -46,7 +49,7 @@ const agregarCarrito = (id_producto, cantidad, setLoad) => {
                   console.log(respuesta)
                   let isRespuesta = true
                   if (respuesta.length > 0) {
-                    for (let detalle of respuesta) {
+                    for (const detalle of respuesta) {
                       console.log(detalle)
                       if (detalle.idProducto === parseInt(id_producto)) {
                         isRespuesta = false
@@ -76,7 +79,7 @@ const agregarCarrito = (id_producto, cantidad, setLoad) => {
                       }
                     }
                     if (isRespuesta) {
-                      let payload = {
+                      const payload = {
                         idProducto: parseInt(id_producto),
                         cantidad: cantidad,
                         idCarrito: dato.id
@@ -164,7 +167,7 @@ function ProductComponent() {
 
   let producto_selec = {}
   lista_productos.map((producto) => {
-    if (producto.id == id_producto) {
+    if (producto.id === id_producto) {
       producto_selec = producto
     }
   })
@@ -192,7 +195,7 @@ function ProductComponent() {
   const seleccionarProducto = (id) => {
     let producto = {}
     for (const prod of lista_productos) {
-      if (prod.id == id) {
+      if (prod.id === id) {
         producto = prod
       }
     }
@@ -212,7 +215,7 @@ function ProductComponent() {
       const data = JSON.parse(localStorage.getItem('carrito'))
       for (const j of data.carrito) {
         // verifica si ya existe en carrito
-        if (p.id == j.id) {
+        if (p.id === j.id) {
           j.cantidad = j.cantidad + 1
           inCarrito = true
 
@@ -275,7 +278,7 @@ function ProductComponent() {
   const auth = parseInt(localStorage.getItem('auth'), 10)
   const role = localStorage.getItem('role')
 
-  if (auth && (role == '0' || role == '1')) {
+  if (auth && (role === '0' || role === '1')) {
     return (
       <>
         <NavbarComponent />
@@ -420,18 +423,20 @@ function ProductComponent() {
                 <i className="fas fa-shopping-cart fa-lg"></i> Agregar a carrito
               </button>
             </div>
-            {load ? (
+            {load
+              ? (
               <></>
-            ) : (
+                )
+              : (
               <div className="spinner-border my-3" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
-            )}
+                )}
           </div>
         </Container>
       </>
     )
-  } else if (auth && (role == '2' || role == '3')) {
+  } else if (auth && (role === '2' || role === '3')) {
     return <Redirect to="/admin/dashboard/report" />
   } else return <Redirect to="/login" />
 }
