@@ -2,11 +2,18 @@ import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 import EncryptPassword from "../Login/EncryptPassword";
 import {Input, FormGroup, FormText} from "reactstrap";
-import PaymentComponent from "../Carrito/PaymentComponent";
+import CardDateExpiration from "./CardDateExpiration";
 import axios from 'axios';
 import ModalComponent from "./ModalComponent";
 import data from '../../../enviroment';
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+
+const Enlace=styled(Link)`
+    color:#02023D;
+    padding-left:px;
+`
 
 class HorizontalNonLinearStepper extends Component{
   constructor(props){
@@ -226,7 +233,56 @@ class HorizontalNonLinearStepper extends Component{
         );
       case 2:
         return(<div>
-          XD
+          
+          <div className="cont_formulario">
+          <p>Ingrese infomación de su tarjeta de Crédito</p>
+          <FormGroup>
+                  <Input 
+                  id="titularTarjetaRegister" 
+                  name="titularTarjetaRegister" 
+                  onChange={this.handleChangeForm} 
+                  placeholder="Nombre del titular"/>
+                  <div id="FormFeedTitularTarjerta" className="feedback"></div>
+            </FormGroup>
+            <FormGroup>
+                  <Input 
+                  id="numeroTarjetaRegister" 
+                  name="numeroTarjetaRegister" 
+                  onChange={this.handleChangeForm}
+                  maxLength="16"
+                  placeholder="Número de tarjeta"/>
+                  <div id="FormFeedNumeroTarjerta" className="feedback"></div>
+            </FormGroup>
+            <p>Fecha de expiración</p>
+            <div id="grupoRegistro">
+            <FormGroup>
+                  <Input type="number"
+                  min="1" 
+                  max="12"
+                  id="X" 
+                  name="meses" 
+                  onChange={this.handleChangeForm} 
+                  placeholder="Mes"/>
+                  <div id="FormFeedNumeroTarjerta" className="feedback"></div>
+            </FormGroup>
+            <FormGroup>
+          
+         
+            <CardDateExpiration></CardDateExpiration>
+       
+
+            </FormGroup>
+            <FormGroup>
+                  <Input maxLength="4"
+                  id="cvcRegister" 
+                  name="cvcRegister" 
+                  onChange={this.handleChangeForm} 
+                  placeholder="CVC"/>
+                  <div id="FormFeedNumeroTarjerta" className="feedback"></div>
+            </FormGroup>
+            </div>
+            
+           </div>
         </div>);
 
       default:

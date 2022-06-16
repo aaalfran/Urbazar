@@ -12,7 +12,7 @@ import styled from 'styled-components'
 
 const Enlace=styled(Link)`
     color:#02023D;
-    padding-left:5px;
+    padding-left:px;
 `
 
 function Register (props) {

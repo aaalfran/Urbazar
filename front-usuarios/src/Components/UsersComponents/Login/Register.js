@@ -12,6 +12,13 @@ import '../../../css/LoginComponent.css'
 import logo2 from '../../../imagenes/logoUrbazapp.PNG'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+const Enlace=styled(Link)`
+    color:#02023D;
+    padding-left:px;
+`
 
 function Register(props) {
     const [viewPassword, setViewPassword] = React.useState(false)
@@ -94,7 +101,7 @@ function Register(props) {
 
                                         <div id="registrate">
                                             <p><a href="/recovery">He olvidado mi contraseña</a></p>
-                                            <p>¿No tiene una cuenta? <span className="regis"><a href="">Regístrese</a></span></p>
+                                            <p>¿No tiene una cuenta? <Enlace to="/registro"> Regístrate</Enlace></p>
                                         </div>
                                     </div>
                                 </Card>

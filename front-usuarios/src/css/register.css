@@ -166,6 +166,25 @@ html, body {
     color:#02023D
 }
 
+.cont_formulario > p{
+    color: #000 !important;
+}
+
+/*Registro de tarjeta de crédito*/
+#titularTarjetaRegister::placeholder { color: #02023D; }
+#titularTarjetaRegister{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D; 
+}
+#numeroTarjetaRegister::placeholder { color: #02023D; }
+#numeroTarjetaRegister{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D; 
+}
+
+
 /*Navbar*/
 .navBarRegister{
     background-color: #02023d !important;
