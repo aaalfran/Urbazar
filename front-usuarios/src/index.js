@@ -34,12 +34,14 @@ import MapComponent from './Components/AdminsComponents/GraphAndMaps/MapComponen
 import CatalogoComponent from './Components/UsersComponents/Busqueda/CatalogoComponent'
 import PerfilComponent from './Components/UsersComponents/Perfil/PerfilPC'
 import LandingPage from './Components/LandingPage/LandingPage'
-
 // Pages
 import ShoppingHistory from './pages/ShoppingHistory/ShoppingHistory'
 import OrderDetails from './pages/orderDetails/OrderDetails'
 
 // Styled components
+import { ThemeProvider } from 'styled-components'
+import lightTheme from './themes/lightTheme'
+
 import { ThemeProvider } from 'styled-components'
 import lightTheme from './themes/lightTheme'
 
