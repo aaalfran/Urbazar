@@ -1,30 +1,34 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 
 import React from 'react'
-import '../../../css/register.css';
-import NavbarComponent from "./navBarRegistro";
-import StepComponent from "./StepComponent";
-import {Redirect} from 'react-router-dom';
-import { Card, CardTitle,
-        Container} from 'reactstrap';
-import logo2 from "../../../imagenes/logoUrbazapp.PNG";
-import { Link } from 'react-router-dom';
+import '../../../css/register.css'
+import NavbarComponent from './navBarRegistro'
+import StepComponent from './StepComponent'
+import { Redirect, Link } from 'react-router-dom'
+import {
+  Card, CardTitle,
+  Container
+} from 'reactstrap'
+import logo2 from '../../../imagenes/logoUrbazapp.PNG'
+
 import styled from 'styled-components'
 
-const Enlace=styled(Link)`
+const Enlace = styled(Link)`
     color:#02023D;
     padding-left:px;
 `
 
-function Register (props) {
+function Register(props) {
   const [checkTarjeta, setCheckTarjeta] = React.useState(false)
 
   const auth = parseInt(localStorage.getItem('auth'), 10)
   const role = localStorage.getItem('role')
 
   if (auth && (role == '2' || role == '3')) {
-    return <Redirect to='/admin/dashboard/report'/>
+    return <Redirect to="/admin/dashboard/report" />
   } else if (auth && (role == '0' || role == '1')) {
-    return <Redirect to='/'/>
+    return <Redirect to="/" />
   } else {
     return (
             <div id="cont_general">
@@ -64,7 +68,7 @@ function Register (props) {
                                     </div>
                                     <p>¿Ya tienes una cuenta?<Enlace to="/login"> Iniciar Sesión</Enlace></p>
                                 </Card>
-                              
+
                             </Container>
 
                         </div>
@@ -72,15 +76,8 @@ function Register (props) {
                 </div>
             </div>
 
-        
-       
-
-
-    );
-    }
-    
-
+    )
+  }
 }
-
 
 export default Register
