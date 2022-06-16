@@ -1,7 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+// Redux
+import { applyMiddleware, createStore, compose } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import RootR from './store/reducers/RootR'
+
+// CSS
 import './index.css'
+
+// Components
 import reportWebVitals from './reportWebVitals'
 import LoginComponent from './Components/UsersComponents/Login/LoginPC'
 import Register from './Components/UsersComponents/Registro/RegisterPC'
@@ -24,13 +34,12 @@ import MapComponent from './Components/AdminsComponents/GraphAndMaps/MapComponen
 import CatalogoComponent from './Components/UsersComponents/Busqueda/CatalogoComponent'
 import PerfilComponent from './Components/UsersComponents/Perfil/PerfilPC'
 import LandingPage from './Components/LandingPage/LandingPage'
+
+// Pages
 import ShoppingHistory from './pages/ShoppingHistory/ShoppingHistory'
+import OrderDetails from './pages/orderDetails/OrderDetails'
 
-import { applyMiddleware, createStore, compose } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-import RootR from './store/reducers/RootR'
-
+// Styled components
 import { ThemeProvider } from 'styled-components'
 import lightTheme from './themes/lightTheme'
 
@@ -74,6 +83,11 @@ const Index = () => {
             path="/historial-de-compras"
             exact
             component={ShoppingHistory}
+          ></Route>
+          <Route
+            path="/detalles-de-compra"
+            exact
+            component={OrderDetails}
           ></Route>
           <Route path="/login" exact component={LoginComponent} />
           <Route path="/registro" exact component={Register} />

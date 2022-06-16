@@ -26,9 +26,9 @@ function Register(props) {
   const role = localStorage.getItem('role')
 
   if (auth && (role == '2' || role == '3')) {
-    return <Redirect to='/admin/dashboard/report'/>
+    return <Redirect to="/admin/dashboard/report" />
   } else if (auth && (role == '0' || role == '1')) {
-    return <Redirect to='/'/>
+    return <Redirect to="/" />
   } else {
     return (
             <div id="cont_general">

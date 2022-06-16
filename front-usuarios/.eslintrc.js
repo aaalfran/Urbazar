@@ -18,6 +18,7 @@ module.exports = {
     'react/prop-types': 0,
     camelcase: 0,
     'linebreak-style': 0,
-    'space-before-function-paren': ['error', 'never']
+    'space-before-function-paren': 'off',
+    'eslint multiline-ternary': 'off'
   }
 }
