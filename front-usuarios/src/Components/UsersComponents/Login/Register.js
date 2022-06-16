@@ -97,7 +97,6 @@ function Register(props) {
               </div>
             </div>
             </div>
-
     )
   }
 }

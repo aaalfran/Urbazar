@@ -7,7 +7,6 @@ import {
   Input
 } from 'reactstrap'
 import NavBarLanding from '../../LandingPage/components/navBarLanding/NavBarLanding'
-
 import { Link } from 'react-router-dom'
 import validator from 'validator'
 import './RecoveryActualizar.css'
