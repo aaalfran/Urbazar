@@ -40,17 +40,6 @@ function Register(props) {
     return (
             <div id="cont_general">
 
-<<<<<<< HEAD
-                                        <div id="registrate">
-                                            <p><a href="/recovery">He olvidado mi contraseña</a></p>
-                                            <p>¿No tiene una cuenta? <Enlace to="/registro"> Regístrate</Enlace></p>
-                                        </div>
-                                    </div>
-                                </Card>
-                            </Container>
-
-                        </div>
-=======
             <div id="seccionForm">
               <div className="img_urbi">
                 <div className='fotoLogoL img-fluid'>
@@ -65,7 +54,6 @@ function Register(props) {
                   <Card body id="tarjeta" className="trj">
                     <div id="logo_resp">
                       <img src={logo2} />
->>>>>>> cd6f23a4678b45b3942327ba8a9c212955370ad9
                     </div>
 
                     <div>

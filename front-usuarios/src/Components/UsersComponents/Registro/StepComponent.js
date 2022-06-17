@@ -1,37 +1,21 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-import Button from '@material-ui/core/Button';
-import EncryptPassword from "../Login/EncryptPassword";
-import {Input, FormGroup, FormText} from "reactstrap";
-import CardDateExpiration from "./CardDateExpiration";
-import axios from 'axios';
-import ModalComponent from "./ModalComponent";
-import data from '../../../enviroment';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components'
-
-
-const Enlace=styled(Link)`
-    color:#02023D;
-    padding-left:px;
-`
-
-class HorizontalNonLinearStepper extends Component{
-  constructor(props){
-=======
-/* eslint-disable no-case-declarations */
-/* eslint-disable eqeqeq */
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import EncryptPassword from '../Login/EncryptPassword'
 import { Input, FormGroup, FormText } from 'reactstrap'
+import CardDateExpiration from './CardDateExpiration'
 import axios from 'axios'
 import ModalComponent from './ModalComponent'
 import data from '../../../enviroment'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Enlace = styled(Link)`
+    color:#02023D;
+    padding-left:1px;
+`
 
 class HorizontalNonLinearStepper extends Component {
   constructor(props) {
->>>>>>> cd6f23a4678b45b3942327ba8a9c212955370ad9
     super(props)
     this.state = {
       activeStep: 0,
@@ -69,7 +53,7 @@ class HorizontalNonLinearStepper extends Component {
     this.handleChangeForm = this.handleChangeForm.bind(this)
   }
 
-  steps= this.getSteps();
+  steps = this.getSteps();
 
   getEdades() {
     const ages = []
@@ -107,7 +91,6 @@ class HorizontalNonLinearStepper extends Component {
                       placeholder="Apellidos"
                       value={this.state.form.apellidos}/>
                   </FormGroup>
-
               </FormGroup>
               <FormGroup className="groupLabels">
                   <FormGroup>
@@ -118,7 +101,6 @@ class HorizontalNonLinearStepper extends Component {
                     <option value="Otro">Otro</option>
                   </Input>
                   </FormGroup>
-
                   <FormGroup>
                     <Input className="second_child" type="select" name="edad" onChange={this.handleChangeForm} value={this.state.form.edad}>
                     <option value="" hidden>Edad</option>
@@ -127,9 +109,7 @@ class HorizontalNonLinearStepper extends Component {
                       ))}
                     </Input>
                   </FormGroup>
-
               </FormGroup>
-
               <FormGroup>
                 <Input
                   className="col-md-12"
@@ -139,7 +119,6 @@ class HorizontalNonLinearStepper extends Component {
                   onChange={this.handleChangeForm}
                   value={this.state.form.identificacion}/>
                 <div id="FormFeedbackId" className="feedback"></div>
-
               </FormGroup>
               <FormGroup>
                 <Input
@@ -150,7 +129,6 @@ class HorizontalNonLinearStepper extends Component {
                   onChange={this.handleChangeForm}
                   value={this.state.form.telefono}/>
                   <div id="FormFeedbackTlf" className="feedback"></div>
-
               </FormGroup>
               <FormGroup>
                   <Input
@@ -162,7 +140,6 @@ class HorizontalNonLinearStepper extends Component {
                     onChange={this.handleChangeForm}
                     value={this.state.form.correo}/>
                     <div id="FormFeedbackMail" className="feedback"></div>
-
               </FormGroup>
             </div>
         )
@@ -178,10 +155,8 @@ class HorizontalNonLinearStepper extends Component {
                   placeholder="Nombre de usuario"
                   value={this.state.form.username}/>
                   <div id="FormFeedbackUser" className="feedback"></div>
-
               </FormGroup>
               <FormGroup className="groupLabels">
-
                 <div className="first_child" >
                   <FormGroup>
                     <Input
@@ -194,7 +169,6 @@ class HorizontalNonLinearStepper extends Component {
                     value={this.state.form.password}/>
                     <div id="FormFeedbackPassword" className="feedback"></div>
                   </FormGroup>
-
                   <FormGroup>
                   <Input
                   id="password2"
@@ -206,7 +180,6 @@ class HorizontalNonLinearStepper extends Component {
                   value={this.state.form.password2} />
                   <div id="FormFeedbackPassword2" className="feedback"></div>
                   </FormGroup>
-
                 </div>
               </FormGroup>
 
@@ -216,42 +189,27 @@ class HorizontalNonLinearStepper extends Component {
 
               <FormGroup>
                 <Input
-
                   id="codigoF"
                   name="codigoF"
                   onChange={this.handleChangeForm}
                   onBlur={this.validarCodigo}
                   value={this.state.form.codigoF}
                   placeholder="Código familiar" />
-
                 <FormText><span className="text-white">Tu administrador de etapa debe proporcionarte este código</span></FormText>
                 <div id="FormFeedbackCodigo" className="feedback"></div>
               </FormGroup>
-
             </div>
-
         )
       case 2:
-<<<<<<< HEAD
-        return(<div>
-          
+        return (<div>
           <div className="cont_formulario">
           <p>Ingrese infomación de su tarjeta de Crédito</p>
           <FormGroup>
-                  <Input 
-                  id="titularTarjetaRegister" 
-                  name="titularTarjetaRegister" 
-                  onChange={this.handleChangeForm} 
-                  placeholder="Nombre del titular"/>
-                  <div id="FormFeedTitularTarjerta" className="feedback"></div>
+                  <Input id = "titularTarjetaRegister" name = "titularTarjetaRegister" onChange = { this.handleChangeForm }placeholder = "Nombre del titular"/>
+                  <div id = "FormFeedTitularTarjerta" className="feedback"></div>
             </FormGroup>
             <FormGroup>
-                  <Input 
-                  id="numeroTarjetaRegister" 
-                  name="numeroTarjetaRegister" 
-                  onChange={this.handleChangeForm}
-                  maxLength="16"
-                  placeholder="Número de tarjeta"/>
+                  <Input id="numeroTarjetaRegister" name="numeroTarjetaRegister" onChange={this.handleChangeForm} maxLength="16" placeholder="Número de tarjeta"/>
                   <div id="FormFeedNumeroTarjerta" className="feedback"></div>
             </FormGroup>
             <p>Fecha de expiración</p>
@@ -266,12 +224,8 @@ class HorizontalNonLinearStepper extends Component {
                   placeholder="Mes"/>
                   <div id="FormFeedNumeroTarjerta" className="feedback"></div>
             </FormGroup>
-            <FormGroup>
-          
-         
-            <CardDateExpiration></CardDateExpiration>
-       
-
+            <FormGroup>  
+              <CardDateExpiration></CardDateExpiration>
             </FormGroup>
             <FormGroup>
                   <Input maxLength="4"
@@ -282,14 +236,8 @@ class HorizontalNonLinearStepper extends Component {
                   <div id="FormFeedNumeroTarjerta" className="feedback"></div>
             </FormGroup>
             </div>
-            
            </div>
-        </div>);
-=======
-        return (<div>
-          XD
         </div>)
->>>>>>> cd6f23a4678b45b3942327ba8a9c212955370ad9
 
       default:
         return 'Unknown step'
@@ -390,7 +338,7 @@ class HorizontalNonLinearStepper extends Component {
     const feed = document.getElementById('FormFeedbackPassword2')
     const input_pass2 = document.getElementById('password2')
 
-    if (this.state.form.password != this.state.form.password2) {
+    if (this.state.form.password !== this.state.form.password2) {
       message = 'Las contraseñas no coinciden'
       color = 'red'
       this.setState({ password2_check: false })
@@ -531,10 +479,10 @@ class HorizontalNonLinearStepper extends Component {
 
                   Siguiente
                 </Button>
-
+                <p> <Enlace>HOLA</Enlace></p>
               </div>
 
-                )}
+                )}n¿
       </div>
     )
   }
