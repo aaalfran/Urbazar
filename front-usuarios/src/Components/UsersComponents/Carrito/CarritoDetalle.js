@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { Row, Col, Container } from 'reactstrap'
 import '../../../css/Detalle.css'

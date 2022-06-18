@@ -14,7 +14,7 @@ import data from '../../../enviroment'
 import Tabla from '../Filtros/Tabla/Tabla'
 import { Nav, NavItem, NavLink } from 'reactstrap'
 import '../Main/Main.css'
-;import { Checkbox } from '@material-ui/core'
+import { Checkbox } from '@material-ui/core'
 <link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"

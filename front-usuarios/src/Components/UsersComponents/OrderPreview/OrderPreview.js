@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const Container = styled.div`
   min-width: 400px;
@@ -79,20 +79,25 @@ const ProductsContainer = styled.div`
     color: ${(props) => props.theme.colors.darkGray};
   }
 `
+/**
+ * Returns an array with 1-3 products from the products array parameter
+ * @returns Array of products
+ */
+const getProducts = (products) => {
+  const firstProducts = []
+  for (let i = 0; i < products.length; i++) {
+    if (i < 3) {
+      firstProducts.push(products[i])
+    }
+  }
+  return firstProducts
+}
 
 function OrderPreview({ id, title, date, total, products }) {
-  /**
-   * Returns an array with 1-3 products
-   * @returns Array of products
-   */
-  const getProducts = () => {
-    const firstProducts = []
-    for (let i = 0; i < products.length; i++) {
-      if (i < 3) {
-        firstProducts.push(products[i])
-      }
-    }
-    return firstProducts
+  const history = useHistory()
+
+  const goToOrderDetails = () => {
+    history.push(`/detalles-de-compra/${id}`)
   }
 
   return (
@@ -101,7 +106,7 @@ function OrderPreview({ id, title, date, total, products }) {
         <Title>{title}</Title>
         <ProductsContainer>
           <DarkLabel>Productos:</DarkLabel>
-          {getProducts().map((product) => (
+          {getProducts(products).map((product) => (
             <div key={product.name}>
               {product.name} (x{product.quantity})
             </div>
@@ -110,7 +115,7 @@ function OrderPreview({ id, title, date, total, products }) {
         </ProductsContainer>
         <LinksContainer>
           <Button>Ver recibo</Button>
-          <Button>Ver detalles del pedido</Button>
+          <Button onClick={goToOrderDetails}>Ver detalles del pedido</Button>
         </LinksContainer>
       </DetailsContainer>
       <InfoContiner>

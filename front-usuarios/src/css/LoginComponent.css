@@ -35,10 +35,7 @@ body, #root, .container_login{
 }
 
 .panelDatos{
-    width: 50%;
     height: 100%;
-
-
 }
 #info{
     width: 100%;
@@ -84,7 +81,7 @@ body, #root, .container_login{
 #codigoF::placeholder { color: #000; }
 
 .Login-title > h3{
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .input-group{

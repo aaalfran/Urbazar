@@ -9,8 +9,6 @@ html, body {
     background-color: white;
 }
 
- 
-
 .btn_eyeLogin{
     display: flex;
     justify-content: center;
@@ -39,12 +37,24 @@ html, body {
 }
 
 #tarjeta{
-    padding-right: 50px;
     display: flex;
     justify-content: center;
     
 }
 
+#grupoRegistro{
+    display: flex;
+    padding-top: 10px;
+}
+
+#cvcRegister::placeholder {color: #02023D;}
+#cvcRegister{
+    width: 90px;
+    height: 44px;
+    border: 2px solid #02023D !important;
+    border-radius: 0 !important;
+    margin-left: 15px;
+}
 
 /*Ajustar imagen de la izquierda*/
 .img_urbi img{
@@ -73,7 +83,13 @@ html, body {
 
 /*Campos en grupo*/
 .groupLabels{
- 
+    
+}
+#mensajeTarjeta{
+    color: #000;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 7px;
 }
 
 #nombres::placeholder {color: #02023D;}
@@ -165,6 +181,26 @@ html, body {
 .inic > a{
     color:#02023D
 }
+
+.cont_formulario > p{
+    color: #000 !important;
+    justify-content: center !important;
+}
+
+/*Registro de tarjeta de crédito*/
+#titularTarjetaRegister::placeholder { color: #02023D; }
+#titularTarjetaRegister{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D !important; 
+}
+#numeroTarjetaRegister::placeholder { color: #02023D; }
+#numeroTarjetaRegister{
+    color: #000;
+    background-color:#fff;
+    border: 2px solid #02023D !important; 
+}
+
 
 /*Navbar*/
 .navBarRegister{

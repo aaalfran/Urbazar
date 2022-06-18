@@ -3,6 +3,7 @@ import React from 'react'
 import { Label } from 'reactstrap'
 import './tabla.css'
 import checkValue from './Filtro'
+
 const Tabla = () => {
   return (
       <div className="filters-container">
