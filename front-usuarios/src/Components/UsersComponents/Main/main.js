@@ -1,4 +1,4 @@
-import data from '../../../enviroment';
+import data from '../../../enviroment'
 function handleClick (e) {
   e.preventDefault()
   console.log('The link was clicked.')
