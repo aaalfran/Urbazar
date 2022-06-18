@@ -16,7 +16,7 @@ import styled from 'styled-components'
 
 const Enlace = styled(Link)`
     color:#02023D;
-    padding-left:5px;
+    padding-left:1px;
 `
 
 function Register(props) {
@@ -51,7 +51,6 @@ function Register(props) {
                                     </div>
                                     <CardTitle>
                                     <h4> Registrar</h4>
-                                      <p id="mensaje"> Ingrese su información </p>
                                       <div id="feedbackvacios"></div>
                                     </CardTitle>
                                     <div id="contenido_registro">

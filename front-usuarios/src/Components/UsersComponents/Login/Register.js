@@ -2,18 +2,18 @@
 import React from 'react'
 import '../../../css/register.css'
 import { Redirect } from 'react-router-dom'
-import {
-  Card,
-  Button,
-  Form,
-  FormGroup,
-  Input,
-  Container
-} from 'reactstrap'
+import { Card, Button, Form, FormGroup, Input,Container } from 'reactstrap'
 import '../../../css/LoginComponent.css'
 import logo2 from '../../../imagenes/logoUrbazapp.PNG'
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Enlace = styled(Link)`
+    color:#02023D;
+    padding-left:1px;
+`
 
 function Register(props) {
   const [viewPassword, setViewPassword] = React.useState(false)
@@ -32,7 +32,6 @@ function Register(props) {
   } else {
     return (
             <div id="cont_general">
-
             <div id="seccionForm">
               <div className="img_urbi">
                 <div className='fotoLogoL img-fluid'>
@@ -88,7 +87,7 @@ function Register(props) {
 
                       <div id="registrate">
                         <p><a href="/recovery">He olvidado mi contraseña</a></p>
-                        <p>¿No tiene una cuenta?<span className="regis"><a href="">Regístrese</a></span></p>
+                        <p>¿No tiene una cuenta? <Enlace to="/registro">Regístrese</Enlace> </p>
                       </div>
                     </div>
                   </Card>

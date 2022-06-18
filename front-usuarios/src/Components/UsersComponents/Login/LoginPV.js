@@ -20,10 +20,10 @@ function LoginComponent(props) {
     return <Redirect to='/'/>
   } else {
     return (
-
+       
         <Container className="container_login">
           <Card body id="tarjeta_login">
-
+           
             <div id="img_login">
               <img src={logo2} className="Login-logo" alt="logo" />
             </div>
