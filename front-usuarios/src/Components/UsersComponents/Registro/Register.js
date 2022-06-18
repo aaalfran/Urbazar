@@ -67,7 +67,6 @@ function Register(props) {
                                     </div>
                                     <p>¿Ya tienes una cuenta?<Enlace to="/login"> Iniciar Sesión</Enlace></p>
                                 </Card>
-
                             </Container>
 
                         </div>

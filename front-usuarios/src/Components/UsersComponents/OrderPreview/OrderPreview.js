@@ -79,7 +79,6 @@ const ProductsContainer = styled.div`
     color: ${(props) => props.theme.colors.darkGray};
   }
 `
-
 /**
  * Returns an array with 1-3 products from the products array parameter
  * @returns Array of products

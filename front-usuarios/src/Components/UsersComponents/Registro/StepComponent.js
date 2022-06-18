@@ -44,6 +44,7 @@ class HorizontalNonLinearStepper extends Component {
         codigoF: ''
       }
     }
+
     this.handleNextOne = this.handleNextOne.bind(this)
     this.handleNextTwo = this.handleNextTwo.bind(this)
     this.signUp = this.signUp.bind(this)
@@ -262,14 +263,12 @@ class HorizontalNonLinearStepper extends Component {
       this.setState({ activeStep: newActiveStep })
     }
   }
-
   handleNextThree() {
     if (this.props.validarVacios()) {
       const newActiveStep = this.state.activeStep + 1
       this.setState({ activeStep: newActiveStep })
     }
   }
-
   handleBack() {
     window.location.reload(true)
   };
@@ -473,9 +472,10 @@ class HorizontalNonLinearStepper extends Component {
                   variant="contained"
 
                   onClick={this.state.activeStep === 0 ? this.handleNextOne : this.handleNextTwo}>
-
                   Siguiente
                 </Button>
+
+               
               </div>
 
                 )}

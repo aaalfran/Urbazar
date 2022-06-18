@@ -423,10 +423,10 @@ CREATE TABLE `producto` (
 
 INSERT INTO `producto` (`ID`, `ID_vendedor`,`ID_Categoria`, `Nombre` ,`Precio`, `Activo`, `Descripcion`, `Stock`, `Promedio_Puntuacion`, `Pedido_Anticipado`, `source`) VALUES
 (1, 2,1, 'zapatos', '23', 1, 'zapatos de vestir ', 20, 4, 1, 'https://vasari.vteximg.com.br/arquivos/ids/193038-500-500/VZC171644-NG-38.jpg?v=637302896491870000'),
-(2, 2,1, 'camisa ', '20', 1, 'camisa de vestir', 7, 4, 1, 'https://bassil.com.ec/3168/camisa-amarilla-manga-corta-barcelona-sporting-club.jpg'),
+(2, 2,1, 'camisa ', '20', 1, 'camisa de vestir', 7, 4, 1, 'https://cdn.shopify.com/s/files/1/0557/6608/9903/products/Oficial2022Frente.jpg?v=1643676574'),
 (3, 4,2, 'computadora ', '500', 1, 'computadora lenovo', 100, 5, 1, 'https://www.idcmayoristas.com/wp-content/uploads/2020/04/002589.jpg'),
 (4, 6,2, 'iphone', '5', 1, 'celular phone 10 ', 20, 5, 1, 'https://images-na.ssl-images-amazon.com/images/I/61ceSVoz1nL._AC_SX385_.jpg'),
-(5, 8,4, 'alcohol', '2', 1, 'alcohol antiseptico', 200, 5, 1, 'https://gontec.com.ec/wp-content/uploads/2020/05/alcohol_anti.png');
+(5, 8,4, 'alcohol', '2', 1, 'alcohol antiseptico', 200, 5, 1, 'https://d2o812a6k13pkp.cloudfront.net/Productos/40383431_01.jpg');
 
 -- --------------------------
 use urbazar; 

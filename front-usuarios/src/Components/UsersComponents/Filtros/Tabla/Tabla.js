@@ -1,96 +1,60 @@
+import { Checkbox } from '@material-ui/core'
 import React from 'react'
+import { Label } from 'reactstrap'
 import './tabla.css'
+import checkValue from './Filtro'
+
 const Tabla = () => {
   return (
       <div className="filters-container">
       <span className="text-left">Categorias</span>
       <ul>
         <li>
-          <input type="checkbox" id='Ropa' unchecked></input>
-          <label>Ropa</label>
+        <Checkbox id='1' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'Ropa'>Ropa</Label>
         </li>
         <li>
-          <input type="checkbox" id='Tecnologia'></input>
-          <label>Tecnologia</label>
+          <Checkbox id='2' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'Tecnologia'>Tecnologia</Label>
         </li>
         <li>
-          <input type="checkbox" id='Comida'></input>
-          <label>Comida</label>
+          <Checkbox id='3' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'Comida'>Comida</Label>
         </li>
         <li>
-          <input type="checkbox" id='Hogar'></input>
-          <label>Hogar</label>
+          <Checkbox id='4' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'Hogar'>Hogar</Label>
         </li>
         <li>
-          <input type="checkbox" id='Otros' ></input>
-          <label>Otros</label>
+          <Checkbox id='5' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'Otros'>Otros</Label>
         </li>
       </ul>
-      <span className="text-left">Rango de Precios</span>
+      <span className="text-left" onChange={checkValue}>Rango de Precios</span>
       <ul>
         <li>
-          <input type="checkbox"></input>
-          <label>0-20</label>
+          <Checkbox id='zero-twenty' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'zero-twenty'>0-20</Label>
         </li>
         <li>
-          <input type="checkbox"></input>
-          <label>20-50</label>
+          <Checkbox id='twenty-fifty' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'twenty-fifty'>20-50</Label>
         </li>
         <li>
-          <input type="checkbox"></input>
-          <label>50-100</label>
+          <Checkbox id='fifty-hundred' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'fifty-hundred'>50-100</Label>
         </li>
         <li>
-          <input type="checkbox"></input>
-          <label>100-500</label>
+          <Checkbox id='hundred-fivehundred' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'hundred-fivehundred'>100-500</Label>
         </li>
         <li>
-          <input type="checkbox"></input>
-          <label>1000+</label>
+          <Checkbox id='thousand-plus' onChange={checkValue}></Checkbox>
+          <Label htmlFor= 'thousand-plus'>1000+</Label>
         </li>
       </ul>
     </div>
   )
 }
-
-/*
-window.onload=function(){
-
-  const showClothes = document.querySelector('#Ropa');
-  showClothes.addEventListener('change', function(e){
-    if(showClothes.checked){
-
-    }
-  })
-
-  const showTech = document.querySelector('#Tecnologia');
-  showTech.addEventListener('change', function(e){
-    if(showTech.checked){
-      alert("Tecnologia");
-    }
-  })
-
-  const showFood = document.querySelector('#Comida');
-  showFood.addEventListener('change', function(e){
-    if(showFood.checked){
-      alert("Comida");
-    }
-  })
-
-  const showHome = document.querySelector('#Hogar');
-  showHome.addEventListener('change', function(e){
-    if(showHome.checked){
-      alert("Hogar");
-    }
-  })
-
-  const showOthers = document.querySelector('#Otros');
-  showOthers.addEventListener('change', function(e){
-    if(showOthers.checked){
-      alert("Otros");
-    }
-  })
-}
-*/
 
 export default Tabla
