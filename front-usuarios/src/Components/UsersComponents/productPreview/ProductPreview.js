@@ -2,16 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Price from '../price/Price'
+import Stars from '../Stars/Stars'
 
 const Container = styled.div`
   border-radius: ${(props) => props.theme.borderRadius};
   border: solid 1px ${(props) => props.theme.colors.border};
   padding: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   gap: 50px;
-  margin: 20px;
+  margin: 20px 0;
+  width: 100%;
 `
 
 const ImageContainer = styled.div`
@@ -20,13 +22,17 @@ const ImageContainer = styled.div`
   max-width: 200px;
   min-height: 200px;
   max-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 `
 
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  flex: 2;
+  width: 50%;
 `
 
 const DetailsWrapper = styled.div`
@@ -40,7 +46,7 @@ const DetailsContainer = styled.div`
 
 const DescriptionContainer = styled.div`
   padding-top: 30px;
-  flex: 2;
+  width: 50%;
 `
 
 const Title = styled.h2`
@@ -82,7 +88,10 @@ function ProductPreview({ product }) {
         <Title>{name}</Title>
         <DetailsContainer>
           <InfoContainer>
-            <p>{stars}</p>
+            <Stars
+              mark={stars.number}
+              numberOfVotes={stars.numberOfVotes}
+            ></Stars>
             <Price price={price}></Price>
             <VendorContainer>
               <Label>Vendedor: </Label>

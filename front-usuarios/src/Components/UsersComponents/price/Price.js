@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { toNumberString } from '../../../utils/convertingFunctions'
 
 const Container = styled.div`
   max-width: fit-content;
@@ -23,14 +24,6 @@ const IntegerValue = styled.span`
 const DecimalValue = styled.span`
   font-size: 1rem;
 `
-
-function toNumberString(num) {
-  if (Number.isInteger(num)) {
-    return num + '.00'
-  } else {
-    return num.toString()
-  }
-}
 
 function Price({ price, typeOfCurrency = 'US$' }) {
   const priceString = toNumberString(price)

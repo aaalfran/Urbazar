@@ -84,8 +84,7 @@ const Index = () => {
             component={ShoppingHistory}
           ></Route>
           <Route
-            path="/detalles-de-compra"
-            exact
+            path="/detalles-de-compra/:orderId"
             component={OrderDetails}
           ></Route>
           <Route path="/login" exact component={LoginComponent} />

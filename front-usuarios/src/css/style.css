@@ -9,8 +9,9 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   color: #444444;
+  background: #fff;
 }
 
 ::selection {

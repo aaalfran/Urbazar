@@ -21,13 +21,13 @@ const agregarCarrito = (id_producto, cantidad, setLoad) => {
   setLoad(false)
   axios
     .get(
-      `http://${data.number}/clientes/persona/${localStorage.getItem('userId')}`
+      `http://localhost:3000/clientes/persona/${localStorage.getItem('userId')}`
     )
     .then((res) => {
       const dato = res.data[0]
       console.log(res.data)
       axios
-        .post(`http://${data.number}/carrito`, {
+        .post(`http://localhost:3000/carrito`, {
           id: dato.idPersona,
           idUsuario: dato.id
         })
@@ -423,15 +423,13 @@ function ProductComponent() {
                 <i className="fas fa-shopping-cart fa-lg"></i> Agregar a carrito
               </button>
             </div>
-            {load
-              ? (
+            {load ? (
               <></>
-                )
-              : (
+            ) : (
               <div className="spinner-border my-3" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
-                )}
+            )}
           </div>
         </Container>
       </>
