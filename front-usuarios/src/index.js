@@ -17,6 +17,8 @@ import LoginComponent from './Components/UsersComponents/Login/LoginPC'
 import Register from './Components/UsersComponents/Registro/RegisterPC'
 import RecoveryComponent from './Components/UsersComponents/Recovery/RecoveryComponent'
 import RecoveryActualizar from './Components/UsersComponents/Recovery/RecoveryActualizar'
+import RecoveryCorreoEnviado from './Components/UsersComponents/Recovery/RecoveryCorreoEnviado'
+import RecoveryFinal from './Components/UsersComponents/Recovery/RecoveryFinal'
 import CarritoComponent from './Components/UsersComponents/Carrito/CarritoPC'
 import ProductComponent from './Components/UsersComponents/Producto/ProductDeatilComponent'
 import MainComponent from './Components/UsersComponents/Main/MainPC'
@@ -84,8 +86,7 @@ const Index = () => {
             component={ShoppingHistory}
           ></Route>
           <Route
-            path="/detalles-de-compra"
-            exact
+            path="/detalles-de-compra/:orderId"
             component={OrderDetails}
           ></Route>
           <Route path="/login" exact component={LoginComponent} />
@@ -96,6 +97,16 @@ const Index = () => {
             exact
             component={RecoveryActualizar}
           ></Route>
+          <Route
+            path="/recovery-email-sent"
+            exact component={RecoveryCorreoEnviado}
+          >
+          </Route>
+          <Route
+            path="/recovery-updated-success"
+            exact component={RecoveryFinal}
+          >
+          </Route>
           <Route path="/" exact component={MainComponent} />
           <Route
             path="/carrito/:idCarrito"
