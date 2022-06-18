@@ -1,13 +1,12 @@
 /* eslint-disable eqeqeq */
 import React from 'react'
 import '../../../css/register.css'
-import { Redirect } from 'react-router-dom'
-import { Card, Button, Form, FormGroup, Input,Container } from 'reactstrap'
+import { Redirect, Link } from 'react-router-dom'
+import { Card, Button, Form, FormGroup, Input, Container } from 'reactstrap'
 import '../../../css/LoginComponent.css'
 import logo2 from '../../../imagenes/logoUrbazapp.PNG'
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Enlace = styled(Link)`

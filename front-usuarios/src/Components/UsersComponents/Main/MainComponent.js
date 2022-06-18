@@ -1,7 +1,8 @@
+/* eslint-disable no-lone-blocks */
 import React from 'react'
 import NavbarComponent from '../navBar/navbarComponent'
 import CategoriaComponent from '../navBar/CategoriaComponent'
-import { UncontrolledCarousel, Col, Label } from 'reactstrap'
+import { UncontrolledCarousel, Col } from 'reactstrap'
 import '../../../css/MainComponent.css'
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 import { Redirect } from 'react-router-dom'
@@ -12,17 +13,16 @@ import banner7 from '../../../imagenes/ban7.png'
 import banner9 from '../../../imagenes/ban9.png'
 import data from '../../../enviroment'
 import Tabla from '../Filtros/Tabla/Tabla'
-import { Nav, NavItem, NavLink } from 'reactstrap'
+
 import '../Main/Main.css'
-import { Checkbox } from '@material-ui/core'
-<link
+
+{ <link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
   crossOrigin="anonymous"
-></link>
+></link> }
 function Main () {
-  
   // introJs().start();
 
   /* banner items */
@@ -108,8 +108,7 @@ function Main () {
         <script src="./main.js"></script>
       </>
     )
-  }
-  else if (auth && (role === '2' || role === '3')) {
+  } else if (auth && (role === '2' || role === '3')) {
     return <Redirect to="/admin/dashboard/report" />
   } else return <Redirect to="/login" />
 }

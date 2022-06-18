@@ -5,7 +5,6 @@ import Register from './Register'
 import data from '../../../enviroment'
 class LoginPC extends Component {
     login = async() => {
-      
       const payload = {
         username: document.getElementById('username').value,
         password: document.getElementById('passwordLogin').value,

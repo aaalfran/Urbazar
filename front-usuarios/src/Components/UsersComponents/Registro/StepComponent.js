@@ -38,9 +38,9 @@ class HorizontalNonLinearStepper extends Component {
         username: '',
         password: '',
         password2: '',
-        //nro_tarjeta: '',
-        //fecha_tarjeta: '',
-        //cvc_tarjeta: '',
+        // nro_tarjeta: '',
+        // fecha_tarjeta: '',
+        // cvc_tarjeta: '',
         codigoF: ''
       }
     }
@@ -263,12 +263,14 @@ class HorizontalNonLinearStepper extends Component {
       this.setState({ activeStep: newActiveStep })
     }
   }
+
   handleNextThree() {
     if (this.props.validarVacios()) {
       const newActiveStep = this.state.activeStep + 1
       this.setState({ activeStep: newActiveStep })
     }
   }
+
   handleBack() {
     window.location.reload(true)
   };
@@ -380,7 +382,7 @@ class HorizontalNonLinearStepper extends Component {
   }
 
   async signUp() {
-   // const divVacios = document.getElementById('feedbackvacios')
+    // const divVacios = document.getElementById('feedbackvacios')
 
     const pass_encrypt = await EncryptPassword(this.state.form.password)
 
@@ -402,11 +404,11 @@ class HorizontalNonLinearStepper extends Component {
     console.log(data)
 
     if (this.state.user_check && this.state.password_check && this.state.password2_check && this.state.codigo_check) {
-      axios.post(`http://localhost:3000/personas`, data)
+      axios.post('http://localhost:3000/personas', data)
         .then(response => response.data)
         .then(res => console.log(res))
         .then(() => {
-          axios.get(`http://localhost:3000/personas`)
+          axios.get('http://localhost:3000/personas')
             .then(response => {
               const rspta = response.data
               console.log(rspta)
@@ -420,7 +422,7 @@ class HorizontalNonLinearStepper extends Component {
                 subscripcion: 0
               }
 
-              axios.post(`http://localhost:3000/clientes`, data_cliente)
+              axios.post('http://localhost:3000/clientes', data_cliente)
                 .catch(e => console.log('TERCERO', e))
             })
             .catch(e => console.log('Hubo un error', e))
@@ -428,9 +430,9 @@ class HorizontalNonLinearStepper extends Component {
         .catch(e => console.log('Hubo un error', e))
       this.props.handleModal()
     } else {
-      //divVacios.innerHTML = ('Rectifique los campos indicados')
-      //divVacios.style.backgroundColor = '#FFC4CC'
-      //divVacios.style.color = 'white'
+      // divVacios.innerHTML = ('Rectifique los campos indicados')
+      // divVacios.style.backgroundColor = '#FFC4CC'
+      // divVacios.style.color = 'white'
     }
   }
 
@@ -475,7 +477,6 @@ class HorizontalNonLinearStepper extends Component {
                   Siguiente
                 </Button>
 
-               
               </div>
 
                 )}
