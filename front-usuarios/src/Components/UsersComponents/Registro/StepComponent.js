@@ -38,9 +38,9 @@ class HorizontalNonLinearStepper extends Component {
         username: '',
         password: '',
         password2: '',
-        nro_tarjeta: '',
-        fecha_tarjeta: '',
-        cvc_tarjeta: '',
+        //nro_tarjeta: '',
+        //fecha_tarjeta: '',
+        //cvc_tarjeta: '',
         codigoF: ''
       }
     }
@@ -206,7 +206,7 @@ class HorizontalNonLinearStepper extends Component {
       case 2:
         return (<div>
           <div className="cont_formulario">
-          <div id="mensajeTarjeta">Ingrese infomación de su tarjeta de Crédito</div>
+          <div id="mensajeTarjeta">Ingrese infomación de su tarjeta de Crédito (Opcional)</div>
           <FormGroup>
                   <Input id = "titularTarjetaRegister" name = "titularTarjetaRegister" onChange = { this.handleChangeForm }placeholder = "Nombre del titular"/>
                   <div id = "FormFeedTitularTarjerta" className="feedback"></div>
@@ -381,7 +381,7 @@ class HorizontalNonLinearStepper extends Component {
   }
 
   async signUp() {
-    const divVacios = document.getElementById('feedbackvacios')
+   // const divVacios = document.getElementById('feedbackvacios')
 
     const pass_encrypt = await EncryptPassword(this.state.form.password)
 
@@ -394,10 +394,6 @@ class HorizontalNonLinearStepper extends Component {
       username: this.state.form.username,
       contrasena: pass_encrypt,
       genero: this.state.form.genero,
-      titularTarjeta: this.state.form.titularTarjeta,
-      numeroTarjeta: this.state.form.nro_tarjeta,
-      cvc: this.state.form.cvc_tarjeta,
-      fechaExpiracion: this.state.fechaExpiracion,
       role: 0,
       vendedorTipo: 0,
       activo: 1,
@@ -406,14 +402,15 @@ class HorizontalNonLinearStepper extends Component {
 
     console.log(data)
 
-    if (this.props.validarVacios() && this.state.user_check && this.state.password_check && this.state.password2_check && this.state.codigo_check) {
-      axios.post(`http://${data.number}/personas`, data)
+    if (this.state.user_check && this.state.password_check && this.state.password2_check && this.state.codigo_check) {
+      axios.post(`http://localhost:3000/personas`, data)
         .then(response => response.data)
         .then(res => console.log(res))
         .then(() => {
-          axios.get(`http://${data.number}/personas`)
+          axios.get(`http://localhost:3000/personas`)
             .then(response => {
               const rspta = response.data
+              console.log(rspta)
               const id_cliente = rspta[rspta.length - 4].id // Este es un parche provisional, debe obtenerse correctamente el id de la persona que se está registrando
               this.setState({ idPersona: id_cliente })
             })
@@ -424,7 +421,7 @@ class HorizontalNonLinearStepper extends Component {
                 subscripcion: 0
               }
 
-              axios.post(`http://${data.number}/clientes`, data_cliente)
+              axios.post(`http://localhost:3000/clientes`, data_cliente)
                 .catch(e => console.log('TERCERO', e))
             })
             .catch(e => console.log('Hubo un error', e))
@@ -432,9 +429,9 @@ class HorizontalNonLinearStepper extends Component {
         .catch(e => console.log('Hubo un error', e))
       this.props.handleModal()
     } else {
-      divVacios.innerHTML = ('Rectifique los campos indicados')
-      divVacios.style.backgroundColor = '#FFC4CC'
-      divVacios.style.color = 'white'
+      //divVacios.innerHTML = ('Rectifique los campos indicados')
+      //divVacios.style.backgroundColor = '#FFC4CC'
+      //divVacios.style.color = 'white'
     }
   }
 

@@ -32,7 +32,6 @@ function Register(props) {
   } else {
     return (
             <div id="cont_general">
-
             <div id="seccionForm">
               <div className="img_urbi">
                 <div className='fotoLogoL img-fluid'>
