@@ -15,7 +15,7 @@ const CarritoDetalle = ({
   const [borrado, setBorrado] = useState(false)
   const borrarElemento = () => {
     axios
-      .delete(`http://${data.number}/detalle-carrito/${idDetalle}`)
+      .delete(`${data.url}/detalle-carrito/${idDetalle}`)
       .then((res) => {
         window.location.reload()
       })

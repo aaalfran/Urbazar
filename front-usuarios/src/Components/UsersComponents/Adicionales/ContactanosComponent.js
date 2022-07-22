@@ -21,7 +21,7 @@ function ContactanosComponent() {
                     <Card id="contact_form">
                         <CardTitle id="titulo">Contáctanos</CardTitle>
                         <CardBody>
-                        <form action={`http://${data.number}/api/contactanos`} method="post" >
+                        <form action={`${data.url}/api/contactanos`} method="post" >
                             <div className="col-md-12 form-double">
                                 <div className="col-md-4 nombre">
                                     <label htmlFor="nombres">Nombre</label>

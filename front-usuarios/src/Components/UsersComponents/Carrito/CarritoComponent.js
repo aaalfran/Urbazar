@@ -10,10 +10,10 @@ import PaymentInputs from './PaymentComponent'
 import data from '../../../enviroment'
 import axios from 'axios'
 
-const deleteProducts = async(lista) => {
+const deleteProducts = async (lista) => {
   for (const idDetalle of lista) {
     await axios
-      .delete(`http://${data.number}/detalle-carrito/${idDetalle}`)
+      .delete(`${data.url}/detalle-carrito/${idDetalle}`)
       .then((res) => {})
       .catch((err) => {})
   }
@@ -23,59 +23,53 @@ const ProductoBack = ({ setResumen, setDetalleId }) => {
   const [listaComponent, setListaComponent] = useState([])
   useEffect(() => {
     axios
-      .get(
-        `http://${data.number}/clientes/persona/${localStorage.getItem(
-          'userId'
-        )}`
-      )
+      .get(`${data.url}/clientes/persona/${localStorage.getItem('userId')}`)
       .then((res) => {
+        console.log('Res en carrito')
+        console.log(res)
         const resultado = res.data[0]
-        axios
-          .get(`http://${data.number}/carrito/cliente/${resultado.id}`)
-          .then((res) => {
-            const resultado = res.data[0]
-            axios
-              .get(
-                `http://${data.number}/detalle-carrito/carrito/${resultado.id}`
-              )
-              .then((res) => {
-                const lista = res.data
-                if (lista.length > 0) {
-                  for (const item of lista) {
-                    axios
-                      .get(`http://${data.number}/productos/${item.idProducto}`)
-                      .then((res) => {
-                        const producto = res.data
-                        const nombre = producto.nombre
-                        const precio = producto.precio
-                        const imagen = producto.source
-                        const desc = producto.descripcion
-                        const cant = item.cantidad
-                        setDetalleId((current) =>
-                          current.concat(item.idDetalle)
+        axios.get(`${data.url}/carrito/cliente/${resultado.id}`).then((res) => {
+          const resultado = res.data[0]
+          console.log('Res en carrito 2')
+          console.log(res)
+          axios
+            .get(`${data.url}/detalle-carrito/carrito/${resultado.id}`)
+            .then((res) => {
+              const lista = res.data
+              if (lista.length > 0) {
+                for (const item of lista) {
+                  axios
+                    .get(`${data.url}/productos/${item.idProducto}`)
+                    .then((res) => {
+                      const producto = res.data
+                      const nombre = producto.nombre
+                      const precio = producto.precio
+                      const imagen = producto.source
+                      const desc = producto.descripcion
+                      const cant = item.cantidad
+                      setDetalleId((current) => current.concat(item.idDetalle))
+                      setResumen((current) =>
+                        current.concat({ nombre, precio: precio * cant })
+                      )
+                      setListaComponent((current) =>
+                        current.concat(
+                          <CarritoDetalle
+                            key={item.id}
+                            nombre={nombre}
+                            precio={precio * cant}
+                            src={imagen}
+                            descripcion={desc}
+                            cantidad={cant}
+                            idDetalle={item.idDetalle}
+                          />
                         )
-                        setResumen((current) =>
-                          current.concat({ nombre, precio: precio * cant })
-                        )
-                        setListaComponent((current) =>
-                          current.concat(
-                            <CarritoDetalle
-                              key={item.id}
-                              nombre={nombre}
-                              precio={precio * cant}
-                              src={imagen}
-                              descripcion={desc}
-                              cantidad={cant}
-                              idDetalle={item.idDetalle}
-                            />
-                          )
-                        )
-                        console.log(producto)
-                      })
-                  }
+                      )
+                      console.log(producto)
+                    })
                 }
-              })
-          })
+              }
+            })
+        })
       })
   }, [])
 

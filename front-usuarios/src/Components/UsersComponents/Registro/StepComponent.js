@@ -353,10 +353,9 @@ class HorizontalNonLinearStepper extends Component {
     const feed = document.getElementById('FormFeedbackCodigo')
     const divcodigo = document.getElementById('codigoF')
     const codigoF = this.state.form.codigoF
-    const url = `http://${data.number}/familias?filter[where][clave]=` + codigoF
+    const url = `${data.url}/familias?filter[where][clave]=` + codigoF
     axios.get(url)
       .then(response => {
-        console.log(response)
         return response.data
       })
       .then(res => {
@@ -386,7 +385,7 @@ class HorizontalNonLinearStepper extends Component {
 
     const pass_encrypt = await EncryptPassword(this.state.form.password)
 
-    const data = {
+    const info = {
       nombre: this.state.form.nombres + ' ' + this.state.form.apellidos,
       identificacion: this.state.form.identificacion,
       edad: parseInt(this.state.form.edad, 10),
@@ -401,32 +400,28 @@ class HorizontalNonLinearStepper extends Component {
       id_etapa: this.state.etapa_id
     }
 
-    console.log(data)
-
     if (this.state.user_check && this.state.password_check && this.state.password2_check && this.state.codigo_check) {
-      axios.post('http://localhost:3000/personas', data)
-        .then(response => response.data)
-        .then(res => console.log(res))
-        .then(() => {
-          axios.get('http://localhost:3000/personas')
-            .then(response => {
-              const rspta = response.data
-              console.log(rspta)
-              const id_cliente = rspta[rspta.length - 4].id // Este es un parche provisional, debe obtenerse correctamente el id de la persona que se está registrando
-              this.setState({ idPersona: id_cliente })
+      axios.post(`${data.url}/personas`, info).then(() => {
+        axios.get(`${data.url}/personas`).then((res) => {
+          const persona = res.data.filter((persona) => persona.username === info.username)
+          this.setState({ idPersona: persona[0].id })
+          const data_cliente = {
+            idPersona: this.state.idPersona,
+            idFamilia: this.state.familia_id,
+            subscripcion: 0
+          }
+          axios.post(`${data.url}/clientes`, data_cliente).then(() => {
+            axios.get(`${data.url}/clientes`).then((res) => {
+              console.log('Res antes de crear carrito')
+              console.log(res)
+              const cliente = res.data.filter((cliente) => cliente.idPersona === this.state.idPersona)
+              console.log('array filtrado')
+              console.log(cliente)
+              axios.post(`${data.url}/carrito`, { id: cliente[0].id, idUsuario: cliente[0].id })
             })
-            .then(() => {
-              const data_cliente = {
-                idPersona: this.state.idPersona,
-                idFamilia: this.state.familia_id,
-                subscripcion: 0
-              }
-
-              axios.post('http://localhost:3000/clientes', data_cliente)
-                .catch(e => console.log('TERCERO', e))
-            })
-            .catch(e => console.log('Hubo un error', e))
+          })
         })
+      })
         .catch(e => console.log('Hubo un error', e))
       this.props.handleModal()
     } else {

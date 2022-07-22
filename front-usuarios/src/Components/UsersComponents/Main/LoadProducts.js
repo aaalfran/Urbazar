@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export default function UseTweets (ruta) {
+export default function UseTweets(ruta) {
   const [tweets, setTweet] = useState([])
 
   const settings = {

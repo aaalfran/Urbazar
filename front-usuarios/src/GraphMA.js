@@ -97,8 +97,7 @@ export class GraphMA {
       element2 === undefined ||
       !this.vertexes.includes(element1) ||
       !this.vertexes.includes(element2)
-    )
-      return false
+    ) { return false }
     const start = this.vertexes.indexOf(element1)
     const end = this.vertexes.indexOf(element2)
     this.matrix[start][end] = 0
@@ -121,6 +120,7 @@ export class GraphMA {
         }
       }
     }
+    // eslint-disable-next-line no-unused-vars
     const a = tuplas.slice(-1, 1)
     tuplas = tuplas + ']'
     total = total + tuplas

@@ -32,21 +32,23 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  width: 50%;
+  min-width: 50%;
 `
 
 const DetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `
 
 const DetailsContainer = styled.div`
   display: flex;
+  width: 100%;
 `
 
 const DescriptionContainer = styled.div`
   padding-top: 30px;
-  width: 50%;
+  min-width: 50%;
 `
 
 const Title = styled.h2`
@@ -71,14 +73,25 @@ const VendorContainer = styled.div`
 `
 
 function ProductPreview({ product }) {
-  const { imagePath, name, price, stars, description, vendor } = product || {
-    imagePath: '',
-    name: 'Cargando...',
-    price: 'Cargando...',
-    stars: 'Cargando...',
-    description: 'Cargando...',
-    vendor: 'Cargando...'
+  const { nombre, precio, source, descripcion } = product || {
+    nombre: 'Cargando...',
+    precio: 'Cargando...',
+    foto_src: 'Cargando...',
+    descripcion: 'Cargando...'
   }
+
+  const { imagePath, name, price, stars, description, vendor } = {
+    imagePath: source,
+    name: nombre,
+    price: precio,
+    stars: {
+      number: 4.3,
+      numberOfVotes: 20
+    },
+    description: descripcion,
+    vendor: 'Natalia Ramirez'
+  }
+
   return (
     <Container>
       <ImageContainer>

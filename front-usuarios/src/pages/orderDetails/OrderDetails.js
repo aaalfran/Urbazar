@@ -4,44 +4,45 @@ import styled from 'styled-components'
 import NavbarComponent from '../../Components/UsersComponents/navBar/navbarComponent'
 import OrderSummary from '../../Components/UsersComponents/OrderSummary/OrderSummary'
 import ProductPreview from '../../Components/UsersComponents/productPreview/ProductPreview'
+import useFetch from '../../hooks/useFetch'
 
 const p1 = {
-  imagePath:
+  source:
     'https://scontent.fgye1-1.fna.fbcdn.net/v/t45.5328-0/143014009_5116363125071730_3563134346349294162_n.jpg?stp=c4.4.288.288a_dst-jpg_p296x100&_nc_cat=110&ccb=1-7&_nc_sid=c48759&_nc_ohc=lHYei8fUuvAAX-O-kr2&_nc_ht=scontent.fgye1-1.fna&oh=00_AT9ngD_z91_puEWUfnmGOZqPbkTYCDnQhxmIW_exBN9l3Q&oe=62AE2B88',
-  name: 'Camiseta del idolo',
-  price: 10.0,
+  nombre: 'Camiseta del idolo',
+  precio: 10.0,
   stars: {
     number: 3.5,
     numberOfVotes: 20
   },
-  description:
+  descripcion:
     'Camiseta del idolo totalmente nueva, para que la lleves al estadio.',
   vendor: 'Natalia Ramirez'
 }
 
 const p2 = {
-  imagePath:
+  source:
     'https://preview.redd.it/40lwlc0p3l761.jpg?width=640&crop=smart&auto=webp&s=6992a0fdd2a36905c3dd3201ed505f72c36bd16b',
-  name: 'Body pillow de Shrek',
-  price: 10.0,
+  nombre: 'Body pillow de Shrek',
+  precio: 10.0,
   stars: {
     number: 5,
     numberOfVotes: 2000
   },
-  description: 'Almohada larga de la pelicula Shrek.',
+  descripcion: 'Almohada larga de la pelicula Shrek.',
   vendor: 'Natalia Ramirez'
 }
 
 const p3 = {
-  imagePath:
+  source:
     'https://cdn2.melodijolola.com/media/files/img_20201207_103801_901.jpg',
-  name: 'Licuadora usada',
-  price: 13.0,
+  nombre: 'Licuadora usada',
+  precio: 13.0,
   stars: {
     number: 2.5,
     numberOfVotes: 2
   },
-  description: 'Una licuadora usada pero en perfecto estado.',
+  descripcion: 'Una licuadora usada pero en perfecto estado.',
   vendor: 'Natalia Ramirez'
 }
 
@@ -129,6 +130,8 @@ const Info = styled.div`
 `
 
 function OrderDetails({ match }) {
+  const [orders] = useFetch(`${window.API}/compras`)
+  console.log(orders)
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])

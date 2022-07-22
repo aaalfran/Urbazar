@@ -2,7 +2,7 @@
 // // // javascript library for creating charts
 // #############################
 import { Interpolation, Svg } from 'chartist'
-
+import data from '../../../enviroment'
 // ##############################
 // // // variables used to create animation on charts
 // #############################
@@ -11,7 +11,7 @@ const durations = 500
 const delays2 = 80
 const durations2 = 500
 
-fetch('//134.209.215.193:3000/productos')
+fetch(`${data.url}/productos`)
   .then(response => response.json())
   .then(data => {
     console.log(data)

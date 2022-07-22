@@ -2,55 +2,66 @@ import { Checkbox } from '@material-ui/core'
 import React from 'react'
 import { Label } from 'reactstrap'
 import './tabla.css'
-import checkValue from './Filtro'
 
-const Tabla = () => {
+const Tabla = ({ updateProducts }) => {
+  const checkValue = (filtro) => {
+    fetch(`http://localhost:3000/productos/categoria/${filtro.target.id}`)
+      .then((response) => response.json())
+      .then((products) => {
+        console.log(products)
+        updateProducts(products)
+      })
+      .catch((error) => console.log('Hubo un error ' + error))
+  }
+
   return (
-      <div className="filters-container">
+    <div className="filters-container">
       <span className="text-left">Categorias</span>
       <ul>
         <li>
-        <Checkbox id='1' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'Ropa'>Ropa</Label>
+          <Checkbox id="1" onChange={checkValue}></Checkbox>
+          <Label htmlFor="Ropa">Ropa</Label>
         </li>
         <li>
-          <Checkbox id='2' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'Tecnologia'>Tecnologia</Label>
+          <Checkbox id="2" onChange={checkValue}></Checkbox>
+          <Label htmlFor="Tecnologia">Tecnologia</Label>
         </li>
         <li>
-          <Checkbox id='3' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'Comida'>Comida</Label>
+          <Checkbox id="3" onChange={checkValue}></Checkbox>
+          <Label htmlFor="Comida">Comida</Label>
         </li>
         <li>
-          <Checkbox id='4' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'Hogar'>Hogar</Label>
+          <Checkbox id="4" onChange={checkValue}></Checkbox>
+          <Label htmlFor="Hogar">Hogar</Label>
         </li>
         <li>
-          <Checkbox id='5' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'Otros'>Otros</Label>
+          <Checkbox id="5" onChange={checkValue}></Checkbox>
+          <Label htmlFor="Otros">Otros</Label>
         </li>
       </ul>
-      <span className="text-left" onChange={checkValue}>Rango de Precios</span>
+      <span className="text-left" onChange={checkValue}>
+        Rango de Precios
+      </span>
       <ul>
         <li>
-          <Checkbox id='zero-twenty' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'zero-twenty'>0-20</Label>
+          <Checkbox id="zero-twenty" onChange={checkValue}></Checkbox>
+          <Label htmlFor="zero-twenty">0-20</Label>
         </li>
         <li>
-          <Checkbox id='twenty-fifty' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'twenty-fifty'>20-50</Label>
+          <Checkbox id="twenty-fifty" onChange={checkValue}></Checkbox>
+          <Label htmlFor="twenty-fifty">20-50</Label>
         </li>
         <li>
-          <Checkbox id='fifty-hundred' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'fifty-hundred'>50-100</Label>
+          <Checkbox id="fifty-hundred" onChange={checkValue}></Checkbox>
+          <Label htmlFor="fifty-hundred">50-100</Label>
         </li>
         <li>
-          <Checkbox id='hundred-fivehundred' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'hundred-fivehundred'>100-500</Label>
+          <Checkbox id="hundred-fivehundred" onChange={checkValue}></Checkbox>
+          <Label htmlFor="hundred-fivehundred">100-500</Label>
         </li>
         <li>
-          <Checkbox id='thousand-plus' onChange={checkValue}></Checkbox>
-          <Label htmlFor= 'thousand-plus'>1000+</Label>
+          <Checkbox id="thousand-plus" onChange={checkValue}></Checkbox>
+          <Label htmlFor="thousand-plus">1000+</Label>
         </li>
       </ul>
     </div>

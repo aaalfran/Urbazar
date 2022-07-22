@@ -25,7 +25,7 @@ const DecimalValue = styled.span`
   font-size: 1rem;
 `
 
-function Price({ price, typeOfCurrency = 'US$' }) {
+function Price({ price = '0', typeOfCurrency = 'US$' }) {
   const priceString = toNumberString(price)
   const priceParts = priceString.split('.')
   return (

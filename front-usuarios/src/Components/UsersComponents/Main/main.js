@@ -2,8 +2,8 @@ import data from '../../../enviroment'
 function handleClick(e) {
   e.preventDefault()
   console.log('The link was clicked.')
-  if (window.location.href !== `http://${data.number}/buscador`) {
-    window.location.href = `http://${data.number}/buscador`
+  if (window.location.href !== `${data.url}/buscador`) {
+    window.location.href = `${data.url}/buscador`
   }
 }
 

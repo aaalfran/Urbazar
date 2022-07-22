@@ -100,14 +100,14 @@ const Index = () => {
           ></Route>
           <Route
             path="/recovery-email-sent"
-            exact component={RecoveryCorreoEnviado}
-          >
-          </Route>
+            exact
+            component={RecoveryCorreoEnviado}
+          ></Route>
           <Route
             path="/recovery-updated-success"
-            exact component={RecoveryFinal}
-          >
-          </Route>
+            exact
+            component={RecoveryFinal}
+          ></Route>
           <Route path="/" exact component={MainComponent} />
           <Route
             path="/carrito/:idCarrito"
@@ -156,6 +156,9 @@ const Index = () => {
     </React.StrictMode>
   )
 }
+
+window.API = 'http://localhost:3000' // Development URL
+// window.API = '' // Production URL
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 

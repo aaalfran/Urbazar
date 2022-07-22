@@ -27,14 +27,14 @@ const useLoadResource = ({ categoria }) => {
   useEffect(() => {
     if (!load) {
       if (urlParams.get('search') !== null) {
-        fetch(`http://${data.number}/productos/nombre/${urlParams.get('search')}`)
+        fetch(`${data.url}/productos/nombre/${urlParams.get('search')}`)
           .then(response => response.json())
           .then(data => {
             setProductos(data)
           })
           .catch(error => console.log('Hubo un error ' + error))
       } else {
-        fetch(`${categoria ? `http://${data.number}/productos/categoria/${categoria}` : `http://${data.number}/productos`}`)
+        fetch(`${categoria ? `${data.url}/productos/categoria/${categoria}` : `${data.url}/productos`}`)
           .then(response => response.json())
           .then(data => {
             setProductos(data)

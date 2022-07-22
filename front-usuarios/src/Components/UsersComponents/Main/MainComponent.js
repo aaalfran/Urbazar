@@ -1,5 +1,5 @@
 /* eslint-disable no-lone-blocks */
-import React from 'react'
+import React, { useState } from 'react'
 import NavbarComponent from '../navBar/navbarComponent'
 import CategoriaComponent from '../navBar/CategoriaComponent'
 import { UncontrolledCarousel, Col } from 'reactstrap'
@@ -13,16 +13,23 @@ import banner7 from '../../../imagenes/ban7.png'
 import banner9 from '../../../imagenes/ban9.png'
 import data from '../../../enviroment'
 import Tabla from '../Filtros/Tabla/Tabla'
+import ProductsList from '../ProductsList/ProductsList'
 
 import '../Main/Main.css'
 
-{ <link
-  rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-  crossOrigin="anonymous"
-></link> }
-function Main () {
+{
+  ;<link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossOrigin="anonymous"
+  ></link>
+}
+function Main() {
+  const [products, setProducts] = useState([])
+  const updateProducts = (newProducts) => {
+    setProducts(newProducts)
+  }
   // introJs().start();
 
   /* banner items */
@@ -77,8 +84,7 @@ function Main () {
 
         <div className="row no-gutters">
           <div className="col-sm-2">
-            <Tabla>
-            </Tabla>
+            <Tabla updateProducts={updateProducts}></Tabla>
           </div>
           <div className="col-sm-10">
             <div className="list_productos">
@@ -90,8 +96,12 @@ function Main () {
               </h6>
               <hr className="my-2" />
               <div className="productos mt-5 carousel">
-               {LoadProducts(`http://${data.number}/productos`)}
+                {LoadProducts(`${data.url}/productos`)}
               </div>
+            </div>
+            <div>
+              <h6>Productos</h6>
+              <ProductsList products={products} />
             </div>
           </div>
         </div>

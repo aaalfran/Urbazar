@@ -4,15 +4,15 @@ import AuthA from '../../../store/actions/AuthA'
 import NavBarAdmins from './navbarAdmins'
 
 class NavBarPC extends Component {
-   logout = () => {
-     this.props.authFn.logout()
-     document.location.href = '/login'
-   }
+  logout () {
+    this.props.authFn.logout()
+    document.location.href = '/login'
+  }
 
-   render() {
-     return (<NavBarAdmins
+  render() {
+    return (<NavBarAdmins
                 logout={this.logout}/>)
-   }
+  }
 }
 
 const mapStateToProps = (state) => {
