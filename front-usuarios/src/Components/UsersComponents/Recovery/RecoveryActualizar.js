@@ -65,9 +65,11 @@ const BotonERecuperar = styled.button`
     color: ${(props) => props.theme.colors.white};
     }
 `
+
 const InputGroup = styled.div`
     
 `
+
 function RecoveryCorreoEnviado() {
   const history = useHistory()
   const [viewPassword1, setViewPassword1] = React.useState(false)

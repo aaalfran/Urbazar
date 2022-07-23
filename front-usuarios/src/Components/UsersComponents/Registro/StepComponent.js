@@ -258,14 +258,7 @@ class HorizontalNonLinearStepper extends Component {
   };
 
   handleNextTwo() {
-    if (this.props.validarVacios()) {
-      const newActiveStep = this.state.activeStep + 1
-      this.setState({ activeStep: newActiveStep })
-    }
-  }
-
-  handleNextThree() {
-    if (this.props.validarVacios()) {
+    if (this.props.validarVacios() && this.state.password_check && this.state.password2_check) {
       const newActiveStep = this.state.activeStep + 1
       this.setState({ activeStep: newActiveStep })
     }
@@ -468,7 +461,8 @@ class HorizontalNonLinearStepper extends Component {
                   id="next"
                   variant="contained"
 
-                  onClick={this.state.activeStep === 0 ? this.handleNextOne : this.handleNextTwo}>
+                  onClick={this.state.activeStep === 0 ? this.handleNextOne : this.handleNextTwo}
+                  >
                   Siguiente
                 </Button>
 

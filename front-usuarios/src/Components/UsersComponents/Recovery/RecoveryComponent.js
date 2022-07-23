@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
 import { useHistory } from 'react-router-dom'
@@ -43,11 +43,10 @@ const InputEmail = styled.input`
     background-color: #fff;
     color: #000;
     border: 2px solid #02023D;
-    max-width: 
-    
 `
+
 const EmailErrorSpan = styled.p`
-    fontWeight: 'bold';
+    font-weight: 'bold';
     color: 'red';
     margin: 0.5em;
 `
@@ -66,22 +65,14 @@ const BotonERecuperar = styled.button`
 
 function Recovery() {
   const history = useHistory()
-
-  // function goToCorreoEnviado() {
-  //   history.push('/recovery-email-sent')
-  // }
+  const emailRef = useRef()
 
   const parametros = {
     correo: ''
   }
 
-  // const navigate = useNavigate()
-
   const pasarCorreo = () => {
-    history.push({
-      pathname: '/recovery-email-sent',
-      state: { correo: input }
-    })
+    history.push('/recovery-email-sent')
   }
 
   const [input, setInput] = useState('')
@@ -112,11 +103,9 @@ function Recovery() {
         (result) => {
           console.log(result.text)
           console.log(input)
-          // alert('El correo con la instrucciones ha sido enviado', result.text)
         },
         (error) => {
           console.log(error.text)
-          // alert('Error al enviar el correo', error.text)
         }
       )
   }
@@ -148,6 +137,7 @@ function Recovery() {
           <div className='row d-flex justify-content-center'>
           <div className='col-9 col-md-8 col-lg-7'>
           <InputEmail
+            ref={emailRef}
             value={input}
             onInput={(e) => setInput(e.target.value)}
             onChange={(e) => validateEmail(e)}
