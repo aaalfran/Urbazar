@@ -1,6 +1,7 @@
 const lightTheme = {
   fontFamily: 'Fira Sans, sans-serif',
   borderRadius: '4px',
+  lineHeight: '1.5',
   colors: {
     darkBlue: '#02023D',
     lightOrange: '#F4733E',

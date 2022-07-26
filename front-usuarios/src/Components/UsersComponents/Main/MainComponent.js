@@ -25,6 +25,7 @@ import '../Main/Main.css'
     crossOrigin="anonymous"
   ></link>
 }
+
 function Main() {
   const [products, setProducts] = useState([])
   const updateProducts = (newProducts) => {

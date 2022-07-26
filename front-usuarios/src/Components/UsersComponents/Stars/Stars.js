@@ -49,7 +49,7 @@ function calculateNumberOfStars(mark) {
 
 function Stars({ mark, numberOfVotes }) {
   const numberOfStars = calculateNumberOfStars(mark)
-  console.log(numberOfStars)
+
   return (
     <Container>
       <StarsContainer>

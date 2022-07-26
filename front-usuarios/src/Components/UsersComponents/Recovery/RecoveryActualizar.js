@@ -45,9 +45,8 @@ const InputPassword = styled.input`
     background-color: #fff;
     color: #000;
     border: 2px solid #02023D;
-
-    
 `
+
 const EmailErrorSpan = styled.p`
     fontWeight: 'bold';
     color: 'red';
