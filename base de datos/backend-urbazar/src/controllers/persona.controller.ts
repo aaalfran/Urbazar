@@ -73,8 +73,11 @@ export class PersonaController {
     responses: {
       '200': {
         description: 'Persona model instance',
-        content: {'application/json': {
-          schema: getModelSchemaRef(Persona)}},
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Persona)
+          }
+        },    
       },
     },
   })

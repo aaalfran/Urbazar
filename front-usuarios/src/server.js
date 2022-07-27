@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 
 app.post('/api/contactanos', async (req, res) => {
+  // eslint-disable-next-line node/handle-callback-err
   nodemailer.createTestAccount((err, account) => {
     const htmlEmail = `
         <h4> Un nuevo cliente intenta contactarte </h4>

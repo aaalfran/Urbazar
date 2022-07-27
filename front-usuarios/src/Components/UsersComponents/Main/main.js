@@ -1,13 +1,13 @@
-import data from '../../../enviroment';
-function handleClick (e) {
+import data from '../../../enviroment'
+function handleClick(e) {
   e.preventDefault()
   console.log('The link was clicked.')
-  if (window.location.href !== `http://${data.number}/buscador`) {
-    window.location.href = `http://${data.number}/buscador`
+  if (window.location.href !== `${data.url}/buscador`) {
+    window.location.href = `${data.url}/buscador`
   }
 }
 
-function filter () {
+function filter() {
   const productos = document.getElementsByClassName('MuiGrid-grid-lg-3')
   console.log(productos)
   const input = document.getElementById('myInput')

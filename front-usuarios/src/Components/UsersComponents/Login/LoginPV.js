@@ -10,7 +10,7 @@ import {
 import { Redirect } from 'react-router-dom'
 import '../../../css/LoginComponent.css'
 
-function LoginComponent (props) {
+function LoginComponent(props) {
   const auth = parseInt(localStorage.getItem('auth'), 10)
   const role = localStorage.getItem('role')
 
