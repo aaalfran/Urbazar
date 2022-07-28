@@ -11,6 +11,7 @@ import data from '../../../enviroment'
 import axios from 'axios'
 
 const deleteProducts = async (lista) => {
+  console.log('delteProducts')
   for (const idDetalle of lista) {
     await axios
       .delete(`${data.url}/detalle-carrito/${idDetalle}`)
@@ -19,19 +20,47 @@ const deleteProducts = async (lista) => {
   }
   window.location.reload()
 }
+
+const handleOrders = async (lista) => {
+  console.log('handleOrders')
+  for (const idDetalle of lista) {
+    await axios.get(`${data.url}/detalle-carrito/${idDetalle}`)
+      .then((response) => {
+        const cartDetail = response.data
+        const idProduct = cartDetail.idProducto
+        const quantity = cartDetail.cantidad
+        axios.get(`${data.url}/productos/${idProduct}`)
+          .then((response2) => {
+            const product = response2.data
+            const date = new Date(Date.now())
+            const order = {
+              id_categoria: '' + product.ID_Categoria,
+              comprador: localStorage.getItem('userId'),
+              vendedor: '' + product.idVendedor,
+              Fecha: date.toISOString(),
+              producto: '' + idProduct,
+              precio: '' + product.precio,
+              cantidad: '' + quantity,
+              estado: 'Pendiente',
+              imagen: product.source
+            }
+            axios.post(`${data.url}/compras`, order)
+          })
+      })
+      .catch(error => console.log(error))
+  }
+  await deleteProducts(lista)
+}
+
 const ProductoBack = ({ setResumen, setDetalleId }) => {
   const [listaComponent, setListaComponent] = useState([])
   useEffect(() => {
     axios
       .get(`${data.url}/clientes/persona/${localStorage.getItem('userId')}`)
       .then((res) => {
-        console.log('Res en carrito')
-        console.log(res)
         const resultado = res.data[0]
         axios.get(`${data.url}/carrito/cliente/${resultado.id}`).then((res) => {
           const resultado = res.data[0]
-          console.log('Res en carrito 2')
-          console.log(res)
           axios
             .get(`${data.url}/detalle-carrito/carrito/${resultado.id}`)
             .then((res) => {
@@ -106,16 +135,18 @@ const Resumen = ({ resumen, setPrecio }) => {
     }
     return (
       <table className="w-100">
-        <tr>
+        <thead>
           <th>Productos</th>
           <th>Precio</th>
-        </tr>
+        </thead>
         {listaLi}
-        <tr>
-          <td id="precioTotal" colSpan="2">
-            <strong>Precio Total: ${precioTotal}</strong>
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td id="precioTotal" colSpan="2">
+              <strong>Precio Total: ${precioTotal}</strong>
+            </td>
+          </tr>
+        </tbody>
       </table>
     )
   } else {
@@ -213,8 +244,8 @@ const CarritoComponent = (props) => {
                         type="button"
                         id="btn_confModal"
                         onClick={() => {
+                          handleOrders(idDetalle)
                           setLiveDemo(false)
-                          deleteProducts(idDetalle)
                         }}
                       >
                         Aceptar
