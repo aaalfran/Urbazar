@@ -21,106 +21,92 @@ const agregarCarrito = (id_producto, cantidad, setLoad) => {
   setLoad(false)
   axios
     .get(
-      `http://localhost:3000/clientes/persona/${localStorage.getItem('userId')}`
+      `${data.url}/clientes/persona/${localStorage.getItem('userId')}`
     )
     .then((res) => {
-      const dato = res.data[0]
-      console.log(res.data)
+      const client = res.data[0]
       axios
-        .post('http://localhost:3000/carrito', {
-          id: dato.idPersona,
-          idUsuario: dato.id
-        })
-        .then(() => {
-          console.log('Carrito Creado Exitosamente')
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-        .finally(() => {
+        .get(`${data.url}/carrito/cliente/${client.id}`)
+        .then((res) => {
+          const dato = res.data[0]
           axios
-            .get(`http://${data.number}/carrito/cliente/${res.data[0].id}`)
+            .get(`${data.url}/detalle-carrito/carrito/${dato.id}`)
             .then((res) => {
-              const dato = res.data[0]
-              axios
-                .get(`http://${data.number}/detalle-carrito/carrito/${dato.id}`)
-                .then((res) => {
-                  const respuesta = res.data
-                  console.log(respuesta)
-                  let isRespuesta = true
-                  if (respuesta.length > 0) {
-                    for (const detalle of respuesta) {
-                      console.log(detalle)
-                      if (detalle.idProducto === parseInt(id_producto)) {
-                        isRespuesta = false
-                        const pload = detalle
-                        pload.cantidad = cantidad
-                        axios
-                          .put(
-                            `http://${data.number}/detalle-carrito/${detalle.idDetalle}`,
-                            pload
-                          )
-                          .then(() => {
-                            console.log('success update')
-                            setLoad(true)
-                            Swal.fire(
-                              'Producto agregado al carrito exitosamente',
-                              `cantidad: ${cantidad}`,
-                              'success'
-                            )
-                          })
-                          .then(() => {
-                            window.location.reload()
-                          })
-                          .catch((err) => {
-                            console.log('Error update')
-                          })
-                        break
-                      }
-                    }
-                    if (isRespuesta) {
-                      const payload = {
-                        idProducto: parseInt(id_producto),
-                        cantidad: cantidad,
-                        idCarrito: dato.id
-                      }
-                      axios
-                        .post(`http://${data.number}/detalle-carrito`, payload)
-                        .then((res) => {
-                          setLoad(true)
-                          Swal.fire(
-                            'Producto agregado al carrito exitosamente',
-                            `cantidad: ${cantidad}`,
-                            'success'
-                          ).then(() => {
-                            window.location.reload()
-                          })
-                        })
-                        .catch((err) => {
-                          console.log('error xd')
-                        })
-                    }
-                  } else {
-                    const payload = {
-                      idProducto: parseInt(id_producto),
-                      cantidad: cantidad,
-                      idCarrito: dato.id
-                    }
-                    console.log(payload)
+              const respuesta = res.data
+              console.log(respuesta)
+              let isRespuesta = true
+              if (respuesta.length > 0) {
+                for (const detalle of respuesta) {
+                  console.log(detalle)
+                  if (detalle.idProducto === parseInt(id_producto)) {
+                    isRespuesta = false
+                    const pload = detalle
+                    pload.cantidad = cantidad
                     axios
-                      .post(`http://${data.number}/detalle-carrito`, payload)
-                      .then((res) => {
+                      .put(
+                            `${data.url}/detalle-carrito/${detalle.idDetalle}`,
+                            pload
+                      )
+                      .then(() => {
+                        console.log('success update')
                         setLoad(true)
                         Swal.fire(
                           'Producto agregado al carrito exitosamente',
-                          'success'
+                              `cantidad: ${cantidad}`,
+                              'success'
                         )
                       })
-                      .catch((err) => {
-                        console.log('error xd')
+                      .then(() => {
+                        window.location.reload()
                       })
+                      .catch((err) => {
+                        console.log('Error update')
+                      })
+                    break
                   }
-                })
+                }
+                if (isRespuesta) {
+                  const payload = {
+                    idProducto: parseInt(id_producto),
+                    cantidad: cantidad,
+                    idCarrito: dato.id
+                  }
+                  axios
+                    .post(`${data.url}/detalle-carrito`, payload)
+                    .then((res) => {
+                      setLoad(true)
+                      Swal.fire(
+                        'Producto agregado al carrito exitosamente',
+                            `cantidad: ${cantidad}`,
+                            'success'
+                      ).then(() => {
+                        window.location.reload()
+                      })
+                    })
+                    .catch((err) => {
+                      console.log('error xd')
+                    })
+                }
+              } else {
+                const payload = {
+                  idProducto: parseInt(id_producto),
+                  cantidad: cantidad,
+                  idCarrito: dato.id
+                }
+                console.log(payload)
+                axios
+                  .post(`${data.url}/detalle-carrito`, payload)
+                  .then((res) => {
+                    setLoad(true)
+                    Swal.fire(
+                      'Producto agregado al carrito exitosamente',
+                      'success'
+                    )
+                  })
+                  .catch((err) => {
+                    console.log('error xd')
+                  })
+              }
             })
         })
     })
@@ -134,7 +120,7 @@ function ProductComponent() {
   const [etapaCliente, setEtapaCliente] = useState('')
   const [importe, setImporte] = useState(0)
 
-  const lista_productos = ListaProductos(`http://${data.number}/productos`)
+  const lista_productos = ListaProductos(`${data.url}/productos`)
 
   const url2 = window.location.href
   const temp = url2.split('/')
@@ -143,14 +129,14 @@ function ProductComponent() {
 
   useEffect(() => {
     axios
-      .get(`http://${data.number}/personas/` + id_vendedor)
+      .get(`${data.url}/personas/` + id_vendedor)
       .then((response) => {
         return response.data.id_etapa
       })
 
       .then((idetapa) => {
         axios
-          .get(`http://${data.number}/etapas/` + idetapa)
+          .get(`${data.url}/etapas/` + idetapa)
           .then((response) => {
             setEtapaVendedor(response.data.nombre)
           })
@@ -159,7 +145,7 @@ function ProductComponent() {
 
   useEffect(() => {
     axios
-      .get(`http://${data.number}/etapas/` + localStorage.getItem('etapa'))
+      .get(`${data.url}/etapas/` + localStorage.getItem('etapa'))
       .then((response) => {
         setEtapaCliente(response.data.nombre)
       })
@@ -173,11 +159,11 @@ function ProductComponent() {
   })
 
   const comentarios = ListaProductos(
-    `http://${data.number}/calificaciones?filter[where][idProducto]=` +
+    `${data.url}/calificaciones?filter[where][idProducto]=` +
       id_producto
   )
   const sources = ListaProductos(
-    `http://${data.number}/sourcesproductos?filter[where][id_producto]=` +
+    `${data.url}/sourcesproductos?filter[where][id_producto]=` +
       id_producto
   )
 
@@ -246,7 +232,7 @@ function ProductComponent() {
 
   const printImporte = () => {
     axios
-      .get(`http://${data.number}/matriz/1`)
+      .get(`${data.url}/matriz/1`)
       .then((response) => {
         const respuesta = JSON.parse(response.data.data)
         const posc = respuesta.vertexes.indexOf(etapaCliente)
