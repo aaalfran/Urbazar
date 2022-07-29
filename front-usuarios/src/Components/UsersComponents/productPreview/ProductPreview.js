@@ -73,14 +73,15 @@ const VendorContainer = styled.div`
 `
 
 function ProductPreview({ product }) {
-  const { nombre, precio, source, descripcion } = product || {
+  const { nombre, precio, source, descripcion, vendor } = product || {
     nombre: 'Cargando...',
     precio: 'Cargando...',
     foto_src: 'Cargando...',
-    descripcion: 'Cargando...'
+    descripcion: 'Cargando...',
+    vendor: 'Cargando...'
   }
 
-  const { imagePath, name, price, stars, description, vendor } = {
+  const { imagePath, name, price, stars, description } = {
     imagePath: source,
     name: nombre,
     price: precio,
@@ -89,7 +90,7 @@ function ProductPreview({ product }) {
       numberOfVotes: 20
     },
     description: descripcion,
-    vendor: 'Natalia Ramirez'
+    vendor: vendor
   }
 
   return (
