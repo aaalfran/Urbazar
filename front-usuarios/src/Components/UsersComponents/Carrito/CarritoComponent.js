@@ -22,7 +22,28 @@ const deleteProducts = async (lista) => {
 }
 
 const handleOrders = async (lista) => {
-  console.log('handleOrders')
+  const date = new Date(Date.now())
+  const orderDetails = {
+    personaId: parseInt(localStorage.getItem('userId'), 10),
+    date: date.toISOString(),
+    deliveryAddress: {
+      ciudadela: 'Villa club', // change later for a real value
+      manzana: '611', // change later for a real value
+      villa: '16' // change later for a real value
+    },
+    paymentMethod: {
+      typeOfCard: 'Visa', // change later for a real value
+      lastDigits: '5487' // change later for a real value
+    },
+    products: [],
+    orderSummary: {
+      totalProducts: 0,
+      totalDelivery: 2, // change later for real value
+      totalWithoutTaxes: 0,
+      taxes: 0,
+      total: 0
+    }
+  }
   for (const idDetalle of lista) {
     await axios.get(`${data.url}/detalle-carrito/${idDetalle}`)
       .then((response) => {
@@ -45,6 +66,31 @@ const handleOrders = async (lista) => {
               imagen: product.source
             }
             axios.post(`${data.url}/compras`, order)
+            axios.get(`${data.url}/personas/${product.idVendedor}`)
+              .then((res) => {
+                const vendorName = res.data.nombre
+                const newProduct = {
+                  source: product.source,
+                  nombre: product.nombre,
+                  precio: product.precio,
+                  stars: {
+                    number: parseInt(product.promedioPuntuacion, 10),
+                    numberOfVotes: 200 // change later for a real value
+                  },
+                  descripcion: product.descripcion,
+                  vendor: vendorName,
+                  quantity: parseInt(quantity, 10)
+                }
+                orderDetails.products.push(newProduct)
+                orderDetails.orderSummary.totalProducts += newProduct.precio
+                orderDetails.orderSummary.totalWithoutTaxes = orderDetails.orderSummary.totalProducts + orderDetails.orderSummary.totalDelivery
+                orderDetails.orderSummary.taxes = orderDetails.orderSummary.totalProducts * 0.12
+                orderDetails.orderSummary.total = orderDetails.orderSummary.totalWithoutTaxes + orderDetails.orderSummary.taxes
+              }).then(() => {
+                if (idDetalle === lista[lista.length - 1]) {
+                  axios.post(`${data.url}/pedidos`, orderDetails).catch((error) => console.log(error))
+                }
+              })
           })
       })
       .catch(error => console.log(error))
@@ -93,7 +139,6 @@ const ProductoBack = ({ setResumen, setDetalleId }) => {
                           />
                         )
                       )
-                      console.log(producto)
                     })
                 }
               }
@@ -127,7 +172,7 @@ const Resumen = ({ resumen, setPrecio }) => {
       precioTotal = precioTotal + precio
       setPrecio(precioTotal)
       listaLi.push(
-        <tr>
+        <tr key={i}>
           <td>{nombre}</td>
           <td>${precio}</td>
         </tr>
@@ -136,11 +181,13 @@ const Resumen = ({ resumen, setPrecio }) => {
     return (
       <table className="w-100">
         <thead>
-          <th>Productos</th>
-          <th>Precio</th>
+          <tr>
+            <th>Productos</th>
+            <th>Precio</th>
+          </tr>
         </thead>
-        {listaLi}
         <tbody>
+        {listaLi}
           <tr>
             <td id="precioTotal" colSpan="2">
               <strong>Precio Total: ${precioTotal}</strong>

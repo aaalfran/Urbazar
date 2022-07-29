@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+import data from '../../enviroment'
 
 import NavbarComponent from '../../Components/UsersComponents/navBar/navbarComponent'
 import OrderPreview from '../../Components/UsersComponents/OrderPreview/OrderPreview'
@@ -33,6 +35,14 @@ const Separator = styled.hr`
 `
 
 function ShoppingHistory() {
+  const [orders, setOrders] = useState([])
+  useEffect(() => {
+    axios.get(`${data.url}/pedidos?filter[where][personaId]=${localStorage.getItem('userId')}`)
+      .then((response) => {
+        setOrders(response.data)
+      })
+      .catch((error) => console.log(error))
+  }, [])
   return (
     <>
       <NavbarComponent></NavbarComponent>
@@ -42,72 +52,16 @@ function ShoppingHistory() {
           <Separator></Separator>
         </TitleContainer>
         <OrdersContainer>
-          <OrderPreview
-            id="25145215421"
-            title="Pedido"
-            total="35.0"
-            date={new Date().toDateString()}
-            products={[
-              { name: 'Camiseta del idolo', quantity: 1 },
-              { name: 'Body pillow de Shrek', quantity: 1 },
-              { name: 'Licuadora usada', quantity: 1 }
-            ]}
-          ></OrderPreview>
-          <OrderPreview
-            id="25145215421"
-            title="Pedido"
-            total="35.0"
-            date={new Date().toDateString()}
-            products={[
-              { name: 'Camiseta del idolo', quantity: 1 },
-              { name: 'Body pillow de Shrek', quantity: 1 },
-              { name: 'Licuadora usada', quantity: 1 }
-            ]}
-          ></OrderPreview>
-          <OrderPreview
-            id="25145215421"
-            title="Pedido"
-            total="35.0"
-            date={new Date().toDateString()}
-            products={[
-              { name: 'Camiseta del idolo', quantity: 1 },
-              { name: 'Body pillow de Shrek', quantity: 1 },
-              { name: 'Licuadora usada', quantity: 1 }
-            ]}
-          ></OrderPreview>
-          <OrderPreview
-            id="25145215421"
-            title="Pedido"
-            total="35.0"
-            date={new Date().toDateString()}
-            products={[
-              { name: 'Camiseta del idolo', quantity: 1 },
-              { name: 'Body pillow de Shrek', quantity: 1 },
-              { name: 'Licuadora usada', quantity: 1 }
-            ]}
-          ></OrderPreview>
-          <OrderPreview
-            id="25145215421"
-            title="Pedido"
-            total="35.0"
-            date={new Date().toDateString()}
-            products={[
-              { name: 'Camiseta del idolo', quantity: 1 },
-              { name: 'Body pillow de Shrek', quantity: 1 },
-              { name: 'Licuadora usada', quantity: 1 }
-            ]}
-          ></OrderPreview>
-          <OrderPreview
-            id="25145215421"
-            title="Pedido"
-            total="35.0"
-            date={new Date().toDateString()}
-            products={[
-              { name: 'Camiseta del idolo', quantity: 1 },
-              { name: 'Body pillow de Shrek', quantity: 1 },
-              { name: 'Licuadora usada', quantity: 1 }
-            ]}
-          ></OrderPreview>
+          {orders.map((order, index) =>
+            <OrderPreview
+              key={order._id}
+              id={order._id}
+              title={`Pedido ${index + 1}`}
+              total={order.orderSummary.total}
+              date={order.date}
+              products={order.products}
+            />
+          )}
         </OrdersContainer>
       </Container>
     </>
