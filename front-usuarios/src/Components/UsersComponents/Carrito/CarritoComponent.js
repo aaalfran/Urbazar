@@ -11,6 +11,7 @@ import data from '../../../enviroment'
 import axios from 'axios'
 
 const deleteProducts = async (lista) => {
+  console.log('delteProducts')
   for (const idDetalle of lista) {
     await axios
       .delete(`${data.url}/detalle-carrito/${idDetalle}`)
