@@ -9,7 +9,7 @@ import OrderPreview from '../../Components/UsersComponents/OrderPreview/OrderPre
 const Container = styled.main`
   display: flex;
   flex-direction: column;
-  padding: 0 200px;
+  padding: 0 150px;
 
   @media (max-width: 1024px) {
     padding: 0 10px;
@@ -24,6 +24,9 @@ const TitleContainer = styled.div`
 const OrdersContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 769px) {
+    flex-direction: column;
+  }
 `
 
 const Title = styled.h1`
