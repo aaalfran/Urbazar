@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+
+import data from '../../../enviroment'
 
 import Price from '../price/Price'
 import Stars from '../Stars/Stars'
+import ProgressBar from '../ProgressBar/ProgressBar'
 
 const Container = styled.div`
   border-radius: ${(props) => props.theme.borderRadius};
@@ -72,21 +76,32 @@ const VendorContainer = styled.div`
   margin-top: 30px;
 `
 
-function ProductPreview({ product }) {
-  const { nombre, precio, source, descripcion, vendor } = product || {
-    nombre: 'Cargando...',
-    precio: 'Cargando...',
-    foto_src: 'Cargando...',
-    descripcion: 'Cargando...',
-    vendor: 'Cargando...'
-  }
+function OrderStatus({ order }) {
+  const [product, setProduct] = useState({})
 
-  const { imagePath, name, price, stars, description } = {
+  useEffect(() => {
+    if (order) {
+      axios.get(`${data.url}/productos/${order.producto}`)
+        .then((response) => {
+          return response.data
+        }).then((prod) => {
+          axios.get(`${data.url}/personas/${prod.idVendedor}`)
+            .then((res) => {
+              setProduct({ ...prod, vendor: res.data.nombre })
+            })
+        })
+        .catch((error) => console.log(error))
+    }
+  }, [])
+
+  const { nombre, precio, source, descripcion, vendor, promedioPuntuacion } = product
+
+  const { imagePath, name, price, stars } = {
     imagePath: source,
     name: nombre,
     price: precio,
     stars: {
-      number: 4.5,
+      number: promedioPuntuacion,
       numberOfVotes: 20
     },
     description: descripcion,
@@ -113,8 +128,7 @@ function ProductPreview({ product }) {
             </VendorContainer>
           </InfoContainer>
           <DescriptionContainer>
-            <Label>Descripción</Label>
-            <p>{description}</p>
+            <ProgressBar state={order.estado} />
           </DescriptionContainer>
         </DetailsContainer>
       </DetailsWrapper>
@@ -122,4 +136,4 @@ function ProductPreview({ product }) {
   )
 }
 
-export default ProductPreview
+export default OrderStatus

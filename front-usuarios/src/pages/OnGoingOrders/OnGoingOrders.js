@@ -4,7 +4,7 @@ import axios from 'axios'
 import data from '../../enviroment'
 
 import NavbarComponent from '../../Components/UsersComponents/navBar/navbarComponent'
-import OrderPreview from '../../Components/UsersComponents/OrderPreview/OrderPreview'
+import OrderStatus from '../../Components/UsersComponents/OrderStatus/OrderStatus'
 
 const Container = styled.main`
   display: flex;
@@ -42,33 +42,28 @@ const Separator = styled.hr`
   margin-top: 10px;
 `
 
-function ShoppingHistory() {
+function OnGoingOrders() {
   const [orders, setOrders] = useState([])
+
   useEffect(() => {
-    axios.get(`${data.url}/pedidos?filter[where][personaId]=${localStorage.getItem('userId')}`)
+    axios.get(`${data.url}/compras?filter[where][comprador]=${localStorage.getItem('userId')}`)
       .then((response) => {
         setOrders(response.data)
       })
       .catch((error) => console.log(error))
   }, [])
+
   return (
     <>
       <NavbarComponent></NavbarComponent>
       <Container>
         <TitleContainer>
-          <Title>Tus pedidos</Title>
+          <Title>Pedidos en curso</Title>
           <Separator></Separator>
         </TitleContainer>
         <OrdersContainer>
           {orders.map((order, index) =>
-            <OrderPreview
-              key={order._id}
-              id={order._id}
-              title={`Pedido ${index + 1}`}
-              total={order.orderSummary.total}
-              date={order.date}
-              products={order.products}
-            />
+            <OrderStatus key={index} order={order} />
           )}
         </OrdersContainer>
       </Container>
@@ -76,4 +71,4 @@ function ShoppingHistory() {
   )
 }
 
-export default ShoppingHistory
+export default OnGoingOrders

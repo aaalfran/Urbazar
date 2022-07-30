@@ -88,6 +88,7 @@ const NavbarComponent = (props) => {
         <p id="nombre_user">{localStorage.getItem('nombre_usuario')}!</p>
         <Orders>
           <Link to="/historial-de-compras">Pedidos</Link>
+          <Link to="/pedidos-en-curso">Pedidos en curso</Link>
         </Orders>
         <button type="button" className="button_nav boton_notificacion">
           <i className="fas fa-bell fa-lg"></i>
