@@ -34,7 +34,7 @@ function Register(props) {
             <div id="cont_general">
 
                 <div id="cont_secForm">
-                    <div id="seccionForm">
+                    <div id="seccionFormR">
                         <div className="img_urbi">
                         <div className='fotoLogoL img-fluid'>
                              <img src={logo2} />
@@ -44,11 +44,17 @@ function Register(props) {
                         </div>
                         </div>
                         <div className="panelDatos">
-                            <Container className="container_reg">
+                            <Container className="container_regR">
                                 <Card body id="tarjeta" className="trj">
+                             
                                     <div id="logo_resp">
                                         <img src={logo2} />
                                     </div>
+                                    <div className='cajaLogo_respR'>
+                    <span className="Urbaz-partR_respR">Urbaz</span><span className="app-partR_respR">App</span>
+                  </div>
+
+                                    
                                     <CardTitle>
                                     <h4> Registrar</h4>
                                       <div id="feedbackvacios"></div>
@@ -65,7 +71,9 @@ function Register(props) {
                                             handleModal={props.handleModal}/>
                                         </form>
                                     </div>
+                                    <div id="contenido_footer">
                                     <p>¿Ya tienes una cuenta?<Enlace to="/login"> Iniciar Sesión</Enlace></p>
+                                    </div>
                                 </Card>
                             </Container>
 

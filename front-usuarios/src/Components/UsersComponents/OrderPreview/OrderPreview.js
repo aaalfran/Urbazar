@@ -175,3 +175,4 @@ function OrderPreview({ id, title, date, total, products }) {
 }
 
 export default OrderPreview
+

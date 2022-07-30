@@ -1,3 +1,19 @@
+/*Este es el css de /login*/
+.container_reg {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+}
+
+/*Ajustar al 100% de la pantalla del cliente el formulario*/
+#seccionForm{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;  
+    margin: 0;
+}
 .Login{
     margin-left: 5% ;
     margin-right: 5% ;
@@ -105,6 +121,9 @@ body, #root, .container_login{
     
 }
 
+.cajaLogo_resp{
+    display: none;
+}
 
 .MuiSvgIcon-root {
     fill: #9c9c9c !important;
@@ -157,7 +176,65 @@ body, #root, .container_login{
 }
  
 /*Responsive*/
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
+    .container_reg {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    #seccionForm {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        margin: 20%;
+    }
+    .cajaLogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .Login-title > h3{
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+    }
+    .Login-title {
+        text-align: center;
+        margin-bottom: 20px;
+     }
+    .Urbaz-partR_resp{
+        font-size: 40px;
+        color: #02023D;
+    }
+    .app-partR_resp{
+        font-size: 40px;
+        color: #F4733E;
+    
+    }
+    .img_urbi{
+        display: none;
+    }
+    #tarjeta {
+        display: flex;
+        justify-content: center;
+    }
+    #logo_resp{    
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cajaLogo_resp{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 50%;
+    }
+
+    #logo_resp img{
+        width: 50%;
+    }
+  
     #tarjeta_login{
         display: block;
         margin: auto;
@@ -170,10 +247,11 @@ body, #root, .container_login{
     }
 }
 
+/*
 @media only screen and (max-width: 701px) {
-    #tarjeta_login{
-        display: block;
-        margin: auto;
+    .container_reg {
+        display: flex;        
+        justify-content: center;
     }
     
     .container_login{
@@ -182,4 +260,5 @@ body, #root, .container_login{
         width: 100%;
     }
 }
+*/
   
