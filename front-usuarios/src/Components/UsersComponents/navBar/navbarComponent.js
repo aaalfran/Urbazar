@@ -1,3 +1,4 @@
+
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
@@ -88,6 +89,7 @@ const NavbarComponent = (props) => {
         <p id="nombre_user">{localStorage.getItem('nombre_usuario')}!</p>
         <Orders>
           <Link to="/historial-de-compras">Pedidos</Link>
+          <Link to="/pedidos-en-curso">Pedidos en curso</Link>
         </Orders>
         <button type="button" className="button_nav boton_notificacion">
           <i className="fas fa-bell fa-lg"></i>
@@ -111,3 +113,4 @@ const NavbarComponent = (props) => {
 }
 
 export default NavbarComponent
+

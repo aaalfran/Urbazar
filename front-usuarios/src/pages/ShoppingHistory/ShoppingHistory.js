@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
@@ -9,7 +10,11 @@ import OrderPreview from '../../Components/UsersComponents/OrderPreview/OrderPre
 const Container = styled.main`
   display: flex;
   flex-direction: column;
-  padding: 0 200px;
+  padding: 0 150px;
+
+  @media (max-width: 1024px) {
+    padding: 0 10px;
+  }
 `
 
 const TitleContainer = styled.div`
@@ -20,18 +25,25 @@ const TitleContainer = styled.div`
 const OrdersContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 769px) {
+    flex-direction: column;
+  }
 `
 
 const Title = styled.h1`
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 600;
   margin: 0;
   color: ${(props) => props.theme.colors.black};
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
 `
 
 const Separator = styled.hr`
   width: 100%;
   border: solid 1px ${(props) => props.theme.colors.border};
+  margin-top: 10px;
 `
 
 function ShoppingHistory() {
@@ -69,3 +81,4 @@ function ShoppingHistory() {
 }
 
 export default ShoppingHistory
+

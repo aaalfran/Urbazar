@@ -1,3 +1,4 @@
+
 import React from 'react'
 import styled from 'styled-components'
 
@@ -86,7 +87,7 @@ function ProductPreview({ product }) {
     name: nombre,
     price: precio,
     stars: {
-      number: 4.3,
+      number: 4.5,
       numberOfVotes: 20
     },
     description: descripcion,
@@ -123,3 +124,4 @@ function ProductPreview({ product }) {
 }
 
 export default ProductPreview
+

@@ -13,6 +13,17 @@ const Container = styled.div`
   border: solid 1px ${(props) => props.theme.colors.border};
   border-radius: ${(props) => props.theme.borderRadius};
   margin: 20px;
+
+  @media (max-width: 425px) {
+    margin: 0;
+    margin-bottom: 10px;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 `
 
 const DetailsContainer = styled.div`
@@ -27,18 +38,28 @@ const InfoContiner = styled.div`
   gap: 20px;
   flex: 1;
   margin-left: 30px;
+  @media (max-width: 425px) {
+    margin-left: 0;
+    gap: 5px;
+  }
 `
 
 const Title = styled.h2`
   color: ${(props) => props.theme.colors.black};
   font-weight: 500;
   font-size: 3rem;
+  @media (max-width: 425px) {
+    font-size: 1.5rem;
+  }
 `
 
 const DarkLabel = styled.span`
   font-size: 1.5rem;
   font-weight: 500;
   color: ${(props) => props.theme.colors.black};
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
 `
 
 const Label = styled.span`
@@ -46,6 +67,9 @@ const Label = styled.span`
   font-weight: 500;
   color: ${(props) => props.theme.colors.darkGray};
   text-transform: uppercase;
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
 `
 
 const InfoSection = styled.div`
@@ -54,17 +78,18 @@ const InfoSection = styled.div`
   p {
     font-weight: 600;
     color: ${(props) => props.theme.colors.black};
+    @media (max-width: 425px) {
+      font-size: 0.8rem;
+      margin: 0;
+    }
   }
 `
 
-// const Price = styled(Price)`
-//   font-size: 2rem;
-//   font-weight: 600;
-//   color: ${(props) => props.theme.colors.black};
-// `
-
 const LinksContainer = styled.div`
   margin-top: 100px;
+  @media (max-width: 425px) {
+      margin: 0;
+  }
 `
 
 const Button = styled(Link)`
@@ -72,6 +97,9 @@ const Button = styled(Link)`
   font-size: 1.2rem;
   font-weight: 500;
   color: ${(props) => props.theme.colors.darkBlue};
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
 `
 
 const ProductsContainer = styled.div`
@@ -82,6 +110,10 @@ const ProductsContainer = styled.div`
 
 const Thumbnail = styled.img`
   margin-right: 10px;
+  width: 50px;
+  @media (max-width: 425px) {
+      width: 30px;
+  }
 `
 
 /**
@@ -113,7 +145,7 @@ function OrderPreview({ id, title, date, total, products }) {
           <DarkLabel>Productos:</DarkLabel>
           {getProducts(products).map((product) => (
             <div key={product.nombre}>
-              <Thumbnail src={product.source} width='50px' />
+              <Thumbnail src={product.source} />
               {product.nombre} (x{product.quantity})
             </div>
           ))}
@@ -143,3 +175,4 @@ function OrderPreview({ id, title, date, total, products }) {
 }
 
 export default OrderPreview
+
