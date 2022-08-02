@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
@@ -12,10 +11,10 @@ export const cantidadProd = 0
 
 const Orders = styled.div`
   font-weight: 500;
-  margin: 0 30px;
   a {
     color: ${(props) => props.theme.colors.white};
     text-decoration: none;
+    margin: 0 10px;
   }
 `
 
@@ -64,9 +63,6 @@ const NavbarComponent = (props) => {
           <span className="Urbaz-part">Urbaz</span>
           <span className="app-part">App</span>
         </NavbarBrand>
-        <NavbarBrand href="/" className="logo2">
-          UApp
-        </NavbarBrand>
 
         <form
           className="mr-auto search_form"
@@ -89,7 +85,7 @@ const NavbarComponent = (props) => {
         <p id="nombre_user">{localStorage.getItem('nombre_usuario')}!</p>
         <Orders>
           <Link to="/historial-de-compras">Pedidos</Link>
-          <Link to="/pedidos-en-curso">Pedidos en curso</Link>
+          <Link to="/pedidos-en-curso">En curso</Link>
         </Orders>
         <button type="button" className="button_nav boton_notificacion">
           <i className="fas fa-bell fa-lg"></i>
@@ -113,4 +109,3 @@ const NavbarComponent = (props) => {
 }
 
 export default NavbarComponent
-

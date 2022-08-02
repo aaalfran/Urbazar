@@ -4,6 +4,12 @@ import { BsClock, BsBoxSeam, BsTruck, BsCheckCircleFill } from 'react-icons/bs'
 
 const Container = styled.div`
   font-size: 2rem;
+  @media (max-width: 769px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.6rem;
+  }
 `
 
 const IconRef = styled.div`
@@ -15,6 +21,16 @@ const ClockIcon = styled(BsClock)`
   position: absolute;
   top: -40px;
   right: -15px;
+  @media (max-width: 769px) {
+    font-size: 1.2rem;
+    top: -30px;
+    right: -10px;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+    top: -20px;
+    right: -7px;
+  }
 `
 
 const BoxIcon = styled(BsBoxSeam)`
@@ -22,6 +38,16 @@ const BoxIcon = styled(BsBoxSeam)`
   position: absolute;
   top: -40px;
   right: -15px;
+  @media (max-width: 769px) {
+    font-size: 1.2rem;
+    top: -30px;
+    right: -10px;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+    top: -20px;
+    right: -7px;
+  }
 `
 
 const TruckIcon = styled(BsTruck)`
@@ -29,16 +55,37 @@ const TruckIcon = styled(BsTruck)`
   position: absolute;
   top: -40px;
   right: -15px;
+  @media (max-width: 769px) {
+    font-size: 1.2rem;
+    top: -30px;
+    right: -10px;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+    top: -20px;
+    right: -7px;
+  }
 `
 
 const CheckIcon = styled(BsCheckCircleFill)`
   font-size: 2rem;
   margin-left: 20px;
+  @media (max-width: 769px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+    top: -20px;
+    right: -7px;
+  }
 `
 
 const BarContainer = styled.div`
   display: flex;
   padding: 10px 0;
+  @media (max-width: 425px) {
+    padding: 0;
+  }
 `
 
 const Bar = styled.div`
@@ -53,6 +100,12 @@ const BarFragmentBegin = styled.div`
   height: 30px;
   border: 1px solid ${props => props.theme.colors.black};
   background-color: ${props => props.stateNumber >= 1 ? props.theme.colors.lightOrange : ''};
+  @media (max-width: 769px) {
+    height: 20px;
+  }
+  @media (max-width: 425px) {
+    height: 15px;
+  }
 `
 
 const BarFragmentMiddle1 = styled.div`
@@ -60,6 +113,12 @@ const BarFragmentMiddle1 = styled.div`
   height: 30px;
   border: 1px solid ${props => props.theme.colors.black};
   background-color: ${props => props.stateNumber >= 2 ? props.theme.colors.lightOrange : ''};
+  @media (max-width: 769px) {
+    height: 20px;
+  }
+  @media (max-width: 425px) {
+    height: 15px;
+  }
 `
 
 const BarFragmentMiddle2 = styled.div`
@@ -67,6 +126,12 @@ const BarFragmentMiddle2 = styled.div`
   height: 30px;
   border: 1px solid ${props => props.theme.colors.black};
   background-color: ${props => props.stateNumber >= 3 ? props.theme.colors.lightOrange : ''};
+  @media (max-width: 769px) {
+    height: 20px;
+  }
+  @media (max-width: 425px) {
+    height: 15px;
+  }
 `
 
 const BarFragmentEnd = styled.div`
@@ -76,16 +141,32 @@ const BarFragmentEnd = styled.div`
   height: 30px;
   border: 1px solid ${props => props.theme.colors.black};
   background-color: ${props => props.stateNumber >= 4 ? props.theme.colors.lightOrange : ''};
+  @media (max-width: 769px) {
+    height: 20px;
+  }
+  @media (max-width: 425px) {
+    height: 15px;
+  }
 `
 
 const MessageContainer = styled.div`
   display: flex;
+  @media (max-width: 425px) {
+    margin-top: 5px;
+  }
 `
 
 const Message = styled.p`
   width: 90%;
   text-align: center;
   font-size: 1rem;
+  @media (max-width: 769px) {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.6rem;
+  }
 `
 
 function ProgressBar ({ state }) {

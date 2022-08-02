@@ -14,15 +14,24 @@ const Container = styled.div`
 const TypeOfCurrency = styled.span`
   font-size: 1rem;
   text-transform: uppercase;
+  @media (max-width: 360px) {
+    font-size: 0.5rem;
+  }
 `
 
 const IntegerValue = styled.span`
   font-size: 2rem;
   line-height: 1;
+  @media (max-width: 360px) {
+    font-size: 1rem;
+  }
 `
 
 const DecimalValue = styled.span`
   font-size: 1rem;
+  @media (max-width: 360px) {
+    font-size: 0.5rem;
+  }
 `
 
 function Price({ price = '0', typeOfCurrency = 'US$' }) {

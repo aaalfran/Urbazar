@@ -19,10 +19,7 @@ const Container = styled.div`
     margin-bottom: 10px;
     min-width: auto;
     min-height: auto;
-  }
-
-  @media (max-width: 400px) {
-    flex-direction: column;
+    padding: 10px;
   }
 `
 
@@ -51,6 +48,9 @@ const Title = styled.h2`
   @media (max-width: 425px) {
     font-size: 1.5rem;
   }
+  @media (max-width: 360px) {
+    font-size: 1.2rem;
+  }
 `
 
 const DarkLabel = styled.span`
@@ -59,6 +59,9 @@ const DarkLabel = styled.span`
   color: ${(props) => props.theme.colors.black};
   @media (max-width: 425px) {
     font-size: 1rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.8rem;
   }
 `
 
@@ -69,6 +72,9 @@ const Label = styled.span`
   text-transform: uppercase;
   @media (max-width: 425px) {
     font-size: 0.8rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
   }
 `
 
@@ -82,10 +88,15 @@ const InfoSection = styled.div`
       font-size: 0.8rem;
       margin: 0;
     }
+    @media (max-width: 360px) {
+    font-size: 0.6rem;
+    }
   }
 `
 
 const LinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 100px;
   @media (max-width: 425px) {
       margin: 0;
@@ -100,11 +111,17 @@ const Button = styled(Link)`
   @media (max-width: 425px) {
     font-size: 0.8rem;
   }
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
+  }
 `
 
 const ProductsContainer = styled.div`
   div {
     color: ${(props) => props.theme.colors.darkGray};
+    @media (max-width: 360px) {
+      font-size: 0.6rem;
+    }
   }
 `
 
@@ -152,7 +169,7 @@ function OrderPreview({ id, title, date, total, products }) {
           {products.length > 3 ? <div>...</div> : ''}
         </ProductsContainer>
         <LinksContainer>
-          <Button>Ver recibo</Button><br></br>
+          <Button>Ver recibo</Button>
           <Button onClick={goToOrderDetails}>Ver detalles del pedido</Button>
         </LinksContainer>
       </DetailsContainer>
@@ -175,4 +192,3 @@ function OrderPreview({ id, title, date, total, products }) {
 }
 
 export default OrderPreview
-
