@@ -19,6 +19,12 @@ const Container = styled.main`
 const Title = styled.h1`
   color: ${(props) => props.theme.colors.black};
   margin-top: 20px;
+  @media (max-width: 769px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 425px) {
+      font-size: 1rem;
+  }
 `
 
 const Hr = styled.hr`
@@ -29,6 +35,9 @@ const Hr = styled.hr`
 
 const ContentContainer = styled.div`
   display: flex;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `
 
 const DetailsContainer = styled.section`
@@ -37,11 +46,17 @@ const DetailsContainer = styled.section`
   flex-direction: column;
   align-items: flex-start;
   padding-right: 40px;
+  @media (max-width: 1024px) {
+    padding-right: 0;
+  }
 `
 
 const SummaryContainer = styled.section`
   width: 20%;
   padding: 5% 0;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 const DateContainer = styled.div`
@@ -52,6 +67,18 @@ const DateContainer = styled.div`
   margin-bottom: 20px;
   span {
     margin-right: 20px;
+    @media (max-width: 425px) {
+      :nth-child(2){
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 769px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+    flex-direction: column;
   }
 `
 
@@ -67,6 +94,21 @@ const Info = styled.div`
   h3 {
     color: ${(props) => props.theme.colors.black};
     font-size: 1.2rem;
+    @media (max-width: 769px) {
+      font-size: 1rem;
+      margin: 0;
+    }
+    @media (max-width: 425px) {
+      font-size: 0.8rem;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 769px) {
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
   }
 `
 

@@ -14,26 +14,52 @@ import banner9 from '../../../imagenes/ban9.png'
 import data from '../../../enviroment'
 import Tabla from '../Filtros/Tabla/Tabla'
 import ProductsList from '../ProductsList/ProductsList'
+import styled from 'styled-components'
 
 import '../Main/Main.css'
 
-{
-  ;<link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossOrigin="anonymous"
-  ></link>
-}
+const Container = styled.main`
+  width: 100%;
+  display: flex;
+  @media (max-width: 769px) {
+    flex-direction: column;
+  }
+`
+
+const FiltersContainer = styled.div`
+  width: 20%;
+  height: 100vh;
+  padding-top: 50px;
+  @media (max-width: 769px) {
+    height: auto;
+    width: 100%;
+  }
+`
+
+const ContentContainer = styled.div`
+  padding-top: 50px;
+  width: 80%;
+  @media (max-width: 769px) {
+    padding: 0 10px;
+    width: 100%;
+  }
+`
+
+const RecentsContainer = styled.div`
+  
+`
+
+const Footer = styled.footer`
+  
+`
 
 function Main() {
   const [products, setProducts] = useState([])
   const updateProducts = (newProducts) => {
     setProducts(newProducts)
   }
-  // introJs().start();
 
-  /* banner items */
+  // banner items
   const items = [
     {
       src: banner1,
@@ -61,34 +87,21 @@ function Main() {
   if (auth && (role === '0' || role === '1')) {
     return (
       <>
-        <head>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/intro.js@3.1.0/themes/introjs-nassim.min.css"
-          />
-        </head>
         <NavbarComponent />
         <CategoriaComponent isToggle={false} />
 
-        {/* banner */}
         <section className="banner_container">
           <Col xs="12" md="12" lg="12">
             <UncontrolledCarousel items={items} className="banner" />
           </Col>
         </section>
-        {/* En esta seccion se incluyen los ads de Google */}
-        {/* <div>addd</div>
-          <div className="ad-class">
-            <GoogleAds slot="4186053521" />
-          </div>
-          <div>addd</div> */}
 
-        <div className="row no-gutters">
-          <div className="col-sm-2">
+        <Container>
+          <FiltersContainer>
             <Tabla updateProducts={updateProducts}></Tabla>
-          </div>
-          <div className="col-sm-10">
-            <div className="list_productos">
+          </FiltersContainer>
+          <ContentContainer>
+            <RecentsContainer>
               <h6
                 data-intro="En esta sección puedes encontrar
                   prodcutos recientes en el catálogo"
@@ -99,23 +112,17 @@ function Main() {
               <div className="productos mt-5 carousel">
                 {LoadProducts(`${data.url}/productos`)}
               </div>
-            </div>
+            </RecentsContainer>
             <div>
               <h6>Productos</h6>
               <ProductsList products={products} />
             </div>
-          </div>
-        </div>
-        {/* footer */}
+          </ContentContainer>
+        </Container>
 
-        <footer>
+        <Footer>
           <p>&copy; 2020 Grupo BatScript - Todos los derechos reservados</p>
-        </footer>
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/intro.min.js"
-          integrity="sha512-8HbqTH7QzK30vhgVF/hTJ4loXwV85UU9vjI4nK04AfdOFzl8zG7b3LLAEHDmvIM8I0rvserMXmQx4Hw+kRknjw=="
-          crossOrigin="anonymous"
-        ></script>
+        </Footer>
         <script src="./main.js"></script>
       </>
     )

@@ -14,6 +14,14 @@ const Container = styled.div`
   gap: 50px;
   margin: 20px 0;
   width: 100%;
+  @media (max-width: 769px) {
+    gap: 0;
+    padding: 5px 0;
+  }
+  @media (max-width: 280px) {
+    flex-direction: column;
+    padding: 5px 10px;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -26,6 +34,12 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  @media (max-width: 769px) {
+    min-width: 150px;
+    max-width: 150px;
+    min-height: 150px;
+    max-height: 150px;
+  }
 `
 
 const InfoContainer = styled.div`
@@ -44,6 +58,9 @@ const DetailsWrapper = styled.div`
 const DetailsContainer = styled.div`
   display: flex;
   width: 100%;
+  @media (max-width: 769px) {
+    flex-direction: column;
+  }
 `
 
 const DescriptionContainer = styled.div`
@@ -55,21 +72,45 @@ const Title = styled.h2`
   color: ${(props) => props.theme.colors.black};
   font-weight: 500;
   font-size: 2rem;
+  @media (max-width: 769px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.8rem;
+  }
 `
 
 const Label = styled.span`
   color: ${(props) => props.theme.colors.black};
   font-weight: 500;
   font-size: 1.2rem;
+  @media (max-width: 769px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
+  }
 `
 
 const Vendor = styled.span`
   color: ${(props) => props.theme.colors.darkBlue};
   font-size: 1.2rem;
+  @media (max-width: 769px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
+  }
 `
 
 const VendorContainer = styled.div`
   margin-top: 30px;
+  @media (max-width: 769px) {
+    margin: 0;
+  }
 `
 
 function ProductPreview({ product }) {
