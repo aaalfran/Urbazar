@@ -9,6 +9,13 @@ import CarritoDetalle from './CarritoDetalle'
 import PaymentInputs from './PaymentComponent'
 import data from '../../../enviroment'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const CustomSection = styled.section`
+  @media (max-width: 769px) {
+    height: auto !important;
+  }
+`
 
 const deleteProducts = async (lista) => {
   console.log('delteProducts')
@@ -215,12 +222,12 @@ const CarritoComponent = (props) => {
         <NavbarComponent />
 
         <div id="main" className="h-100">
-          <section id="productos_detail" className="col-md-8 h-100">
+          <CustomSection id="productos_detail" className="col-md-8 h-100">
             <ProductoBack
               setResumen={setResumen}
               setDetalleId={setDetalleId}
             ></ProductoBack>
-          </section>
+          </CustomSection>
           <section id="info_detail" className="col-md-4">
             <div id="contenedor_info">
               <div id="title_detail">

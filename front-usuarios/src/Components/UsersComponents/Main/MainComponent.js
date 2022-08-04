@@ -49,6 +49,10 @@ const RecentsContainer = styled.div`
   
 `
 
+const CaroauselContainer = styled.div`
+
+`
+
 const Footer = styled.footer`
   
 `
@@ -109,9 +113,9 @@ function Main() {
                 Recientes
               </h6>
               <hr className="my-2" />
-              <div className="productos mt-5 carousel">
+              <CaroauselContainer className="productos mt-5 carousel">
                 {LoadProducts(`${data.url}/productos`)}
-              </div>
+              </CaroauselContainer>
             </RecentsContainer>
             <div>
               <h6>Productos</h6>

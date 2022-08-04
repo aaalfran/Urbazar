@@ -4,6 +4,29 @@ import { Row, Col, Container } from 'reactstrap'
 import '../../../css/Detalle.css'
 import data from '../../../enviroment'
 import axios from 'axios'
+import styled from 'styled-components'
+import Price from '../price/Price'
+
+const CustomContainer = styled(Container)`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid ${props => props.theme.colors.border};
+`
+
+const CustomCol = styled(Col)`
+  height: auto;
+  .valor{
+    padding: 0;
+  }
+`
+
+const CustomRow = styled(Row)`
+  box-sizing: border-box;
+`
+
 const CarritoDetalle = ({
   src,
   nombre,
@@ -24,14 +47,14 @@ const CarritoDetalle = ({
     return <span></span>
   } else {
     return (
-      <Container className="productoContenedor">
+      <CustomContainer className="productoContenedor">
         <div className="w-100 text-right borrarDiv">
           <span className="pr-5 borrar" onClick={borrarElemento}>
             X
           </span>
         </div>
-        <Row className="align-items-center px-5">
-          <Col sm="10">
+        <CustomRow>
+          <CustomCol>
             <div className="producto media" id="tarjeta1">
               <div className="foto_producto align-self-center mr-3">
                 <img src={src} alt={nombre} />
@@ -52,14 +75,14 @@ const CarritoDetalle = ({
                 </div>
               </div>
             </div>
-          </Col>
-          <Col sm="2">
-            <div className="valor">
-              <h3> ${precio} </h3>
+          </CustomCol>
+          <CustomCol sm="2">
+            <div>
+              <Price price={precio}></Price>
             </div>
-          </Col>
-        </Row>
-      </Container>
+          </CustomCol>
+        </CustomRow>
+      </CustomContainer>
     )
   }
 }
