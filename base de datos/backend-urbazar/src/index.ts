@@ -32,7 +32,7 @@ if (require.main === module) {
       },
     },
     cors:{
-      origin: '*'
+      origin: '*',
     }
   };
   main(config).catch(err => {
