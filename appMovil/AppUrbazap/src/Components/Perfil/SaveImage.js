@@ -9,7 +9,7 @@ const SaveImage = (selectedFile,clientId, categoria,nombre,precio,descripcion,st
 
     var bodyFormData = new FormData();
     bodyFormData.append('file',selectedFile)
-    axios.post(`http://${data.number}/upload`,bodyFormData,{
+    axios.post(`http://${data.url}/upload`,bodyFormData,{
         headers: {
             'content-type': 'multipart/form-data',
         }
@@ -17,8 +17,8 @@ const SaveImage = (selectedFile,clientId, categoria,nombre,precio,descripcion,st
         console.log(res.data)
         console.log(clientId,categoria,nombre,precio,descripcion,stock)
         console.log("hecho primer post")
-        let urlimg = `http://${data.number}/products/${res.data.filename}`
-        axios.post(`http://${data.number}/productos`,{
+        let urlimg = `http://${data.url}/products/${res.data.filename}`
+        axios.post(`http://${data.url}/productos`,{
             "idVendedor" : clientId,
             "ID_Categoria" : `${categoria}`,
             "nombre": nombre,
@@ -33,7 +33,7 @@ const SaveImage = (selectedFile,clientId, categoria,nombre,precio,descripcion,st
             let response = res.data;
             console.log(response)
             console.log("hecho segundo post")
-            axios.post(`http://${data.number}/sourcesproductos`,{
+            axios.post(`http://${data.url}/sourcesproductos`,{
                 "id_producto" : response.id,
                 "source" : response.source
             }).then(res => {

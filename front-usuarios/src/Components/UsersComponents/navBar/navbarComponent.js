@@ -4,6 +4,7 @@ import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import ToggleMenu from './ToggleMenuPC'
+import NavbarMobile from '../NavbarMobile/NavbarMobile'
 import '../../../css/MainComponent.css'
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 export let idCarritoDef
@@ -31,7 +32,7 @@ const NavbarComponent = (props) => {
   idCarritoDef = idCarrito
   const cantidad = 0
   /**
- *   axios.get(`http://${data.number}/detalle-carrito/${idCarritoDef}`)
+ *   axios.get(`http://${data.url}/detalle-carrito/${idCarritoDef}`)
     .then(response => response.data)
     .then((res2) => {
       for (let i = 0; i < res2.length; i++) {
@@ -104,6 +105,7 @@ const NavbarComponent = (props) => {
           <p> {cantProductos}</p>
         </div>
       </Navbar>
+      {window.innerWidth <= 769 ? <NavbarMobile /> : ''}
     </>
   )
 }

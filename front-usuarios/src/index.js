@@ -82,7 +82,7 @@ const Index = () => {
     <React.StrictMode>
       <Router>
         <Switch>
-          <Route path="/landing-page" exact component={LandingPage}></Route>
+          <Route path="/landing" exact component={LandingPage}></Route>
           <Route
             path="/historial-de-compras"
             exact

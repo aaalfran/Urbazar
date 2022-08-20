@@ -5,7 +5,7 @@ const useImporte = (etapaCliente, etapaVendedor) => {
   const [importe, setImporte] = useState(0)
 
   useEffect(() => {
-    axios.get(`http://${data.number}/matriz/1`)
+    axios.get(`http://${data.url}/matriz/1`)
       .then((response) => {
         const respuesta = JSON.parse(response.data.data)
         const posc = respuesta.vertexes.indexOf(etapaCliente)
