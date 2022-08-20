@@ -16,7 +16,7 @@ import SaveImage from "./SaveImage";
 import { useUsuario } from '../../Context/usuarioContext';
 
 const AddProduct = () => {
-    const categorias = Request(`http://${data.number}/categorias`)
+    const categorias = Request(`${data.number}/categorias`)
     const { usuario } = useUsuario();
 
     const [image, setImage] = useState(null);

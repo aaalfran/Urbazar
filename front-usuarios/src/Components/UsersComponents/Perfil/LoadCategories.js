@@ -4,7 +4,7 @@ export default function UseCategories() {
   const [categorias, setCategorias] = useState([])
 
   useEffect(() => {
-    fetch(`http://${data.number}/categorias`)
+    fetch(`${data.number}/categorias`)
       .then(response => response.json())
       .then(data => {
         setCategorias(data)

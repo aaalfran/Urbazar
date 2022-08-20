@@ -16,16 +16,16 @@ const subirProducto = (
   const bodyFormData = new FormData()
   bodyFormData.append('file', selectedFile)
   axios
-    .post(`http://${data.number}/upload`, bodyFormData, {
+    .post(`${data.number}/upload`, bodyFormData, {
       headers: {
         'content-type': 'multipart/form-data'
       }
     })
     .then((res) => {
       console.log(res.data)
-      const urlimg = `http://${data.number}/products/${res.data.filename}`
+      const urlimg = `${data.number}/products/${res.data.filename}`
       axios
-        .post(`http://${data.number}/productos`, {
+        .post(`${data.number}/productos`, {
           idVendedor: clientId,
           ID_Categoria: `${categoria}`,
           nombre: nombre,
@@ -41,7 +41,7 @@ const subirProducto = (
           const response = res.data
           console.log(response)
           axios
-            .post(`http://${data.number}/sourcesproductos`, {
+            .post(`${data.number}/sourcesproductos`, {
               id_producto: response.id,
               source: response.source
             })
@@ -61,17 +61,17 @@ const VentaForm = () => {
   const [info, setInfo] = useState({})
   const [clientId, setClientId] = useState(0)
   useEffect(() => {
-    axios.get(`http://${data.number}/categorias`).then((res) => {
+    axios.get(`${data.number}/categorias`).then((res) => {
       setCategorias(res.data)
     })
     axios
-      .get(`http://${data.number}/personas/` + localStorage.getItem('userId'))
+      .get(`${data.number}/personas/` + localStorage.getItem('userId'))
       .then((res) => {
         setInfo(res.data)
         console.log(res.data)
         axios
           .get(
-            `http://${data.number}/clientes/persona/${localStorage.getItem(
+            `${data.number}/clientes/persona/${localStorage.getItem(
               'userId'
             )}`
           )
@@ -79,7 +79,7 @@ const VentaForm = () => {
             setClientId(res.data[0].id)
             console.log(res.data[0])
             axios
-              .post(`http://${data.number}/vendedors`, {
+              .post(`${data.number}/vendedors`, {
                 idUsuario: res.data[0].id,
                 valoracion: 0
               })

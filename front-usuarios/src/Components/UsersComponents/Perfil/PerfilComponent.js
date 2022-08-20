@@ -45,8 +45,8 @@ function PerfilComponent(props) {
     setOpen(false)
   }
 
-  const info = LoadDatos(`http://${data.number}/personas/` + localStorage.getItem('userId'))
-  const categorias = LoadDatos(`http://${data.number}/categorias`)
+  const info = LoadDatos(`${data.number}/personas/` + localStorage.getItem('userId'))
+  const categorias = LoadDatos(`${data.number}/categorias`)
 
   const auth = parseInt(localStorage.getItem('auth'), 10)
   const role = localStorage.getItem('role')
