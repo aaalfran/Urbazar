@@ -15,7 +15,7 @@ class PerfilPC extends Component {
 
   async handleChange(event) {
     await this.setState({ categorie_selected: event.target.value })
-    await axios.get(`http://${data.url}/compras?filter[where][id_categoria]=` + this.state.categorie_selected)
+    await axios.get(`${data.url}/compras?filter[where][id_categoria]=` + this.state.categorie_selected)
       .then(response => response.data)
       .then((res) => {
         this.setState({ compras: res })

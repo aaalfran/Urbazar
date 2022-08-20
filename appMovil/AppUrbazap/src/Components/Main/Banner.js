@@ -57,9 +57,15 @@ class Banner extends React.Component{
                     </View>
 
                     {/**Secciones */}
+<<<<<<< HEAD
                     <CardsProducts nameSection="Reciente" ruta={`http://${data.url}/productos` } navigation={this.props}/>
                     <CardsProducts nameSection="Promociones" ruta={`http://${data.url}/productos`} navigation={this.props}/>
                     <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.url}/productos`} navigation={this.props}/>
+=======
+                    <CardsProducts nameSection="Reciente" ruta={`${data.url}/productos` } navigation={this.props}/>
+                    <CardsProducts nameSection="Promociones" ruta={`${data.url}/productos`} navigation={this.props}/>
+                    <CardsProducts nameSection="Cerca de ti" ruta={`${data.url}/productos`} navigation={this.props}/>
+>>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
 
                 </ScrollView>
 

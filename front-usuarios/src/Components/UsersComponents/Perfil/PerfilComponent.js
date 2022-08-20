@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import NavbarComponent from '../navBar/navbarComponent'
-import Bryan from '../../../imagenes/bryan.jpeg'
+import Guido from '../../../imagenes/guido.jpg'
 import { LoadStars } from '../Producto/LoadResourcesProducts'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
@@ -90,9 +90,8 @@ function PerfilComponent(props) {
     setOpen(false)
   }
 
-  const info = LoadDatos(
-    `${data.url}/personas/` + localStorage.getItem('userId')
-  )
+  const info = LoadDatos(`${data.url}/personas/` + localStorage.getItem('userId'))
+
   const categorias = LoadDatos(`${data.url}/categorias`)
 
   const auth = parseInt(localStorage.getItem('auth'), 10)
@@ -139,7 +138,7 @@ function PerfilComponent(props) {
             <div className="row">
               <div className="col-md-4">
                 <div className="profile-img">
-                  <img src={Bryan} alt="" />
+                  <img src={Guido} alt="" />
                   <div className="file btn btn-lg btn-primary">
                     Cambiar foto
                     <input type="file" name="file" />

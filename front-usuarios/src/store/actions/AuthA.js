@@ -8,7 +8,8 @@ const AuthA = (dispatch) => {
       const feed = document.getElementById('FeedbackLogin')
       console.log(data)
       console.log(data)
-      axios.post(`http://${data.url}/login`, data)
+
+      axios.post(`http://${data.number}/login`, data)
         .then(response => {
           if (response.status == 200) {
             return response.data
