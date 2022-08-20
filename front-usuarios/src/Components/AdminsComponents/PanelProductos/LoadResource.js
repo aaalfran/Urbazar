@@ -29,7 +29,7 @@ function useLoadResource() {
   const [page, setPage] = useState(0)
 
   useEffect(() => {
-    fetch(`${data.number}/productos`)
+    fetch(`${data.url}/productos`)
       .then(response => response.json())
       .then(data => {
         setProductos(data)

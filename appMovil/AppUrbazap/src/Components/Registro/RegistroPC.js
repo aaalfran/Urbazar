@@ -4,7 +4,7 @@ import data from '../../../enviroment';
 
 
 export function validarCodigo(codigoF){
-    let url = `${data.number}/familias?filter[where][clave]=` + codigoF;
+    let url = `${data.url}/familias?filter[where][clave]=` + codigoF;
 
     axios.get(url)
     .then(response => {

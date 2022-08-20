@@ -21,9 +21,9 @@ const mostrarAlerta = (cantidad) => {
 }
 
 let agregarCarrito = (id_producto,cantidad, user) => {
-    axios.get(`${data.number}/clientes/persona/${6}`).then(res => {
+    axios.get(`${data.url}/clientes/persona/${6}`).then(res => {
       let dato = res.data[0];
-      axios.post(`${data.number}/carrito`,{
+      axios.post(`${data.url}/carrito`,{
         "id": dato.idPersona,
         "idUsuario": dato.id,
       }).then(() => {
@@ -31,9 +31,9 @@ let agregarCarrito = (id_producto,cantidad, user) => {
       }).catch(err => {
         console.log(err)
       }).finally(() => {
-        axios.get(`${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
+        axios.get(`${data.url}/carrito/cliente/${res.data[0].id}`).then(res => {
           let dato = res.data[0];
-            axios.get(`${data.number}/detalle-carrito/carrito/${dato.id}`).then(res => {
+            axios.get(`${data.url}/detalle-carrito/carrito/${dato.id}`).then(res => {
               let respuesta = res.data;
               let isRespuesta = true;
               if(respuesta.length > 0) {
@@ -42,7 +42,7 @@ let agregarCarrito = (id_producto,cantidad, user) => {
                     isRespuesta = false;
                     let pload = detalle;
                     pload.cantidad = cantidad;
-                      axios.put(`${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
+                      axios.put(`${data.url}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
                         console.log("success update")
                         //setLoad(true);
                         mostrarAlerta(cantidad);
@@ -60,7 +60,7 @@ let agregarCarrito = (id_producto,cantidad, user) => {
                     "cantidad": cantidad,
                     "idCarrito": dato.id
                   }
-                  axios.post(`${data.number}/detalle-carrito`,payload).then(res => {
+                  axios.post(`${data.url}/detalle-carrito`,payload).then(res => {
                     mostrarAlerta(cantidad);
                   }).then(() => {
                     window.location.reload()
@@ -76,7 +76,7 @@ let agregarCarrito = (id_producto,cantidad, user) => {
                   "idCarrito": dato.id
                 }
                 console.log(payload)
-                axios.post(`${data.number}/detalle-carrito`,payload).then(res => {
+                axios.post(`${data.url}/detalle-carrito`,payload).then(res => {
                   mostrarAlerta(cantidad);
                 }).catch(err => {
                   console.log("error xd")
@@ -115,7 +115,7 @@ const Detail = (props) => {
      })
 
     useEffect(() => {
-      axios.get(`${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
+      axios.get(`${data.url}/sourcesproductos?filter[where][id_producto]=` + producto.id)
       .then(response => setCarouselItems(response.data))
       .catch(error => console.log('Hubo un error ' + error))
       

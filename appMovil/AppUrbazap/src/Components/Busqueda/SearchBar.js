@@ -71,7 +71,7 @@ const SearchBar = (props) => {
     const fetchPosts = () => {
         //const data1 = 'iph';
         settext1(data1);
-        const apiURL = `${data.number}/productos/nombre/${data1}`;
+        const apiURL = `${data.url}/productos/nombre/${data1}`;
 
 
         fetch(apiURL)

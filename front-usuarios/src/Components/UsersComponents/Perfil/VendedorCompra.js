@@ -4,7 +4,7 @@ import data from '../../../enviroment'
 const vendedoTipoChange = (tipo, info) => {
   info.vendedorTipo = tipo
   console.log(info)
-  axios.put(`${data.number}/personas/` + localStorage.getItem('userId'), info).then((res) => {
+  axios.put(`${data.url}/personas/` + localStorage.getItem('userId'), info).then((res) => {
     console.log(res)
   }).catch(err => {
     console.log(err)

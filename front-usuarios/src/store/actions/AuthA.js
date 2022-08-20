@@ -8,7 +8,7 @@ const AuthA = (dispatch) => {
       const feed = document.getElementById('FeedbackLogin')
       console.log(data)
       console.log(data)
-      axios.post(`${data.number}/login`, data, {
+      axios.post(`${data.url}/login`, data, {
         headers: { 'Access-Control-Allow-Origin': '*' }
       })
         .then(response => {
