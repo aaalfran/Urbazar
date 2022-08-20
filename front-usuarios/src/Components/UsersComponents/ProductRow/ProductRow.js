@@ -20,41 +20,67 @@ const Container = styled.tr`
   gap: 20px;
   padding: 10px;
   background-color: ${props => props.theme.colors.productRow};
+  @media (max-width: 1040px) {
+    gap: 5px;
+  }
 `
 
 const FieldName = styled.td`
   display: flex;
   flex-direction: column;
   width: 20%;
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    margin: 0;
+  }
 `
 
 const FieldPrice = styled.td`
   display: flex;
   flex-direction: column;
   width: 5%;
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    margin: 0;
+  }
 `
 
 const FieldCategory = styled.td`
   display: flex;
   flex-direction: column;
   width: 10%;
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    margin: 0;
+  }
 `
 
 const FieldDescription = styled.td`
   display: flex;
   flex-direction: column;
   width: 40%;
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    margin: 0;
+  }
 `
 
 const FieldFile = styled.td`
   display: flex;
   flex-direction: column;
   width: 15%;
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    margin: 0;
+  }
 `
 
 const Label = styled.label`
   font-weight: bold;
   margin-bottom: 5px;
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+  }
 `
 
 const TextInput = styled.input`
@@ -62,6 +88,11 @@ const TextInput = styled.input`
   border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: ${(props) => props.theme.borderRadius};
   font-family: ${(props) => props.theme.fontFamily};
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    padding: 5px;
+    max-width: 100px;
+  }
 `
 
 const Select = styled.select`
@@ -69,6 +100,10 @@ const Select = styled.select`
   border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: ${(props) => props.theme.borderRadius};
   font-family: ${(props) => props.theme.fontFamily};
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    padding: 5px;
+  }
 `
 
 const FileInput = styled.input`
@@ -76,10 +111,17 @@ const FileInput = styled.input`
   border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: ${(props) => props.theme.borderRadius};
   font-family: ${(props) => props.theme.fontFamily};
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+    padding: 5px;
+  }
 `
 
 const Img = styled.img`
   width: 50px;
+  @media (max-width: 1040px) {
+    width: 30px;
+  }
 `
 
 const ButtonsWrapper = styled.td`
@@ -87,12 +129,21 @@ const ButtonsWrapper = styled.td`
   justify-content: space-around;
   align-items: center;
   gap: 30px;
+  @media (max-width: 1040px) {
+    font-size: 0.8rem;
+    margin: 0;
+    gap: 10px;
+    flex-direction: column;
+  }
 `
 
 const CheckIcon = styled(AiOutlineCheck)`
   font-size: 2rem;
   :hover {
     cursor: pointer;
+  }
+  @media (max-width: 1040px) {
+    font-size: 0.8rem;
   }
 `
 
@@ -101,6 +152,9 @@ const CancelIcon = styled(AiOutlineClose)`
   :hover {
     cursor: pointer;
   }
+  @media (max-width: 1040px) {
+    font-size: 0.8rem;
+  }
 `
 
 const EditIcon = styled(AiFillEdit)`
@@ -108,12 +162,18 @@ const EditIcon = styled(AiFillEdit)`
   :hover {
     cursor: pointer;
   }
+  @media (max-width: 1040px) {
+    font-size: 0.8rem;
+  }
 `
 
 const DeleteIcon = styled(AiTwotoneDelete)`
   font-size: 2rem;
   :hover {
     cursor: pointer;
+  }
+  @media (max-width: 1040px) {
+    font-size: 0.8rem;
   }
 `
 
@@ -149,12 +209,6 @@ function ProductRow({ product, reloadPage }) {
   }
 
   const updateProduct = async () => {
-    console.log(nameRef.current.value)
-    console.log(priceRef.current.value)
-    console.log(categoryRef.current.value)
-    console.log(stockRef.current.value)
-    console.log(descriptionRef.current.value)
-    console.log(fileRef.current.value)
     try {
       const dataF = new FormData()
       dataF.append('file', fileData)
@@ -164,12 +218,6 @@ function ProductRow({ product, reloadPage }) {
             'content-type': 'multipart/form-data'
           }
         })
-        console.log(nameRef.current.value)
-        console.log(priceRef.current.value)
-        console.log(categoryRef.current.value)
-        console.log(stockRef.current.value)
-        console.log(descriptionRef.current.value)
-        console.log(fileRef.current.value)
         await axios.patch(`${data.url}/productos/${id}`, {
           ID_Categoria: categoryRef.current.value,
           nombre: nameRef.current.value,

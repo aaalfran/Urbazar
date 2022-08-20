@@ -5,6 +5,9 @@ const Container = styled.thead`
   box-sizing: border-box;
   width: 100%;
   font-weight: bold;
+  @media (max-width: 1040px) {
+    font-size: 0.6rem;
+  }
 `
 
 const Tr = styled.tr`
@@ -16,30 +19,45 @@ const Tr = styled.tr`
   gap: 20px;
   padding: 10px;
   background-color: ${props => props.theme.colors.productRow};
+  @media (max-width: 1040px) {
+    gap: 5px;
+  }
 `
 
 const HeadName = styled.td`
   display: flex;
   flex-direction: column;
   width: 20%;
+  @media (max-width: 1040px) {
+    width: 10%;
+  }
 `
 
 const HeadPrice = styled.td`
   display: flex;
   flex-direction: column;
   width: 5%;
+  @media (max-width: 1040px) {
+    width: 10%;
+  }
 `
 
 const HeadCategory = styled.td`
   display: flex;
   flex-direction: column;
   width: 10%;
+  @media (max-width: 1040px) {
+    width: 10%;
+  }
 `
 
 const HeadDescription = styled.td`
   display: flex;
   flex-direction: column;
   width: 40%;
+  @media (max-width: 1040px) {
+    width: 30%;
+  }
 `
 
 const HeadImage = styled.td`
@@ -52,6 +70,9 @@ const HeadOptions = styled.td`
   display: flex;
   flex-direction: column;
   width: 96px;
+  @media (max-width: 1040px) {
+    width: 30px;
+  }
 `
 
 function ProductHeader() {
@@ -61,7 +82,7 @@ function ProductHeader() {
         <HeadName>Nombre</HeadName>
         <HeadPrice>Precio</HeadPrice>
         <HeadCategory>Categoria</HeadCategory>
-        <HeadCategory>Stock</HeadCategory>
+        <HeadPrice>Stock</HeadPrice>
         <HeadDescription>Descripción</HeadDescription>
         <HeadImage>Imagen</HeadImage>
         <HeadOptions>Opciones</HeadOptions>
