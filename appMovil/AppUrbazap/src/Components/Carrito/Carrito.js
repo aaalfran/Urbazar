@@ -10,7 +10,7 @@ import CarritoItem from './CarritoItem';
 const deleteProducts = async (lista,setLista,setVacio,setPrecioTotal) => {
     for (let idDetalle of lista){
 <<<<<<< HEAD
-        await axios.delete(`http://${data.url}/detalle-carrito/${idDetalle}`).then(res => {
+        await axios.delete(`http://${data.number}/detalle-carrito/${idDetalle}`).then(res => {
 =======
         await axios.delete(`${data.url}/detalle-carrito/${idDetalle}`).then(res => {
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
@@ -39,14 +39,14 @@ const Carrito = (props) => {
             setListaItems([])
             setLoad(false);
 <<<<<<< HEAD
-            axios.get(`http://${data.url}/clientes/persona/${6}`).then(response => {
-                axios.get(`http://${data.url}/carrito/cliente/${response.data[0].id}`).then(response => {
+            axios.get(`http://${data.number}/clientes/persona/${6}`).then(response => {
+                axios.get(`http://${data.number}/carrito/cliente/${response.data[0].id}`).then(response => {
                     let resultado = response.data[0]
-                    axios.get(`http://${data.url}/detalle-carrito/carrito/${resultado.id}`).then(response => {
+                    axios.get(`http://${data.number}/detalle-carrito/carrito/${resultado.id}`).then(response => {
                         let lista = response.data;
                         if(lista.length > 0) {
                             for(let item of lista) {
-                                axios.get(`http://${data.url}/productos/${item.idProducto}`).then(res => {
+                                axios.get(`http://${data.number}/productos/${item.idProducto}`).then(res => {
 =======
             axios.get(`${data.url}/clientes/persona/${6}`).then(response => {
                 axios.get(`${data.url}/carrito/cliente/${response.data[0].id}`).then(response => {

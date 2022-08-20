@@ -72,7 +72,7 @@ const SearchBar = (props) => {
         //const data1 = 'iph';
         settext1(data1);
 <<<<<<< HEAD
-        const apiURL = `http://${data.url}/productos/nombre/${data1}`;
+        const apiURL = `http://${data.number}/productos/nombre/${data1}`;
 =======
         const apiURL = `${data.url}/productos/nombre/${data1}`;
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1

@@ -58,9 +58,9 @@ class Banner extends React.Component{
 
                     {/**Secciones */}
 <<<<<<< HEAD
-                    <CardsProducts nameSection="Reciente" ruta={`http://${data.url}/productos` } navigation={this.props}/>
-                    <CardsProducts nameSection="Promociones" ruta={`http://${data.url}/productos`} navigation={this.props}/>
-                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.url}/productos`} navigation={this.props}/>
+                    <CardsProducts nameSection="Reciente" ruta={`http://${data.number}/productos` } navigation={this.props}/>
+                    <CardsProducts nameSection="Promociones" ruta={`http://${data.number}/productos`} navigation={this.props}/>
+                    <CardsProducts nameSection="Cerca de ti" ruta={`http://${data.number}/productos`} navigation={this.props}/>
 =======
                     <CardsProducts nameSection="Reciente" ruta={`${data.url}/productos` } navigation={this.props}/>
                     <CardsProducts nameSection="Promociones" ruta={`${data.url}/productos`} navigation={this.props}/>

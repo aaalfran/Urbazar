@@ -22,9 +22,9 @@ const mostrarAlerta = (cantidad) => {
 
 let agregarCarrito = (id_producto,cantidad, user) => {
 <<<<<<< HEAD
-    axios.get(`http://${data.url}/clientes/persona/${6}`).then(res => {
+    axios.get(`http://${data.number}/clientes/persona/${6}`).then(res => {
       let dato = res.data[0];
-      axios.post(`http://${data.url}/carrito`,{
+      axios.post(`http://${data.number}/carrito`,{
 =======
     axios.get(`${data.url}/clientes/persona/${6}`).then(res => {
       let dato = res.data[0];
@@ -38,9 +38,9 @@ let agregarCarrito = (id_producto,cantidad, user) => {
         console.log(err)
       }).finally(() => {
 <<<<<<< HEAD
-        axios.get(`http://${data.url}/carrito/cliente/${res.data[0].id}`).then(res => {
+        axios.get(`http://${data.number}/carrito/cliente/${res.data[0].id}`).then(res => {
           let dato = res.data[0];
-            axios.get(`http://${data.url}/detalle-carrito/carrito/${dato.id}`).then(res => {
+            axios.get(`http://${data.number}/detalle-carrito/carrito/${dato.id}`).then(res => {
 =======
         axios.get(`${data.url}/carrito/cliente/${res.data[0].id}`).then(res => {
           let dato = res.data[0];
@@ -55,7 +55,7 @@ let agregarCarrito = (id_producto,cantidad, user) => {
                     let pload = detalle;
                     pload.cantidad = cantidad;
 <<<<<<< HEAD
-                      axios.put(`http://${data.url}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
+                      axios.put(`http://${data.number}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
 =======
                       axios.put(`${data.url}/detalle-carrito/${detalle.idDetalle}`,pload).then(() =>{
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
@@ -77,7 +77,7 @@ let agregarCarrito = (id_producto,cantidad, user) => {
                     "idCarrito": dato.id
                   }
 <<<<<<< HEAD
-                  axios.post(`http://${data.url}/detalle-carrito`,payload).then(res => {
+                  axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
 =======
                   axios.post(`${data.url}/detalle-carrito`,payload).then(res => {
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
@@ -97,7 +97,7 @@ let agregarCarrito = (id_producto,cantidad, user) => {
                 }
                 console.log(payload)
 <<<<<<< HEAD
-                axios.post(`http://${data.url}/detalle-carrito`,payload).then(res => {
+                axios.post(`http://${data.number}/detalle-carrito`,payload).then(res => {
 =======
                 axios.post(`${data.url}/detalle-carrito`,payload).then(res => {
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
@@ -140,7 +140,7 @@ const Detail = (props) => {
 
     useEffect(() => {
 <<<<<<< HEAD
-      axios.get(`http://${data.url}/sourcesproductos?filter[where][id_producto]=` + producto.id)
+      axios.get(`http://${data.number}/sourcesproductos?filter[where][id_producto]=` + producto.id)
 =======
       axios.get(`${data.url}/sourcesproductos?filter[where][id_producto]=` + producto.id)
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1

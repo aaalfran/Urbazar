@@ -10,7 +10,7 @@ const SaveImage = (selectedFile,clientId, categoria,nombre,precio,descripcion,st
     var bodyFormData = new FormData();
     bodyFormData.append('file',selectedFile)
 <<<<<<< HEAD
-    axios.post(`http://${data.url}/upload`,bodyFormData,{
+    axios.post(`http://${data.number}/upload`,bodyFormData,{
 =======
     axios.post(`${data.url}/upload`,bodyFormData,{
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
@@ -22,8 +22,8 @@ const SaveImage = (selectedFile,clientId, categoria,nombre,precio,descripcion,st
         console.log(clientId,categoria,nombre,precio,descripcion,stock)
         console.log("hecho primer post")
 <<<<<<< HEAD
-        let urlimg = `http://${data.url}/products/${res.data.filename}`
-        axios.post(`http://${data.url}/productos`,{
+        let urlimg = `http://${data.number}/products/${res.data.filename}`
+        axios.post(`http://${data.number}/productos`,{
 =======
         let urlimg = `${data.url}/products/${res.data.filename}`
         axios.post(`${data.url}/productos`,{
@@ -43,7 +43,7 @@ const SaveImage = (selectedFile,clientId, categoria,nombre,precio,descripcion,st
             console.log(response)
             console.log("hecho segundo post")
 <<<<<<< HEAD
-            axios.post(`http://${data.url}/sourcesproductos`,{
+            axios.post(`http://${data.number}/sourcesproductos`,{
 =======
             axios.post(`${data.url}/sourcesproductos`,{
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1

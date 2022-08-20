@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import axios from 'axios';
 const borrarElemento = (props,setHide) => {
 <<<<<<< HEAD
-    axios.delete(`http://${data.url}/detalle-carrito/${props.idDetalle}`).then(res => {
+    axios.delete(`http://${data.number}/detalle-carrito/${props.idDetalle}`).then(res => {
 =======
     axios.delete(`${data.url}/detalle-carrito/${props.idDetalle}`).then(res => {
 >>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
