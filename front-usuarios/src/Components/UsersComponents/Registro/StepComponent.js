@@ -410,7 +410,7 @@ class HorizontalNonLinearStepper extends Component {
               const cliente = res.data.filter((cliente) => cliente.idPersona === this.state.idPersona)
               console.log('array filtrado')
               console.log(cliente)
-              axios.post(`${data.url}/carrito`, { id: cliente[0].id, idUsuario: cliente[0].id })
+              axios.post(`${data.url}/carrito`, { id: cliente[0].idPersona, idUsuario: cliente[0].id })
             })
           })
         })

@@ -21,7 +21,7 @@ html, body {
 }
 
 /*Ajustar al 100% de la pantalla del cliente el formulario*/
-#seccionForm{
+#seccionFormR{
     display: flex;
     justify-content: space-between;
     height: 100%;
@@ -164,14 +164,14 @@ html, body {
 .groupLabels > .first_child{
     background-color:#fff;   
 }
-.container_reg{
+.container_regR{
     display: flex;
     justify-content: center;
     width: 60%;
     height: 100%;
 }
 
-#tarjeta > p{
+#contenido_footer > p{
     display: flex;
     justify-content: center;
     padding-top: 5%;
@@ -319,6 +319,9 @@ html, body {
 #logo_resp{
     display: none;
 }
+.cajaLogo_respR{
+    display: none;
+}
 
 #password2::placeholder { color: #02023D; }
 #password2{
@@ -341,15 +344,43 @@ html, body {
 }
 
 /*Media queries*/
-@media only screen and (max-width: 800px) {
-    
-    #seccionForm{
-        display: block;
+
+@media only screen and (max-width: 600px) {
+    .container_regR {
+        display: flex;
+        justify-content: center;
+        width: 100%;
         height: 100%;
-        margin-left: 5px;
-        margin-right: 5px;
-        width: 90%;
     }
+    #contenido_footer > p{
+    
+        padding-top: 10%;
+        color: #000;
+        font-size: 10px;
+    }
+    .cajaLogo_respR{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10%;
+    }
+
+    .Urbaz-partR_respR{
+        font-size: 30px;
+        color: #02023D;
+    }
+    .app-partR_respR{
+        font-size: 30px;
+        color: #F4733E;
+    
+    }
+ 
+    #seccionFormR{
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+    .
     .img_urbi{
         display: none;
     }

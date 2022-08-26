@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
+import Price from '../price/Price'
 
 const Container = styled.div`
   min-width: 400px;
   min-height: 400px;
-  max-width: 400px;
-  max-height: 400px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -14,6 +13,14 @@ const Container = styled.div`
   border: solid 1px ${(props) => props.theme.colors.border};
   border-radius: ${(props) => props.theme.borderRadius};
   margin: 20px;
+
+  @media (max-width: 425px) {
+    margin: 0;
+    margin-bottom: 10px;
+    min-width: auto;
+    min-height: auto;
+    padding: 10px;
+  }
 `
 
 const DetailsContainer = styled.div`
@@ -27,18 +34,35 @@ const InfoContiner = styled.div`
   flex-direction: column;
   gap: 20px;
   flex: 1;
+  margin-left: 30px;
+  @media (max-width: 425px) {
+    margin-left: 0;
+    gap: 5px;
+  }
 `
 
 const Title = styled.h2`
   color: ${(props) => props.theme.colors.black};
   font-weight: 500;
   font-size: 3rem;
+  @media (max-width: 425px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 1.2rem;
+  }
 `
 
 const DarkLabel = styled.span`
   font-size: 1.5rem;
   font-weight: 500;
   color: ${(props) => props.theme.colors.black};
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.8rem;
+  }
 `
 
 const Label = styled.span`
@@ -46,6 +70,12 @@ const Label = styled.span`
   font-weight: 500;
   color: ${(props) => props.theme.colors.darkGray};
   text-transform: uppercase;
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
+  }
 `
 
 const InfoSection = styled.div`
@@ -54,17 +84,23 @@ const InfoSection = styled.div`
   p {
     font-weight: 600;
     color: ${(props) => props.theme.colors.black};
+    @media (max-width: 425px) {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+    @media (max-width: 360px) {
+    font-size: 0.6rem;
+    }
   }
 `
 
-const Price = styled.div`
-  font-size: 2rem;
-  font-weight: 600;
-  color: ${(props) => props.theme.colors.black};
-`
-
 const LinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 100px;
+  @media (max-width: 425px) {
+      margin: 0;
+  }
 `
 
 const Button = styled(Link)`
@@ -72,13 +108,31 @@ const Button = styled(Link)`
   font-size: 1.2rem;
   font-weight: 500;
   color: ${(props) => props.theme.colors.darkBlue};
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
+  }
 `
 
 const ProductsContainer = styled.div`
   div {
     color: ${(props) => props.theme.colors.darkGray};
+    @media (max-width: 360px) {
+      font-size: 0.6rem;
+    }
   }
 `
+
+const Thumbnail = styled.img`
+  margin-right: 10px;
+  width: 50px;
+  @media (max-width: 425px) {
+      width: 30px;
+  }
+`
+
 /**
  * Returns an array with 1-3 products from the products array parameter
  * @returns Array of products
@@ -107,11 +161,12 @@ function OrderPreview({ id, title, date, total, products }) {
         <ProductsContainer>
           <DarkLabel>Productos:</DarkLabel>
           {getProducts(products).map((product) => (
-            <div key={product.name}>
-              {product.name} (x{product.quantity})
+            <div key={product.nombre}>
+              <Thumbnail src={product.source} />
+              {product.nombre} (x{product.quantity})
             </div>
           ))}
-          <div>...</div>
+          {products.length > 3 ? <div>...</div> : ''}
         </ProductsContainer>
         <LinksContainer>
           <Button>Ver recibo</Button>
@@ -125,11 +180,11 @@ function OrderPreview({ id, title, date, total, products }) {
         </InfoSection>
         <InfoSection>
           <Label>Realizado</Label>
-          <p>{date}</p>
+          <p>{new Date(date).toLocaleString(navigator.language)}</p>
         </InfoSection>
         <InfoSection>
           <Label>Total</Label>
-          <Price>${total}</Price>
+          <Price price={'' + total} />
         </InfoSection>
       </InfoContiner>
     </Container>

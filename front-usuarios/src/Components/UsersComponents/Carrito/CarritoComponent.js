@@ -9,8 +9,16 @@ import CarritoDetalle from './CarritoDetalle'
 import PaymentInputs from './PaymentComponent'
 import data from '../../../enviroment'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const CustomSection = styled.section`
+  @media (max-width: 769px) {
+    height: auto !important;
+  }
+`
 
 const deleteProducts = async (lista) => {
+  console.log('delteProducts')
   for (const idDetalle of lista) {
     await axios
       .delete(`${data.url}/detalle-carrito/${idDetalle}`)
@@ -19,19 +27,93 @@ const deleteProducts = async (lista) => {
   }
   window.location.reload()
 }
+
+const handleOrders = async (lista) => {
+  const date = new Date(Date.now())
+  const orderDetails = {
+    personaId: parseInt(localStorage.getItem('userId'), 10),
+    date: date.toISOString(),
+    deliveryAddress: {
+      ciudadela: 'Villa club', // change later for a real value
+      manzana: '611', // change later for a real value
+      villa: '16' // change later for a real value
+    },
+    paymentMethod: {
+      typeOfCard: 'Visa', // change later for a real value
+      lastDigits: '5487' // change later for a real value
+    },
+    products: [],
+    orderSummary: {
+      totalProducts: 0,
+      totalDelivery: 2, // change later for real value
+      totalWithoutTaxes: 0,
+      taxes: 0,
+      total: 0
+    }
+  }
+  for (const idDetalle of lista) {
+    await axios.get(`${data.url}/detalle-carrito/${idDetalle}`)
+      .then((response) => {
+        const cartDetail = response.data
+        const idProduct = cartDetail.idProducto
+        const quantity = cartDetail.cantidad
+        axios.get(`${data.url}/productos/${idProduct}`)
+          .then((response2) => {
+            const product = response2.data
+            const date = new Date(Date.now())
+            const order = {
+              id_categoria: '' + product.ID_Categoria,
+              comprador: localStorage.getItem('userId'),
+              vendedor: '' + product.idVendedor,
+              Fecha: date.toISOString(),
+              producto: '' + idProduct,
+              precio: '' + product.precio,
+              cantidad: '' + quantity,
+              estado: 'Pendiente',
+              imagen: product.source
+            }
+            axios.post(`${data.url}/compras`, order)
+            axios.get(`${data.url}/personas/${product.idVendedor}`)
+              .then((res) => {
+                const vendorName = res.data.nombre
+                const newProduct = {
+                  source: product.source,
+                  nombre: product.nombre,
+                  precio: product.precio,
+                  stars: {
+                    number: parseInt(product.promedioPuntuacion, 10),
+                    numberOfVotes: 200 // change later for a real value
+                  },
+                  descripcion: product.descripcion,
+                  vendor: vendorName,
+                  quantity: parseInt(quantity, 10)
+                }
+                orderDetails.products.push(newProduct)
+                orderDetails.orderSummary.totalProducts += newProduct.precio
+                orderDetails.orderSummary.totalWithoutTaxes = orderDetails.orderSummary.totalProducts + orderDetails.orderSummary.totalDelivery
+                orderDetails.orderSummary.taxes = orderDetails.orderSummary.totalProducts * 0.12
+                orderDetails.orderSummary.total = orderDetails.orderSummary.totalWithoutTaxes + orderDetails.orderSummary.taxes
+              }).then(() => {
+                if (idDetalle === lista[lista.length - 1]) {
+                  axios.post(`${data.url}/pedidos`, orderDetails).catch((error) => console.log(error))
+                }
+              })
+          })
+      })
+      .catch(error => console.log(error))
+  }
+  await deleteProducts(lista)
+}
+
 const ProductoBack = ({ setResumen, setDetalleId }) => {
   const [listaComponent, setListaComponent] = useState([])
   useEffect(() => {
     axios
       .get(`${data.url}/clientes/persona/${localStorage.getItem('userId')}`)
       .then((res) => {
-        console.log('Res en carrito')
-        console.log(res)
         const resultado = res.data[0]
         axios.get(`${data.url}/carrito/cliente/${resultado.id}`).then((res) => {
           const resultado = res.data[0]
-          console.log('Res en carrito 2')
-          console.log(res)
           axios
             .get(`${data.url}/detalle-carrito/carrito/${resultado.id}`)
             .then((res) => {
@@ -64,7 +146,6 @@ const ProductoBack = ({ setResumen, setDetalleId }) => {
                           />
                         )
                       )
-                      console.log(producto)
                     })
                 }
               }
@@ -98,7 +179,7 @@ const Resumen = ({ resumen, setPrecio }) => {
       precioTotal = precioTotal + precio
       setPrecio(precioTotal)
       listaLi.push(
-        <tr>
+        <tr key={i}>
           <td>{nombre}</td>
           <td>${precio}</td>
         </tr>
@@ -106,16 +187,20 @@ const Resumen = ({ resumen, setPrecio }) => {
     }
     return (
       <table className="w-100">
-        <tr>
-          <th>Productos</th>
-          <th>Precio</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Productos</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
         {listaLi}
-        <tr>
-          <td id="precioTotal" colSpan="2">
-            <strong>Precio Total: ${precioTotal}</strong>
-          </td>
-        </tr>
+          <tr>
+            <td id="precioTotal" colSpan="2">
+              <strong>Precio Total: ${precioTotal}</strong>
+            </td>
+          </tr>
+        </tbody>
       </table>
     )
   } else {
@@ -137,12 +222,12 @@ const CarritoComponent = (props) => {
         <NavbarComponent />
 
         <div id="main" className="h-100">
-          <section id="productos_detail" className="col-md-8 h-100">
+          <CustomSection id="productos_detail" className="col-md-8 h-100">
             <ProductoBack
               setResumen={setResumen}
               setDetalleId={setDetalleId}
             ></ProductoBack>
-          </section>
+          </CustomSection>
           <section id="info_detail" className="col-md-4">
             <div id="contenedor_info">
               <div id="title_detail">
@@ -213,8 +298,8 @@ const CarritoComponent = (props) => {
                         type="button"
                         id="btn_confModal"
                         onClick={() => {
+                          handleOrders(idDetalle)
                           setLiveDemo(false)
-                          deleteProducts(idDetalle)
                         }}
                       >
                         Aceptar

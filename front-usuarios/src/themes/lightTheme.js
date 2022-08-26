@@ -11,7 +11,8 @@ const lightTheme = {
     white: '#FFFFFF',
     black: '#000000',
     disableButton: '#C7C7C7',
-    border: 'rgba(135,135,135,0.25)'
+    border: 'rgba(135,135,135,0.25)',
+    productRow: '#f7f7f7'
   },
   breakPoints: {
     mobile: '767px'

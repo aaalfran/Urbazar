@@ -3,6 +3,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import data from '../../../enviroment'
+import styled from 'styled-components'
+
+const Button = styled.button`
+  background: ${props => props.theme.colors.darkBlue};
+  padding: 6px 12px;
+  width: 200px;
+  height: 38px;
+  :hover{
+    color: #fff;
+  }
+`
 
 const subirProducto = (
   selectedFile,
@@ -11,21 +22,22 @@ const subirProducto = (
   nombre,
   precio,
   descripcion,
-  stock
+  stock,
+  reloadPage
 ) => {
   const bodyFormData = new FormData()
   bodyFormData.append('file', selectedFile)
   axios
-    .post(`http://${data.number}/upload`, bodyFormData, {
+    .post(`${data.url}/upload`, bodyFormData, {
       headers: {
         'content-type': 'multipart/form-data'
       }
     })
     .then((res) => {
       console.log(res.data)
-      const urlimg = `http://${data.number}/products/${res.data.filename}`
+      const urlimg = `${data.url}/products/${res.data.filename}`
       axios
-        .post(`http://${data.number}/productos`, {
+        .post(`${data.url}/productos`, {
           idVendedor: clientId,
           ID_Categoria: `${categoria}`,
           nombre: nombre,
@@ -41,16 +53,16 @@ const subirProducto = (
           const response = res.data
           console.log(response)
           axios
-            .post(`http://${data.number}/sourcesproductos`, {
+            .post(`${data.url}/sourcesproductos`, {
               id_producto: response.id,
               source: response.source
             })
-            .then((res) => {})
+            .then((res) => { reloadPage() })
         })
     })
 }
 
-const VentaForm = () => {
+const VentaForm = ({ reloadPage }) => {
   const [categorias, setCategorias] = useState([])
   const [selectedFile, setSelectedFile] = useState()
   const [nombre, setNombre] = useState('')
@@ -61,17 +73,17 @@ const VentaForm = () => {
   const [info, setInfo] = useState({})
   const [clientId, setClientId] = useState(0)
   useEffect(() => {
-    axios.get(`http://${data.number}/categorias`).then((res) => {
+    axios.get(`${data.url}/categorias`).then((res) => {
       setCategorias(res.data)
     })
     axios
-      .get(`http://${data.number}/personas/` + localStorage.getItem('userId'))
+      .get(`${data.url}/personas/` + localStorage.getItem('userId'))
       .then((res) => {
         setInfo(res.data)
         console.log(res.data)
         axios
           .get(
-            `http://${data.number}/clientes/persona/${localStorage.getItem(
+            `${data.url}/clientes/persona/${localStorage.getItem(
               'userId'
             )}`
           )
@@ -79,7 +91,7 @@ const VentaForm = () => {
             setClientId(res.data[0].id)
             console.log(res.data[0])
             axios
-              .post(`http://${data.number}/vendedors`, {
+              .post(`${data.url}/vendedors`, {
                 idUsuario: res.data[0].id,
                 valoracion: 0
               })
@@ -94,7 +106,19 @@ const VentaForm = () => {
     <div className="">
       <h6>Subir un Producto</h6>
       <div className="mr-auto cont_productos">
-        <form>
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          subirProducto(
+            selectedFile,
+            clientId,
+            categoria,
+            nombre,
+            precio,
+            descripcion,
+            stock,
+            reloadPage
+          )
+        }}>
           <div className="row mt-2">
             <div className="col-md-4">
               <div className="form-group">
@@ -104,6 +128,7 @@ const VentaForm = () => {
                   className="form-control"
                   id="Nombre"
                   name="nombre"
+                  required
                   onChange={(e) => {
                     setNombre(e.target.value)
                   }}
@@ -118,6 +143,7 @@ const VentaForm = () => {
                   className="form-control"
                   id="Stock"
                   name="stock"
+                  required
                   onChange={(e) => {
                     setStock(e.target.value)
                   }}
@@ -132,6 +158,7 @@ const VentaForm = () => {
                   className="form-control"
                   id="Precio"
                   name="precio"
+                  required
                   onChange={(e) => {
                     setPrecio(e.target.value)
                   }}
@@ -145,6 +172,7 @@ const VentaForm = () => {
               className="form-control"
               id="categorias"
               name="categoria"
+              required
               onChange={(e) => {
                 for (const item of categorias) {
                   if (item.nombre === e.target.value) {
@@ -175,6 +203,7 @@ const VentaForm = () => {
               className="form-control"
               id="descripcion"
               rows="3"
+              required
               onChange={(e) => {
                 setDescripcion(e.target.value)
               }}
@@ -187,28 +216,18 @@ const VentaForm = () => {
               className="form-control-file"
               id="imagen"
               name="imagen"
+              required
               onChange={changeHandler}
             />
           </div>
 
           <div className="container d-flex align-items-center justify-content-center">
-            <button
-              type="button"
+            <Button
+              type="submit"
               className="btn"
-              onClick={() => {
-                subirProducto(
-                  selectedFile,
-                  clientId,
-                  categoria,
-                  nombre,
-                  precio,
-                  descripcion,
-                  stock
-                )
-              }}
             >
               Subir
-            </button>
+            </Button>
           </div>
         </form>
       </div>

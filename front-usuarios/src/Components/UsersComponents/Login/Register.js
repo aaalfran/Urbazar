@@ -43,9 +43,12 @@ function Register(props) {
               <div className="panelDatos">
                 <Container className="container_reg">
                   <Card body id="tarjeta" className="trj">
-                    <div id="logo_resp">
+                  <div id="logo_resp">
                       <img src={logo2} />
-                    </div>
+                  </div>
+                  <div className='cajaLogo_resp'>
+                    <span className="Urbaz-partR_resp">Urbaz</span><span className="app-partR_resp">App</span>
+                  </div>
 
                     <div>
 

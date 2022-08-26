@@ -92,7 +92,11 @@ const Register= ( props) => {
             role: 0,
             id_etapa: 1
           }
+<<<<<<< HEAD
         axios.post(`http://${data.number}/personas`, data)
+=======
+        axios.post(`${data.url}/personas`, data)
+>>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
         .then(response => {
             response.data
             console.log("LLego aquí")
@@ -104,7 +108,11 @@ const Register= ( props) => {
     }
 
     const validarCodigo = () =>{
+<<<<<<< HEAD
         let url = `http://${data.number}/familias?filter[where][clave]=` + form.codigoF;
+=======
+        let url = `${data.url}/familias?filter[where][clave]=` + form.codigoF;
+>>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
     
         axios.get(url)
         .then(response => {
@@ -132,7 +140,11 @@ const Register= ( props) => {
       }
 
     useEffect( ()=>{
+<<<<<<< HEAD
         axios.get(`http://${data.number}/personas?filter[fields][username]=true`)
+=======
+        axios.get(`${data.url}/personas?filter[fields][username]=true`)
+>>>>>>> b132d7c8f249a0fb211d3bdf94fab04e87c5e2d1
         .then(response => response.data)
         .then(res => {
           setUserNames(res)

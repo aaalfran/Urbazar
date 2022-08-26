@@ -4,6 +4,7 @@ import { Navbar, NavbarToggler, NavbarBrand } from 'reactstrap'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import ToggleMenu from './ToggleMenuPC'
+import NavbarMobile from '../NavbarMobile/NavbarMobile'
 import '../../../css/MainComponent.css'
 import '../../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 export let idCarritoDef
@@ -11,10 +12,10 @@ export const cantidadProd = 0
 
 const Orders = styled.div`
   font-weight: 500;
-  margin: 0 30px;
   a {
     color: ${(props) => props.theme.colors.white};
     text-decoration: none;
+    margin: 0 10px;
   }
 `
 
@@ -31,7 +32,7 @@ const NavbarComponent = (props) => {
   idCarritoDef = idCarrito
   const cantidad = 0
   /**
- *   axios.get(`http://${data.number}/detalle-carrito/${idCarritoDef}`)
+ *   axios.get(`${data.url}/detalle-carrito/${idCarritoDef}`)
     .then(response => response.data)
     .then((res2) => {
       for (let i = 0; i < res2.length; i++) {
@@ -63,9 +64,6 @@ const NavbarComponent = (props) => {
           <span className="Urbaz-part">Urbaz</span>
           <span className="app-part">App</span>
         </NavbarBrand>
-        <NavbarBrand href="/" className="logo2">
-          UApp
-        </NavbarBrand>
 
         <form
           className="mr-auto search_form"
@@ -88,6 +86,7 @@ const NavbarComponent = (props) => {
         <p id="nombre_user">{localStorage.getItem('nombre_usuario')}!</p>
         <Orders>
           <Link to="/historial-de-compras">Pedidos</Link>
+          <Link to="/pedidos-en-curso">En curso</Link>
         </Orders>
         <button type="button" className="button_nav boton_notificacion">
           <i className="fas fa-bell fa-lg"></i>
@@ -106,6 +105,7 @@ const NavbarComponent = (props) => {
           <p> {cantProductos}</p>
         </div>
       </Navbar>
+      {window.innerWidth <= 769 ? <NavbarMobile /> : ''}
     </>
   )
 }

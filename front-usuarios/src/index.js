@@ -1,3 +1,4 @@
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -44,6 +45,7 @@ import OrderDetails from './pages/orderDetails/OrderDetails'
 // Styled components
 import { ThemeProvider } from 'styled-components'
 import lightTheme from './themes/lightTheme'
+import OnGoingOrders from './pages/OnGoingOrders/OnGoingOrders'
 
 const Index = () => {
   React.useEffect(() => {
@@ -80,11 +82,16 @@ const Index = () => {
     <React.StrictMode>
       <Router>
         <Switch>
-          <Route path="/landing-page" exact component={LandingPage}></Route>
+          <Route path="/landing" exact component={LandingPage}></Route>
           <Route
             path="/historial-de-compras"
             exact
             component={ShoppingHistory}
+          ></Route>
+          <Route
+            path="/pedidos-en-curso"
+            exact
+            component={OnGoingOrders}
           ></Route>
           <Route
             path="/detalles-de-compra/:orderId"

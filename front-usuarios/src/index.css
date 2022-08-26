@@ -17,3 +17,7 @@ code {
   background: #878787;
   color: #fff;
 }
+
+#root{
+  position: relative;
+}

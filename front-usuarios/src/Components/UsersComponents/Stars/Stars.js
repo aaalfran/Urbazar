@@ -8,6 +8,12 @@ const Container = styled.div`
   align-items: center;
   gap: 20px;
   margin-bottom: 20px;
+  @media (max-width: 769px) {
+    flex-direction: column;
+    align-items: baseline;
+    gap: 0;
+    margin: 0;
+  }
 `
 
 const StarsContainer = styled.div`
@@ -20,17 +26,32 @@ const StarsContainer = styled.div`
 const Text = styled.p`
   color: ${(props) => props.theme.colors.darkBlue};
   margin: 0;
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
+  }
 `
 
 const StarFill = styled(BsStarFill)`
   color: ${(props) => props.theme.colors.lightOrange};
+  @media (max-width: 360px) {
+    font-size: 0.8rem;
+  }
 `
 
 const StarHalf = styled(BsStarHalf)`
   color: ${(props) => props.theme.colors.lightOrange};
+  @media (max-width: 360px) {
+    font-size: 0.8rem;
+  }
 `
 const Star = styled(BsStar)`
   color: ${(props) => props.theme.colors.lightOrange};
+  @media (max-width: 360px) {
+    font-size: 0.8rem;
+  }
 `
 
 function calculateNumberOfStars(mark) {

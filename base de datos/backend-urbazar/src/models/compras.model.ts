@@ -13,12 +13,6 @@ export class Compras extends Entity {
     type: 'string',
     required: true,
   })
-  id: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
   id_categoria: string;
 
   @property({
