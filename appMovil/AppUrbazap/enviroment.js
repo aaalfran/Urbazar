@@ -1,6 +1,6 @@
 const urldev = "http://localhost:3000/"
 const urlprod = "http://134.209.215.193:3000/"
-
+const urldev2 = ""
 const data = {
     url: urldev,
     categoriesFilter: urlprod+"productos?filter[where][ID_Categoria]=",
